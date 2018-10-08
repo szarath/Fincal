@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Datamanagement" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:19036/Datamanagement.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:19036/Datamanagement.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:19036/Datamanagement.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDatamanagement_inserttask_InputMessage">
+    <wsdl:part name="parameters" element="tns:inserttask" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_inserttask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserttaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletetask_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletetask" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletetask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletetaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettaskcat_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettaskcat" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettaskcat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettaskcatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettask_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettask" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatetask_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatetask" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatetask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatetaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_checktasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:checktasks" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_checktasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checktasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettaskids_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettaskids" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_gettaskids_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettaskidsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertevent_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertevent" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertevent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserteventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateevent_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateevent" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateevent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateeventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_checkevents_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkevents" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_checkevents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkeventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteevent_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteevent" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteevent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteeventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getevent_InputMessage">
+    <wsdl:part name="parameters" element="tns:getevent" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getevent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:geteventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteeventpics_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteeventpics" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteeventpics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteeventpicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventids_InputMessage">
+    <wsdl:part name="parameters" element="tns:geteventids" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventids_OutputMessage">
+    <wsdl:part name="parameters" element="tns:geteventidsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_inserteventpic_InputMessage">
+    <wsdl:part name="parameters" element="tns:inserteventpic" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_inserteventpic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserteventpicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventpics_InputMessage">
+    <wsdl:part name="parameters" element="tns:geteventpics" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventpics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:geteventpicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventfirstpics_InputMessage">
+    <wsdl:part name="parameters" element="tns:geteventfirstpics" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_geteventfirstpics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:geteventfirstpicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertpicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertpicture" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertpicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertpictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletepicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletepicture" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletepicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletepictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallpictures_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallpictures" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallpictures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallpicturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getalluserpictures_InputMessage">
+    <wsdl:part name="parameters" element="tns:getalluserpictures" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getalluserpictures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getalluserpicturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getpic_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpic" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getpic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatepic_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatepic" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatepic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatepicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertsechedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertsechedule" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertsechedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertsecheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteschedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteschedule" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteschedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletescheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateschedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateschedule" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateschedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatescheduleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDatamanagement">
+    <wsdl:operation name="inserttask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserttask" message="tns:IDatamanagement_inserttask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/inserttaskResponse" message="tns:IDatamanagement_inserttask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletetask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletetask" message="tns:IDatamanagement_deletetask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletetaskResponse" message="tns:IDatamanagement_deletetask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gettaskcat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/gettaskcat" message="tns:IDatamanagement_gettaskcat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/gettaskcatResponse" message="tns:IDatamanagement_gettaskcat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gettask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/gettask" message="tns:IDatamanagement_gettask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/gettaskResponse" message="tns:IDatamanagement_gettask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatetask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updatetask" message="tns:IDatamanagement_updatetask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatetaskResponse" message="tns:IDatamanagement_updatetask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checktasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/checktasks" message="tns:IDatamanagement_checktasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/checktasksResponse" message="tns:IDatamanagement_checktasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gettaskids">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/gettaskids" message="tns:IDatamanagement_gettaskids_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/gettaskidsResponse" message="tns:IDatamanagement_gettaskids_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertevent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertevent" message="tns:IDatamanagement_insertevent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/inserteventResponse" message="tns:IDatamanagement_insertevent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateevent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updateevent" message="tns:IDatamanagement_updateevent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updateeventResponse" message="tns:IDatamanagement_updateevent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkevents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/checkevents" message="tns:IDatamanagement_checkevents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/checkeventsResponse" message="tns:IDatamanagement_checkevents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteevent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteevent" message="tns:IDatamanagement_deleteevent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteeventResponse" message="tns:IDatamanagement_deleteevent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getevent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getevent" message="tns:IDatamanagement_getevent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/geteventResponse" message="tns:IDatamanagement_getevent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteeventpics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteeventpics" message="tns:IDatamanagement_deleteeventpics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteeventpicsResponse" message="tns:IDatamanagement_deleteeventpics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="geteventids">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/geteventids" message="tns:IDatamanagement_geteventids_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/geteventidsResponse" message="tns:IDatamanagement_geteventids_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="inserteventpic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserteventpic" message="tns:IDatamanagement_inserteventpic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/inserteventpicResponse" message="tns:IDatamanagement_inserteventpic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="geteventpics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/geteventpics" message="tns:IDatamanagement_geteventpics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/geteventpicsResponse" message="tns:IDatamanagement_geteventpics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="geteventfirstpics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/geteventfirstpics" message="tns:IDatamanagement_geteventfirstpics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/geteventfirstpicsResponse" message="tns:IDatamanagement_geteventfirstpics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertpicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertpicture" message="tns:IDatamanagement_insertpicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertpictureResponse" message="tns:IDatamanagement_insertpicture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletepicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletepicture" message="tns:IDatamanagement_deletepicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletepictureResponse" message="tns:IDatamanagement_deletepicture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteallpictures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteallpictures" message="tns:IDatamanagement_deleteallpictures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteallpicturesResponse" message="tns:IDatamanagement_deleteallpictures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getalluserpictures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getalluserpictures" message="tns:IDatamanagement_getalluserpictures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getalluserpicturesResponse" message="tns:IDatamanagement_getalluserpictures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getpic" message="tns:IDatamanagement_getpic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getpicResponse" message="tns:IDatamanagement_getpic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatepic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updatepic" message="tns:IDatamanagement_updatepic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatepicResponse" message="tns:IDatamanagement_updatepic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertsechedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertsechedule" message="tns:IDatamanagement_insertsechedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertsecheduleResponse" message="tns:IDatamanagement_insertsechedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteschedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteschedule" message="tns:IDatamanagement_deleteschedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletescheduleResponse" message="tns:IDatamanagement_deleteschedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateschedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updateschedule" message="tns:IDatamanagement_updateschedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatescheduleResponse" message="tns:IDatamanagement_updateschedule_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDatamanagement" type="tns:IDatamanagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inserttask">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/inserttask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletetask">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletetask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettaskcat">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/gettaskcat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettask">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/gettask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatetask">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updatetask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checktasks">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/checktasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettaskids">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/gettaskids" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertevent">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertevent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateevent">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updateevent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkevents">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/checkevents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteevent">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteevent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getevent">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getevent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteeventpics">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteeventpics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geteventids">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/geteventids" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inserteventpic">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/inserteventpic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geteventpics">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/geteventpics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geteventfirstpics">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/geteventfirstpics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertpicture">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertpicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletepicture">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletepicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteallpictures">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteallpictures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getalluserpictures">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getalluserpictures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpic">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getpic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatepic">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updatepic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertsechedule">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertsechedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteschedule">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteschedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateschedule">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updateschedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Datamanagement">
+    <wsdl:port name="BasicHttpBinding_IDatamanagement" binding="tns:BasicHttpBinding_IDatamanagement">
+      <soap:address location="http://localhost:19036/Datamanagement.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

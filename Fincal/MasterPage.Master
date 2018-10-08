@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Fincal.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title runat="server">Fincal</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+      
+    
+        
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header runat="server">
+        
+    
+   
+
+
+ <div class="navbar-fixed">
+<nav style="position:fixed;z-index:1;top:0"  runat="server">
+     <a href="#" data-target="slide-out" class="sidenav-trigger  show-on-large" ><i class="material-icons">menu</i></a>
+  <div class="nav-wrapper teal lighten-1">
+      
+    <a href="Default.aspx" class="brand-logo center flow-text">Fincal</a>
+       
+    <ul id="presistenicon" runat="server" class="right">
+      <li><a href="Myprofile.aspx">My Profile</a></li>
+      <li><a runat="server" onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
+    
+    <!--  <li><a class="dropdown-trigger" runat="server" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
+    </ul>
+  </div>
+</nav>
+
+      <ul id="slide-out" class="sidenav" >
+    
+                         <li id="logInSideNav" class="bold" runat="server"><a href="Login.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">https</i>Sign In</a></li>
+                        <li id="registerSideNav" class="bold" runat="server"><a href="Register.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Register</a></li> 
+                         <li id="Loggedinnav" class="divider" visible="false" runat="server"></li>
+                       <li id="calsidenav" class="bold" runat="server"><a href="Default.aspx" class="waves-effect waves-blue-grey"> <i class="material-icons prefix">home</i>Home</a></li> 
+                     <li id="eventsidenav" class="bold" runat="server"><a href="Eventslist.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">event</i>Events</a></li> 
+                     <li id="chatsidenav" class="bold" runat="server"><a href="Chat.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">speaker_notes</i>Chat</a></li> 
+                        <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Task</a></li> 
+                          <li id="schedulingnav" class="bold" runat="server"><a href="Scheduling.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">schedule</i>Collabration</a></li>             
+                          <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
+                       
+                      <li class="divider"></li>
+                        <li id="myProfileSideNav" class="bold" runat="server"><a href="Account.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">perm_identity</i>My Account</a></li>
+
+                        <li id="signOutSideNav" class="bold" visible="false" runat="server"><a  runat="server" onserverclick="dropDownMenuSignOut_ServerClick"><i class="material-icons">lock_op</i>Sign Out</a></li>                 
+                    
+  </ul>
+
+     </div>
+            </header>
+                  
+      <style>
+        .thumb 
+        {
+            height: 75px;
+            margin: 10px 5px 0 0;
+        }
+        .navbar-fixed { z-index: 9999; }
+        .trunctext
+        {
+             
+          width: 200px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+    </style>
+
+        <div>
+            <asp:ContentPlaceHolder ID="pagecontent"  runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    
+        
+    </form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+
+        
+            $('.slider').slider({
+                height: 600
+            });
+
+            $('.parallax').parallax();
+
+            $('.scrollspy').scrollSpy();
+
+            $('.collapsible').collapsible({
+                accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+            });
+
+            $('.datepicker').datepicker();
+
+            $('.timepicker').timepicker();
+
+            $(".dropdown-trigger").dropdown();
+
+            $('.modal').modal();
+        });
+
+
+   
+
+  
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fincal", "Fincal\Fincal.csproj", "{2E60DB2F-9579-46B5-AC39-E17F8B3DBDED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{956BDF54-77CD-4A48-8B80-5753AA77375B} = {956BDF54-77CD-4A48-8B80-5753AA77375B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wcffincal", "Wcffincal\Wcffincal.csproj", "{956BDF54-77CD-4A48-8B80-5753AA77375B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E60DB2F-9579-46B5-AC39-E17F8B3DBDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E60DB2F-9579-46B5-AC39-E17F8B3DBDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E60DB2F-9579-46B5-AC39-E17F8B3DBDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E60DB2F-9579-46B5-AC39-E17F8B3DBDED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956BDF54-77CD-4A48-8B80-5753AA77375B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956BDF54-77CD-4A48-8B80-5753AA77375B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956BDF54-77CD-4A48-8B80-5753AA77375B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956BDF54-77CD-4A48-8B80-5753AA77375B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CF4FBB1-0B01-46BE-BCBD-D63F0201F5F3}
+	EndGlobalSection
+EndGlobal

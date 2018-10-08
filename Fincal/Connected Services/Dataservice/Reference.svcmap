@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="63629807-defc-45e8-806c-b2f6cdcd60e6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:19036/Datamanagement.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Datamanagement.wsdl" MetadataType="Wsdl" ID="d4f03697-15f9-4529-b42b-5ace7336ee81" SourceId="1" SourceUrl="http://localhost:19036/Datamanagement.svc?wsdl" />
+    <MetadataFile FileName="Datamanagement.xsd" MetadataType="Schema" ID="1607f9b4-27dd-42c9-b4db-50f4b3067e55" SourceId="1" SourceUrl="http://localhost:19036/Datamanagement.svc?xsd=xsd0" />
+    <MetadataFile FileName="Datamanagement1.xsd" MetadataType="Schema" ID="96918456-8caa-47dd-aadd-3728eb6c8171" SourceId="1" SourceUrl="http://localhost:19036/Datamanagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="Datamanagement2.xsd" MetadataType="Schema" ID="1b2a6e29-8dfb-416a-83a8-60535a38ddc7" SourceId="1" SourceUrl="http://localhost:19036/Datamanagement.svc?xsd=xsd2" />
+    <MetadataFile FileName="Datamanagement.disco" MetadataType="Disco" ID="94de5fac-294a-4031-beda-14a015f6623f" SourceId="1" SourceUrl="http://localhost:19036/Datamanagement.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
