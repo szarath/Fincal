@@ -30,19 +30,17 @@ namespace Fincal
 
 
                     htmldata += "<a href=\"Pictureedit?id=" + (string)pictures[i][0] + "\">";
-                    htmldata += "<div class=\"col s12 m2 10 \">";
+                    htmldata += "<div class=\"col s12  10 \">";
                     htmldata += "<div class=\"card hoverable card-image\">";
 
                     //   htmldata += "<div class=\" card-content\">";
 
 
-                    htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
-
-
+                        htmldata +="  < span class=\"card-title\">"+(string)pictures[i][]+"</span>";
 
                     //htmldata += "</div>";
 
-                    htmldata += "</div>";
+                     htmldata += "</div>";
                     htmldata += "</div>";
 
                 }
