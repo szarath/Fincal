@@ -488,6 +488,22 @@ namespace Wcffincal
 
         }
 
+        object[][] IDatamanagement.getfewpics(string uid)
+        {
+            string sqlStatement = "SELECT TOP 10 FROM tblPic WHERE uID=@0";
+
+
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+           
+
+            return create2DAdsArray(ds);
+        }
+
         object[] IDatamanagement.getpic(string id)
         {
             string sqlStatement = "SELECT * FROM tblPic WHERE pID=@0";
@@ -526,5 +542,7 @@ namespace Wcffincal
 
             return clsSQL.ExecuteNonQuery(command);
         }
+
+       
     }
 }

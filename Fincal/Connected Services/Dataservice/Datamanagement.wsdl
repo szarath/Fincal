@@ -145,6 +145,12 @@
   <wsdl:message name="IDatamanagement_updatepic_OutputMessage">
     <wsdl:part name="parameters" element="tns:updatepicResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getfewpics_InputMessage">
+    <wsdl:part name="parameters" element="tns:getfewpics" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getfewpics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getfewpicsResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_insertsechedule_InputMessage">
     <wsdl:part name="parameters" element="tns:insertsechedule" />
   </wsdl:message>
@@ -255,6 +261,10 @@
     <wsdl:operation name="updatepic">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updatepic" message="tns:IDatamanagement_updatepic_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatepicResponse" message="tns:IDatamanagement_updatepic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getfewpics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getfewpics" message="tns:IDatamanagement_getfewpics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getfewpicsResponse" message="tns:IDatamanagement_getfewpics_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="insertsechedule">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertsechedule" message="tns:IDatamanagement_insertsechedule_InputMessage" />
@@ -471,6 +481,15 @@
     </wsdl:operation>
     <wsdl:operation name="updatepic">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/updatepic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getfewpics">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getfewpics" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

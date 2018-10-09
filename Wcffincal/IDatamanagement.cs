@@ -91,7 +91,8 @@ namespace Wcffincal
         [OperationContract]
         int updatepic(string id, string description);
 
-
+        [OperationContract]
+        object[][] getfewpics(string uid);
 
 
 

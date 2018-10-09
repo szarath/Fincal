@@ -169,6 +169,14 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatepic", ReplyAction="http://tempuri.org/IDatamanagement/updatepicResponse")]
         System.Threading.Tasks.Task<int> updatepicAsync(string id, string description);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getfewpics", ReplyAction="http://tempuri.org/IDatamanagement/getfewpicsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getfewpics(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getfewpics", ReplyAction="http://tempuri.org/IDatamanagement/getfewpicsResponse")]
+        System.Threading.Tasks.Task<object[][]> getfewpicsAsync(string uid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertsechedule", ReplyAction="http://tempuri.org/IDatamanagement/insertsecheduleResponse")]
         int insertsechedule(System.DateTime starttime, System.DateTime endtime, string category);
         
@@ -397,6 +405,14 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<int> updatepicAsync(string id, string description) {
             return base.Channel.updatepicAsync(id, description);
+        }
+        
+        public object[][] getfewpics(string uid) {
+            return base.Channel.getfewpics(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getfewpicsAsync(string uid) {
+            return base.Channel.getfewpicsAsync(uid);
         }
         
         public int insertsechedule(System.DateTime starttime, System.DateTime endtime, string category) {
