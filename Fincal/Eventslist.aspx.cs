@@ -13,7 +13,7 @@ namespace Fincal
 {
     public partial class Eventslist : System.Web.UI.Page
     {
-        private int userID;
+        
 
 
         static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
@@ -21,10 +21,10 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //     if (Session["User"] != null) //Logged in
-            //   {
+               if (Session["User"] != null) //Logged in
+              {
             UserData user = (UserData)Session["User"];
-            this.userID = user.getID();
+          
 
             string htmldata = "";
             string temp = "";
@@ -103,8 +103,10 @@ namespace Fincal
                         loc = "Johannesburg";
                     }
                     Boolean exsisting = false;
-                    object[] googleids = findata.geteventids(userID.ToString());
+                    object[] googleids = findata.geteventids(user.getID());
 
+                    if (googleids != null)
+                    { 
                     for (int i = 0; i < googleids.Length; i++)
                     {
                         if (eventItem.Id == (string)googleids[i])
@@ -115,17 +117,18 @@ namespace Fincal
 
                     if (exsisting == true)
                     {
+
                     }
                     else if (exsisting == false)
                     {
-                        findata.deleteevent(eventItem.Id);
-                        findata.deleteeventpics(eventItem.Id);
+                        findata.deleteevent(eventItem.Id, user.getID());
+                        findata.deleteeventpics(eventItem.Id, user.getID());
                     }
+                }
 
-
-                    if (findata.checkevents(Convert.ToString(id)) == Convert.ToString(id))
+                    if (findata.checkevents(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                     {
-                        object[] storedevent = findata.getevent(id);
+                        object[] storedevent = findata.getevent(id, user.getID().ToString());
                         if ((string)storedevent[1] == when || (string)storedevent[2] == summary || (string)storedevent[3] == loc || (string)storedevent[6] == desc)
                         {
 
@@ -139,7 +142,7 @@ namespace Fincal
                         }
 
                         htmldata += "<a href=\"EventEdit?eid=" + eventItem.Id + "\">";
-                        htmldata += "<div class=\"col s12 m l0  push-m1 push-l2\">";
+                        htmldata += "<div class=\"col s12 m2 l0\">";
                         htmldata += "<div class=\"card horizontal hoverable\">";
 
                       /*  htmldata += "<div class=\"card-image\">";
@@ -160,11 +163,10 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                             "<p class=\"trunctext bold\">" + eventItem.Summary + "</p>";
+                             "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
-                        htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Description: " + eventItem.Description + "</p>";
+        
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
 
@@ -179,10 +181,10 @@ namespace Fincal
                     else
                     {
 
-                        findata.insertevent(Convert.ToDateTime(when), summary, loc, id, userID.ToString(), desc);
+                        findata.insertevent(Convert.ToDateTime(when), summary, loc, id, user.getID(), desc);
 
                         htmldata += "<a href=\"EventEdit?eid=" + id + "\">";
-                        htmldata += "<div class=\"col s12 m2 l0 push-m1 push-l2\">";
+                        htmldata += "<div class=\"col s12 m2 l0\">";
 
 
                         htmldata += "<div class=\"card horizontal hoverable\">";
@@ -195,11 +197,10 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                            "<p class='bold'>" + eventItem.Summary + "</p>";
+                            "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
-                        htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Description: " + eventItem.Description + "</p>";
+    
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
 
@@ -232,11 +233,11 @@ namespace Fincal
             //  htmldata += temp;
             upev.InnerHtml = htmldata;
             findata.Close();
-            /* }
+            }
              else
              {
                  Response.Redirect("Login.aspx");
-             }*/
+             }
 
 
 

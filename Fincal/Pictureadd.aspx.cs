@@ -20,8 +20,8 @@ namespace Fincal
         }
         protected void btnpicadd_ServerClick(object sender, EventArgs e)
         {
-            UserData currentUser = (UserData)(Session["User"]);
-            string id = "1";
+            UserData user = (UserData)(Session["User"]);
+          
             string base64String = "";
             if (picchoice.PostedFile.ContentLength != 0 && base64String != "Nopic")
             {
@@ -32,7 +32,7 @@ namespace Fincal
                 findata.Open();
 
 
-                findata.insertpicture(base64String, txtpicdesc.Value, id);
+                findata.insertpicture(base64String, txtpicdesc.Value, user.getID().ToString());
 
 
                 findata.Close();

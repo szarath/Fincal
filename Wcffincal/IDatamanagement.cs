@@ -17,19 +17,19 @@ namespace Wcffincal
         int inserttask(string name, int complete, string category, string googleid, string uid);
 
         [OperationContract]
-        int deletetask(string GoogleID);
+        int deletetask(string GoogleID, string uid);
 
         [OperationContract]
         object[] gettaskcat();
 
         [OperationContract]
-        object[] gettask(string GoogleID);
+        object[] gettask(string GoogleID , string uid);
 
         [OperationContract]
         int updatetask(string name, int complete, string uid, string tcid, string googleid);
 
         [OperationContract]
-        string checktasks(string ID);
+        string checktasks(string ID,string uid);
 
         [OperationContract]
         object[] gettaskids(string uid);
@@ -44,16 +44,16 @@ namespace Wcffincal
         int updateevent(DateTime edate, string summary, string location, string desc, string eid);
 
         [OperationContract]
-        string checkevents(string ID);
+        string checkevents(string ID, string uid);
 
         [OperationContract]
-        int deleteevent(string GoogleID);
+        int deleteevent(string GoogleID, string uid);
 
         [OperationContract]
-        object[] getevent(string googleid);
+        object[] getevent(string googleid, string uid);
 
         [OperationContract]
-        int deleteeventpics(string GoogleID);
+        int deleteeventpics(string GoogleID, string uid);
 
         [OperationContract]
         object[] geteventids(string uid);
@@ -64,10 +64,10 @@ namespace Wcffincal
         int inserteventpic(string eid, string pic, string egoogleid, string uid);
 
         [OperationContract]
-        object[] geteventpics(string id);
+        object[] geteventpics(string id, string uid);
 
         [OperationContract]
-        string geteventfirstpics(string id);
+        string geteventfirstpics(string id, string uid);
 
 
 
@@ -77,7 +77,7 @@ namespace Wcffincal
         int insertpicture(string picture, string description, string uid);
 
         [OperationContract]
-        int deletepicture(string id);
+        int deletepicture(string id, string uid);
 
         [OperationContract]
         int deleteallpictures(string uid);
@@ -86,10 +86,10 @@ namespace Wcffincal
         object[][] getalluserpictures(string uid);
 
         [OperationContract]
-        object[] getpic(string id);
+        object[] getpic(string id, string uid);
 
         [OperationContract]
-        int updatepic(string id, string description);
+        int updatepic(string id, string description, string uid);
 
         [OperationContract]
         object[][] getfewpics(string uid);

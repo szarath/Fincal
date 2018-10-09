@@ -22,10 +22,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<int> inserttaskAsync(string name, int complete, string category, string googleid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletetask", ReplyAction="http://tempuri.org/IDatamanagement/deletetaskResponse")]
-        int deletetask(string GoogleID);
+        int deletetask(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletetask", ReplyAction="http://tempuri.org/IDatamanagement/deletetaskResponse")]
-        System.Threading.Tasks.Task<int> deletetaskAsync(string GoogleID);
+        System.Threading.Tasks.Task<int> deletetaskAsync(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/gettaskcat", ReplyAction="http://tempuri.org/IDatamanagement/gettaskcatResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -38,10 +38,10 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/gettask", ReplyAction="http://tempuri.org/IDatamanagement/gettaskResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] gettask(string GoogleID);
+        object[] gettask(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/gettask", ReplyAction="http://tempuri.org/IDatamanagement/gettaskResponse")]
-        System.Threading.Tasks.Task<object[]> gettaskAsync(string GoogleID);
+        System.Threading.Tasks.Task<object[]> gettaskAsync(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatetask", ReplyAction="http://tempuri.org/IDatamanagement/updatetaskResponse")]
         int updatetask(string name, int complete, string uid, string tcid, string googleid);
@@ -50,10 +50,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<int> updatetaskAsync(string name, int complete, string uid, string tcid, string googleid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/checktasks", ReplyAction="http://tempuri.org/IDatamanagement/checktasksResponse")]
-        string checktasks(string ID);
+        string checktasks(string ID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/checktasks", ReplyAction="http://tempuri.org/IDatamanagement/checktasksResponse")]
-        System.Threading.Tasks.Task<string> checktasksAsync(string ID);
+        System.Threading.Tasks.Task<string> checktasksAsync(string ID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/gettaskids", ReplyAction="http://tempuri.org/IDatamanagement/gettaskidsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -76,30 +76,30 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<int> updateeventAsync(System.DateTime edate, string summary, string location, string desc, string eid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/checkevents", ReplyAction="http://tempuri.org/IDatamanagement/checkeventsResponse")]
-        string checkevents(string ID);
+        string checkevents(string ID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/checkevents", ReplyAction="http://tempuri.org/IDatamanagement/checkeventsResponse")]
-        System.Threading.Tasks.Task<string> checkeventsAsync(string ID);
+        System.Threading.Tasks.Task<string> checkeventsAsync(string ID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteevent", ReplyAction="http://tempuri.org/IDatamanagement/deleteeventResponse")]
-        int deleteevent(string GoogleID);
+        int deleteevent(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteevent", ReplyAction="http://tempuri.org/IDatamanagement/deleteeventResponse")]
-        System.Threading.Tasks.Task<int> deleteeventAsync(string GoogleID);
+        System.Threading.Tasks.Task<int> deleteeventAsync(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getevent", ReplyAction="http://tempuri.org/IDatamanagement/geteventResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] getevent(string googleid);
+        object[] getevent(string googleid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getevent", ReplyAction="http://tempuri.org/IDatamanagement/geteventResponse")]
-        System.Threading.Tasks.Task<object[]> geteventAsync(string googleid);
+        System.Threading.Tasks.Task<object[]> geteventAsync(string googleid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteeventpics", ReplyAction="http://tempuri.org/IDatamanagement/deleteeventpicsResponse")]
-        int deleteeventpics(string GoogleID);
+        int deleteeventpics(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteeventpics", ReplyAction="http://tempuri.org/IDatamanagement/deleteeventpicsResponse")]
-        System.Threading.Tasks.Task<int> deleteeventpicsAsync(string GoogleID);
+        System.Threading.Tasks.Task<int> deleteeventpicsAsync(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventids", ReplyAction="http://tempuri.org/IDatamanagement/geteventidsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -118,16 +118,16 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventpics", ReplyAction="http://tempuri.org/IDatamanagement/geteventpicsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] geteventpics(string id);
+        object[] geteventpics(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventpics", ReplyAction="http://tempuri.org/IDatamanagement/geteventpicsResponse")]
-        System.Threading.Tasks.Task<object[]> geteventpicsAsync(string id);
+        System.Threading.Tasks.Task<object[]> geteventpicsAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventfirstpics", ReplyAction="http://tempuri.org/IDatamanagement/geteventfirstpicsResponse")]
-        string geteventfirstpics(string id);
+        string geteventfirstpics(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventfirstpics", ReplyAction="http://tempuri.org/IDatamanagement/geteventfirstpicsResponse")]
-        System.Threading.Tasks.Task<string> geteventfirstpicsAsync(string id);
+        System.Threading.Tasks.Task<string> geteventfirstpicsAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertpicture", ReplyAction="http://tempuri.org/IDatamanagement/insertpictureResponse")]
         int insertpicture(string picture, string description, string uid);
@@ -136,10 +136,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<int> insertpictureAsync(string picture, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletepicture", ReplyAction="http://tempuri.org/IDatamanagement/deletepictureResponse")]
-        int deletepicture(string id);
+        int deletepicture(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletepicture", ReplyAction="http://tempuri.org/IDatamanagement/deletepictureResponse")]
-        System.Threading.Tasks.Task<int> deletepictureAsync(string id);
+        System.Threading.Tasks.Task<int> deletepictureAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteallpictures", ReplyAction="http://tempuri.org/IDatamanagement/deleteallpicturesResponse")]
         int deleteallpictures(string uid);
@@ -158,16 +158,16 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getpic", ReplyAction="http://tempuri.org/IDatamanagement/getpicResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] getpic(string id);
+        object[] getpic(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getpic", ReplyAction="http://tempuri.org/IDatamanagement/getpicResponse")]
-        System.Threading.Tasks.Task<object[]> getpicAsync(string id);
+        System.Threading.Tasks.Task<object[]> getpicAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatepic", ReplyAction="http://tempuri.org/IDatamanagement/updatepicResponse")]
-        int updatepic(string id, string description);
+        int updatepic(string id, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatepic", ReplyAction="http://tempuri.org/IDatamanagement/updatepicResponse")]
-        System.Threading.Tasks.Task<int> updatepicAsync(string id, string description);
+        System.Threading.Tasks.Task<int> updatepicAsync(string id, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getfewpics", ReplyAction="http://tempuri.org/IDatamanagement/getfewpicsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -231,12 +231,12 @@ namespace Fincal.Dataservice {
             return base.Channel.inserttaskAsync(name, complete, category, googleid, uid);
         }
         
-        public int deletetask(string GoogleID) {
-            return base.Channel.deletetask(GoogleID);
+        public int deletetask(string GoogleID, string uid) {
+            return base.Channel.deletetask(GoogleID, uid);
         }
         
-        public System.Threading.Tasks.Task<int> deletetaskAsync(string GoogleID) {
-            return base.Channel.deletetaskAsync(GoogleID);
+        public System.Threading.Tasks.Task<int> deletetaskAsync(string GoogleID, string uid) {
+            return base.Channel.deletetaskAsync(GoogleID, uid);
         }
         
         public object[] gettaskcat() {
@@ -247,12 +247,12 @@ namespace Fincal.Dataservice {
             return base.Channel.gettaskcatAsync();
         }
         
-        public object[] gettask(string GoogleID) {
-            return base.Channel.gettask(GoogleID);
+        public object[] gettask(string GoogleID, string uid) {
+            return base.Channel.gettask(GoogleID, uid);
         }
         
-        public System.Threading.Tasks.Task<object[]> gettaskAsync(string GoogleID) {
-            return base.Channel.gettaskAsync(GoogleID);
+        public System.Threading.Tasks.Task<object[]> gettaskAsync(string GoogleID, string uid) {
+            return base.Channel.gettaskAsync(GoogleID, uid);
         }
         
         public int updatetask(string name, int complete, string uid, string tcid, string googleid) {
@@ -263,12 +263,12 @@ namespace Fincal.Dataservice {
             return base.Channel.updatetaskAsync(name, complete, uid, tcid, googleid);
         }
         
-        public string checktasks(string ID) {
-            return base.Channel.checktasks(ID);
+        public string checktasks(string ID, string uid) {
+            return base.Channel.checktasks(ID, uid);
         }
         
-        public System.Threading.Tasks.Task<string> checktasksAsync(string ID) {
-            return base.Channel.checktasksAsync(ID);
+        public System.Threading.Tasks.Task<string> checktasksAsync(string ID, string uid) {
+            return base.Channel.checktasksAsync(ID, uid);
         }
         
         public object[] gettaskids(string uid) {
@@ -295,36 +295,36 @@ namespace Fincal.Dataservice {
             return base.Channel.updateeventAsync(edate, summary, location, desc, eid);
         }
         
-        public string checkevents(string ID) {
-            return base.Channel.checkevents(ID);
+        public string checkevents(string ID, string uid) {
+            return base.Channel.checkevents(ID, uid);
         }
         
-        public System.Threading.Tasks.Task<string> checkeventsAsync(string ID) {
-            return base.Channel.checkeventsAsync(ID);
+        public System.Threading.Tasks.Task<string> checkeventsAsync(string ID, string uid) {
+            return base.Channel.checkeventsAsync(ID, uid);
         }
         
-        public int deleteevent(string GoogleID) {
-            return base.Channel.deleteevent(GoogleID);
+        public int deleteevent(string GoogleID, string uid) {
+            return base.Channel.deleteevent(GoogleID, uid);
         }
         
-        public System.Threading.Tasks.Task<int> deleteeventAsync(string GoogleID) {
-            return base.Channel.deleteeventAsync(GoogleID);
+        public System.Threading.Tasks.Task<int> deleteeventAsync(string GoogleID, string uid) {
+            return base.Channel.deleteeventAsync(GoogleID, uid);
         }
         
-        public object[] getevent(string googleid) {
-            return base.Channel.getevent(googleid);
+        public object[] getevent(string googleid, string uid) {
+            return base.Channel.getevent(googleid, uid);
         }
         
-        public System.Threading.Tasks.Task<object[]> geteventAsync(string googleid) {
-            return base.Channel.geteventAsync(googleid);
+        public System.Threading.Tasks.Task<object[]> geteventAsync(string googleid, string uid) {
+            return base.Channel.geteventAsync(googleid, uid);
         }
         
-        public int deleteeventpics(string GoogleID) {
-            return base.Channel.deleteeventpics(GoogleID);
+        public int deleteeventpics(string GoogleID, string uid) {
+            return base.Channel.deleteeventpics(GoogleID, uid);
         }
         
-        public System.Threading.Tasks.Task<int> deleteeventpicsAsync(string GoogleID) {
-            return base.Channel.deleteeventpicsAsync(GoogleID);
+        public System.Threading.Tasks.Task<int> deleteeventpicsAsync(string GoogleID, string uid) {
+            return base.Channel.deleteeventpicsAsync(GoogleID, uid);
         }
         
         public object[] geteventids(string uid) {
@@ -343,20 +343,20 @@ namespace Fincal.Dataservice {
             return base.Channel.inserteventpicAsync(eid, pic, egoogleid, uid);
         }
         
-        public object[] geteventpics(string id) {
-            return base.Channel.geteventpics(id);
+        public object[] geteventpics(string id, string uid) {
+            return base.Channel.geteventpics(id, uid);
         }
         
-        public System.Threading.Tasks.Task<object[]> geteventpicsAsync(string id) {
-            return base.Channel.geteventpicsAsync(id);
+        public System.Threading.Tasks.Task<object[]> geteventpicsAsync(string id, string uid) {
+            return base.Channel.geteventpicsAsync(id, uid);
         }
         
-        public string geteventfirstpics(string id) {
-            return base.Channel.geteventfirstpics(id);
+        public string geteventfirstpics(string id, string uid) {
+            return base.Channel.geteventfirstpics(id, uid);
         }
         
-        public System.Threading.Tasks.Task<string> geteventfirstpicsAsync(string id) {
-            return base.Channel.geteventfirstpicsAsync(id);
+        public System.Threading.Tasks.Task<string> geteventfirstpicsAsync(string id, string uid) {
+            return base.Channel.geteventfirstpicsAsync(id, uid);
         }
         
         public int insertpicture(string picture, string description, string uid) {
@@ -367,12 +367,12 @@ namespace Fincal.Dataservice {
             return base.Channel.insertpictureAsync(picture, description, uid);
         }
         
-        public int deletepicture(string id) {
-            return base.Channel.deletepicture(id);
+        public int deletepicture(string id, string uid) {
+            return base.Channel.deletepicture(id, uid);
         }
         
-        public System.Threading.Tasks.Task<int> deletepictureAsync(string id) {
-            return base.Channel.deletepictureAsync(id);
+        public System.Threading.Tasks.Task<int> deletepictureAsync(string id, string uid) {
+            return base.Channel.deletepictureAsync(id, uid);
         }
         
         public int deleteallpictures(string uid) {
@@ -391,20 +391,20 @@ namespace Fincal.Dataservice {
             return base.Channel.getalluserpicturesAsync(uid);
         }
         
-        public object[] getpic(string id) {
-            return base.Channel.getpic(id);
+        public object[] getpic(string id, string uid) {
+            return base.Channel.getpic(id, uid);
         }
         
-        public System.Threading.Tasks.Task<object[]> getpicAsync(string id) {
-            return base.Channel.getpicAsync(id);
+        public System.Threading.Tasks.Task<object[]> getpicAsync(string id, string uid) {
+            return base.Channel.getpicAsync(id, uid);
         }
         
-        public int updatepic(string id, string description) {
-            return base.Channel.updatepic(id, description);
+        public int updatepic(string id, string description, string uid) {
+            return base.Channel.updatepic(id, description, uid);
         }
         
-        public System.Threading.Tasks.Task<int> updatepicAsync(string id, string description) {
-            return base.Channel.updatepicAsync(id, description);
+        public System.Threading.Tasks.Task<int> updatepicAsync(string id, string description, string uid) {
+            return base.Channel.updatepicAsync(id, description, uid);
         }
         
         public object[][] getfewpics(string uid) {

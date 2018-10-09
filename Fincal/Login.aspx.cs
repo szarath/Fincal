@@ -40,7 +40,9 @@ namespace Fincal
 
             if (!(ds == null))
             {
-                user = new UserData(Convert.ToInt32((String)ds[0]), user_name.Value, (String)ds[1], (String)ds[2], Convert.ToDateTime((string)ds[3]));
+                user = new UserData((String)ds[0], user_name.Value, (String)ds[1], (String)ds[2], Convert.ToDateTime((String)ds[3]));
+
+              
                 Session["User"] = user;
                 Response.Redirect("Default.aspx");
 

@@ -31,15 +31,15 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IDatamanagement.deleteevent(string GoogleID)
+        int IDatamanagement.deleteevent(string GoogleID,string uid)
         {
-            string sqlStatement = "DELETE FROM tblEvent WHERE eGoogleID=@0";
+            string sqlStatement = "DELETE FROM tblEvent WHERE eGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
 
             command.Parameters.AddWithValue("@0", GoogleID);
-
+            command.Parameters.AddWithValue("@1", uid);
             return clsSQL.ExecuteNonQuery(command);
 
         }
@@ -54,16 +54,16 @@ namespace Wcffincal
 
 
 
-        string IDatamanagement.checkevents(string ID)
+        string IDatamanagement.checkevents(string ID,string uid)
         {
-            string sqlStatement = "SELECT eGoogleID FROM tblEvent WHERE eGoogleID=@0";
+            string sqlStatement = "SELECT eGoogleID FROM tblEvent WHERE eGoogleID=@0 AND uID=@1;";
 
 
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", ID);
-
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
 
 
@@ -100,9 +100,13 @@ namespace Wcffincal
             return result;
         }
 
-        object[] IDatamanagement.geteventpics(string id)
+        object[] IDatamanagement.geteventpics(string id, string uid)
         {
-            DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT * FROM tblEvent WHERE eID=@0"));
+            SqlCommand command = new SqlCommand("SELECT * FROM tblEvent WHERE eID=@0 AND uID=@1;");
+
+            command.Parameters.AddWithValue("@0", id);
+            command.Parameters.AddWithValue("@1", uid);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
             string[] result = null;
 
@@ -120,9 +124,9 @@ namespace Wcffincal
             return result;
         }
 
-        string IDatamanagement.geteventfirstpics(string id)
+        string IDatamanagement.geteventfirstpics(string id, string uid)
         {
-            string sqlStatement = "SELECT TOP 1 ePic FROM tblEventpic WHERE eGoogleID=@0";
+            string sqlStatement = "SELECT TOP 1 ePic FROM tblEventpic WHERE eGoogleID=@0 and uID=@1;";
 
 
 
@@ -130,6 +134,7 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", id);
 
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
             //DataSet sqlDataSet = clsSQL.ExecuteQuery("SELECT uUsername FROM tblUser WHERE uID=" + userID);
 
@@ -143,14 +148,15 @@ namespace Wcffincal
             return null;
         }
 
-        object[] IDatamanagement.getevent(string googleid)
+        object[] IDatamanagement.getevent(string googleid, string uid)
         {
-            string sqlStatement = "SELECT * FROM tblEvent WHERE eGoogleID=@0";
+            string sqlStatement = "SELECT * FROM tblEvent WHERE eGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", googleid);
-
+         
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
 
 
@@ -185,15 +191,15 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IDatamanagement.deleteeventpics(string GoogleID)
+        int IDatamanagement.deleteeventpics(string GoogleID,string uid)
         {
-            string sqlStatement = "DELETE FROM tblEventpic WHERE eGoogleID=@01";
+            string sqlStatement = "DELETE FROM tblEventpic WHERE eGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
 
             command.Parameters.AddWithValue("@0", GoogleID);
-
+            command.Parameters.AddWithValue("@1", uid);
             return clsSQL.ExecuteNonQuery(command);
         }
 
@@ -222,7 +228,7 @@ namespace Wcffincal
         object[] IDatamanagement.gettaskcat()
         {
 
-            DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT tcName FROM tblTaskCategory"));
+            DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT tcName FROM tblTaskCategory;"));
 
             string[] result = null;
 
@@ -240,15 +246,15 @@ namespace Wcffincal
             return result;
         }
 
-        object[] IDatamanagement.gettask(string GoogleID)
+        object[] IDatamanagement.gettask(string GoogleID, string uid)
         {
 
-            string sqlStatement = "SELECT * FROM tblTask WHERE eGoogleID=@0";
+            string sqlStatement = "SELECT * FROM tblTask WHERE eGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", GoogleID);
-
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
 
 
@@ -286,9 +292,9 @@ namespace Wcffincal
 
 
 
-        string IDatamanagement.checktasks(string ID)
+        string IDatamanagement.checktasks(string ID,string uid)
         {
-            string sqlStatement = "SELECT tGoogleID FROM tblTask WHERE tGoogleID=@0";
+            string sqlStatement = "SELECT tGoogleID FROM tblTask WHERE tGoogleID=@0 AND uID=@1;";
 
 
 
@@ -296,6 +302,7 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", ID);
 
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
 
 
@@ -327,15 +334,16 @@ namespace Wcffincal
 
             return clsSQL.ExecuteNonQuery(command);
         }
-        int IDatamanagement.deletetask(string GoogleID)
+        int IDatamanagement.deletetask(string GoogleID, string uid)
         {
-            string sqlStatement = "DELETE FROM tblTask WHERE tGoogleID=@0";
+            string sqlStatement = "DELETE FROM tblTask WHERE tGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
 
             command.Parameters.AddWithValue("@0", GoogleID);
 
+            command.Parameters.AddWithValue("@1", uid);
             return clsSQL.ExecuteNonQuery(command);
 
         }
@@ -453,15 +461,15 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IDatamanagement.deletepicture(string id)
+        int IDatamanagement.deletepicture(string id, string uid)
         {
-            string sqlStatement = "DELETE FROM tblPic WHERE pID=@0";
+            string sqlStatement = "DELETE FROM tblPic WHERE pID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
 
             command.Parameters.AddWithValue("@0", id);
-
+            command.Parameters.AddWithValue("@1", uid);
             return clsSQL.ExecuteNonQuery(command);
         }
 
@@ -472,7 +480,7 @@ namespace Wcffincal
 
         object[][] IDatamanagement.getalluserpictures(string uid)
         {
-            string sqlStatement = "SELECT * FROM tblPic WHERE uID=@0";
+            string sqlStatement = "SELECT * FROM tblPic WHERE uID=@0;";
 
 
 
@@ -490,7 +498,7 @@ namespace Wcffincal
 
         object[][] IDatamanagement.getfewpics(string uid)
         {
-            string sqlStatement = "SELECT TOP 10 FROM tblPic WHERE uID=@0";
+            string sqlStatement = "SELECT TOP 10 FROM tblPic WHERE uID=@0;";
 
 
 
@@ -499,19 +507,19 @@ namespace Wcffincal
             command.Parameters.AddWithValue("@0", uid);
 
             DataSet ds = clsSQL.ExecuteQuery(command);
-           
+            //DataSet ds = clsSQL.ExecuteQuery("SELECT uID, uUsername, uEmail, uRegDate, uReportCount, uFlagged FROM tblUser");
 
             return create2DAdsArray(ds);
         }
 
-        object[] IDatamanagement.getpic(string id)
+        object[] IDatamanagement.getpic(string id, string uid)
         {
-            string sqlStatement = "SELECT * FROM tblPic WHERE pID=@0";
+            string sqlStatement = "SELECT * FROM tblPic WHERE pID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", id);
-
+            command.Parameters.AddWithValue("@1", uid);
             DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
 
 
@@ -531,15 +539,15 @@ namespace Wcffincal
             return temp;
         }
 
-        int IDatamanagement.updatepic(string id, string description)
+        int IDatamanagement.updatepic(string id, string description, string uid)
         {
-            string sqlStatement = "UPDATE tblPic SET pDesc=@0 WHERE pID=@1;";
+            string sqlStatement = "UPDATE tblPic SET pDesc=@0 WHERE pID=@1 AND uID=@2;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", description);
             command.Parameters.AddWithValue("@1", id);
-
+            command.Parameters.AddWithValue("@2", uid);
             return clsSQL.ExecuteNonQuery(command);
         }
 

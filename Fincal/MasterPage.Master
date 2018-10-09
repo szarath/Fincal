@@ -50,7 +50,7 @@
                      <li id="eventsidenav" class="bold" runat="server"><a href="Eventslist.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">event</i>Events</a></li> 
                      <li id="chatsidenav" class="bold" runat="server"><a href="Chat.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">speaker_notes</i>Chat</a></li> 
                         <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Task</a></li> 
-                          <li id="schedulingnav" class="bold" runat="server"><a href="Scheduling.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">schedule</i>Collabration</a></li>             
+                          <li id="schedulingnav" class="bold" runat="server"><a href="Collaboration.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">schedule</i>Collabration</a></li>             
                           <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
                        
                       <li class="divider"></li>
@@ -81,7 +81,7 @@
     </style>
 
         <div>
-            <asp:ContentPlaceHolder ID="pagecontent"  runat="server">
+            <asp:ContentPlaceHolder ID="pagecontent"   runat="server">
             </asp:ContentPlaceHolder>
         </div>
 

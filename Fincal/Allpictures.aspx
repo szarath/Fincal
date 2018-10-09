@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
 
        <div class="row">
-          <div class="col s12 m10 l8 push-m1 push-l2">
+          <div class="col s12 m10 l8">
             <h4 id="indexTitle" class="bold" runat="server">Pictures</h4>
         </div>  
      

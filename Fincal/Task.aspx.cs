@@ -94,9 +94,9 @@ namespace Fincal
 
                     if (task.Status.ToString() == "completed")
                     {
-                        if (findata.checktasks(Convert.ToString(id)) == Convert.ToString(id))
+                        if (findata.checktasks(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                         {
-                            storedtask = findata.gettask(id);
+                            storedtask = findata.gettask(id, user.getID().ToString());
                             if ((string)storedtask[1] == title)
                             {
 
@@ -149,7 +149,7 @@ namespace Fincal
                     else
                     {
 
-                        if (findata.checktasks(Convert.ToString(id)) == Convert.ToString(id))
+                        if (findata.checktasks(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                         {
                             if ((string)storedtask[1] == title)
                             {
@@ -162,7 +162,7 @@ namespace Fincal
 
 
                             }
-                            storedtask = findata.gettask(id);
+                            storedtask = findata.gettask(id, user.getID().ToString());
 
                             incomplete += "<a href=\"Taskedit?id=" + task.Id + "\">";
                             incomplete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";

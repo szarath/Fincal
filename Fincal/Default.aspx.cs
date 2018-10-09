@@ -22,7 +22,7 @@ namespace Fincal
 {
     public partial class Default : System.Web.UI.Page
     {
-        private int userID;
+       
 
 
         
@@ -41,9 +41,9 @@ namespace Fincal
                 picturemain.Visible = true;
                 Eventsget();
                 Taskget();
+                Pictureget();
 
-
-            }
+                }
 
         }
 
@@ -54,7 +54,7 @@ namespace Fincal
             //     if (Session["User"] != null) //Logged in
             //   {
             UserData user = (UserData)Session["User"];
-            this.userID = user.getID();
+         
 
             string htmldata = "";
             string temp = "";
@@ -133,29 +133,32 @@ namespace Fincal
                         loc = "Johannesburg";
                     }
                     Boolean exsisting = false;
-                    object[] googleids = findata.geteventids(userID.ToString());
+                    object[] googleids = findata.geteventids(user.getID().ToString());
 
-                    for (int i = 0; i < googleids.Length; i++)
+                    if (googleids != null)
                     {
-                        if (eventItem.Id == (string)googleids[i])
+
+                        for (int i = 0; i < googleids.Length; i++)
                         {
-                            exsisting = true;
+                            if (eventItem.Id == (string)googleids[i])
+                            {
+                                exsisting = true;
+                            }
                         }
-                    }
 
-                    if (exsisting == true)
-                    {
-                    }
-                    else if (exsisting == false)
-                    {
-                        findata.deleteevent(eventItem.Id);
-                        findata.deleteeventpics(eventItem.Id);
-                    }
+                        if (exsisting == true)
+                        {
+                        }
+                        else if (exsisting == false)
+                        {
+                            findata.deleteevent(eventItem.Id, user.getID().ToString());
+                            findata.deleteeventpics(eventItem.Id, user.getID().ToString());
+                        }
 
-
-                    if (findata.checkevents(Convert.ToString(id)) == Convert.ToString(id))
+                    }
+                    if (findata.checkevents(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                     {
-                        object[] storedevent = findata.getevent(id);
+                        object[] storedevent = findata.getevent(id, user.getID().ToString());
                         if ((string)storedevent[1] == when || (string)storedevent[2] == summary || (string)storedevent[3] == loc || (string)storedevent[6] == desc)
                         {
 
@@ -169,7 +172,7 @@ namespace Fincal
                         }
 
                         htmldata += "<a href=\"EventEdit?eid=" + eventItem.Id + "\">";
-                        htmldata += "<div class=\"col 14 push-m1 push-l2\">";
+                        htmldata += "<div class=\"col s12 m2 l0 \">";
                         htmldata += "<div class=\"card horizontal hoverable\">";
 
                         /*  htmldata += "<div class=\"card-image\">";
@@ -190,11 +193,10 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                                "<p class=\"trunctext bold\">" + eventItem.Summary + "</p>";
+                                "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
-                        htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Description: " + eventItem.Description + "</p>";
+   
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
 
@@ -209,10 +211,10 @@ namespace Fincal
                     else
                     {
 
-                        findata.insertevent(Convert.ToDateTime(when), summary, loc, id, userID.ToString(), desc);
+                        findata.insertevent(Convert.ToDateTime(when), summary, loc, id, user.getID().ToString(), desc);
 
                         htmldata += "<a href=\"EventEdit?eid=" + id + "\">";
-                        htmldata += "<div class=\"col  14 push-m1 push-l2\">";
+                        htmldata += "<div class=\"col  s12 m2 l0 \">";
 
 
                         htmldata += "<div class=\"card horizontal hoverable\">";
@@ -225,11 +227,10 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                         "<p class=\"trunctext bold\">" + eventItem.Summary + "</p>";
+                         "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
-                        htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Description: " + eventItem.Description + "</p>";
+               
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
 
@@ -255,7 +256,7 @@ namespace Fincal
                 Console.WriteLine("No upcoming events found.");
 
             }
-
+            
             //Console.Read();
             htmldata += "</div>";
 
@@ -329,9 +330,9 @@ namespace Fincal
 
                     if (task.Status.ToString() == "completed")
                     {
-                        if (findata.checktasks(Convert.ToString(id)) == Convert.ToString(id))
+                        if (findata.checktasks(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                         {
-                            storedtask = findata.gettask(id);
+                            storedtask = findata.gettask(id, user.getID().ToString());
                             if ((string)storedtask[1] == title)
                             {
 
@@ -344,7 +345,7 @@ namespace Fincal
 
                             }
                             complete += "<a href=\"Taskedit?id=" + task.Id + "\">";
-                            complete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            complete += "<div class=\"col s12 m2 10\">";
                             complete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + "\">";
                             //   htmldata += "<div class=\"card horizontal hoverable blue\">";
                             complete += "<div class=\"card-stacked\">";
@@ -362,7 +363,7 @@ namespace Fincal
                         {
                             findata.inserttask(task.Title, 1, "1", task.Id, user.getID().ToString());
                             complete += "<a href=\"Taskedit?id=" + task.Id + "\">";
-                            complete += "<div class=\"col  s12 m2 10 push-m1 push-l2\">";
+                            complete += "<div class=\"col  s12 m2 10\">";
                             //     complete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             complete += "<div class=\"card horizontal hoverable\">";
                             complete += "<div class=\"card-stacked\">";
@@ -384,7 +385,7 @@ namespace Fincal
                     else
                     {
 
-                        if (findata.checktasks(Convert.ToString(id)) == Convert.ToString(id))
+                        if (findata.checktasks(Convert.ToString(id), user.getID().ToString()) == Convert.ToString(id))
                         {
                             if ((string)storedtask[1] == title)
                             {
@@ -397,10 +398,10 @@ namespace Fincal
 
 
                             }
-                            storedtask = findata.gettask(id);
+                            storedtask = findata.gettask(id, user.getID().ToString());
 
                             incomplete += "<a href=\"Taskedit?id=" + task.Id + "\">";
-                            incomplete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            incomplete += "<div class=\"col s12 m2 10\">";
                             incomplete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             //   htmldata += "<div class=\"card horizontal hoverable blue\">";
                             incomplete += "<div class=\"card-stacked\">";
@@ -419,7 +420,7 @@ namespace Fincal
                         {
                             findata.inserttask(task.Title, 0, "1", task.Id, user.getID().ToString());
                             incomplete += "<a href=\"Taskedit?id=" + task.Id + "\">";
-                            incomplete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            incomplete += "<div class=\"col s12 m2 10\">";
                             // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             incomplete += "<div class=\"card  hoverable\">";
                             incomplete += "<div class=\"card-stacked\">";
@@ -496,39 +497,46 @@ namespace Fincal
         }
 
 
-        private void getpictures()
+        private void Pictureget()
         {
-              string htmldata = "<div class='row'>";
+            UserData user = (UserData)Session["User"];
+            string htmldata = "<div class='row'>";
               Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             // UserData currentUser = (UserData)(Session["User"]);
-            Object[][] pictures = findata.getalluserpictures("1");
-
-            for (int i = 0; i < pictures.Length; i++)
+            Object[][] pictures = findata.getfewpics(user.getID().ToString());
+            if (pictures != null)
             {
-                // htmldata += "<a class=\"carousel - item\" href=\"Pictureedit?id=" + (string)pictures[i][0] + "\"><img style='width:250px;height:250px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/></a>";
+
+                for (int i = 0; i < pictures.Length; i++)
+                {
+                    // htmldata += "<a class=\"carousel - item\" href=\"Pictureedit?id=" + (string)pictures[i][0] + "\"><img style='width:250px;height:250px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/></a>";
 
 
-                htmldata += "<a href=\"Pictureedit?id=" + (string)pictures[i][0] + "\">";
-                htmldata += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
-                htmldata += "<div class=\"card hoverable card-image\">";
+                    htmldata += "<a href=\"Pictureedit?id=" + (string)pictures[i][0] + "\">";
+                    htmldata += "<div class=\"col s12 m2 10 \">";
+                    htmldata += "<div class=\"card hoverable card-image\">";
 
-                //   htmldata += "<div class=\" card-content\">";
-
-
-                htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
+                    //   htmldata += "<div class=\" card-content\">";
 
 
+                    htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
 
-                //htmldata += "</div>";
 
-                htmldata += "</div>";
-                htmldata += "</div>";
+
+                    //htmldata += "</div>";
+
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+
+                }
+                // htmldata += "<a class=\"carousel - item\" href=\"#one!\"><img style='width:300px;height:300px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/></a>";
+              
 
             }
-            // htmldata += "<a class=\"carousel - item\" href=\"#one!\"><img style='width:300px;height:300px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/></a>";
-            htmldata += "</div>";
 
+
+            htmldata += "</div>";
             picturecarousel.InnerHtml = htmldata;
 
             findata.Close();
