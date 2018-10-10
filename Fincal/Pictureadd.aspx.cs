@@ -32,7 +32,7 @@ namespace Fincal
                 findata.Open();
 
 
-                findata.insertpicture(base64String, txtpicdesc.Value, user.getID().ToString());
+                findata.insertpicture(base64String, txtpictitle.Value, txtpicdesc.Value, user.getID().ToString());
 
 
                 findata.Close();

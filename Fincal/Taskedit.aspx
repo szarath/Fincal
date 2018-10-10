@@ -34,7 +34,13 @@
                     </div>
                 </div> 
 
+                <div class="row">
+                      <div class="input-field col s6 m3 l3">
+                        <input type="checkbox" id="Completedcheck" ClientIDMode="static" runat="server"/>
+                        <label for="Completedcheck">Completed</label>
+                    </div>
 
+                </div>
 
            
 
@@ -44,11 +50,25 @@
                  
             </div>
             <div class="card-action">
-              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskadd_ServerClick">Add</button>
-              <a href="Task.aspx" class="waves-effect waves-light btn red">Cancel</a>
+              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskupdateServerClick">Update</button>
+               <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons left">delete_forever</i> Delete</a> 
+               
+              <a href="Task.aspx" class="waves-effect waves-light btn orange">Cancel</a>
             </div>
           </div>
         </div>
       </div>
+
+                    <div class="modal" id="AcceptDelete" >
+                            <div class="modal-content">
+                              <h4>Confirm Delete</h4>
+                              <p>Are you sure you wish to delete your task?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="#" runat="server" OnServerClick="btnDeleteAd_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
+                              <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
+                            </div>
+                      </div>
+
 
 </asp:Content>

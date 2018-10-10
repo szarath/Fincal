@@ -31,13 +31,22 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl InvlaideventAd;
         
         /// <summary>
-        /// txtDoB control.
+        /// txtdoe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtDoB;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdoe;
+        
+        /// <summary>
+        /// txttime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txttime;
         
         /// <summary>
         /// txtesummary control.

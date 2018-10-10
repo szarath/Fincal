@@ -9,8 +9,8 @@ namespace Fincal
 {
     public partial class Allpictures : System.Web.UI.Page
     {
-        private string htmldata = "<div class='row'>";
-
+            private string htmldata = "<div>";
+      //  private string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,7 +19,7 @@ namespace Fincal
                 findata.Open();
                 // UserData currentUser = (UserData)(Session["User"]);
                 UserData user = (UserData)Session["User"];
-                Object[][] pictures = findata.getalluserpictures(user.getID().ToString());
+                Object[][] pictures = findata.getalluserpictures(user.getID());
 
 
                 if (pictures != null)
@@ -29,24 +29,25 @@ namespace Fincal
                     // htmldata += "<a class=\"carousel - item\" href=\"Pictureedit?id=" + (string)pictures[i][0] + "\"><img style='width:250px;height:250px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/></a>";
 
 
-                    htmldata += "<a href=\"Pictureedit?id=" + (string)pictures[i][0] + "\">";
-                    htmldata += "<div class=\"col s12  10 \">";
-                    htmldata += "<div class=\"card hoverable card-image\">";
-
-                    //   htmldata += "<div class=\" card-content\">";
+                    htmldata += "<a href=\"Pictureedit.aspx?id=" + (string)pictures[i][0] + "\">";
 
 
-                        htmldata +="  < span class=\"card-title\">"+(string)pictures[i][]+"</span>";
+                    htmldata += "<div class=\"col card hoverable\">";
 
-                    //htmldata += "</div>";
+                    htmldata += "<div class=\"card-image waves-effect waves-block waves-light\">";
+                        htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
+                        htmldata += "<span class=\"card-title \">" + (string)pictures[i][2] + "</span>";
+                        htmldata += "</div>";
 
-                     htmldata += "</div>";
+                        
+
+
                     htmldata += "</div>";
 
                 }
                 }
                 // htmldata += "<a class=\"carousel - item\" href=\"#one!\"><img style='width:300px;height:300px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/></a>";
-                htmldata += "</div>";
+               htmldata += "</div>";
 
 
 

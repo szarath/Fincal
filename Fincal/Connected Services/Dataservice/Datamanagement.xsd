@@ -5,7 +5,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="complete" type="xs:int" />
+        <xs:element minOccurs="0" name="complete" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="googleid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
@@ -65,7 +65,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="complete" type="xs:int" />
+        <xs:element minOccurs="0" name="complete" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tcid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="googleid" nillable="true" type="xs:string" />
@@ -270,6 +270,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="picture" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -344,6 +345,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
       </xs:sequence>

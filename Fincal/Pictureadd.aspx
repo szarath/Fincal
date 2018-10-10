@@ -23,6 +23,7 @@
 
                 <div class="row">
 
+                         <div id="picchoiceThumb" runat="server" ClientIDMode="static"></div>
                     
                      <div class="file-field input-field col s12 m4 l4">
                           <div class="btn waves-effect waves-light">
@@ -33,12 +34,21 @@
                             <input id="txtpicchoice" class="file-path validate" type="text" placeholder="Upload Photo" runat="server"/>
                           </div>
                         </div>
-                    <div id="picchoiceThumb" runat="server" ClientIDMode="static"></div>
+               
 
                   
                     </div>
+
+                 <div class="row">
+                      <div class="input-field col s12 m4 l4"> 
+                        <input id="txtpictitle" type="text" class="validate autocomplete-content" runat="server"/>
+                        <label for="txtpictitle">Picture title</label>
+                    </div>
+                </div>
+
+                  
                 <div class="row">
-                      <div class="input-field col s6 m8 l9"> 
+                      <div class="input-field col  s12 m4 l4"> 
                         <input id="txtpicdesc" type="text" class="validate autocomplete-content" runat="server"/>
                         <label for="txtpicdesc">Picture Description</label>
                     </div>
@@ -79,17 +89,17 @@
 
 
 
-           
+           <div class="card-action">
+              <button id="btnpicadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnpicadd_ServerClick">Add</button>
+              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange">Cancel</a>
+            </div>
 
          
                     
                 
                  
             </div>
-            <div class="card-action">
-              <button id="btnpicadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnpicadd_ServerClick">Add</button>
-              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange">Cancel</a>
-            </div>
+            
           </div>
         </div>
 </asp:Content>

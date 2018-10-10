@@ -16,10 +16,10 @@ namespace Fincal.Dataservice {
     public interface IDatamanagement {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/inserttask", ReplyAction="http://tempuri.org/IDatamanagement/inserttaskResponse")]
-        int inserttask(string name, int complete, string category, string googleid, string uid);
+        int inserttask(string name, string complete, string category, string googleid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/inserttask", ReplyAction="http://tempuri.org/IDatamanagement/inserttaskResponse")]
-        System.Threading.Tasks.Task<int> inserttaskAsync(string name, int complete, string category, string googleid, string uid);
+        System.Threading.Tasks.Task<int> inserttaskAsync(string name, string complete, string category, string googleid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletetask", ReplyAction="http://tempuri.org/IDatamanagement/deletetaskResponse")]
         int deletetask(string GoogleID, string uid);
@@ -44,10 +44,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<object[]> gettaskAsync(string GoogleID, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatetask", ReplyAction="http://tempuri.org/IDatamanagement/updatetaskResponse")]
-        int updatetask(string name, int complete, string uid, string tcid, string googleid);
+        int updatetask(string name, string complete, string uid, string tcid, string googleid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatetask", ReplyAction="http://tempuri.org/IDatamanagement/updatetaskResponse")]
-        System.Threading.Tasks.Task<int> updatetaskAsync(string name, int complete, string uid, string tcid, string googleid);
+        System.Threading.Tasks.Task<int> updatetaskAsync(string name, string complete, string uid, string tcid, string googleid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/checktasks", ReplyAction="http://tempuri.org/IDatamanagement/checktasksResponse")]
         string checktasks(string ID, string uid);
@@ -130,10 +130,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<string> geteventfirstpicsAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertpicture", ReplyAction="http://tempuri.org/IDatamanagement/insertpictureResponse")]
-        int insertpicture(string picture, string description, string uid);
+        int insertpicture(string picture, string title, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertpicture", ReplyAction="http://tempuri.org/IDatamanagement/insertpictureResponse")]
-        System.Threading.Tasks.Task<int> insertpictureAsync(string picture, string description, string uid);
+        System.Threading.Tasks.Task<int> insertpictureAsync(string picture, string title, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletepicture", ReplyAction="http://tempuri.org/IDatamanagement/deletepictureResponse")]
         int deletepicture(string id, string uid);
@@ -164,10 +164,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<object[]> getpicAsync(string id, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatepic", ReplyAction="http://tempuri.org/IDatamanagement/updatepicResponse")]
-        int updatepic(string id, string description, string uid);
+        int updatepic(string id, string title, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatepic", ReplyAction="http://tempuri.org/IDatamanagement/updatepicResponse")]
-        System.Threading.Tasks.Task<int> updatepicAsync(string id, string description, string uid);
+        System.Threading.Tasks.Task<int> updatepicAsync(string id, string title, string description, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getfewpics", ReplyAction="http://tempuri.org/IDatamanagement/getfewpicsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -223,11 +223,11 @@ namespace Fincal.Dataservice {
                 base(binding, remoteAddress) {
         }
         
-        public int inserttask(string name, int complete, string category, string googleid, string uid) {
+        public int inserttask(string name, string complete, string category, string googleid, string uid) {
             return base.Channel.inserttask(name, complete, category, googleid, uid);
         }
         
-        public System.Threading.Tasks.Task<int> inserttaskAsync(string name, int complete, string category, string googleid, string uid) {
+        public System.Threading.Tasks.Task<int> inserttaskAsync(string name, string complete, string category, string googleid, string uid) {
             return base.Channel.inserttaskAsync(name, complete, category, googleid, uid);
         }
         
@@ -255,11 +255,11 @@ namespace Fincal.Dataservice {
             return base.Channel.gettaskAsync(GoogleID, uid);
         }
         
-        public int updatetask(string name, int complete, string uid, string tcid, string googleid) {
+        public int updatetask(string name, string complete, string uid, string tcid, string googleid) {
             return base.Channel.updatetask(name, complete, uid, tcid, googleid);
         }
         
-        public System.Threading.Tasks.Task<int> updatetaskAsync(string name, int complete, string uid, string tcid, string googleid) {
+        public System.Threading.Tasks.Task<int> updatetaskAsync(string name, string complete, string uid, string tcid, string googleid) {
             return base.Channel.updatetaskAsync(name, complete, uid, tcid, googleid);
         }
         
@@ -359,12 +359,12 @@ namespace Fincal.Dataservice {
             return base.Channel.geteventfirstpicsAsync(id, uid);
         }
         
-        public int insertpicture(string picture, string description, string uid) {
-            return base.Channel.insertpicture(picture, description, uid);
+        public int insertpicture(string picture, string title, string description, string uid) {
+            return base.Channel.insertpicture(picture, title, description, uid);
         }
         
-        public System.Threading.Tasks.Task<int> insertpictureAsync(string picture, string description, string uid) {
-            return base.Channel.insertpictureAsync(picture, description, uid);
+        public System.Threading.Tasks.Task<int> insertpictureAsync(string picture, string title, string description, string uid) {
+            return base.Channel.insertpictureAsync(picture, title, description, uid);
         }
         
         public int deletepicture(string id, string uid) {
@@ -399,12 +399,12 @@ namespace Fincal.Dataservice {
             return base.Channel.getpicAsync(id, uid);
         }
         
-        public int updatepic(string id, string description, string uid) {
-            return base.Channel.updatepic(id, description, uid);
+        public int updatepic(string id, string title, string description, string uid) {
+            return base.Channel.updatepic(id, title, description, uid);
         }
         
-        public System.Threading.Tasks.Task<int> updatepicAsync(string id, string description, string uid) {
-            return base.Channel.updatepicAsync(id, description, uid);
+        public System.Threading.Tasks.Task<int> updatepicAsync(string id, string title, string description, string uid) {
+            return base.Channel.updatepicAsync(id, title, description, uid);
         }
         
         public object[][] getfewpics(string uid) {

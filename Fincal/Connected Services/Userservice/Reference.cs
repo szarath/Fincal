@@ -113,10 +113,10 @@ namespace Fincal.Userservice {
         System.Threading.Tasks.Task<object[]> getUserDetailsManagementAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        int updateUserInfo(int ID, string firstName, string surname, System.DateTime DoB);
+        int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        System.Threading.Tasks.Task<int> updateUserInfoAsync(int ID, string firstName, string surname, System.DateTime DoB);
+        System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/deleteUser", ReplyAction="http://tempuri.org/IUserservice/deleteUserResponse")]
         int deleteUser(string ID);
@@ -192,11 +192,11 @@ namespace Fincal.Userservice {
             return base.Channel.getUserDetailsManagementAsync(userID);
         }
         
-        public int updateUserInfo(int ID, string firstName, string surname, System.DateTime DoB) {
+        public int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB) {
             return base.Channel.updateUserInfo(ID, firstName, surname, DoB);
         }
         
-        public System.Threading.Tasks.Task<int> updateUserInfoAsync(int ID, string firstName, string surname, System.DateTime DoB) {
+        public System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB) {
             return base.Channel.updateUserInfoAsync(ID, firstName, surname, DoB);
         }
         

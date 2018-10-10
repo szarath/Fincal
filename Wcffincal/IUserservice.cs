@@ -34,7 +34,7 @@ namespace Wcffincal
 
         [OperationContract]
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/updateUserInfo")]
-        int updateUserInfo(int ID, string firstName, string surname, DateTime DoB);
+        int updateUserInfo(string ID, string firstName, string surname, DateTime DoB);
 
         [OperationContract]
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/deleteUser")]

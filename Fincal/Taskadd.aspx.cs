@@ -17,8 +17,9 @@ namespace Fincal
 {
     public partial class Taskadd : System.Web.UI.Page
     {
-        static string[] Scopes = { TasksService.Scope.Tasks };
+        static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
         static string ApplicationName = "Google Tasks API .NET Quickstart";
+        private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,6 +32,41 @@ namespace Fincal
         protected void btntaskadd_ServerClick(object sender, EventArgs e)
         {
             UserData currentUser = (UserData)(Session["User"]);
+          
+
+            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Level"))
+            {
+
+                Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
+
+            }
+            else
+            {
+              inserttask();
+
+
+
+         /*     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+
+                findata.Open();
+
+                findata.inserttask(txttaskanme.Value, "0", PlatformDrop.Items[PlatformDrop.SelectedIndex].Text, newtask.Id, currentUser.getID().ToString());
+
+                findata.Close();
+                */
+            }
+
+
+          
+
+
+
+
+            
+        }
+
+        private async void inserttask()
+        {
             UserCredential credential;
 
             /*using (var stream =
@@ -51,7 +87,7 @@ namespace Fincal
             {
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal); ;
-                credPath = Path.Combine(credPath, ".credentials/tasks-dotnet-quickstart.json");
+                credPath = Path.Combine(credPath, ".credentials/tasksadd-dotnet-quickstart.json");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
@@ -70,36 +106,12 @@ namespace Fincal
                 ApplicationName = ApplicationName,
             });
 
-            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Level"))
-            {
+            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
 
-                Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
+            newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
 
-            }
-            else
-            {
-                Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
-
-                Google.Apis.Tasks.v1.Data.Task result = service.Tasks.Insert(task, "@default").Execute();
-
-
-               Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-
-                findata.Open();
-
-                findata.inserttask(txttaskanme.Value, 0, PlatformDrop.Items[PlatformDrop.SelectedIndex].Text, result.Id, currentUser.getID().ToString());
-
-                findata.Close();
-
-            }
-
-
-
-
-
-
-
-
+      
         }
+
     }
 }

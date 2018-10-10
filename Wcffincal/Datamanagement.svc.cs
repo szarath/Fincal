@@ -16,7 +16,7 @@ namespace Wcffincal
     {
         int IDatamanagement.insertevent(DateTime eDate, string summary, string location, string googleid, string uid, string desc)
         {
-            string sqlStatement = "INSERT INTO tblEvent (eDate, eSummary, eLocation, eGoogleID, uID, eDesc) VALUES(@0,@1,@2,@3,@4,@5);";
+            string sqlStatement = "INSERT INTO tblEvent (eDate, eSummary, eLocation, eGoogleID, uID, eDesc) VALUES (@0,@1,@2,@3,@4,@5);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -178,7 +178,7 @@ namespace Wcffincal
 
         int IDatamanagement.inserteventpic(string eid, string epic, string egoogleid, string uid)
         {
-            string sqlStatement = "INSERT INTO tblEventpic (ePIC, eGoogleID, eID,uID) VALUES(@0,@1,@2,@3);";
+            string sqlStatement = "INSERT INTO tblEventpic (ePIC, eGoogleID, eID,uID) VALUES (@0,@1,@2,@3);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -249,7 +249,7 @@ namespace Wcffincal
         object[] IDatamanagement.gettask(string GoogleID, string uid)
         {
 
-            string sqlStatement = "SELECT * FROM tblTask WHERE eGoogleID=@0 AND uID=@1;";
+            string sqlStatement = "SELECT * FROM tblTask WHERE tGoogleID=@0 AND uID=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -276,7 +276,7 @@ namespace Wcffincal
 
         }
 
-        int IDatamanagement.updatetask(string name, int complete, string uid, string tcid, string tid)
+        int IDatamanagement.updatetask(string name, string complete, string uid, string tcid, string tid)
         {
             string sqlStatement = "UPDATE tblTask SET tName=@0, tComplete=@1, uID=@2, tcID=@3 WHERE tID=@4;";
 
@@ -318,22 +318,25 @@ namespace Wcffincal
 
 
 
-        int IDatamanagement.inserttask(string name, int complete, string category, string googleid, string uid)
+        int IDatamanagement.inserttask(string name, string complete, string category, string googleid, string uid)
         {
-            string sqlStatement = "INSERT INTO tbltask (tName, tComplete, uID, tcID, tGoogleID) VALUES(@0,@1,@2,@3,@4);";
-
+            string sqlStatement = "INSERT INTO tblTask (tName, tComplete, uID, tcID, tGoogleID) VALUES (@0,@1,@2,@3,@4);";
+         
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", name);
             command.Parameters.AddWithValue("@1", complete);
-            command.Parameters.AddWithValue("@2", category);
-            command.Parameters.AddWithValue("@3", googleid);
-            command.Parameters.AddWithValue("@4", uid);
+            command.Parameters.AddWithValue("@2", uid);
+            command.Parameters.AddWithValue("@3", category);
+            command.Parameters.AddWithValue("@4", googleid);
+          
 
 
 
             return clsSQL.ExecuteNonQuery(command);
         }
+
+
         int IDatamanagement.deletetask(string GoogleID, string uid)
         {
             string sqlStatement = "DELETE FROM tblTask WHERE tGoogleID=@0 AND uID=@1;";
@@ -380,7 +383,7 @@ namespace Wcffincal
 
         object[] IDatamanagement.gettaskids(string uid)
         {
-            string sqlStatement = "SELECT tGoogleID FROM tblTask WHERE uID=@0";
+            string sqlStatement = "SELECT tGoogleID FROM tblTask WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -412,7 +415,7 @@ namespace Wcffincal
 
         object[] IDatamanagement.geteventids(string uid)
         {
-            string sqlStatement = "SELECT eGoogleID FROM tblEvent WHERE uID=@0";
+            string sqlStatement = "SELECT eGoogleID FROM tblEvent WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -445,15 +448,18 @@ namespace Wcffincal
 
 
         //picture operations 
-        int IDatamanagement.insertpicture(string picture, string description, string uid)
+        int IDatamanagement.insertpicture(string picture, string title, string description, string uid)
         {
-            string sqlStatement = "INSERT INTO tblPic (Pic, pDesc, uID) VALUES(@0,@1,@2);";
+            string sqlStatement = "INSERT INTO tblPic (Pic, Pictitle , pDesc, uID) VALUES(@0,@1,@2,@3);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", picture);
-            command.Parameters.AddWithValue("@1", description);
-            command.Parameters.AddWithValue("@2", uid);
+
+            command.Parameters.AddWithValue("@1", title);
+            command.Parameters.AddWithValue("@2", description);
+            command.Parameters.AddWithValue("@3", uid);
+       
 
 
 
@@ -498,7 +504,7 @@ namespace Wcffincal
 
         object[][] IDatamanagement.getfewpics(string uid)
         {
-            string sqlStatement = "SELECT TOP 10 FROM tblPic WHERE uID=@0;";
+            string sqlStatement = "SELECT TOP 10 * FROM tblPic WHERE uID=@0;";
 
 
 
@@ -539,15 +545,16 @@ namespace Wcffincal
             return temp;
         }
 
-        int IDatamanagement.updatepic(string id, string description, string uid)
+        int IDatamanagement.updatepic(string id, string title, string description, string uid)
         {
-            string sqlStatement = "UPDATE tblPic SET pDesc=@0 WHERE pID=@1 AND uID=@2;";
+            string sqlStatement = "UPDATE tblPic SET pDesc=@0, Pictitle=@1 WHERE pID=@2 AND uID=@3;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", description);
-            command.Parameters.AddWithValue("@1", id);
-            command.Parameters.AddWithValue("@2", uid);
+            command.Parameters.AddWithValue("@1", title);
+            command.Parameters.AddWithValue("@2", id);
+            command.Parameters.AddWithValue("@3", uid);
             return clsSQL.ExecuteNonQuery(command);
         }
 

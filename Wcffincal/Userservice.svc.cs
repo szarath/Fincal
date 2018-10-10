@@ -134,7 +134,7 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IUserservice.updateUserInfo(int ID, string firstName, string surname, DateTime DoB)
+        int IUserservice.updateUserInfo(string ID, string firstName, string surname, DateTime DoB)
         {
             string sqlStatement = "UPDATE tblUser SET uFirstName=@0, uSurname=@1, uDoB=@2 WHERE uID=@3;";
 

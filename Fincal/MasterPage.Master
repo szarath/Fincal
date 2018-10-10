@@ -110,9 +110,19 @@
                 accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
 
-            $('.datepicker').datepicker();
+            $('.datepicker').datepicker(
 
-            $('.timepicker').timepicker();
+                {
+                    format: 'yyyy/mm/dd',
+
+                    yearRange: '40'
+                });
+
+            $('.timepicker').timepicker(
+
+                {
+                    twelveHour : false
+                });
 
             $(".dropdown-trigger").dropdown();
 

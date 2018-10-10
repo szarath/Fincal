@@ -101,7 +101,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Chatall.aspx" />
+    <Content Include="Chatspecific.aspx" />
     <Content Include="Collaboration.aspx" />
+    <Content Include="Collaborationadd.aspx" />
+    <Content Include="Collaborationedit.aspx" />
     <Content Include="Connected Services\Userservice\Fincal.Userservice.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -157,6 +161,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Myprofile.aspx" />
     <Content Include="Pictureadd.aspx" />
+    <Content Include="Pictureedit.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Task.aspx" />
     <Content Include="Taskadd.aspx" />
@@ -171,12 +176,40 @@
     <Compile Include="Allpictures.aspx.designer.cs">
       <DependentUpon>Allpictures.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Chatall.aspx.cs">
+      <DependentUpon>Chatall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chatall.aspx.designer.cs">
+      <DependentUpon>Chatall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chatspecific.aspx.cs">
+      <DependentUpon>Chatspecific.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chatspecific.aspx.designer.cs">
+      <DependentUpon>Chatspecific.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Collaboration.aspx.cs">
       <DependentUpon>Collaboration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Collaboration.aspx.designer.cs">
       <DependentUpon>Collaboration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collaborationadd.aspx.cs">
+      <DependentUpon>Collaborationadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collaborationadd.aspx.designer.cs">
+      <DependentUpon>Collaborationadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collaborationedit.aspx.cs">
+      <DependentUpon>Collaborationedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collaborationedit.aspx.designer.cs">
+      <DependentUpon>Collaborationedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Dataservice\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -244,6 +277,13 @@
     </Compile>
     <Compile Include="Pictureadd.aspx.designer.cs">
       <DependentUpon>Pictureadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pictureedit.aspx.cs">
+      <DependentUpon>Pictureedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pictureedit.aspx.designer.cs">
+      <DependentUpon>Pictureedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

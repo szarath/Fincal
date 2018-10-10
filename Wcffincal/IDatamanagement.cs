@@ -14,7 +14,7 @@ namespace Wcffincal
 
         // task operations 
         [OperationContract]
-        int inserttask(string name, int complete, string category, string googleid, string uid);
+        int inserttask(string name, string complete, string category, string googleid, string uid);
 
         [OperationContract]
         int deletetask(string GoogleID, string uid);
@@ -26,7 +26,7 @@ namespace Wcffincal
         object[] gettask(string GoogleID , string uid);
 
         [OperationContract]
-        int updatetask(string name, int complete, string uid, string tcid, string googleid);
+        int updatetask(string name, string complete, string uid, string tcid, string googleid);
 
         [OperationContract]
         string checktasks(string ID,string uid);
@@ -74,7 +74,7 @@ namespace Wcffincal
 
         // picture operations 
         [OperationContract]
-        int insertpicture(string picture, string description, string uid);
+        int insertpicture(string picture, string title, string description, string uid);
 
         [OperationContract]
         int deletepicture(string id, string uid);
@@ -89,14 +89,14 @@ namespace Wcffincal
         object[] getpic(string id, string uid);
 
         [OperationContract]
-        int updatepic(string id, string description, string uid);
+        int updatepic(string id, string title, string description, string uid);
 
         [OperationContract]
         object[][] getfewpics(string uid);
 
 
 
-        //scheduling operations 
+        //Time management operations 
         [OperationContract]
         int insertsechedule(DateTime starttime, DateTime endtime, string category);
 
@@ -105,5 +105,7 @@ namespace Wcffincal
 
         [OperationContract]
         int updateschedule(DateTime starttime, DateTime endtime, string category, string id);
+
+      
     }
 }

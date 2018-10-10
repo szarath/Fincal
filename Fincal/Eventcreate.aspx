@@ -15,7 +15,7 @@
 
                 </div>
 
-<div class="row">
+                    <div class="row">
                     <div class="input-field col s12">
                       
                     </div>
@@ -25,65 +25,54 @@
 
 
                 <div class="row">
+                     
                                     <div class="input-field col s12 m6 l6">
-                                        <i class="material-icons prefix">today</i>
-                                        <input type="date" id="txtDoB" runat="server" class="datepicker black-text"/>
-                                        <label for="txtDoB">Date Of Birth</label>
+                                       <i class="material-icons prefix">today</i>
+                                        <input  id="txtdoe" runat="server" class="datepicker black-text"/>
+                                        <label for="txtdoe">Date of Event</label>
                                     </div>
-                                   
 
-                    <div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        
-         <script type="text/javascript">
-             $(function () {
-                 $('#datetimepicker1').datetimepicker();
-             });
-        </script>
-    </div>
-</div>
-                                   
+                                     <div class="input-field col s12 m6 l6">
+                                       <i class="material-icons prefix">access_time</i>
+                                        <input  id="txttime" runat="server" class="timepicker black-text"/>
+                                        <label for="txttime">Time of Event</label>
+                                    </div>
+
+
                             </div>
+                                   
+                           
   
-                </div> 
+                
 
                <div class="row">
                     <div class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">title</i>
                         <textarea id="txtesummary" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtesummary">Summary</label>
+                        <label for="txtesummary">Title</label>
                     </div>
                 </div>
 
                <div class="row">
                     <div class="input-field col s12 m12 l12">
+                           <i class="material-icons prefix">description</i>
                         <textarea id="txtedesc" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtedesc">Description</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div id="locationField" class="input-field col s12 m6 l6">
+                    <div id="locationField" class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">add_location</i>
                        <input id="txteLocation" onFocus="geolocate()" type="text" runat="server" ClientIDMode="static" placeholder=""/>
                        <label for="txteLocation">Location</label>
                     </div>
-                  
-                  
                 </div>
 
                
 
 
-                <div class="row">
+              <div class="row">
                     <div class="file-field input-field col s12 m4 l4">
                           <div class="btn waves-effect waves-light">
                             <span>Pic 1</span>
@@ -183,7 +172,7 @@
                           <div class="file-path-wrapper">
                             <input id="txtPicUpload3" class="file-path validate" type="text" placeholder="Upload Photo" runat="server"/>
                           </div>
-                        </div>
+                        
                     <div id="pic3Thumb" runat="server" ClientIDMode="static"></div>
                     </div>
 
@@ -218,35 +207,25 @@
 
                          document.getElementById('pic3files').addEventListener('change', handleFileSelect, false);
                 </script>
-
-
               
 
+              
+                   </div>
                  
-            </div>
-            <div class="card-action">
+           
+            
+          </div>
+       <div class="card-action">
               <button id="btncreateevent" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btnCreateevent_ServerClick">Create</button> 
      
               <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2">Cancel</a>
             </div>
-          </div>
-        </div>
      
+         </div>
 
+    </div> 
 
-
-
-
-    <div class="modal" id="AcceptDelete">
-    <div class="modal-content">
-        <h4>Confirm Delete</h4>
-        <p>Are you sure you wish to delete this ad?</p>
-    </div>
-        <div class="modal-footer">
-            <a href="#" runat="server" OnServerClick="btnDeleteevent_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
-            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
         </div>
-    </div>
 
     <script>
                      // This example displays an address form, using the autocomplete feature
