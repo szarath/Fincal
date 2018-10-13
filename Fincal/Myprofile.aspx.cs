@@ -10,6 +10,8 @@ namespace Fincal
     public partial class Myprofile : System.Web.UI.Page
     {
         private UserData user;
+        private object[] skills;
+        private string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,6 +26,25 @@ namespace Fincal
                     txtDoB.Value = user.getDoB().ToShortDateString();
 
 
+                    Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+                    findata.Open();
+
+                    skills = findata.getskills();
+
+
+
+
+
+                 
+                        for (int i = 0; i < skills.Length; i++)
+                        {
+                            skilldrop.Items.Add(new ListItem((string)skills[i], i.ToString()));
+
+                        }
+
+                    skilldrop.SelectedIndex = Convert.ToInt32( user.getSkill().ToString());
+
+                    findata.Close();
                 }
                 else
                 {
@@ -34,6 +55,7 @@ namespace Fincal
 
         protected void btnDeleteAcc_Click(object sender, EventArgs e)
         {
+            user = (UserData)(Session["User"]);
             Userservice.UserserviceClient service = new
             Userservice.UserserviceClient();
             service.Open();
@@ -49,51 +71,58 @@ namespace Fincal
 
         protected void btnUpdateAccount_ServerClick(object sender, EventArgs e)
         {
-
+            user = (UserData)(Session["User"]);
             Userservice.UserserviceClient service = new
              Userservice.UserserviceClient();
+
+            int skill = skilldrop.SelectedIndex;
             service.Open();
 
-            int result = service.updateUserInfo(user.getID(), txtFirstName.Value, txtLastName.Value, Convert.ToDateTime(txtDoB.Value));
+            int result = service.updateUserInfo(user.getID(), txtFirstName.Value, txtLastName.Value, Convert.ToDateTime(txtDoB.Value), skill.ToString());
             service.Close();
             if (result == 1)//if the result is one then the user is deleted and redirected to the index page 
             {
                 Session["User"] = null;
 
-                myProfileView.InnerHtml = "<div class='col s12 m6 push-m3'>";
-                myProfileView.InnerHtml += "<div class='card white'>";
-                myProfileView.InnerHtml += "<div class='card-content Black-text'>";
-                myProfileView.InnerHtml += "<span class='card-title bold'>Account Updated Successfully</span>";
-                myProfileView.InnerHtml += "<p>Your account has been updated successfully.<br/><br/>Please proceeed to log back into your account to view the changes.</p>";
+                htmldata = "<div class=\"col s12 m6 push-m3\">";
+                htmldata += "<div class=\"card white\">";
+                htmldata += "<div class=\"card-content Black-text\">";
+                htmldata += "<span class=\"card-title bold\">Account Updated Successfully</span>";
+                htmldata += "<p>Your account has been updated successfully.<br/><br/>Please proceeed to log back into your account to view the changes.</p>";
 
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "<div class='card-action'> ";
-                myProfileView.InnerHtml += "<a href='Login.aspx' class='btn waves-effect waves-light'>Continue</a> ";
-                myProfileView.InnerHtml += "<a href='Default.aspx' class='btn waves-effect waves-light orange lighten-2'>Cancel</a> ";
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "</div>";
+                htmldata += "</div>";
+                htmldata += "<div class=\"card-action\"> ";
+                htmldata += "<a href=\"Login.aspx\" class=\"btn waves-effect waves-light\">Continue</a> ";
+                htmldata += "<a href=\"Default.aspx\" class=\"btn waves-effect waves-light orange lighten-2\">Cancel</a> ";
+                htmldata += "</div>";
+                htmldata += "</div>";
+                htmldata += "</div>";
 
-                Response.Redirect("Index.aspx");
+                
             }
             else
             {
                 Session["User"] = null;
 
-                myProfileView.InnerHtml = "<div class='col s12 m6 push-m3'>";
-                myProfileView.InnerHtml += "<div class='card white'>";
-                myProfileView.InnerHtml += "<div class='card-content Black-text'>";
-                myProfileView.InnerHtml += "<span class='card-title bold'>Oh No...An Error Occured</span>";
-                myProfileView.InnerHtml += "<p>Unfortunately we were unable to update your account.<br/><br/>As a precaution, please log back into your account where you may try again.</p>";
+                htmldata = "<div class=\"col s12 m6 push-m3\">";
+                htmldata += "<div class=\"card white\">";
+                htmldata += "<div class=\"card-content Black-text\">";
+                htmldata += "<span class=\"card-title bold\">Oh No...An Error Occured</span>";
+                htmldata += "<p>Unfortunately we were unable to update your account.<br/><br/>As a precaution, please log back into your account where you may try again.</p>";
 
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "<div class='card-action'> ";
-                myProfileView.InnerHtml += "<a href='Login.aspx' class='btn waves-effect waves-light'>Continue</a> ";
-                myProfileView.InnerHtml += "<a href='Default.aspx' class='btn waves-effect waves-light orange lighten-2'>Cancel</a> ";
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "</div>";
-                myProfileView.InnerHtml += "</div>";
+                htmldata += "</div>";
+                htmldata += "<div class=\"card-action\"> ";
+                htmldata += "<a href=\"Login.aspx\" class=\"btn waves-effect waves-light\">Continue</a> ";
+                htmldata += "<a href=\"Default.aspx\" class=\"btn waves-effect waves-light orange lighten-2\">Cancel</a> ";
+                htmldata += "</div>";
+                htmldata += "</div>";
+                htmldata += "</div>";
+
+               
             }
+
+            myProfileView.InnerHtml = htmldata;
+        
         }
     }
 }

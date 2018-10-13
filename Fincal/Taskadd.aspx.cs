@@ -27,7 +27,10 @@ namespace Fincal
                 PlatformDrop.Items.Add(new ListItem("1", "1"));
                 PlatformDrop.Items.Add(new ListItem("2", "2"));
                 PlatformDrop.Items.Add(new ListItem("3", "3"));
+
             }
+
+      
         }
         protected void btntaskadd_ServerClick(object sender, EventArgs e)
         {

@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,9 +104,6 @@
     </None>
     <Content Include="Chatall.aspx" />
     <Content Include="Chatspecific.aspx" />
-    <Content Include="Collaboration.aspx" />
-    <Content Include="Collaborationadd.aspx" />
-    <Content Include="Collaborationedit.aspx" />
     <Content Include="Connected Services\Userservice\Fincal.Userservice.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -119,6 +117,11 @@
     <Content Include="Eventcreate.aspx" />
     <Content Include="Eventedit.aspx" />
     <Content Include="Eventslist.aspx" />
+    <Content Include="Issueaccept.aspx" />
+    <Content Include="Issueadd.aspx" />
+    <Content Include="Issueedit.aspx" />
+    <Content Include="Issues.aspx" />
+    <Content Include="Issueview.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="client_secret.json" />
     <None Include="Connected Services\Dataservice\Datamanagement.wsdl" />
@@ -162,6 +165,11 @@
     <Content Include="Myprofile.aspx" />
     <Content Include="Pictureadd.aspx" />
     <Content Include="Pictureedit.aspx" />
+    <Content Include="Projectaccept.aspx" />
+    <Content Include="Projectadd.aspx" />
+    <Content Include="Projectedit.aspx" />
+    <Content Include="Projects.aspx" />
+    <Content Include="Projectview.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Task.aspx" />
     <Content Include="Taskadd.aspx" />
@@ -189,27 +197,6 @@
     </Compile>
     <Compile Include="Chatspecific.aspx.designer.cs">
       <DependentUpon>Chatspecific.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Collaboration.aspx.cs">
-      <DependentUpon>Collaboration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Collaboration.aspx.designer.cs">
-      <DependentUpon>Collaboration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Collaborationadd.aspx.cs">
-      <DependentUpon>Collaborationadd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Collaborationadd.aspx.designer.cs">
-      <DependentUpon>Collaborationadd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Collaborationedit.aspx.cs">
-      <DependentUpon>Collaborationedit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Collaborationedit.aspx.designer.cs">
-      <DependentUpon>Collaborationedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Dataservice\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -250,6 +237,41 @@
       <DependentUpon>Eventslist.aspx</DependentUpon>
     </Compile>
     <Compile Include="ImageFunctions.cs" />
+    <Compile Include="Issueaccept.aspx.cs">
+      <DependentUpon>Issueaccept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issueaccept.aspx.designer.cs">
+      <DependentUpon>Issueaccept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Issueadd.aspx.cs">
+      <DependentUpon>Issueadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issueadd.aspx.designer.cs">
+      <DependentUpon>Issueadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Issueedit.aspx.cs">
+      <DependentUpon>Issueedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issueedit.aspx.designer.cs">
+      <DependentUpon>Issueedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Issues.aspx.cs">
+      <DependentUpon>Issues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issues.aspx.designer.cs">
+      <DependentUpon>Issues.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Issueview.aspx.cs">
+      <DependentUpon>Issueview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issueview.aspx.designer.cs">
+      <DependentUpon>Issueview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,6 +306,41 @@
     </Compile>
     <Compile Include="Pictureedit.aspx.designer.cs">
       <DependentUpon>Pictureedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projectaccept.aspx.cs">
+      <DependentUpon>Projectaccept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projectaccept.aspx.designer.cs">
+      <DependentUpon>Projectaccept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projectadd.aspx.cs">
+      <DependentUpon>Projectadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projectadd.aspx.designer.cs">
+      <DependentUpon>Projectadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projectedit.aspx.cs">
+      <DependentUpon>Projectedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projectedit.aspx.designer.cs">
+      <DependentUpon>Projectedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projectview.aspx.cs">
+      <DependentUpon>Projectview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projectview.aspx.designer.cs">
+      <DependentUpon>Projectview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

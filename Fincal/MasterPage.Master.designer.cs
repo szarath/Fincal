@@ -85,15 +85,6 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventsidenav;
         
         /// <summary>
-        /// chatsidenav control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chatsidenav;
-        
-        /// <summary>
         /// tasksidenav control.
         /// </summary>
         /// <remarks>
@@ -103,13 +94,22 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tasksidenav;
         
         /// <summary>
-        /// schedulingnav control.
+        /// projectsidenav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl schedulingnav;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projectsidenav;
+        
+        /// <summary>
+        /// issuessidenav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl issuessidenav;
         
         /// <summary>
         /// Allpicturesnav control.

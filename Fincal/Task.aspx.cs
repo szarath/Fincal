@@ -29,25 +29,16 @@ namespace Fincal
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
-                Response.Redirect("Default.aspx");
-
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { 
             Title = "Fincal: Tasks";
             UserCredential credential;
-         
-              
-            
-            /*using (var stream =
-                new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
-            {
-                string credPath = Server.MapPath("/token.json");
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    Scopes,
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credPath);
-            }*/
+
+
+
+
 
             using (var stream =
               new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
@@ -82,7 +73,7 @@ namespace Fincal
             findata.Open();
             UserData user = (UserData)Session["User"];
 
-            
+
 
             Tasks tasks = service.Tasks.List("@default").Execute();
             if (tasks.Items != null)
@@ -110,12 +101,12 @@ namespace Fincal
 
                             }
                             complete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
-                            complete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            complete += "<div class=\"col s12 m2 10 \">";
                             complete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + "\">";
                             //   htmldata += "<div class=\"card horizontal hoverable blue\">";
                             complete += "<div class=\"card-stacked\">";
                             complete += "<div class=\"card-content black-text\">";
-                            complete += "<span class=\"card-title\"><p class=\"trunctext bold\">" + task.Title.ToString() + "</p>";
+                            complete += "<span class=\"card-title\"><p class=\" bold\">" + task.Title.ToString() + "</p>";
                             complete += "</span>";
                             complete += "</div>";
                             complete += "</div>";
@@ -129,12 +120,12 @@ namespace Fincal
                             storedtask = findata.gettask(id, user.getID());
                             findata.inserttask(task.Title, "1", "1", task.Id, user.getID());
                             complete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
-                            complete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            complete += "<div class=\"col s12 m2 10 \">";
                             //     complete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             complete += "<div class=\"card  hoverable\">";
                             complete += "<div class=\"card-stacked\">";
                             complete += "<div class=\"card-content black-text\">";
-                            complete += "<span class=\"card-title\"><p class=\"trunctext bold\">" + task.Title.ToString() + "</p>";
+                            complete += "<span class=\"card-title\"><p class=\" bold\">" + task.Title.ToString() + "</p>";
                             complete += "</span>";
 
                             complete += "</div>";
@@ -168,12 +159,12 @@ namespace Fincal
                             storedtask = findata.gettask(id, user.getID().ToString());
 
                             incomplete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
-                            incomplete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            incomplete += "<div class=\"col s12 m2 10 \">";
                             incomplete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             //   htmldata += "<div class=\"card horizontal hoverable blue\">";
                             incomplete += "<div class=\"card-stacked\">";
                             incomplete += "<div class=\"card-content black-text\">";
-                            incomplete += "<span class=\"card-title\"><p class=\"trunctext bold\">" + task.Title.ToString() + "</p>";
+                            incomplete += "<span class=\"card-title\"><p class=\" bold\">" + task.Title.ToString() + "</p>";
                             incomplete += "</span>";
 
                             incomplete += "</div>";
@@ -187,12 +178,12 @@ namespace Fincal
                         {
                             findata.inserttask(task.Title, "0", "1", task.Id, user.getID());
                             incomplete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
-                            incomplete += "<div class=\"col s12 m2 10 push-m1 push-l2\">";
+                            incomplete += "<div class=\"col s12 m2 10 \">";
                             // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                             incomplete += "<div class=\"card  hoverable\">";
                             incomplete += "<div class=\"card-stacked\">";
                             incomplete += "<div class=\"card-content black-text\">";
-                            incomplete += "<span class=\"card-title\"><p class=\"trunctext bold \">" + task.Title.ToString() + "</p>";
+                            incomplete += "<span class=\"card-title\"><p class=\" bold \">" + task.Title.ToString() + "</p>";
                             incomplete += "</span>";
 
                             incomplete += "</div>";
@@ -229,7 +220,7 @@ namespace Fincal
             }
             else
             {
-                
+
             }
 
 
@@ -242,11 +233,11 @@ namespace Fincal
             completedtask.InnerHtml = complete;
 
 
-  
+
 
             findata.Close();
 
-
+        }
         }
 
 

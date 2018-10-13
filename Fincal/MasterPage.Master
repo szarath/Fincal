@@ -48,9 +48,10 @@
                          <li id="Loggedinnav" class="divider" visible="false" runat="server"></li>
                        <li id="calsidenav" class="bold" runat="server"><a href="Default.aspx" class="waves-effect waves-blue-grey"> <i class="material-icons prefix">home</i>Home</a></li> 
                      <li id="eventsidenav" class="bold" runat="server"><a href="Eventslist.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">event</i>Events</a></li> 
-                     <li id="chatsidenav" class="bold" runat="server"><a href="Chat.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">speaker_notes</i>Chat</a></li> 
+                 
                         <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Task</a></li> 
-                          <li id="schedulingnav" class="bold" runat="server"><a href="Collaboration.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">schedule</i>Collabration</a></li>             
+                          <li id="projectsidenav" class="bold" runat="server"><a href="Projects.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">assignment</i>Projects</a></li>        
+              <li id="issuessidenav" class="bold" runat="server"><a href="Issues.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">notification_important</i>Issues</a></li> 
                           <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
                        
                       <li class="divider"></li>
@@ -109,6 +110,8 @@
             $('.collapsible').collapsible({
                 accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
+
+            $('select').formSelect();
 
             $('.datepicker').datepicker(
 

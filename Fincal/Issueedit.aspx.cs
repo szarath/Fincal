@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Fincal
 {
-    public partial class Collaborationedit : System.Web.UI.Page
+    public partial class Issueedit : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

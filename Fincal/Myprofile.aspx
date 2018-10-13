@@ -25,18 +25,30 @@
                                         <input  id="txtDoB"  runat="server" class="datepicker black-text"/>
                                         <label for="txtDoB">Date Of Birth</label>
                                     </div>
+                                       <div class="input-field col s12 m6 l6">
+                                       <select id="skilldrop" runat="server">
+                                      <option value="" disabled selected>Choose your option</option>
+    
+                                      </select>
+                                     <label>Skill</label>
+                                          <blockquote>Choose a skill your well versed in.</blockquote>
+                                       </div>
+
                             </div>
 
-                            <div class="row">
-                                <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Update Account</a>
-                            </div>
+                          
                        
 
                      </div>
                          <div class="card-action">
                   
                                     
-                        <div class="row"><a href="#AcceptDelete" class="red-text text-lighten-2 modal-trigger">Delete Account</a></div>
+                        <div class="row">
+
+                                   <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Update Account</a>
+                            <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger"><i class="material-icons left">delete</i>Delete Account</a>
+
+                        </div>
                  
                 </div>
               </div>

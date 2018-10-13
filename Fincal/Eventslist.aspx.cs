@@ -100,7 +100,7 @@ namespace Fincal
                     }
                     if (loc == null)
                     {
-                        loc = "Johannesburg";
+                        loc = "";
                     }
                     Boolean exsisting = false;
                     object[] googleids = findata.geteventids(user.getID());
@@ -141,7 +141,7 @@ namespace Fincal
 
                         }
 
-                        htmldata += "<a href=\"EventEdit?eid=" + eventItem.Id + "\">";
+                        htmldata += "<a href=\"EventEdit.aspx?eid=" + eventItem.Id + "\">";
                         htmldata += "<div class=\"col s12 m2 l0\">";
                         htmldata += "<div class=\"card horizontal hoverable\">";
 
@@ -183,7 +183,7 @@ namespace Fincal
 
                         findata.insertevent(Convert.ToDateTime(when), summary, loc, id, user.getID(), desc);
 
-                        htmldata += "<a href=\"EventEdit?eid=" + id + "\">";
+                        htmldata += "<a href=\"EventEdit.aspx?eid=" + id + "\">";
                         htmldata += "<div class=\"col s12 m2 l0\">";
 
 

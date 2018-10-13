@@ -194,6 +194,206 @@ namespace Fincal.Dataservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateschedule", ReplyAction="http://tempuri.org/IDatamanagement/updatescheduleResponse")]
         System.Threading.Tasks.Task<int> updatescheduleAsync(System.DateTime starttime, System.DateTime endtime, string category, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getskills", ReplyAction="http://tempuri.org/IDatamanagement/getskillsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getskills();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getskills", ReplyAction="http://tempuri.org/IDatamanagement/getskillsResponse")]
+        System.Threading.Tasks.Task<object[]> getskillsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getassignedprojects", ReplyAction="http://tempuri.org/IDatamanagement/getassignedprojectsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getassignedprojects(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getassignedprojects", ReplyAction="http://tempuri.org/IDatamanagement/getassignedprojectsResponse")]
+        System.Threading.Tasks.Task<object[]> getassignedprojectsAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectdetails", ReplyAction="http://tempuri.org/IDatamanagement/getprojectdetailsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojectdetails(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectdetails", ReplyAction="http://tempuri.org/IDatamanagement/getprojectdetailsResponse")]
+        System.Threading.Tasks.Task<object[]> getprojectdetailsAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojects", ReplyAction="http://tempuri.org/IDatamanagement/getprojectsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getprojects(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojects", ReplyAction="http://tempuri.org/IDatamanagement/getprojectsResponse")]
+        System.Threading.Tasks.Task<object[][]> getprojectsAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createproject", ReplyAction="http://tempuri.org/IDatamanagement/createprojectResponse")]
+        int createproject(string title, string description, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createproject", ReplyAction="http://tempuri.org/IDatamanagement/createprojectResponse")]
+        System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateproject", ReplyAction="http://tempuri.org/IDatamanagement/updateprojectResponse")]
+        int updateproject(string title, string description, string projID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateproject", ReplyAction="http://tempuri.org/IDatamanagement/updateprojectResponse")]
+        System.Threading.Tasks.Task<int> updateprojectAsync(string title, string description, string projID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteproject", ReplyAction="http://tempuri.org/IDatamanagement/deleteprojectResponse")]
+        int deleteproject(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteproject", ReplyAction="http://tempuri.org/IDatamanagement/deleteprojectResponse")]
+        System.Threading.Tasks.Task<int> deleteprojectAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuesassigned", ReplyAction="http://tempuri.org/IDatamanagement/getissuesassignedResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getissuesassigned(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuesassigned", ReplyAction="http://tempuri.org/IDatamanagement/getissuesassignedResponse")]
+        System.Threading.Tasks.Task<object[]> getissuesassignedAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojissues", ReplyAction="http://tempuri.org/IDatamanagement/getprojissuesResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getprojissues(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojissues", ReplyAction="http://tempuri.org/IDatamanagement/getprojissuesResponse")]
+        System.Threading.Tasks.Task<object[][]> getprojissuesAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuedetails", ReplyAction="http://tempuri.org/IDatamanagement/getissuedetailsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getissuedetails(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuedetails", ReplyAction="http://tempuri.org/IDatamanagement/getissuedetailsResponse")]
+        System.Threading.Tasks.Task<object[][]> getissuedetailsAsync(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createissue", ReplyAction="http://tempuri.org/IDatamanagement/createissueResponse")]
+        int createissue(string title, string description, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createissue", ReplyAction="http://tempuri.org/IDatamanagement/createissueResponse")]
+        System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateissue", ReplyAction="http://tempuri.org/IDatamanagement/updateissueResponse")]
+        int updateissue(string isid, string status, string assid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateissue", ReplyAction="http://tempuri.org/IDatamanagement/updateissueResponse")]
+        System.Threading.Tasks.Task<int> updateissueAsync(string isid, string status, string assid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissue", ReplyAction="http://tempuri.org/IDatamanagement/deleteissueResponse")]
+        int deleteissue(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissue", ReplyAction="http://tempuri.org/IDatamanagement/deleteissueResponse")]
+        System.Threading.Tasks.Task<int> deleteissueAsync(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/addprojteam", ReplyAction="http://tempuri.org/IDatamanagement/addprojteamResponse")]
+        int addprojteam(string uid, string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/addprojteam", ReplyAction="http://tempuri.org/IDatamanagement/addprojteamResponse")]
+        System.Threading.Tasks.Task<int> addprojteamAsync(string uid, string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteprojteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteprojteamResponse")]
+        int deleteprojteam(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteprojteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteprojteamResponse")]
+        System.Threading.Tasks.Task<int> deleteprojteamAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteassiguserfromteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteassiguserfromteamResponse")]
+        int deleteassiguserfromteam(string uid, string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteassiguserfromteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteassiguserfromteamResponse")]
+        System.Threading.Tasks.Task<int> deleteassiguserfromteamAsync(string uid, string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectmembers", ReplyAction="http://tempuri.org/IDatamanagement/getprojectmembersResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojectmembers(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectmembers", ReplyAction="http://tempuri.org/IDatamanagement/getprojectmembersResponse")]
+        System.Threading.Tasks.Task<object[]> getprojectmembersAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/addissteam", ReplyAction="http://tempuri.org/IDatamanagement/addissteamResponse")]
+        int addissteam(string uid, string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/addissteam", ReplyAction="http://tempuri.org/IDatamanagement/addissteamResponse")]
+        System.Threading.Tasks.Task<int> addissteamAsync(string uid, string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteissteamResponse")]
+        int deleteissteam(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissteam", ReplyAction="http://tempuri.org/IDatamanagement/deleteissteamResponse")]
+        System.Threading.Tasks.Task<int> deleteissteamAsync(string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteassiguserformissue", ReplyAction="http://tempuri.org/IDatamanagement/deleteassiguserformissueResponse")]
+        int deleteassiguserformissue(string uid, string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteassiguserformissue", ReplyAction="http://tempuri.org/IDatamanagement/deleteassiguserformissueResponse")]
+        System.Threading.Tasks.Task<int> deleteassiguserformissueAsync(string uid, string issueid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnotification", ReplyAction="http://tempuri.org/IDatamanagement/getprojnotificationResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojnotification(string projectnotificationuserid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnotification", ReplyAction="http://tempuri.org/IDatamanagement/getprojnotificationResponse")]
+        System.Threading.Tasks.Task<object[]> getprojnotificationAsync(string projectnotificationuserid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertprojectnotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertprojectnotificationsResponse")]
+        int insertprojectnotifications(string porjid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertprojectnotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertprojectnotificationsResponse")]
+        System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteporjnotificaiton", ReplyAction="http://tempuri.org/IDatamanagement/deleteporjnotificaitonResponse")]
+        int deleteporjnotificaiton(string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteporjnotificaiton", ReplyAction="http://tempuri.org/IDatamanagement/deleteporjnotificaitonResponse")]
+        System.Threading.Tasks.Task<int> deleteporjnotificaitonAsync(string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/getissuenotificationsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getissuenotifications(string issuenotificationuserid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/getissuenotificationsResponse")]
+        System.Threading.Tasks.Task<object[]> getissuenotificationsAsync(string issuenotificationuserid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissuenotification", ReplyAction="http://tempuri.org/IDatamanagement/deleteissuenotificationResponse")]
+        int deleteissuenotification(string issid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissuenotification", ReplyAction="http://tempuri.org/IDatamanagement/deleteissuenotificationResponse")]
+        System.Threading.Tasks.Task<int> deleteissuenotificationAsync(string issid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertissuenotificationsResponse")]
+        int insertissuenotifications(string issueid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertissuenotificationsResponse")]
+        System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getuserinformationResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getuserinformation();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getuserinformationResponse")]
+        System.Threading.Tasks.Task<object[][]> getuserinformationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectleaderinformaion", ReplyAction="http://tempuri.org/IDatamanagement/getprojectleaderinformaionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojectleaderinformaion(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojectleaderinformaion", ReplyAction="http://tempuri.org/IDatamanagement/getprojectleaderinformaionResponse")]
+        System.Threading.Tasks.Task<object[]> getprojectleaderinformaionAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getspecificuserinformation(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse")]
+        System.Threading.Tasks.Task<object[]> getspecificuserinformationAsync(string uid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -437,6 +637,238 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<int> updatescheduleAsync(System.DateTime starttime, System.DateTime endtime, string category, string id) {
             return base.Channel.updatescheduleAsync(starttime, endtime, category, id);
+        }
+        
+        public object[] getskills() {
+            return base.Channel.getskills();
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getskillsAsync() {
+            return base.Channel.getskillsAsync();
+        }
+        
+        public object[] getassignedprojects(string uid) {
+            return base.Channel.getassignedprojects(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getassignedprojectsAsync(string uid) {
+            return base.Channel.getassignedprojectsAsync(uid);
+        }
+        
+        public object[] getprojectdetails(string projid) {
+            return base.Channel.getprojectdetails(projid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojectdetailsAsync(string projid) {
+            return base.Channel.getprojectdetailsAsync(projid);
+        }
+        
+        public object[][] getprojects(string uid) {
+            return base.Channel.getprojects(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getprojectsAsync(string uid) {
+            return base.Channel.getprojectsAsync(uid);
+        }
+        
+        public int createproject(string title, string description, string uid) {
+            return base.Channel.createproject(title, description, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid) {
+            return base.Channel.createprojectAsync(title, description, uid);
+        }
+        
+        public int updateproject(string title, string description, string projID) {
+            return base.Channel.updateproject(title, description, projID);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateprojectAsync(string title, string description, string projID) {
+            return base.Channel.updateprojectAsync(title, description, projID);
+        }
+        
+        public int deleteproject(string projid) {
+            return base.Channel.deleteproject(projid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteprojectAsync(string projid) {
+            return base.Channel.deleteprojectAsync(projid);
+        }
+        
+        public object[] getissuesassigned(string uid) {
+            return base.Channel.getissuesassigned(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getissuesassignedAsync(string uid) {
+            return base.Channel.getissuesassignedAsync(uid);
+        }
+        
+        public object[][] getprojissues(string projid) {
+            return base.Channel.getprojissues(projid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getprojissuesAsync(string projid) {
+            return base.Channel.getprojissuesAsync(projid);
+        }
+        
+        public object[][] getissuedetails(string issueid) {
+            return base.Channel.getissuedetails(issueid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getissuedetailsAsync(string issueid) {
+            return base.Channel.getissuedetailsAsync(issueid);
+        }
+        
+        public int createissue(string title, string description, string projid, string uid) {
+            return base.Channel.createissue(title, description, projid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string uid) {
+            return base.Channel.createissueAsync(title, description, projid, uid);
+        }
+        
+        public int updateissue(string isid, string status, string assid) {
+            return base.Channel.updateissue(isid, status, assid);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateissueAsync(string isid, string status, string assid) {
+            return base.Channel.updateissueAsync(isid, status, assid);
+        }
+        
+        public int deleteissue(string issueid) {
+            return base.Channel.deleteissue(issueid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteissueAsync(string issueid) {
+            return base.Channel.deleteissueAsync(issueid);
+        }
+        
+        public int addprojteam(string uid, string projid) {
+            return base.Channel.addprojteam(uid, projid);
+        }
+        
+        public System.Threading.Tasks.Task<int> addprojteamAsync(string uid, string projid) {
+            return base.Channel.addprojteamAsync(uid, projid);
+        }
+        
+        public int deleteprojteam(string projid) {
+            return base.Channel.deleteprojteam(projid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteprojteamAsync(string projid) {
+            return base.Channel.deleteprojteamAsync(projid);
+        }
+        
+        public int deleteassiguserfromteam(string uid, string projid) {
+            return base.Channel.deleteassiguserfromteam(uid, projid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteassiguserfromteamAsync(string uid, string projid) {
+            return base.Channel.deleteassiguserfromteamAsync(uid, projid);
+        }
+        
+        public object[] getprojectmembers(string projid) {
+            return base.Channel.getprojectmembers(projid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojectmembersAsync(string projid) {
+            return base.Channel.getprojectmembersAsync(projid);
+        }
+        
+        public int addissteam(string uid, string issueid) {
+            return base.Channel.addissteam(uid, issueid);
+        }
+        
+        public System.Threading.Tasks.Task<int> addissteamAsync(string uid, string issueid) {
+            return base.Channel.addissteamAsync(uid, issueid);
+        }
+        
+        public int deleteissteam(string issueid) {
+            return base.Channel.deleteissteam(issueid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteissteamAsync(string issueid) {
+            return base.Channel.deleteissteamAsync(issueid);
+        }
+        
+        public int deleteassiguserformissue(string uid, string issueid) {
+            return base.Channel.deleteassiguserformissue(uid, issueid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteassiguserformissueAsync(string uid, string issueid) {
+            return base.Channel.deleteassiguserformissueAsync(uid, issueid);
+        }
+        
+        public object[] getprojnotification(string projectnotificationuserid) {
+            return base.Channel.getprojnotification(projectnotificationuserid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojnotificationAsync(string projectnotificationuserid) {
+            return base.Channel.getprojnotificationAsync(projectnotificationuserid);
+        }
+        
+        public int insertprojectnotifications(string porjid, string uid) {
+            return base.Channel.insertprojectnotifications(porjid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid) {
+            return base.Channel.insertprojectnotificationsAsync(porjid, uid);
+        }
+        
+        public int deleteporjnotificaiton(string projid, string uid) {
+            return base.Channel.deleteporjnotificaiton(projid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteporjnotificaitonAsync(string projid, string uid) {
+            return base.Channel.deleteporjnotificaitonAsync(projid, uid);
+        }
+        
+        public object[] getissuenotifications(string issuenotificationuserid) {
+            return base.Channel.getissuenotifications(issuenotificationuserid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getissuenotificationsAsync(string issuenotificationuserid) {
+            return base.Channel.getissuenotificationsAsync(issuenotificationuserid);
+        }
+        
+        public int deleteissuenotification(string issid, string uid) {
+            return base.Channel.deleteissuenotification(issid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteissuenotificationAsync(string issid, string uid) {
+            return base.Channel.deleteissuenotificationAsync(issid, uid);
+        }
+        
+        public int insertissuenotifications(string issueid, string uid) {
+            return base.Channel.insertissuenotifications(issueid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid) {
+            return base.Channel.insertissuenotificationsAsync(issueid, uid);
+        }
+        
+        public object[][] getuserinformation() {
+            return base.Channel.getuserinformation();
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getuserinformationAsync() {
+            return base.Channel.getuserinformationAsync();
+        }
+        
+        public object[] getprojectleaderinformaion(string uid) {
+            return base.Channel.getprojectleaderinformaion(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojectleaderinformaionAsync(string uid) {
+            return base.Channel.getprojectleaderinformaionAsync(uid);
+        }
+        
+        public object[] getspecificuserinformation(string uid) {
+            return base.Channel.getspecificuserinformation(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getspecificuserinformationAsync(string uid) {
+            return base.Channel.getspecificuserinformationAsync(uid);
         }
     }
 }

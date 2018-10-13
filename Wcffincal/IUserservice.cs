@@ -22,7 +22,7 @@ namespace Wcffincal
         //user operations 
         [OperationContract]
         //[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/AndroidinsertAd")]
-        int insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB);
+        int insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB, string skill);
 
         [OperationContract]
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/AndroidinsertAd")]
@@ -34,13 +34,12 @@ namespace Wcffincal
 
         [OperationContract]
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/updateUserInfo")]
-        int updateUserInfo(string ID, string firstName, string surname, DateTime DoB);
+        int updateUserInfo(string ID, string firstName, string surname, DateTime DoB, string skill);
 
         [OperationContract]
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/deleteUser")]
         int deleteUser(string ID);
 
-        // TODO: Add your service operations here
     }
 
 

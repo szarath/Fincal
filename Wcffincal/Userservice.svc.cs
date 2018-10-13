@@ -36,7 +36,7 @@ namespace Wcffincal
 
         object[] IUserservice.Authenticate(string UserEmailOrUsername, string Password)
         {
-            string sqlStatement = "SELECT uID, uFirstName, uSurname, uDoB FROM tblUser WHERE (UPPER(uUsername)=@0 OR UPPER(uEmail)=@0) AND uPass=@1;";
+            string sqlStatement = "SELECT uID, uFirstName, uSurname, uDoB, sID FROM tblUser WHERE (UPPER(uUsername)=@0 OR UPPER(uEmail)=@0) AND uPass=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -67,9 +67,9 @@ namespace Wcffincal
             return temp;
         }
 
-        int IUserservice.insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB)
+        int IUserservice.insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB,string skill)
         {
-            string sqlStatement = "INSERT INTO tblUser (uUsername, uPass, uFirstName, uSurname, uEmail, uDoB) VALUES(@0,@1,@2,@3,@4,@5);";
+            string sqlStatement = "INSERT INTO tblUser (uUsername, uPass, uFirstName, uSurname, uEmail, uDoB, sID) VALUES(@0,@1,@2,@3,@4,@5,@6);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -79,7 +79,7 @@ namespace Wcffincal
             command.Parameters.AddWithValue("@3", surname);
             command.Parameters.AddWithValue("@4", Email);
             command.Parameters.AddWithValue("@5", DoB);
-
+            command.Parameters.AddWithValue("@6", skill);
 
             return clsSQL.ExecuteNonQuery(command);
         }
@@ -134,16 +134,17 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IUserservice.updateUserInfo(string ID, string firstName, string surname, DateTime DoB)
+        int IUserservice.updateUserInfo(string ID, string firstName, string surname, DateTime DoB, string skill)
         {
-            string sqlStatement = "UPDATE tblUser SET uFirstName=@0, uSurname=@1, uDoB=@2 WHERE uID=@3;";
+            string sqlStatement = "UPDATE tblUser SET uFirstName=@0, uSurname=@1, uDoB=@2, sID=@3 WHERE uID=@4;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", firstName);
             command.Parameters.AddWithValue("@1", surname);
             command.Parameters.AddWithValue("@2", DoB);
-            command.Parameters.AddWithValue("@3", ID);
+            command.Parameters.AddWithValue("@3", skill);
+            command.Parameters.AddWithValue("@4", ID);
 
             return clsSQL.ExecuteNonQuery(command);
         }

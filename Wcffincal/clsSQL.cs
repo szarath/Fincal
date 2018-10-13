@@ -62,6 +62,34 @@ namespace Wcffincal.Classes
             return 1;
         }
 
+        public static int ExecuteScalar(SqlCommand sqlCommand)
+        {
+            int id;
+            try
+            {
+                connection.Open();
+                sqlCommand.Connection = connection;
+                id =  Convert.ToInt32( sqlCommand.ExecuteScalar());
+                sqlCommand.Dispose();
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+                return 0;
+
+            }
+            finally
+            {
+                if (!(connection == null))
+                    connection.Close();
+
+               
+            }
+
+            return id;
+        }
+
+
         //This function returns the connection string
         public static String getConnectionString()
         {

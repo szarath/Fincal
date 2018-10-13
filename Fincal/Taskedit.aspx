@@ -15,7 +15,7 @@
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title">Add Task</span>
+              <span class="card-title">Edit Task</span>
               
                 <div id="Invlaidtask" runat="server" class="row red-text text-lighten-2">
 
@@ -30,14 +30,15 @@
                         <select id="PlatformDrop" runat="server">
                             <option value="" disabled selected>Choose Level</option>
                         </select> 
-                        <label for="CategoryDrop">Level</label>
+                        <label for="PlatformDrop">Level</label>
                     </div>
                 </div> 
 
                 <div class="row">
                       <div class="input-field col s6 m3 l3">
-                        <input type="checkbox" id="Completedcheck" ClientIDMode="static" runat="server"/>
-                        <label for="Completedcheck">Completed</label>
+           <label>              
+                        <input type="checkbox" id="Completedcheck"  runat="server"/>
+              <span> Completed</span></label>
                     </div>
 
                 </div>

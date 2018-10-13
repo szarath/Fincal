@@ -169,6 +169,180 @@
   <wsdl:message name="IDatamanagement_updateschedule_OutputMessage">
     <wsdl:part name="parameters" element="tns:updatescheduleResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getskills_InputMessage">
+    <wsdl:part name="parameters" element="tns:getskills" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getskills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getskillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getassignedprojects_InputMessage">
+    <wsdl:part name="parameters" element="tns:getassignedprojects" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getassignedprojects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getassignedprojectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectdetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectdetails" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectdetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectdetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojects_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojects" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_createproject_InputMessage">
+    <wsdl:part name="parameters" element="tns:createproject" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_createproject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createprojectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateproject_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateproject" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateproject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateprojectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteproject_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteproject" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteproject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuesassigned_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissuesassigned" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuesassigned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuesassignedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojissues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojissues" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojissues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojissuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuedetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissuedetails" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuedetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuedetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_createissue_InputMessage">
+    <wsdl:part name="parameters" element="tns:createissue" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_createissue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createissueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateissue_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateissue" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updateissue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateissueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissue_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissue" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_addprojteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:addprojteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_addprojteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addprojteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteprojteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteprojteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteassiguserfromteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteassiguserfromteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteassiguserfromteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteassiguserfromteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectmembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectmembers" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectmembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectmembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_addissteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:addissteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_addissteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addissteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteassiguserformissue_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteassiguserformissue" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteassiguserformissue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteassiguserformissueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojnotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojnotification" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojnotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojnotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertprojectnotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertprojectnotifications" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertprojectnotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertprojectnotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteporjnotificaiton_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteporjnotificaiton" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteporjnotificaiton_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteporjnotificaitonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuenotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissuenotifications" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuenotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuenotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissuenotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissuenotification" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissuenotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissuenotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissuenotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertissuenotifications" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissuenotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertissuenotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getuserinformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getuserinformation" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getuserinformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getuserinformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectleaderinformaion_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectleaderinformaion" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojectleaderinformaion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojectleaderinformaionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getspecificuserinformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getspecificuserinformation" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getspecificuserinformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getspecificuserinformationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDatamanagement">
     <wsdl:operation name="inserttask">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserttask" message="tns:IDatamanagement_inserttask_InputMessage" />
@@ -277,6 +451,122 @@
     <wsdl:operation name="updateschedule">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updateschedule" message="tns:IDatamanagement_updateschedule_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatescheduleResponse" message="tns:IDatamanagement_updateschedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getskills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getskills" message="tns:IDatamanagement_getskills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getskillsResponse" message="tns:IDatamanagement_getskills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getassignedprojects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getassignedprojects" message="tns:IDatamanagement_getassignedprojects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getassignedprojectsResponse" message="tns:IDatamanagement_getassignedprojects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojectdetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojectdetails" message="tns:IDatamanagement_getprojectdetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojectdetailsResponse" message="tns:IDatamanagement_getprojectdetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojects" message="tns:IDatamanagement_getprojects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojectsResponse" message="tns:IDatamanagement_getprojects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createproject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/createproject" message="tns:IDatamanagement_createproject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/createprojectResponse" message="tns:IDatamanagement_createproject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateproject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updateproject" message="tns:IDatamanagement_updateproject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updateprojectResponse" message="tns:IDatamanagement_updateproject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteproject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteproject" message="tns:IDatamanagement_deleteproject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojectResponse" message="tns:IDatamanagement_deleteproject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissuesassigned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuesassigned" message="tns:IDatamanagement_getissuesassigned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuesassignedResponse" message="tns:IDatamanagement_getissuesassigned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojissues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojissues" message="tns:IDatamanagement_getprojissues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojissuesResponse" message="tns:IDatamanagement_getprojissues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissuedetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuedetails" message="tns:IDatamanagement_getissuedetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuedetailsResponse" message="tns:IDatamanagement_getissuedetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createissue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/createissue" message="tns:IDatamanagement_createissue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/createissueResponse" message="tns:IDatamanagement_createissue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateissue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updateissue" message="tns:IDatamanagement_updateissue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updateissueResponse" message="tns:IDatamanagement_updateissue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissue" message="tns:IDatamanagement_deleteissue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissueResponse" message="tns:IDatamanagement_deleteissue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addprojteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addprojteam" message="tns:IDatamanagement_addprojteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/addprojteamResponse" message="tns:IDatamanagement_addprojteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojteam" message="tns:IDatamanagement_deleteprojteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojteamResponse" message="tns:IDatamanagement_deleteprojteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteassiguserfromteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserfromteam" message="tns:IDatamanagement_deleteassiguserfromteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserfromteamResponse" message="tns:IDatamanagement_deleteassiguserfromteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojectmembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojectmembers" message="tns:IDatamanagement_getprojectmembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojectmembersResponse" message="tns:IDatamanagement_getprojectmembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addissteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addissteam" message="tns:IDatamanagement_addissteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/addissteamResponse" message="tns:IDatamanagement_addissteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissteam" message="tns:IDatamanagement_deleteissteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissteamResponse" message="tns:IDatamanagement_deleteissteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteassiguserformissue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserformissue" message="tns:IDatamanagement_deleteassiguserformissue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserformissueResponse" message="tns:IDatamanagement_deleteassiguserformissue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojnotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojnotification" message="tns:IDatamanagement_getprojnotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojnotificationResponse" message="tns:IDatamanagement_getprojnotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertprojectnotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertprojectnotifications" message="tns:IDatamanagement_insertprojectnotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertprojectnotificationsResponse" message="tns:IDatamanagement_insertprojectnotifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteporjnotificaiton">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteporjnotificaiton" message="tns:IDatamanagement_deleteporjnotificaiton_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteporjnotificaitonResponse" message="tns:IDatamanagement_deleteporjnotificaiton_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissuenotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuenotifications" message="tns:IDatamanagement_getissuenotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuenotificationsResponse" message="tns:IDatamanagement_getissuenotifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissuenotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissuenotification" message="tns:IDatamanagement_deleteissuenotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissuenotificationResponse" message="tns:IDatamanagement_deleteissuenotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertissuenotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertissuenotifications" message="tns:IDatamanagement_insertissuenotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertissuenotificationsResponse" message="tns:IDatamanagement_insertissuenotifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getuserinformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getuserinformation" message="tns:IDatamanagement_getuserinformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getuserinformationResponse" message="tns:IDatamanagement_getuserinformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojectleaderinformaion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojectleaderinformaion" message="tns:IDatamanagement_getprojectleaderinformaion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojectleaderinformaionResponse" message="tns:IDatamanagement_getprojectleaderinformaion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getspecificuserinformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getspecificuserinformation" message="tns:IDatamanagement_getspecificuserinformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse" message="tns:IDatamanagement_getspecificuserinformation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDatamanagement" type="tns:IDatamanagement">
@@ -517,6 +807,267 @@
     </wsdl:operation>
     <wsdl:operation name="updateschedule">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/updateschedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getskills">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getskills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getassignedprojects">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getassignedprojects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojectdetails">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojectdetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojects">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createproject">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/createproject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateproject">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updateproject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteproject">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteproject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissuesassigned">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissuesassigned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojissues">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojissues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissuedetails">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissuedetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createissue">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/createissue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateissue">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updateissue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissue">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addprojteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/addprojteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteprojteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteassiguserfromteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteassiguserfromteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojectmembers">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojectmembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addissteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/addissteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteassiguserformissue">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteassiguserformissue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojnotification">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojnotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertprojectnotifications">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertprojectnotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteporjnotificaiton">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteporjnotificaiton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissuenotifications">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissuenotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissuenotification">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissuenotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertissuenotifications">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertissuenotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getuserinformation">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getuserinformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojectleaderinformaion">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojectleaderinformaion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getspecificuserinformation">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getspecificuserinformation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -29,9 +29,8 @@
 
                 <!--Card Actions-->
               
-                <div class="row">
-                    <button id="btnLogin" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="LoginUser_ServerClick">Login</button>
-                    <a id="btnRegister" href="Register.aspx" class="waves-effect waves-light btn orange lighten-2">Register</a>
+              <!--    <div class="row">
+                
                     <div  id="loginSpinner" class="preloader-wrapper small active" runat="server" visible="false">
                         <div class="spinner-layer spinner-blue-only">
                             <div class="circle-clipper left">
@@ -45,11 +44,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
 
             </div>
             
+              <div class="card-action">
+
+                      <button id="btnLogin" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="LoginUser_ServerClick">Login</button>
+                    <a id="btnRegister" href="Register.aspx" class="waves-effect waves-light btn orange lighten-2">Register</a>
+                  </div>
+
           </div>
         </div>
            

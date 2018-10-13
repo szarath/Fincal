@@ -14,18 +14,18 @@ namespace Fincal
         private string username;
         private string firstName;
         private string surname;
-
+       
         private DateTime DoB;
+        private string skill;
 
-
-        public UserData(string ID, string username, string firstname, string Surname, DateTime DoB)
+        public UserData(string ID, string username, string firstname, string Surname, DateTime DoB,string skill)
         {
             this.ID = ID;
             this.username = username;
             this.firstName = firstname;
             this.surname = Surname;
             this.DoB = DoB;
-       
+            this.skill = skill;
         }
 
 
@@ -33,7 +33,7 @@ namespace Fincal
         public string getUsername() { return this.username; }
         public string getFirstName() { return this.firstName; }
         public string getSurname() { return this.surname; }
-    
+        public string getSkill() { return this.skill; }
         public DateTime getDoB() { return this.DoB; }
 
         

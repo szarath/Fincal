@@ -11,7 +11,7 @@ namespace Fincal
 {
 
 
-    public partial class Collaborationadd
+    public partial class Issueedit
     {
     }
 }

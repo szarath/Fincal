@@ -29,8 +29,9 @@
                     <div class="input-field col s6 m4 l3">
                         <select id="PlatformDrop" runat="server">
                             <option value="" disabled selected>Choose Level</option>
+                           
                         </select> 
-                        <label for="CategoryDrop">Level</label>
+                        <label for="PlatformDrop">Level</label>
                     </div>
                 </div> 
 

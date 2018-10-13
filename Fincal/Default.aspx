@@ -4,11 +4,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
 
         <div class="row">
-          <div class="col s12 m10 l8 ">
+          <div class="col container s12 m10 l8 ">
             <h3 id="indexTitle" class="bold" runat="server">Welcome, Please Register/Login</h3>
         </div>
         
     </div>
+
+     <div runat="server" id="projectnotificaitonmain" visible="false">
+         <div class="row">
+          <div class="col s12 m10 l8 ">
+            <h4 id="H4" class="bold" runat="server">Projects</h4>
+        </div>  
+    </div>
+
+      <div class="row"  id="newprojects" runat="server">
+
+  
+    </div>
+        </div>
+
+    
+     <div runat="server" id="issuenotificaitonmain" visible="false">
+         <div class="row">
+          <div class="col s12 m10 l8 ">
+            <h4 id="H5" class="bold" runat="server">Issues</h4>
+        </div>  
+    </div>
+
+      <div class="row"  id="newissues" runat="server">
+
+  
+    </div>
+        </div>
 
     <div runat="server" id="eventmain" visible="false">
          <div class="row">

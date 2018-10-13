@@ -20,9 +20,9 @@ namespace Fincal
 
                 calsidenav.Visible = true;
                 eventsidenav.Visible = true;
-                chatsidenav.Visible = true;
+                projectsidenav.Visible = true;
                 tasksidenav.Visible = true;
-                schedulingnav.Visible = true;
+                issuessidenav.Visible = true;
                 Allpicturesnav.Visible = true;
                 myProfileSideNav.Visible = true;
                 signOutSideNav.Visible = true;
@@ -43,9 +43,9 @@ namespace Fincal
                 Loggedinnav.Visible = false;
                 calsidenav.Visible = false;
                 eventsidenav.Visible = false;
-                chatsidenav.Visible = false;
+                projectsidenav.Visible = false;
                 tasksidenav.Visible = false;
-                schedulingnav.Visible = false;
+                issuessidenav.Visible = false;
                 Allpicturesnav.Visible = false;
                 myProfileSideNav.Visible = false;
                 signOutSideNav.Visible = false;

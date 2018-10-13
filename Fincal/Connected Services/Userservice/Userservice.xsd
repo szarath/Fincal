@@ -39,6 +39,7 @@
         <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DoB" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="skill" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -85,6 +86,7 @@
         <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DoB" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="skill" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

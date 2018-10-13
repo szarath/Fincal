@@ -106,6 +106,128 @@ namespace Wcffincal
         [OperationContract]
         int updateschedule(DateTime starttime, DateTime endtime, string category, string id);
 
-      
+
+
+
+
+
+        //skills operations 
+        [OperationContract]
+        object[] getskills();
+
+
+
+        //porject operations
+
+
+        [OperationContract]
+        object[] getassignedprojects(string uid);
+
+        [OperationContract]
+        object[] getprojectdetails(string projid);
+
+        [OperationContract]
+        object[][] getprojects(string uid);
+
+        [OperationContract]
+        int createproject(string title, string description, string uid);
+
+        [OperationContract]
+        int updateproject(string title, string description, string projID);
+
+        [OperationContract]
+        int deleteproject(string projid);
+
+
+
+
+        //issues operations
+
+        [OperationContract]
+        object[] getassignedissues(string uid);
+
+
+
+        [OperationContract]
+        object[][] getprojissues(string projid);
+
+        [OperationContract]
+        object[] getissuedetails(string issueid);
+
+
+        [OperationContract]
+        int createissue(string title, string description, string projid,  string uid);
+
+        [OperationContract]
+        int updateissue(string isid, string status, string assid);
+
+        [OperationContract]
+        int deleteissue(string issueid);
+
+
+
+        // project teams operaiotns 
+        [OperationContract]
+        int addprojteam(string uid, string projid);
+
+
+        [OperationContract]
+        int deleteprojteam(string projid);
+
+        [OperationContract]
+        int deleteassiguserfromteam(string uid, string projid);
+
+        [OperationContract]
+        object[] getprojectmembers(string projid);
+
+
+
+
+        //issue teams operations 
+        [OperationContract]
+        int addissteam(string uid, string issueid);
+
+
+        [OperationContract]
+        int deleteissteam(string issueid);
+
+        [OperationContract]
+        int deleteassiguserformissue(string uid, string issueid);
+
+
+
+        //notification project operations 
+
+        [OperationContract]
+        object[] getprojnotification(string projectnotificationuserid);
+
+        [OperationContract]
+        int insertprojectnotifications(string porjid, string uid);
+
+        [OperationContract]
+        int deleteporjnotificaiton(string projid, string uid);
+
+
+        //notificaiotns issue operations
+
+        [OperationContract]
+        object[] getissuenotifications(string issuenotificationuserid); 
+
+        [OperationContract]
+        int deleteissuenotification(string issid, string uid);
+
+        [OperationContract]
+        int insertissuenotifications(string issueid, string uid);
+
+        [OperationContract]
+        Object[][] getuserinformation();
+
+        [OperationContract]
+        object[] getprojectleaderinformaion(string uid);
+
+        [OperationContract]
+        object[] getspecificuserinformation(string uid);
+
+
     }
 }

@@ -91,10 +91,10 @@ namespace Fincal.Userservice {
         System.Threading.Tasks.Task<Fincal.Userservice.CompositeType> GetDataUsingDataContractAsync(Fincal.Userservice.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/insertUser", ReplyAction="http://tempuri.org/IUserservice/insertUserResponse")]
-        int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB);
+        int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/insertUser", ReplyAction="http://tempuri.org/IUserservice/insertUserResponse")]
-        System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB);
+        System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/Authenticate", ReplyAction="http://tempuri.org/IUserservice/AuthenticateResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fincal.Userservice.CompositeType))]
@@ -113,10 +113,10 @@ namespace Fincal.Userservice {
         System.Threading.Tasks.Task<object[]> getUserDetailsManagementAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB);
+        int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB);
+        System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/deleteUser", ReplyAction="http://tempuri.org/IUserservice/deleteUserResponse")]
         int deleteUser(string ID);
@@ -168,12 +168,12 @@ namespace Fincal.Userservice {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB) {
-            return base.Channel.insertUser(Username, Password, firstName, surname, Email, DoB);
+        public int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill) {
+            return base.Channel.insertUser(Username, Password, firstName, surname, Email, DoB, skill);
         }
         
-        public System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB) {
-            return base.Channel.insertUserAsync(Username, Password, firstName, surname, Email, DoB);
+        public System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill) {
+            return base.Channel.insertUserAsync(Username, Password, firstName, surname, Email, DoB, skill);
         }
         
         public object[] Authenticate(string UserEmail, string Password) {
@@ -192,12 +192,12 @@ namespace Fincal.Userservice {
             return base.Channel.getUserDetailsManagementAsync(userID);
         }
         
-        public int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB) {
-            return base.Channel.updateUserInfo(ID, firstName, surname, DoB);
+        public int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill) {
+            return base.Channel.updateUserInfo(ID, firstName, surname, DoB, skill);
         }
         
-        public System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB) {
-            return base.Channel.updateUserInfoAsync(ID, firstName, surname, DoB);
+        public System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill) {
+            return base.Channel.updateUserInfoAsync(ID, firstName, surname, DoB, skill);
         }
         
         public int deleteUser(string ID) {

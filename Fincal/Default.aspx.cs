@@ -39,6 +39,11 @@ namespace Fincal
                 eventmain.Visible = true;
                 taskmain.Visible = true;
                 picturemain.Visible = true;
+                projectnotificaitonmain.Visible = true;
+                issuenotificaitonmain.Visible = true;
+                getissuenotifitcaions();
+                getprojectnotificaitons();
+
                 Eventsget();
                 Taskget();
                 Pictureget();
@@ -214,7 +219,7 @@ namespace Fincal
                         findata.insertevent(Convert.ToDateTime(when), summary, loc, id, user.getID().ToString(), desc);
 
                         htmldata += "<a href=\"EventEdit.aspx?eid=" + id + "\">";
-                        htmldata += "<div class=\"col  s12 m2 l0 \">";
+                        htmldata += "<div class=\"col s12 m2 l0 \">";
 
 
                         htmldata += "<div class=\"card horizontal hoverable\">";
@@ -528,7 +533,7 @@ namespace Fincal
 
 
                     htmldata += "</div>";
-
+                    htmldata += "</a>";
                 }
                 // htmldata += "<a class=\"carousel - item\" href=\"#one!\"><img style='width:300px;height:300px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/></a>";
               
@@ -544,6 +549,86 @@ namespace Fincal
         }
 
 
-    }
+        private void getprojectnotificaitons()
+        {
+             string htmldata =""; 
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+
+            UserData user = (UserData)Session["User"];
+            object[] projectnotificaiotns = findata.getprojnotification(user.getID());
+
+            if (projectnotificaiotns != null)
+            {
+                for (int i = 0; i < projectnotificaiotns.Length; i++)
+                {
+                    object[] projdetails = findata.getprojectdetails((string)projectnotificaiotns[i]);
+
+                    htmldata += "<a href=\"Projectaccept.aspx?id=" + (string)projdetails[0] + "\">";
+                    htmldata += "<div class=\"col s12 m2 10\">";
+                    // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
+                    htmldata += "<div class=\"card  hoverable\">";
+                    htmldata += "<div class=\"card-stacked\">";
+                    htmldata += "<div class=\"card-content black-text\">";
+                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
+                    htmldata += "</span>";
+
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+
+                    htmldata += "</a>";
+
+
+
+
+                }
+         
+
+            }
+            newprojects.InnerHtml = htmldata;
+
+         }
+
+
+        private void getissuenotifitcaions()
+        {
+
+            string htmldata = "";
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+
+            UserData user = (UserData)Session["User"];
+
+            object[] issuenotifications = findata.getissuenotifications(user.getID());
+            if (issuenotifications != null)
+            {
+                for (int i = 0; i < issuenotifications.Length; i++)
+                {
+                    object[] issuedetails = findata.getissuedetails((string)issuenotifications[i]);
+                    htmldata += "<a href=\"Issueaccept.aspx?id=" + (string)issuedetails[0] + "\">";
+                    htmldata += "<div class=\"col s12 m2 10\">";
+                    // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
+                    htmldata += "<div class=\"card  hoverable\">";
+                    htmldata += "<div class=\"card-stacked\">";
+                    htmldata += "<div class=\"card-content black-text\">";
+                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)issuedetails[1] + "</p>";
+                    htmldata += "</span>";
+
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+                    htmldata += "</div>";
+
+                    htmldata += "</a>";
+
+                }
+            }
+
+
+            newissues.InnerHtml = htmldata;
+
+        }
+
+        }
 
     }

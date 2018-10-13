@@ -481,7 +481,17 @@ namespace Wcffincal
 
         int IDatamanagement.deleteallpictures(string uid)
         {
-            throw new NotImplementedException();
+            string sqlStatement = "DELETE FROM tblPic WHERE  uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+            
+            return clsSQL.ExecuteNonQuery(command);
+
+
+           
         }
 
         object[][] IDatamanagement.getalluserpictures(string uid)
@@ -558,6 +568,579 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
+        object[] IDatamanagement.getskills()
+        {
+
+            DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT sName FROM tblSkills;"));
+
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
+            {
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
+                {
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
+                }
+                result = temp;
+            }
+
+
+            return result;
+        
+        }
+
        
+
+        object[] IDatamanagement.getassignedprojects(string uid)
+        {
+         //   DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT * FROM tblProject LEFT JOIN projID ON tblProject.ProjID = tblTeams.ProjID WHERE tblProject.uID = @1;"));
+
+            string sqlStatement = "SELECT projID FROM tblTeams WHERE uID= @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        object[][] IDatamanagement.getprojects(string uid)
+        {
+
+            string sqlStatement = "SELECT * FROM tblProject WHERE uID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+            //DataSet ds = clsSQL.ExecuteQuery("SELECT uID, uUsername, uEmail, uRegDate, uReportCount, uFlagged FROM tblUser");
+
+            return create2DAdsArray(ds);
+
+        }
+
+
+        object[] IDatamanagement.getprojectdetails(string projid)
+        {
+            string sqlStatement = "SELECT * FROM tblProject WHERE projID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projid);
+
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        object[] IDatamanagement.getissuedetails(string issueid)
+        {
+            string sqlStatement = "SELECT * FROM tblIssues WHERE isID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", issueid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        int IDatamanagement.createproject(string title, string description, string uid)
+        {
+
+
+            string sqlStatement = "INSERT INTO tblProject (projTitle, projDescription, uID) VALUES (@0,@1,@2);  SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", title);
+            command.Parameters.AddWithValue("@1", description);
+            command.Parameters.AddWithValue("@2", uid);
+      
+
+
+
+            return clsSQL.ExecuteScalar(command);
+        }
+
+        int IDatamanagement.deleteproject(string projid)
+        {
+
+
+            string sqlStatement = "DELETE FROM tblProject WHERE projID=@0 ;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", projid);
+
+            
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        object[] IDatamanagement.getassignedissues(string uid)
+        {
+
+
+
+
+            string sqlStatement = "SELECT isID FROM tblIssuesteam WHERE uID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+           
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+
+
+        object[][] IDatamanagement.getprojissues(string projid)
+        {
+
+
+            string sqlStatement = "SELECT * FROM tblIssues WHERE projID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projid);
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+
+        }
+
+        int IDatamanagement.createissue(string title, string description, string projid, string uid)
+        {
+
+            string sqlStatement = "INSERT INTO tblIssues (isnTitle, isnDesc , projID, uID) VALUES (@0,@1,@2,@3);  SELECT SCOPE_IDENTITY();";
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", title);
+            command.Parameters.AddWithValue("@1", description);
+            command.Parameters.AddWithValue("@2", projid);
+            command.Parameters.AddWithValue("@3", uid);
+            return clsSQL.ExecuteScalar(command);
+           
+        }
+
+        int IDatamanagement.updateissue(string isid, string status, string assid)
+        {
+
+            string sqlStatement = "UPDATE tblIssues SET pnStatus=@0, Assid=@1 WHERE isID=@2;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", status);
+            command.Parameters.AddWithValue("@1", assid);
+            command.Parameters.AddWithValue("@2", isid);
+          
+            return clsSQL.ExecuteNonQuery(command);
+
+        }
+
+        int IDatamanagement.deleteissue(string issueid)
+        {
+
+
+            string sqlStatement = "DELETE FROM tblIssues WHERE isID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", issueid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+
+        object[] IDatamanagement.getprojnotification(string projectnotificationuserid)
+        {
+
+            string sqlStatement = "SELECT projID FROM tblProjnotice WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projectnotificationuserid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+           
+        }
+
+      
+
+       
+
+        int IDatamanagement.deleteporjnotificaiton(string projid, string uid)
+        {
+            string sqlStatement = "DELETE FROM tblProjnotice WHERE projID=@0 AND uID=@1;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", projid);
+            command.Parameters.AddWithValue("@1", uid);
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        object[] IDatamanagement.getissuenotifications(string issuenotificationuserid)
+        {
+
+
+            string sqlStatement = "SELECT isID FROM tblIssuenotice WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", issuenotificationuserid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+
+     
+
+
+
+
+        int IDatamanagement.deleteissuenotification(string issid,string uid)
+        {
+
+            string sqlStatement = "DELETE FROM tblIssuenotice WHERE isID=@0 AND uID=@1;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", issid);
+
+            command.Parameters.AddWithValue("@1", uid);
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+
+
+        int IDatamanagement.addprojteam(string uid, string projid)
+        {
+            string sqlStatement = "INSERT INTO tblTeams (projID, uID) VALUES (@0,@1);";
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projid);
+            command.Parameters.AddWithValue("@1", uid);
+            
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+
+
+
+        int IDatamanagement.deleteprojteam(string projid)
+        {
+            string sqlStatement = "DELETE FROM tblTeams WHERE projID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", projid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteassiguserfromteam(string uid, string projid)
+        {
+            string sqlStatement = "DELETE FROM tblTeams WHERE uID=@0 AND projID=@1;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+            command.Parameters.AddWithValue("@1", projid);
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+
+        int IDatamanagement.addissteam(string uid, string issueid)
+        {
+
+
+            string sqlStatement = "INSERT INTO tblissuesteam (isID, uID) VALUES (@0,@1);";
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", issueid);
+            command.Parameters.AddWithValue("@1", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+
+
+
+        int IDatamanagement.deleteissteam(string issueid)
+        {
+            string sqlStatement = "DELETE FROM tblIssues WHERE isID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", issueid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteassiguserformissue(string uid, string issueid)
+        {
+            string sqlStatement = "DELETE FROM tblIssuesteam WHERE isID=@0 AND uID=@1;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", issueid);
+            command.Parameters.AddWithValue("@1", uid);
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        Object[][] IDatamanagement.getuserinformation()
+        {
+            string sqlStatement = "SELECT tblUser.uID, tblUser.uUsername, tblSkills.sName FROM tblUser INNER JOIN tblSkills ON tblUser.sID = tblSkills.sID;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+          
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+
+        }
+
+        int IDatamanagement.insertprojectnotifications(string porjid, string uid)
+        {
+            string sqlStatement = "INSERT INTO tblProjnotice (projID, uID) VALUES (@0,@1);";
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", porjid);
+            command.Parameters.AddWithValue("@1", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.insertissuenotifications(string issueid, string uid)
+        {
+            string sqlStatement = "INSERT INTO tblIssuenotice (isID, uID) VALUES (@0,@1);";
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", issueid);
+            command.Parameters.AddWithValue("@1", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        object[] IDatamanagement.getprojectleaderinformaion(string uid)
+        {
+            string sqlStatement = "SELECT uUsername , uEmail FROM tblUser WHERE uID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        object[] IDatamanagement.getprojectmembers(string projid)
+        {
+            string sqlStatement = "SELECT uID FROM tblTeams WHERE projID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        int IDatamanagement.updateproject(string title, string description, string projID)
+        {
+            string sqlStatement = "UPDATE tblProject SET projTitle=@0, projDescription=@1 WHERE projID=@2;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", title);
+            command.Parameters.AddWithValue("@1", description);
+            command.Parameters.AddWithValue("@2", projID);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        object[] IDatamanagement.getspecificuserinformation(string uid)
+        {
+            string sqlStatement = "SELECT tblUser.uUsername, tblUser.uEmail, tblSkills.sName FROM tblUser INNER JOIN tblSkills ON tblUser.sID = tblSkills.sID WHERE tblUser.uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
     }
 }

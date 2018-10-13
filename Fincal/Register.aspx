@@ -57,6 +57,17 @@
                                           <input id="txtUsername" runat="server" type="text" class="validate black-text"/>
                                           <label for="txtUsername">Username</label>
                                         </div>
+
+                                  <div class="input-field col s12 m6 l6">
+                            <select id="skilldrop" runat="server">
+                        <option value="" disabled selected>Choose your option</option>
+
+                          </select>
+                           <label>Skill</label>
+                             <blockquote>Choose a skill your well versed in.</blockquote>
+                             </div>
+
+
                              </div>
 
                             <div class="row">
@@ -71,15 +82,18 @@
                                         </div>
                             </div>
 
-
-                            <!--Card Actions-->
-                            <div class="row"></div>
-                            <div class="row">
-                                <a href="#" runat="server" class="btn waves-effect waves-light" onserverclick="RegisterUser_ServerClick">Create</a>
-                                <a href="Login.aspx" runat="server"  class="waves-effect waves-light btn red">Cancel</a>
-                            </div>
+  
+                          
 
                         </div>
+              <div class="card-action">
+
+
+  <a href="#" runat="server" class="btn waves-effect waves-light" onserverclick="RegisterUser_ServerClick">Create</a>
+                                <a href="Login.aspx" runat="server"  class="waves-effect waves-light btn red">Cancel</a>
+
+              </div>
+
           </div>
         </div>
     </div>

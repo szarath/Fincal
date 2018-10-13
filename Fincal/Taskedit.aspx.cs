@@ -44,7 +44,7 @@ namespace Fincal
             {
                 Completedcheck.Checked = true;
 
-
+              
 
 
             }
@@ -54,7 +54,7 @@ namespace Fincal
                 Completedcheck.Checked = false;
                 
             }
-
+            
 
         }
 
@@ -69,7 +69,7 @@ namespace Fincal
             {
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal); ;
-                credPath = Path.Combine(credPath, ".credentials/tasks-dotnet-quickstart.json");
+                credPath = Path.Combine(credPath, ".credentials/tasksupdate-dotnet-quickstart.json");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
@@ -124,7 +124,7 @@ namespace Fincal
             {
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal); ;
-                credPath = Path.Combine(credPath, ".credentials/task-dotnet-quickstart.json");
+                credPath = Path.Combine(credPath, ".credentials/taskdelete-dotnet-quickstart.json");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
