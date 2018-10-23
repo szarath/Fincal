@@ -12,7 +12,7 @@
   
 
     <div class="row" id="taskDiv" runat="server">
-        <div class="col s12 m10 l8 push-m1 push-l2">
+        <div class="col l4 s8 push-m4 push-l4">
           <div class="card white">
             <div class="card-content black-text">
               <span class="card-title">Add Picture</span>
@@ -25,7 +25,7 @@
 
                          <div id="picchoiceThumb" runat="server" ClientIDMode="static"></div>
                     
-                     <div class="file-field input-field col s12 m4 l4">
+                     <div class="file-field input-field col s12">
                           <div class="btn waves-effect waves-light">
                             <span>Picture</span>
                             <input id="picchoice" type="file" name="picchoice[]" ClientIDMode="static" runat="server"/>
@@ -40,7 +40,7 @@
                     </div>
 
                  <div class="row">
-                      <div class="input-field col s12 m4 l4"> 
+                      <div class="input-field col s12"> 
                         <input id="txtpictitle" type="text" class="validate autocomplete-content" runat="server"/>
                         <label for="txtpictitle">Picture title</label>
                     </div>
@@ -48,7 +48,7 @@
 
                   
                 <div class="row">
-                      <div class="input-field col  s12 m4 l4"> 
+                      <div class="input-field col  s12"> 
                         <input id="txtpicdesc" type="text" class="validate autocomplete-content" runat="server"/>
                         <label for="txtpicdesc">Picture Description</label>
                     </div>
@@ -73,7 +73,7 @@
                       reader.onload = (function(theFile) {
                         return function(e) {
                           // Render thumbnail.
-                            document.getElementById('picchoiceThumb').innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+                            document.getElementById('picchoiceThumb').innerHTML = ['<img class="responsive-img" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
                         };
                       })(f);
 

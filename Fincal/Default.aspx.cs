@@ -409,7 +409,7 @@ namespace Fincal
                             incomplete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
                             incomplete += "<div class=\"col s12 m2 10\">";
                             incomplete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
-                            //   htmldata += "<div class=\"card horizontal hoverable blue\">";
+                            //htmldata += "<div class=\"card horizontal hoverable blue\">";
                             incomplete += "<div class=\"card-stacked\">";
                             incomplete += "<div class=\"card-content black-text\">";
                             incomplete += "<span class=\"card-title\"><p class=\"trunctext\">" + task.Title.ToString() + "</p>";
@@ -486,7 +486,7 @@ namespace Fincal
         {
             if (choice == 1)
             {
-                return "white";
+                return "green";
             }
             else if (choice == 2)
             {

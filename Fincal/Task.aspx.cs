@@ -245,7 +245,7 @@ namespace Fincal
         {
             if (choice == 1)
             {
-                return "white";
+                return "green";
             }
             else if (choice == 2)
             {
