@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
+    <div class="container">
     <div class="row">
           <div class="col s12 m10 l8 ">
             <h4 id="indexTitle" class="bold" runat="server">Tasks</h4>
@@ -55,6 +56,7 @@
             <a class="btn-floating btn-large teal waves-effect waves-light " href="Taskadd.aspx">
               <i class="large material-icons">add</i>
             </a>
+        </div>
         </div>
         </div>
 </asp:Content>

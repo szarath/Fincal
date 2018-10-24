@@ -10,7 +10,7 @@
         }
     </style>
   
-
+    <div class="container">
     <div class="row" id="taskDiv" runat="server">
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
@@ -26,9 +26,10 @@
                         <input id="txttaskanme" type="text" class="validate autocomplete-content" runat="server"/>
                         <label for="txttaskname">Task Name</label>
                     </div>
-                    <div class="input-field col s6 m4 l3">
+                     <div class="input-field col s6 m4 l3">
                         <select id="PlatformDrop" runat="server">
                             <option value="" disabled selected>Choose Level</option>
+                           
                         </select> 
                         <label for="PlatformDrop">Level</label>
                     </div>
@@ -71,5 +72,5 @@
                             </div>
                       </div>
 
-
+    </div>
 </asp:Content>

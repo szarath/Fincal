@@ -142,7 +142,7 @@ namespace Fincal
                         }
 
                         htmldata += "<a href=\"EventEdit.aspx?eid=" + eventItem.Id + "\">";
-                        htmldata += "<div class=\"col s12 m2 l0\">";
+                        htmldata += "<div class=\"col s12 m4 l0\">";
                         htmldata += "<div class=\"card horizontal hoverable\">";
 
                       /*  htmldata += "<div class=\"card-image\">";
@@ -184,7 +184,7 @@ namespace Fincal
                         findata.insertevent(Convert.ToDateTime(when), summary, loc, id, user.getID(), desc);
 
                         htmldata += "<a href=\"EventEdit.aspx?eid=" + id + "\">";
-                        htmldata += "<div class=\"col s12 m2 l0\">";
+                        htmldata += "<div class=\"col s12 m4 l0\">";
 
 
                         htmldata += "<div class=\"card horizontal hoverable\">";

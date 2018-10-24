@@ -7,7 +7,7 @@
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title bold">Register a New Account</span>
+              <span class="card-title bold">Accept/Reject Projects</span>
                 
                 <div id="invalidRegister" class="row red-text text-lighten-2" runat="server">
 

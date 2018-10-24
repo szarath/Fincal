@@ -9,7 +9,7 @@
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title">Edit Ad</span>
+              <span class="card-title">Add Event</span>
                 
                 <div id="InvlaideventAd" runat="server" class="row red-text text-lighten-2">
 
@@ -72,7 +72,7 @@
                
 
 
-              <div class="row">
+    <!--          <div class="row">
                     <div class="file-field input-field col s12 m4 l4">
                           <div class="btn waves-effect waves-light">
                             <span>Pic 1</span>
@@ -211,7 +211,7 @@
 
               
                    </div>
-                 
+                 -->
            
             
           </div>

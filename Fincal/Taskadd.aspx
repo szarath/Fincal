@@ -11,7 +11,7 @@
     </style>
   
 
-    <div class="row" id="taskDiv" runat="server">
+    <div class="row container" id="taskDiv" runat="server">
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">

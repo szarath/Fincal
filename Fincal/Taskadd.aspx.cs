@@ -22,15 +22,11 @@ namespace Fincal
         private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                PlatformDrop.Items.Add(new ListItem("1", "1"));
-                PlatformDrop.Items.Add(new ListItem("2", "2"));
-                PlatformDrop.Items.Add(new ListItem("3", "3"));
-
+            if (!IsPostBack) { 
+            PlatformDrop.Items.Add(new ListItem("1", "1"));
+            PlatformDrop.Items.Add(new ListItem("2", "2"));
+            PlatformDrop.Items.Add(new ListItem("3", "3"));
             }
-
-      
         }
         protected void btntaskadd_ServerClick(object sender, EventArgs e)
         {
@@ -46,7 +42,7 @@ namespace Fincal
             else
             {
               inserttask();
-
+                changePage();
 
 
          /*     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
@@ -115,6 +111,21 @@ namespace Fincal
 
       
         }
+        protected void changePage()
+        {
 
+            taskDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            taskDiv.InnerHtml += "<div class=\"card white\">";
+            taskDiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            taskDiv.InnerHtml += "<span class=\"card-title bold\">Task Added Successful</span>";
+            taskDiv.InnerHtml += "<p>You have successfully added a Task</p>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "<div class=\"card-action\">";
+            taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Continue</a>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+        }
     }
 }

@@ -29,6 +29,11 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            PlatformDrop.Items.Add(new ListItem("1", "1"));
+            PlatformDrop.Items.Add(new ListItem("2", "2"));
+            PlatformDrop.Items.Add(new ListItem("3", "3"));
+
             taskid = Request.QueryString.Get("id");
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
@@ -104,16 +109,16 @@ namespace Fincal
             task.Title = txttaskanme.Value;
             Google.Apis.Tasks.v1.Data.Task result = service.Tasks.Update(task, "@default", taskid).Execute();
 
-          /*  Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+           Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
 
 
 
             UserData user = (UserData)Session["User"];
-            findata.updatetask(txttaskanme.Value, completed, user.getID(), PlatformDrop.Items[PlatformDrop.SelectedIndex].Text,taskid);
+            findata.updatetask(txttaskanme.Value, completed.ToString(), user.getID(), PlatformDrop.Items[PlatformDrop.SelectedIndex].Text,taskid);
 
             findata.Close();
-            */
+            Response.Redirect("Task.aspx");
         }
 
         protected void btnDeleteAd_ServerClick(object sender, EventArgs e)

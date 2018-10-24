@@ -123,7 +123,7 @@ namespace Fincal
             projacc.InnerHtml += "<div class=\"card white\">";
             projacc.InnerHtml += "<div class=\"card-content Black-text\">";
             projacc.InnerHtml += "<span class=\"card-title bold\">Error</span>";
-            projacc.InnerHtml += "<p>Project has been Accepted and added to your other projects</p>";
+            projacc.InnerHtml += "<p>Something went wronge</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
             projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";

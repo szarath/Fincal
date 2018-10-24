@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Fincal.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
-
+<asp:Content ID="Content2"  ContentPlaceHolderID="pagecontent" runat="server">
+    <div class="container">
         <div class="row">
           <div class="col container s12 m10 l8 ">
             <h3 id="indexTitle" class="bold" runat="server">Welcome, Please Register/Login</h3>
@@ -66,7 +66,7 @@
 
          
          
-         <h4 id="H6" class="thin col m10 s12 " runat="server">Inprogress</h4> 
+         <h4 id="H6" class="thin col m10 s12  " runat="server">Inprogress</h4> 
 
           </div>
 
@@ -124,4 +124,6 @@
 
 
     </div>
+        </div>
+    
 </asp:Content>

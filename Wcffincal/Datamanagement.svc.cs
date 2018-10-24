@@ -278,7 +278,7 @@ namespace Wcffincal
 
         int IDatamanagement.updatetask(string name, string complete, string uid, string tcid, string tid)
         {
-            string sqlStatement = "UPDATE tblTask SET tName=@0, tComplete=@1, uID=@2, tcID=@3 WHERE tID=@4;";
+            string sqlStatement = "UPDATE tblTask SET tName=@0, tComplete=@1, uID=@2, tcID=@3 WHERE tGoogleID=@4;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
