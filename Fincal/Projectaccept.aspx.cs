@@ -50,7 +50,7 @@ namespace Fincal
         {
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-
+            findata.Open();
            
 
            int result = findata.addprojteam(user.getID(), pid);
@@ -72,7 +72,7 @@ namespace Fincal
 
             }
 
-
+            findata.Close();
         }
 
 
@@ -80,7 +80,7 @@ namespace Fincal
         {
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-
+            findata.Open();
           int result = findata.deleteporjnotificaiton(pid,user.getID());
 
 
@@ -93,7 +93,7 @@ namespace Fincal
                 changeerrorPage();
             }
 
-
+            findata.Close();
         }
 
         protected void changeaccPage()

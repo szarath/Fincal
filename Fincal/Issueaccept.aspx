@@ -11,12 +11,20 @@
                 <div id="invalidRegister" class="row red-text text-lighten-2" runat="server">
 
                 </div>
+
+                   <div class="row">
+                    <div    class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">label_important</i>
+                        <textarea readonly id="txtprojectname" class="materialize-textarea bold" runat="server"></textarea>
+                        <label for="txtprojt">Project</label>
+                    </div>
+                </div>
                         
                           <div class="row">
                     <div    class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea readonly id="txtprojt" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtprojt">Title</label>
+                        <label for="txtprojt">Issue Title</label>
                     </div>
                 </div>
 
@@ -24,14 +32,14 @@
                     <div   class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea readonly id="txtprojd" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtprojd">Description</label>
+                        <label for="txtprojd">Issue Description</label>
                     </div>
                 </div>
 
                 <div class="row">
 
                     <div  class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix">supervisor_account</i>
+                        <i class="material-icons prefix">label_important</i>
                         <textarea readonly id="txtptojectleaderuname" class="materialize-textarea bold" runat="server"></textarea>
                         <label for="txtptojectleaderuname">Project Leader Username</label>
                     </div>

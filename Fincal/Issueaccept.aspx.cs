@@ -10,7 +10,7 @@ namespace Fincal
     public partial class Issueaccept : System.Web.UI.Page
     {
         string pid;
-        object[] projdetails;
+        object[] issdetails;
         object[] pldetails;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,15 +27,16 @@ namespace Fincal
 
                 if (!IsPostBack)
                 {
-                    projdetails = findata.getissuedetails(pid);
+                    issdetails = findata.getissuedetails(pid);
 
-                    if (projdetails != null)
-                    { 
-
-                    txtprojt.Value = (string)projdetails[1];
-                    txtprojd.Value = (string)projdetails[2];
-
-                    pldetails = findata.getprojectleaderinformaion((string)projdetails[5]);
+                    if (issdetails != null)
+                    {
+                        object[] projdetails = findata.getprojectdetails((string)issdetails[3]);
+                        txtprojectname.Value = (string)issdetails[1];
+                        txtprojt.Value = (string)issdetails[1];
+                    txtprojd.Value = (string)issdetails[2];
+                       
+                    pldetails = findata.getprojectleaderinformaion((string)issdetails[5]);
 
                     txtptojectleaderuname.Value = (string)pldetails[0];
 
@@ -55,13 +56,13 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
 
+            findata.Open();
 
-
-            int result = findata.addprojteam(user.getID(), pid);
+            int result = findata.addissteam(user.getID(), pid);
 
             if (result == 1)
             {
-                int delete = findata.deleteporjnotificaiton(pid, user.getID());
+                int delete = findata.deleteissuenotification(pid, user.getID());
 
                 if (delete == 1)
                 {
@@ -72,6 +73,7 @@ namespace Fincal
                     changeerrorPage();
                 }
             }
+            findata.Close();
         }
 
 
@@ -79,7 +81,7 @@ namespace Fincal
         {
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-
+            findata.Open();
             int result = findata.deleteporjnotificaiton(pid, user.getID());
 
 
@@ -92,7 +94,7 @@ namespace Fincal
 
                 changeerrorPage();
             }
-
+            findata.Close();
 
         }
 
@@ -103,12 +105,13 @@ namespace Fincal
 
             projacc.InnerHtml += "<div class=\"card white\">";
             projacc.InnerHtml += "<div class=\"card-content Black-text\">";
-            projacc.InnerHtml += "<span class=\"card-title bold\">Project Accepted</span>";
-            projacc.InnerHtml += "<p>Project has been Accepted and added to your other projects</p>";
+            projacc.InnerHtml += "<span class=\"card-title bold\">Issue Accepted</span>";
+            projacc.InnerHtml += "<p>Issue has been Accepted and added to your other issues</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+            projacc.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn blue waves-effect waves-light\"><i class=\"material-icons left\">notification_important</i>Issues</a>"; 
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
@@ -126,8 +129,9 @@ namespace Fincal
             projacc.InnerHtml += "<p>Something went wronge</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+            projacc.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn blue waves-effect waves-light\"><i class=\"material-icons left\">notification_important</i>Issues</a>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
@@ -139,12 +143,13 @@ namespace Fincal
             projacc.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
             projacc.InnerHtml += "<div class=\"card white\">";
             projacc.InnerHtml += "<div class=\"card-content Black-text\">";
-            projacc.InnerHtml += "<span class=\"card-title bold\">Project Rejected</span>";
-            projacc.InnerHtml += "<p>Project was rejected by you</p>";
+            projacc.InnerHtml += "<span class=\"card-title bold\">Issue Rejected</span>";
+            projacc.InnerHtml += "<p>Issue was rejected by you</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+            projacc.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn blue waves-effect waves-light\"><i class=\"material-icons left\">notification_important</i>Issues</a>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";

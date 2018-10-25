@@ -23,7 +23,7 @@
 
                   <div class="row">
                     <div class="input-field col s12 m12 l12">
-                         <i class="material-icons prefix">title</i>
+                         <i class="material-icons prefix">label_important</i>
                         <textarea readonly id="txtprojname" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtprojt">Title</label>
                     </div>

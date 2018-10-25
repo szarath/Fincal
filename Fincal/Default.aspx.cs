@@ -566,12 +566,12 @@ namespace Fincal
                     object[] projdetails = findata.getprojectdetails((string)projectnotificaiotns[i]);
 
                     htmldata += "<a href=\"Projectaccept.aspx?id=" + (string)projdetails[0] + "\">";
-                    htmldata += "<div class=\"col s12 m2 10\">";
+                    htmldata += "<div class=\"col s12 m4 10\">";
                     // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                     htmldata += "<div class=\"card  hoverable\">";
                     htmldata += "<div class=\"card-stacked\">";
                     htmldata += "<div class=\"card-content black-text\">";
-                    htmldata += "<span class=\"card-title\"><p class=\"trunctext bold\">" + (string)projdetails[1] + "</p>";
+                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
                     htmldata += "</span>";
 
                     htmldata += "</div>";
@@ -608,12 +608,12 @@ namespace Fincal
                 {
                     object[] issuedetails = findata.getissuedetails((string)issuenotifications[i]);
                     htmldata += "<a href=\"Issueaccept.aspx?id=" + (string)issuedetails[0] + "\">";
-                    htmldata += "<div class=\"col s12 m2 10\">";
+                    htmldata += "<div class=\"col s12 m4 10\">";
                     // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
                     htmldata += "<div class=\"card  hoverable\">";
                     htmldata += "<div class=\"card-stacked\">";
                     htmldata += "<div class=\"card-content black-text\">";
-                    htmldata += "<span class=\"card-title\"><p class=\"trunctext bold\">" + (string)issuedetails[1] + "</p>";
+                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)issuedetails[1] + "</p>";
                     htmldata += "</span>";
 
                     htmldata += "</div>";
