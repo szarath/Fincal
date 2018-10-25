@@ -389,23 +389,23 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", uid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
+
+            return result;
 
 
         }
@@ -596,35 +596,37 @@ namespace Wcffincal
         {
          //   DataSet ds = clsSQL.ExecuteQuery(new SqlCommand("SELECT * FROM tblProject LEFT JOIN projID ON tblProject.ProjID = tblTeams.ProjID WHERE tblProject.uID = @1;"));
 
-            string sqlStatement = "SELECT projID FROM tblTeams WHERE uID= @0;";
+            string sqlStatement = "SELECT projID FROM tblTeams WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", uid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
+
+            return result;
+
+            
         }
 
         object[][] IDatamanagement.getprojects(string uid)
         {
 
-            string sqlStatement = "SELECT * FROM tblProject WHERE uID = @0;";
+            string sqlStatement = "SELECT * FROM tblProject WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -637,10 +639,40 @@ namespace Wcffincal
 
         }
 
+        object[] IDatamanagement.getissuemembers(string issid)
+        {
+
+            string sqlStatement = "SELECT uID FROM tblIssuesteam WHERE isID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", issid);
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
+            {
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
+                {
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
+                }
+                result = temp;
+            }
+
+
+            return result;
+
+        }
+
+
 
         object[] IDatamanagement.getprojectdetails(string projid)
         {
-            string sqlStatement = "SELECT * FROM tblProject WHERE projID = @0;";
+            string sqlStatement = "SELECT * FROM tblProject WHERE projID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -668,7 +700,7 @@ namespace Wcffincal
 
         object[] IDatamanagement.getissuedetails(string issueid)
         {
-            string sqlStatement = "SELECT * FROM tblIssues WHERE isID = @0;";
+            string sqlStatement = "SELECT * FROM tblIssues WHERE isID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -692,7 +724,21 @@ namespace Wcffincal
 
             return temp;
         }
+        object[][] IDatamanagement.getissues(string uid)
+        {
 
+            string sqlStatement = "SELECT * FROM tblIssues WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+            //DataSet ds = clsSQL.ExecuteQuery("SELECT uID, uUsername, uEmail, uRegDate, uReportCount, uFlagged FROM tblUser");
+
+            return create2DAdsArray(ds);
+
+        }
         int IDatamanagement.createproject(string title, string description, string uid)
         {
 
@@ -733,7 +779,7 @@ namespace Wcffincal
 
 
 
-            string sqlStatement = "SELECT isID FROM tblIssuesteam WHERE uID = @0;";
+            string sqlStatement = "SELECT isID FROM tblIssuesteam WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -741,23 +787,23 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", uid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
+
+            return result;
         }
 
 
@@ -766,7 +812,7 @@ namespace Wcffincal
         {
 
 
-            string sqlStatement = "SELECT * FROM tblIssues WHERE projID = @0;";
+            string sqlStatement = "SELECT * FROM tblIssues WHERE projID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -833,24 +879,24 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", projectnotificationuserid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
-           
+
+            return result;
+
         }
 
       
@@ -871,6 +917,23 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
+
+        int IDatamanagement.deleteallprojnotificaion(string projid)
+        {
+            string sqlStatement = "DELETE FROM tblProjnotice WHERE projID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", projid);
+          
+
+            return clsSQL.ExecuteNonQuery(command);
+
+        }
+
+
+
         object[] IDatamanagement.getissuenotifications(string issuenotificationuserid)
         {
 
@@ -881,23 +944,23 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", issuenotificationuserid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
+
+            return result;
         }
 
 
@@ -997,6 +1060,21 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
+        int IDatamanagement.deleteprojissues(string projid)
+        {
+            string sqlStatement = "DELETE FROM tblIssues WHERE projID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", projid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+
+        }
+
         int IDatamanagement.deleteassiguserformissue(string uid, string issueid)
         {
             string sqlStatement = "DELETE FROM tblIssuesteam WHERE isID=@0 AND uID=@1;";
@@ -1084,23 +1162,23 @@ namespace Wcffincal
 
             command.Parameters.AddWithValue("@0", projid);
 
-            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+            DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] temp = null;
-            if (!(sqlDataSet.Tables.Count == 0))
+            string[] result = null;
+
+            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
             {
-                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                string[] temp = new string[ds.Tables[0].Rows.Count];
+                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                 {
-                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
-                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
-                    {
-                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
-                    }
+                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
                 }
+                result = temp;
             }
 
-            return temp;
+
+            return result;
         }
 
         int IDatamanagement.updateproject(string title, string description, string projID)

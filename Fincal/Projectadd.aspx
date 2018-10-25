@@ -58,8 +58,8 @@
                  
             </div>
             <div class="card-action">
-              <button id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick">Add</button>
-              <a href="Projects.aspx" class="waves-effect waves-light btn red">Cancel</a>
+              <button id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>
         </div>

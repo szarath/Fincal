@@ -12,6 +12,8 @@ namespace Fincal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -21,8 +23,7 @@ namespace Fincal
             UserChoose.Multiple = true;
             if (!IsPostBack)
             {
-                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
+                
             Object[][] members = findata.getuserinformation();
            
 
@@ -41,7 +42,9 @@ namespace Fincal
             }
 
             }
+            
             }
+            findata.Close();
         }
 
         protected void btnprojadd_ServerClick(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace Fincal
             Object[][] members = findata.getuserinformation();
 
 
-            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Value.Equals(""))
+            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals(""))
             {
                 Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
 
@@ -82,7 +85,7 @@ namespace Fincal
            
 
             findata.Close();
-
+            changePage();
         }
 
 
@@ -93,11 +96,12 @@ namespace Fincal
 
             projectdiv.InnerHtml += "<div class=\"card white\">";
             projectdiv.InnerHtml += "<div class=\"card-content Black-text\">";
-            projectdiv.InnerHtml += "<span class=\"card-title bold\">Registration Successful</span>";
+            projectdiv.InnerHtml += "<span class=\"card-title bold\">Project Added Successful</span>";
             projectdiv.InnerHtml += "<p>You have successfully added a Project</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Continue</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons left\">assignment</i>Projects</a>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";

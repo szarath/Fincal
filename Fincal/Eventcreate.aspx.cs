@@ -8,6 +8,7 @@ using Google.Apis.Util.Store;
 using System.IO;
 using System.Threading;
 using System.Globalization;
+using System.Xml;
 
 namespace Fincal
 {
@@ -31,10 +32,10 @@ namespace Fincal
 
         }
 
-        protected async void btnCreateevent_ServerClick(object sender, EventArgs e)
+        protected void btnCreateevent_ServerClick(object sender, EventArgs e)
 
         {
-            findata = new Dataservice.DatamanagementClient();
+        //    findata = new Dataservice.DatamanagementClient();
 
 
           
@@ -48,15 +49,15 @@ namespace Fincal
 
 
             user = (UserData)(Session["User"]);
-            Boolean creeve = true;
+           
 
 
 
             if (txtdoe.Value.Equals("") || txttime.Value.Equals("") || txtedesc.Value.Equals("") || txtesummary.Value.Equals("") || txteLocation.Value.Equals(""))
             {
                 InvlaideventAd.InnerHtml = "<p>Please fill in all the fields</p>";
-                creeve = false;
-                return;
+                
+                
             }
 
 
@@ -72,14 +73,14 @@ namespace Fincal
            
 
 
-            if (creeve)
+           else
             {
 
 
 
 
-
-                /* string base64String1 = "";
+               
+         /*** string base64String1 = "";
                  string base64String2 = "";
                  string base64String3 = "";
 
@@ -154,7 +155,7 @@ namespace Fincal
                 //sendPics[2] = pic3Data;
 
                 //--------------------------------------------------------------------------
-
+                
                 insertevent();
                 changePage();
                
@@ -174,6 +175,7 @@ namespace Fincal
 
 
         }
+
         private async void insertevent()
         {
             UserData user = (UserData)Session["User"];
@@ -223,14 +225,15 @@ namespace Fincal
                 Description = txtedesc.Value,
                 Start = new EventDateTime()
                 {
-                    DateTime = dt,
-                    TimeZone = Convert.ToString(tz),
+                    
+                    DateTime = DateTime.Parse( XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),//DateTime.pr dt.ToUniversalTime().ToString("YYYY-MM-DD'T'HH:mm:ssZ"),
+                    TimeZone = "Europe/Paris",
                 },
                 End = new EventDateTime()
                 {
-                    DateTime = dt,
+                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
                     //   DateTime = DateTime.Parse(datetimepicker1.Value),
-                    TimeZone = Convert.ToString(tz),
+                    TimeZone ="Europe/Paris",
                 },
 
 
@@ -240,9 +243,11 @@ namespace Fincal
 
 
             String calendarId = "primary";
+           
             EventsResource.InsertRequest request = service.Events.Insert(newEvent, calendarId);
-            await request.ExecuteAsync();
-          
+          Event newevent =  await request.ExecuteAsync();
+           
+           
         }
 
         protected void changePage()
@@ -252,11 +257,14 @@ namespace Fincal
 
             editAdDiv.InnerHtml += "<div class=\"card white\">";
             editAdDiv.InnerHtml += "<div class=\"card-content Black-text\">";
-            editAdDiv.InnerHtml += "<span class=\"card-title bold\">Registration Successful</span>";
-            editAdDiv.InnerHtml += "<p>You have successfully added a Project</p>";
+            editAdDiv.InnerHtml += "<span class=\"card-title bold\">Event Successful Added</span>";
+            editAdDiv.InnerHtml += "<p>You have successfully added a Event</p>";
             editAdDiv.InnerHtml += "</div>";
             editAdDiv.InnerHtml += "<div class=\"card-action\">";
-            editAdDiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Continue</a>";
+ 
+            editAdDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
+            editAdDiv.InnerHtml += "<a href=\"Eventslist.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Events</a>";
+
             editAdDiv.InnerHtml += "</div>";
             editAdDiv.InnerHtml += "</div>";
             editAdDiv.InnerHtml += "</div>";

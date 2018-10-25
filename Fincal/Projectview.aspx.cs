@@ -104,11 +104,11 @@ namespace Fincal
             projview.InnerHtml += "<div class=\"card white\">";
             projview.InnerHtml += "<div class=\"card-content Black-text\">";
             projview.InnerHtml += "<span class=\"card-title bold\">Removal Successful</span>";
-            projview.InnerHtml += "<p>You have successfully removed project </p>";
+            projview.InnerHtml += "<p>You have successfully removed the project </p>";
             projview.InnerHtml += "</div>";
             projview.InnerHtml += "<div class=\"card-action\">";
-            projview.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projview.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projview.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projview.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
             projview.InnerHtml += "</div>";
             projview.InnerHtml += "</div>";
             projview.InnerHtml += "</div>";

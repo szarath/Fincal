@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Eventedit.aspx.cs" Inherits="Fincal.Eventedit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" Async="true" CodeBehind="Eventedit.aspx.cs" Inherits="Fincal.Eventedit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
-    <div class="row" id="editAdDiv" runat="server">
+    <div class="container">
+    <div class="row " id="editeventDiv" runat="server">
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
@@ -12,11 +13,7 @@
 
                 </div>
 
-                    <div class="row">
-                    <div class="input-field col s12">
-                      
-                    </div>
-                </div>
+                   
 
 
 
@@ -37,10 +34,7 @@
 
 
                             </div>
-                                   
-                           
-  
-                
+
 
                <div class="row">
                     <div class="input-field col s12 m12 l12">
@@ -68,7 +62,7 @@
 
                
 
-
+<!-- 
               <div class="row">
                     <div class="file-field input-field col s12 m4 l4">
                           <div class="btn waves-effect waves-light">
@@ -204,26 +198,39 @@
 
                          document.getElementById('pic3files').addEventListener('change', handleFileSelect, false);
                 </script>
-              
+              -->
 
               
                    </div>
                  
            
-            
-          </div>
        <div class="card-action">
-              <button id="btncreateevent" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btnCreateevent_ServerClick">Create</button> 
-     
+              <button id="btnupdateevent" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btnUpdateevent_ServerClick">Update</button> 
+                    <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons left">delete_forever</i> Delete</a> 
               <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2">Cancel</a>
             </div>
      
          </div>
-
-    </div> 
-
-        </div>
-
+             </div>
+     
+           
+    
+    </div>
+    
+    
+    <div class="modal" id="AcceptDelete" >
+                            <div class="modal-content">
+                              <h4>Confirm Delete</h4>
+                              <p>Are you sure you wish to delete this Event?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="#" runat="server" OnServerClick="btnDeleteevent_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
+                              <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
+                            </div>
+                      </div>
+       
+    </div>
+    
     <script>
                      // This example displays an address form, using the autocomplete feature
                      // of the Google Places API to help users fill in the information.
@@ -246,7 +253,7 @@
                          // Create the autocomplete object, restricting the search to geographical
                          // location types.
                          autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('txtGameLocation')),
+            /** @type {!HTMLInputElement} */(document.getElementById('txteLocation')),
                              { types: ['geocode'] });
 
                          // When the user selects an address from the dropdown, populate the address

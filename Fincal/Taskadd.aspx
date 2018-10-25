@@ -28,7 +28,7 @@
                     </div>
                     <div class="input-field col s6 m4 l3">
                         <select id="PlatformDrop" runat="server">
-                            <option value="" disabled selected>Choose Level</option>
+                              <option value="" disabled selected>Choose Level</option>
                            
                         </select> 
                         <label for="PlatformDrop">Level</label>
@@ -45,8 +45,8 @@
                  
             </div>
             <div class="card-action">
-              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskadd_ServerClick">Add</button>
-              <a href="Task.aspx" class="waves-effect waves-light btn red">Cancel</a>
+              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <a href="Task.aspx" class="waves-effect waves-light btn red"><i class="material-icons left">Cancel</i>Cancel</a>
             </div>
           </div>
         </div>

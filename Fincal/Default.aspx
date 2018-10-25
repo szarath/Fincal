@@ -8,7 +8,7 @@
             <h3 id="indexTitle" class="bold" runat="server">Welcome, Please Register/Login</h3>
         </div>
         
-    </div>
+            </div>
 
      <div runat="server" id="projectnotificaitonmain" visible="false">
          <div class="row">
@@ -52,7 +52,7 @@
     </div>
         </div>
 
-    <div id="taskmain" runat="server" visible="false">
+    <div id="taskmain" class="container" runat="server" visible="false">
                 <div class="row">
           <div class="col s12 m10 l8 ">
             <h4 id="H2" class="bold" runat="server">Tasks</h4>
@@ -95,7 +95,7 @@
     </div>
 
 
-    <div id="picturemain" runat="server" visible="false">
+    <div id="picturemain" class="container" runat="server" visible="false">
 
           <div class="row">
           <div  class="col s12 m10 l8">
@@ -118,7 +118,7 @@
     </div>
 
 
-    <div id="collabrationmain" runat="server" visible="false">
+    <div id="collabrationmain" class="container" runat="server" visible="false">
 
 
 

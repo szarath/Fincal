@@ -25,15 +25,18 @@ namespace Fincal
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                 findata.Open();
 
-                Object[][] projects = findata.getprojects(user.getID());
+                Object[][] issue = findata.getissues(user.getID());
 
 
-                if (projects != null)
+                if (issue != null)
                 {
-                    for (int i = 0; i < projects.Length; i++)
+                    for (int i = 0; i < issue.Length; i++)
                     {
-                        htmldata1 += "<a href=\"Projectedit.aspx?id=" + (string)projects[i][0] + "\">";
-                        htmldata1 += "<div class=\"col s12 m2 l0\">";
+                        Object[] projectdetails = findata.getprojectdetails((string)issue[i][3]);
+
+
+                        htmldata1 += "<a href=\"Issueedit.aspx?id=" + (string)issue[i][0] + "\">";
+                        htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
                         htmldata1 += "<div class=\"card horizontal hoverable\">";
@@ -46,8 +49,9 @@ namespace Fincal
                         htmldata1 += "<div class=\"card-stacked\">";
                         htmldata1 += "<div class=\"card-content black-text\">";
                         htmldata1 += "<span class=\"card-title\">" +
-                        "<p class=\" bold\">" + (string)projects[i][1] + "</p>";
-
+                        "<p class=\" bold\">" + (string)issue[i][1] + "</p>";
+                        htmldata1 += "</span>";
+                        htmldata1 += "<p class=\"trunctext\">Project: " + (string)projectdetails[1] + "</p>";
 
 
 
@@ -73,16 +77,18 @@ namespace Fincal
                 }
 
 
-                object[] assignedissueids = findata.getissuesassigned(user.getID());
+                object[] assignedissueids = findata.getassignedissues(user.getID());
 
 
                 if (assignedissueids != null)
                 {
                     for (int i = 0; i < assignedissueids.Length; i++)
                     {
-                        object[] assigproj = findata.getissuedetails((string)assignedissueids[i]);
-                        htmldata2 += "<a href=\"Projectview.aspx?id=" + assigproj[0].ToString() + "\">";
-                        htmldata2 += "<div class=\"col s12 m2 l0\">";
+                      
+                        object[] assigiss = findata.getissuedetails((string)assignedissueids[0]);
+                        Object[] projectdetails = findata.getprojectdetails((string)assigiss[3]);
+                        htmldata2 += "<a href=\"Issueedit.aspx?id=" + assigiss[0].ToString() + "\">";
+                        htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
                         htmldata2 += "<div class=\"card horizontal hoverable\">";
@@ -95,7 +101,9 @@ namespace Fincal
                         htmldata2 += "<div class=\"card-stacked\">";
                         htmldata2 += "<div class=\"card-content black-text\">";
                         htmldata2 += "<span class=\"card-title\">" +
-                        "<p class=\" bold\">" + assigproj[1].ToString() + "</p>";
+                        "<p class=\" bold\">" + assigiss[1].ToString() + "</p>";
+                        htmldata2 += "</span>";
+                        htmldata2 += "<p class=\"trunctext\">Project: " + (string)projectdetails[1] + "</p>";
 
 
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Taskedit.aspx.cs" Inherits="Fincal.Taskedit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" Async="true" CodeBehind="Taskedit.aspx.cs" Inherits="Fincal.Taskedit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
@@ -6,7 +6,6 @@
         .thumb 
         {
             height: 75px;
-            margin: 10px 5px 0 0;
         }
     </style>
   
@@ -28,7 +27,7 @@
                     </div>
                      <div class="input-field col s6 m4 l3">
                         <select id="PlatformDrop" runat="server">
-                            <option value="" disabled selected>Choose Level</option>
+                            <option value="" disabled>Choose Level</option>
                            
                         </select> 
                         <label for="PlatformDrop">Level</label>
@@ -52,19 +51,21 @@
                  
             </div>
             <div class="card-action">
-              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskupdateServerClick">Update</button>
+              <button id="btntaskupdate" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskupdateServerClick">Update</button>
                <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons left">delete_forever</i> Delete</a> 
                
               <a href="Task.aspx" class="waves-effect waves-light btn orange">Cancel</a>
             </div>
           </div>
+
+
         </div>
       </div>
 
                     <div class="modal" id="AcceptDelete" >
                             <div class="modal-content">
                               <h4>Confirm Delete</h4>
-                              <p>Are you sure you wish to delete your task?</p>
+                              <p>Are you sure you wish to delete this Task?</p>
                             </div>
                             <div class="modal-footer">
                               <a href="#" runat="server" OnServerClick="btnDeleteAd_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>

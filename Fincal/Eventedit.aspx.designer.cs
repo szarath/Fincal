@@ -13,13 +13,13 @@ namespace Fincal {
     public partial class Eventedit {
         
         /// <summary>
-        /// editAdDiv control.
+        /// editeventDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editAdDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editeventDiv;
         
         /// <summary>
         /// InvlaideventAd control.
@@ -157,12 +157,12 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pic3Thumb;
         
         /// <summary>
-        /// btncreateevent control.
+        /// btnupdateevent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btncreateevent;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnupdateevent;
     }
 }

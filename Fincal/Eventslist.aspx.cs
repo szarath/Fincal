@@ -165,10 +165,10 @@ namespace Fincal
                         htmldata += "<span class=\"card-title\">" +
                              "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
+                        htmldata += "<p class=\"bold\">Date/Time: " + when + "</p>";
         
                         htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
+                        htmldata += "<p class=\"bold\">Location: " + eventItem.Location + "</p>";
 
 
                         htmldata += "</div>";
@@ -199,10 +199,10 @@ namespace Fincal
                         htmldata += "<span class=\"card-title\">" +
                             "<p class=\" bold\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Date: " + when + "</p>";
+                        htmldata += "<p class=\"bold\">Date/Time: " + when + "</p>";
     
                         htmldata += "</span>";
-                        htmldata += "<p class=\"trunctext\">Location: " + eventItem.Location + "</p>";
+                        htmldata += "<p class=\"bold\">Location: " + eventItem.Location + "</p>";
 
 
 

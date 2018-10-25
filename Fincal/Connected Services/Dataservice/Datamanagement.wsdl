@@ -211,11 +211,17 @@
   <wsdl:message name="IDatamanagement_deleteproject_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteprojectResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatamanagement_getissuesassigned_InputMessage">
-    <wsdl:part name="parameters" element="tns:getissuesassigned" />
+  <wsdl:message name="IDatamanagement_getassignedissues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getassignedissues" />
   </wsdl:message>
-  <wsdl:message name="IDatamanagement_getissuesassigned_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getissuesassignedResponse" />
+  <wsdl:message name="IDatamanagement_getassignedissues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getassignedissuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissues" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuesResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_getprojissues_InputMessage">
     <wsdl:part name="parameters" element="tns:getprojissues" />
@@ -246,6 +252,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_deleteissue_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteissueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteprojissues_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojissues" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteprojissues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojissuesResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_addprojteam_InputMessage">
     <wsdl:part name="parameters" element="tns:addprojteam" />
@@ -289,6 +301,12 @@
   <wsdl:message name="IDatamanagement_deleteassiguserformissue_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteassiguserformissueResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuemembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissuemembers" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissuemembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuemembersResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_getprojnotification_InputMessage">
     <wsdl:part name="parameters" element="tns:getprojnotification" />
   </wsdl:message>
@@ -306,6 +324,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_deleteporjnotificaiton_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteporjnotificaitonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallprojnotificaion_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallprojnotificaion" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallprojnotificaion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallprojnotificaionResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_getissuenotifications_InputMessage">
     <wsdl:part name="parameters" element="tns:getissuenotifications" />
@@ -480,9 +504,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteproject" message="tns:IDatamanagement_deleteproject_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojectResponse" message="tns:IDatamanagement_deleteproject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getissuesassigned">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuesassigned" message="tns:IDatamanagement_getissuesassigned_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuesassignedResponse" message="tns:IDatamanagement_getissuesassigned_OutputMessage" />
+    <wsdl:operation name="getassignedissues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getassignedissues" message="tns:IDatamanagement_getassignedissues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getassignedissuesResponse" message="tns:IDatamanagement_getassignedissues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissues" message="tns:IDatamanagement_getissues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuesResponse" message="tns:IDatamanagement_getissues_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getprojissues">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojissues" message="tns:IDatamanagement_getprojissues_InputMessage" />
@@ -503,6 +531,10 @@
     <wsdl:operation name="deleteissue">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissue" message="tns:IDatamanagement_deleteissue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissueResponse" message="tns:IDatamanagement_deleteissue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojissues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojissues" message="tns:IDatamanagement_deleteprojissues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojissuesResponse" message="tns:IDatamanagement_deleteprojissues_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="addprojteam">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addprojteam" message="tns:IDatamanagement_addprojteam_InputMessage" />
@@ -532,6 +564,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserformissue" message="tns:IDatamanagement_deleteassiguserformissue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteassiguserformissueResponse" message="tns:IDatamanagement_deleteassiguserformissue_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getissuemembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuemembers" message="tns:IDatamanagement_getissuemembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissuemembersResponse" message="tns:IDatamanagement_getissuemembers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getprojnotification">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojnotification" message="tns:IDatamanagement_getprojnotification_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojnotificationResponse" message="tns:IDatamanagement_getprojnotification_OutputMessage" />
@@ -543,6 +579,10 @@
     <wsdl:operation name="deleteporjnotificaiton">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteporjnotificaiton" message="tns:IDatamanagement_deleteporjnotificaiton_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteporjnotificaitonResponse" message="tns:IDatamanagement_deleteporjnotificaiton_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteallprojnotificaion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteallprojnotificaion" message="tns:IDatamanagement_deleteallprojnotificaion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteallprojnotificaionResponse" message="tns:IDatamanagement_deleteallprojnotificaion_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getissuenotifications">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissuenotifications" message="tns:IDatamanagement_getissuenotifications_InputMessage" />
@@ -877,8 +917,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getissuesassigned">
-      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissuesassigned" style="document" />
+    <wsdl:operation name="getassignedissues">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getassignedissues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissues">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -924,6 +973,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteissue">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojissues">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteprojissues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -994,6 +1052,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getissuemembers">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissuemembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getprojnotification">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojnotification" style="document" />
       <wsdl:input>
@@ -1014,6 +1081,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteporjnotificaiton">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteporjnotificaiton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteallprojnotificaion">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteallprojnotificaion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

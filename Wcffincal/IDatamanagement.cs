@@ -146,7 +146,8 @@ namespace Wcffincal
         [OperationContract]
         object[] getassignedissues(string uid);
 
-
+        [OperationContract]
+        object[][] getissues(string uid);
 
         [OperationContract]
         object[][] getprojissues(string projid);
@@ -164,6 +165,8 @@ namespace Wcffincal
         [OperationContract]
         int deleteissue(string issueid);
 
+        [OperationContract]
+        int deleteprojissues(string projid);
 
 
         // project teams operaiotns 
@@ -194,7 +197,8 @@ namespace Wcffincal
         [OperationContract]
         int deleteassiguserformissue(string uid, string issueid);
 
-
+        [OperationContract]
+        object[] getissuemembers(string issid);
 
         //notification project operations 
 
@@ -207,6 +211,8 @@ namespace Wcffincal
         [OperationContract]
         int deleteporjnotificaiton(string projid, string uid);
 
+        [OperationContract]
+        int deleteallprojnotificaion(string projid);
 
         //notificaiotns issue operations
 

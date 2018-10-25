@@ -107,8 +107,8 @@ namespace Fincal
             projacc.InnerHtml += "<p>Project has been Accepted and added to your other projects</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
@@ -126,8 +126,8 @@ namespace Fincal
             projacc.InnerHtml += "<p>Something went wronge</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
@@ -143,8 +143,8 @@ namespace Fincal
             projacc.InnerHtml += "<p>Project was rejected by you</p>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "<div class=\"card-action\">";
-            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\">Projects</a>";
+            projacc.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projacc.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";
             projacc.InnerHtml += "</div>";

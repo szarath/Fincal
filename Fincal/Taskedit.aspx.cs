@@ -29,96 +29,59 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            taskid = Request.QueryString.Get("id");
+            UserData user = (UserData)Session["User"];
+            if (!IsPostBack && user != null) { 
             PlatformDrop.Items.Add(new ListItem("1", "1"));
             PlatformDrop.Items.Add(new ListItem("2", "2"));
             PlatformDrop.Items.Add(new ListItem("3", "3"));
 
-            taskid = Request.QueryString.Get("id");
-            UserData user = (UserData)Session["User"];
-            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
-            storetask = findata.gettask(taskid,user.getID());
+            
+                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+                findata.Open();
+                storetask = findata.gettask(taskid, user.getID());
 
 
-            txttaskanme.Value = (string)storetask[1];
+                txttaskanme.Value = (string)storetask[1];
+
+                PlatformDrop.Items.FindByText((string)storetask[4]).Selected = true;
+
+                if (Convert.ToBoolean(storetask[2]))
+                {
+                    Completedcheck.Checked = true;
 
 
 
-            if (Convert.ToBoolean(storetask[2]))
-            {
-                Completedcheck.Checked = true;
 
-              
+                }
+                else
+                {
 
+                    Completedcheck.Checked = false;
 
+                }
             }
-            else
-            {
 
-                Completedcheck.Checked = false;
-                
-            }
+            
             
 
         }
 
         protected void btntaskupdateServerClick(object sender, EventArgs e)
         {
-            UserData currentUser = (UserData)(Session["User"]);
-        
-
-          
-            using (var stream =
-           new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
+            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
-                string credPath = System.Environment.GetFolderPath(
-                    System.Environment.SpecialFolder.Personal); ;
-                credPath = Path.Combine(credPath, ".credentials/tasksupdate-dotnet-quickstart.json");
 
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
-                // Console.WriteLine("Credential file saved to: " + credPath);
-
-
-
-
+                Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
 
             }
-
-            // Create Google Tasks API service.
-            var service = new TasksService(new BaseClientService.Initializer()
+            else
             {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-
-
-            Google.Apis.Tasks.v1.Data.Task task = service.Tasks.Get("@default", taskid).Execute();
-
-
-            if (Completedcheck.Checked == true)
-            {
-              
-                task.Status = "completed";
-                completed = 1;  
-
-
-
+                taskedit();
+                changePage();
             }
-            task.Title = txttaskanme.Value;
-            Google.Apis.Tasks.v1.Data.Task result = service.Tasks.Update(task, "@default", taskid).Execute();
-
-           Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
-
-
-
-            UserData user = (UserData)Session["User"];
-            findata.updatetask(txttaskanme.Value, completed.ToString(), user.getID(), PlatformDrop.Items[PlatformDrop.SelectedIndex].Text,taskid);
-
-            findata.Close();
-            Response.Redirect("Task.aspx");
+                
+         //   Response.Redirect("Task.aspx");
         }
 
         protected void btnDeleteAd_ServerClick(object sender, EventArgs e)
@@ -150,11 +113,113 @@ namespace Fincal
 
 
             service.Tasks.Delete("@default", taskid).ExecuteAsync();
-
+            changePagedelete();
 
         }
 
+        private async void taskedit()
+        {
+            UserData currentUser = (UserData)(Session["User"]);
 
+            if (txttaskanme.Value == "" || PlatformDrop.Value == "Choose Level")
+            {
+                Invlaidtask.InnerHtml = "<p>Please fill in all the feilds</p>";
+
+            }
+
+            using (var stream =
+           new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = System.Environment.GetFolderPath(
+                    System.Environment.SpecialFolder.Personal); ;
+                credPath = Path.Combine(credPath, ".credentials/tasksupdate-dotnet-quickstart.json");
+
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
+                // Console.WriteLine("Credential file saved to: " + credPath);
+
+
+
+
+
+            }
+
+            // Create Google Tasks API service.
+            var service = new TasksService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+
+            Google.Apis.Tasks.v1.Data.Task task = service.Tasks.Get("@default", taskid).Execute();
+
+
+        
+             if (Completedcheck.Checked == false)
+            {
+
+                task.Status = "needsAction";
+                task.CompletedRaw = null;
+                task.Completed = null;
+                completed = 0;
+
+            }
+            else if (Completedcheck.Checked == true)
+            {
+
+                task.Status = "completed";
+                completed = 1;
+
+            }
+            task.Title = txttaskanme.Value;
+            Google.Apis.Tasks.v1.Data.Task result = await service.Tasks.Update(task, "@default", taskid).ExecuteAsync();
+
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+
+            UserData user = (UserData)Session["User"];
+            findata.updatetask(txttaskanme.Value, completed.ToString(), user.getID(), PlatformDrop.Items[PlatformDrop.SelectedIndex].Text, taskid);
+
+            findata.Close();
+
+        }
+
+        protected void changePage()
+        {
+
+            taskDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            taskDiv.InnerHtml += "<div class=\"card white\">";
+            taskDiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            taskDiv.InnerHtml += "<span class=\"card-title bold\">Task Edited Successful</span>";
+            taskDiv.InnerHtml += "<p>You have successfully added a Task</p>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "<div class=\"card-action\">";
+            taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+        }
+
+        protected void changePagedelete()
+        {
+
+            taskDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            taskDiv.InnerHtml += "<div class=\"card white\">";
+            taskDiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            taskDiv.InnerHtml += "<span class=\"card-title bold\">Task Deleted Successful</span>";
+            taskDiv.InnerHtml += "<p>You have successfully added a Task</p>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "<div class=\"card-action\">";
+            taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+            taskDiv.InnerHtml += "</div>";
+        }
         private string colorchoice(int choice)
         {
             if (choice == 1)

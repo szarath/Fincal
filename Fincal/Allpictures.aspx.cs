@@ -41,8 +41,8 @@ namespace Fincal
                             htmldata += "<div class=\"col card hoverable\">";
 
                             htmldata += "<div class=\"card-image waves-effect waves-block waves-light\">";
-                            htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
-                            htmldata += "<span class=\"card-title \">" + (string)pictures[i][2] + "</span>";
+                            htmldata += "<img style='width:200px;height:200px' class=\"responsive-img\" src = 'data:image/jpeg;base64," + (string)pictures[i][1] + "'/>";
+                            htmldata += "<span class=\"card-title\">" + (string)pictures[i][2] + "</span>";
                             htmldata += "</div>";
 
 

@@ -90,8 +90,8 @@
 
 
            <div class="card-action">
-              <button id="btnpicadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnpicadd_ServerClick">Add</button>
-              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange">Cancel</a>
+              <button id="btnpicadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnpicadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
 
          

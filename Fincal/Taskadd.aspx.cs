@@ -33,7 +33,7 @@ namespace Fincal
             UserData currentUser = (UserData)(Session["User"]);
           
 
-            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Level"))
+            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
 
                 Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
@@ -42,7 +42,7 @@ namespace Fincal
             else
             {
               inserttask();
-                changePage();
+              changePage();
 
 
          /*     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
@@ -108,8 +108,9 @@ namespace Fincal
             Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
 
             newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
+           
 
-      
+
         }
         protected void changePage()
         {
@@ -122,7 +123,11 @@ namespace Fincal
             taskDiv.InnerHtml += "<p>You have successfully added a Task</p>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "<div class=\"card-action\">";
-            taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Continue</a>";
+
+
+            taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
+
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
-    
+    <div class="container">
       <div class="row">
           <div class="col s12 m10 l8">
             <h4 id="indexTitle" class="bold" runat="server">Issues</h4>
@@ -41,11 +41,11 @@
         
   
     <div class="row">
-     <div id="floatingissuecreateButton" class="fixed-action-btn " style="bottom: 45px; right: 24px;" runat="server" visible="true">
+    <!-- <div id="floatingissuecreateButton" class="fixed-action-btn " style="bottom: 45px; right: 24px;" runat="server" visible="true">
             <a class="btn-floating btn-large teal waves-effect waves-light moda" href="Issueadd.aspx">
               <i class="large material-icons">add</i>
             </a>
+        </div>-->
         </div>
-        </div>
-
+    </div>
 </asp:Content>

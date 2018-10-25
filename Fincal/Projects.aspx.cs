@@ -34,7 +34,7 @@ namespace Fincal
                     for (int i = 0; i < projects.Length; i++)
                     {
                         htmldata1 += "<a href=\"Projectedit.aspx?id=" + (string)projects[i][0] + "\">";
-                        htmldata1 += "<div class=\"col s12 m2 l0\">";
+                        htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
                         htmldata1 += "<div class=\"card horizontal hoverable\">";
@@ -47,7 +47,7 @@ namespace Fincal
                         htmldata1 += "<div class=\"card-stacked\">";
                         htmldata1 += "<div class=\"card-content black-text\">";
                         htmldata1 += "<span class=\"card-title\">" +
-                        "<p class=\" bold\">" + (string)projects[i][1] + "</p>";
+                        "<p class=\"bold\">" + (string)projects[i][1] + "</p>";
 
 
 
@@ -83,7 +83,7 @@ namespace Fincal
                     {
                         object[] assigproj = findata.getprojectdetails((string)assignedprojectsids[i]);
                         htmldata2 += "<a href=\"Projectview.aspx?id=" + assigproj[0].ToString() + "\">";
-                        htmldata2 += "<div class=\"col s12 m2 l0\">";
+                        htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
                         htmldata2 += "<div class=\"card horizontal hoverable\">";

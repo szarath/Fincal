@@ -134,11 +134,113 @@ namespace Fincal
             }
             
             findata.Close();
-            Response.Redirect("Projects.aspx");
+            changePage();
         }
 
+        protected void btnDeleteproject_ServerClick(object sender, EventArgs e)
+        {
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            UserData user = (UserData)Session["User"];
+            findata.Open();
+
+            int result = findata.deleteprojissues(pid);
+            if (result == 1)
+            {
+                int team = findata.deleteprojteam(pid);
+                int delete = findata.deleteallprojnotificaion(pid);
+                object[][] getprojiss = findata.getprojissues(pid);
+                if (getprojiss != null) { 
+                for(int i = 0; i < getprojiss.Length;i++)
+                {
+
+                    findata.deleteissue((string)getprojiss[i][0]);
+
+
+                }
+                }
+
+                if (team == 1  && delete == 1)
+                {
+                    int proj = findata.deleteproject(pid);
+                    if (proj == 1)
+                    {
+                        changePagedelete();
+                    }
+                }
+
+            }
+            else {
+
+
+                changePageerror();
+            }
+
+            findata.Close();
+        }
+
+        protected void btnissueadd_ServerClick(object sender, EventArgs e)
+        {
+
+            Response.Redirect("Issueadd.aspx?id="+ pid);
 
 
 
+
+        }
+
+        protected void changePage()
+        {
+
+            projecteditdiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            projecteditdiv.InnerHtml += "<div class=\"card white\">";
+            projecteditdiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            projecteditdiv.InnerHtml += "<span class=\"card-title bold\">Project Edited Successful</span>";
+            projecteditdiv.InnerHtml += "<p>You have successfully edited the project </p>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "<div class=\"card-action\">";
+
+            projecteditdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projecteditdiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+        }
+        protected void changePagedelete()
+        {
+
+            projecteditdiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            projecteditdiv.InnerHtml += "<div class=\"card white\">";
+            projecteditdiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            projecteditdiv.InnerHtml += "<span class=\"card-title bold\">Project Deleted</span>";
+            projecteditdiv.InnerHtml += "<p>You have successfully delete the project</p>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "<div class=\"card-action\">";
+            projecteditdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projecteditdiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+        }
+
+        protected void changePageerror()
+        {
+
+            projecteditdiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            projecteditdiv.InnerHtml += "<div class=\"card white\">";
+            projecteditdiv.InnerHtml += "<div class=\"card-content Black-text\">";
+            projecteditdiv.InnerHtml += "<span class=\"card-title bold\">Error</span>";
+            projecteditdiv.InnerHtml += "<p>Something went wrong please try again </p>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "<div class=\"card-action\">";
+            projecteditdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
+            projecteditdiv.InnerHtml += "<a href=\"Projects.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">assignment</i>Projects</a>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+            projecteditdiv.InnerHtml += "</div>";
+        }
     }
 }

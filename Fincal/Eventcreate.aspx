@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Eventcreate.aspx.cs" Inherits="Fincal.Eventcreate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" Async="true" AutoEventWireup="true" CodeBehind="Eventcreate.aspx.cs" Inherits="Fincal.Eventcreate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">

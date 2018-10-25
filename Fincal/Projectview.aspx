@@ -3,12 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
 
-    
+    <div class="container">
           <div id="projview" runat="server" class="row">
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title bold">Accept/Reject Projects</span>
+              <span class="card-title bold">Project Specfication</span>
                 
                 <div id="invalidRegister" class="row red-text text-lighten-2" runat="server">
 
@@ -61,10 +61,11 @@
 
 
   
-                   <a href="Projects.aspx" runat="server"  class="waves-effect waves-light btn">Projects</a>
-                               <a href="#AcceptDelete" class="btn orange waves-effect waves-light modal-trigger"><i class="material-icons left">cancel</i>Cancel</a>
+                              
+                               <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger red"><i class="material-icons left">delete</i>Delete</a>
+                    <a href="Projects.aspx" runat="server"  class="btn orange waves-effect waves-light"><i class="material-icons left">assignment</i>Projects</a>
               </div>
-
+              
           </div>
         </div>
     </div>
@@ -78,4 +79,5 @@
             <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
         </div>
     </div>
+        </div>
 </asp:Content>
