@@ -51,7 +51,8 @@
                  
                         <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Task</a></li> 
                           <li id="projectsidenav" class="bold" runat="server"><a href="Projects.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">assignment</i>Projects</a></li>        
-              <li id="issuessidenav" class="bold" runat="server"><a href="Issues.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">notification_important</i>Issues</a></li> 
+                      <li id="issuessidenav" class="bold" runat="server"><a href="Issues.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">notification_important</i>Issues</a></li> 
+           <li id="chatsidenav" class="bold" runat="server"><a href="Chatall.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">chat</i>Chat</a></li> 
                           <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
                        
                       <li class="divider"></li>
@@ -110,6 +111,7 @@
             $('.collapsible').collapsible({
                 accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
+            M.updateTextFields();
 
             $('select').formSelect();
 

@@ -46,6 +46,7 @@ namespace Wcffincal.Classes
                 sqlCommand.Connection = connection;
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Dispose();
+             
             }
             catch (Exception e)
             {

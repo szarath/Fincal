@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Chat" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:19036/Chat.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:19036/Chat.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:19036/Chat.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IChat_getprojchat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojchat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_getprojchat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojchatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_getissuechat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissuechat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_getissuechat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissuechatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_insertprojchat_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertprojchat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_insertprojchat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertprojchatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_insertissuechat_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertissuechat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_insertissuechat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertissuechatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteprojchat_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojchat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteprojchat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojchatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteissuechat_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissuechat" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteissuechat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissuechatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deletespecificprojmessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificprojmessage" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deletespecificprojmessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificprojmessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deletespecificissuemessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificissuemessage" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deletespecificissuemessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificissuemessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IChat">
+    <wsdl:operation name="getprojchat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/getprojchat" message="tns:IChat_getprojchat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/getprojchatResponse" message="tns:IChat_getprojchat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissuechat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/getissuechat" message="tns:IChat_getissuechat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/getissuechatResponse" message="tns:IChat_getissuechat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertprojchat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/insertprojchat" message="tns:IChat_insertprojchat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/insertprojchatResponse" message="tns:IChat_insertprojchat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertissuechat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/insertissuechat" message="tns:IChat_insertissuechat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/insertissuechatResponse" message="tns:IChat_insertissuechat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojchat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deleteprojchat" message="tns:IChat_deleteprojchat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deleteprojchatResponse" message="tns:IChat_deleteprojchat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissuechat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deleteissuechat" message="tns:IChat_deleteissuechat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deleteissuechatResponse" message="tns:IChat_deleteissuechat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificprojmessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deletespecificprojmessage" message="tns:IChat_deletespecificprojmessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deletespecificprojmessageResponse" message="tns:IChat_deletespecificprojmessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificissuemessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deletespecificissuemessage" message="tns:IChat_deletespecificissuemessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deletespecificissuemessageResponse" message="tns:IChat_deletespecificissuemessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IChat" type="tns:IChat">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getprojchat">
+      <soap:operation soapAction="http://tempuri.org/IChat/getprojchat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissuechat">
+      <soap:operation soapAction="http://tempuri.org/IChat/getissuechat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertprojchat">
+      <soap:operation soapAction="http://tempuri.org/IChat/insertprojchat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertissuechat">
+      <soap:operation soapAction="http://tempuri.org/IChat/insertissuechat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojchat">
+      <soap:operation soapAction="http://tempuri.org/IChat/deleteprojchat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissuechat">
+      <soap:operation soapAction="http://tempuri.org/IChat/deleteissuechat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificprojmessage">
+      <soap:operation soapAction="http://tempuri.org/IChat/deletespecificprojmessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificissuemessage">
+      <soap:operation soapAction="http://tempuri.org/IChat/deletespecificissuemessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Chat">
+    <wsdl:port name="BasicHttpBinding_IChat" binding="tns:BasicHttpBinding_IChat">
+      <soap:address location="http://localhost:19036/Chat.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

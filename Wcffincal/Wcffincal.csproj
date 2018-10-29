@@ -65,15 +65,20 @@
     <Content Include="App_Data\Fincal_log.ldf">
       <DependentUpon>Fincal.mdf</DependentUpon>
     </Content>
+    <Content Include="Chat.svc" />
     <Content Include="Datamanagement.svc" />
     <Content Include="Userservice.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chat.svc.cs">
+      <DependentUpon>Chat.svc</DependentUpon>
+    </Compile>
     <Compile Include="clsSQL.cs" />
     <Compile Include="Datamanagement.svc.cs">
       <DependentUpon>Datamanagement.svc</DependentUpon>
     </Compile>
+    <Compile Include="IChat.cs" />
     <Compile Include="IDatamanagement.cs" />
     <Compile Include="IUserservice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,7 +86,9 @@
       <DependentUpon>Userservice.svc</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Wcffincal.Chat" CodeBehind="Chat.svc.cs" %>
