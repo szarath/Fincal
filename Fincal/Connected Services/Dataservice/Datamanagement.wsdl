@@ -367,6 +367,78 @@
   <wsdl:message name="IDatamanagement_getspecificuserinformation_OutputMessage">
     <wsdl:part name="parameters" element="tns:getspecificuserinformationResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getmeetinginfromations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getmeetinginfromations" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getmeetinginfromations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getmeetinginfromationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletemeeting_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletemeeting" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletemeeting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletemeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertmeeting_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertmeeting" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertmeeting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertmeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertmeetingmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertmeetingmember" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertmeetingmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertmeetingmemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatemetinglink_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatemetinglink" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatemetinglink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatemetinglinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatemeeting_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatemeeting" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_updatemeeting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatemeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletemeetingmembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletemeetingmembers" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletemeetingmembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletemeetingmembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletespecificmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificmember" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletespecificmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletespecificmemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissflag_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertissflag" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissflag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertissflagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissueflags_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissueflags" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissueflags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissueflagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissflag_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissflag" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissflag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissflagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getspecificissflag_InputMessage">
+    <wsdl:part name="parameters" element="tns:getspecificissflag" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getspecificissflag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getspecificissflagResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDatamanagement">
     <wsdl:operation name="inserttask">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserttask" message="tns:IDatamanagement_inserttask_InputMessage" />
@@ -607,6 +679,54 @@
     <wsdl:operation name="getspecificuserinformation">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getspecificuserinformation" message="tns:IDatamanagement_getspecificuserinformation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse" message="tns:IDatamanagement_getspecificuserinformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getmeetinginfromations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinginfromations" message="tns:IDatamanagement_getmeetinginfromations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinginfromationsResponse" message="tns:IDatamanagement_getmeetinginfromations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletemeeting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletemeeting" message="tns:IDatamanagement_deletemeeting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletemeetingResponse" message="tns:IDatamanagement_deletemeeting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertmeeting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertmeeting" message="tns:IDatamanagement_insertmeeting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertmeetingResponse" message="tns:IDatamanagement_insertmeeting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertmeetingmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertmeetingmember" message="tns:IDatamanagement_insertmeetingmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertmeetingmemberResponse" message="tns:IDatamanagement_insertmeetingmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatemetinglink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updatemetinglink" message="tns:IDatamanagement_updatemetinglink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatemetinglinkResponse" message="tns:IDatamanagement_updatemetinglink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatemeeting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/updatemeeting" message="tns:IDatamanagement_updatemeeting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/updatemeetingResponse" message="tns:IDatamanagement_updatemeeting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletemeetingmembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletemeetingmembers" message="tns:IDatamanagement_deletemeetingmembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletemeetingmembersResponse" message="tns:IDatamanagement_deletemeetingmembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletespecificmember" message="tns:IDatamanagement_deletespecificmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletespecificmemberResponse" message="tns:IDatamanagement_deletespecificmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertissflag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertissflag" message="tns:IDatamanagement_insertissflag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertissflagResponse" message="tns:IDatamanagement_insertissflag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissueflags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissueflags" message="tns:IDatamanagement_getissueflags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissueflagsResponse" message="tns:IDatamanagement_getissueflags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissflag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflag" message="tns:IDatamanagement_deleteissflag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflagResponse" message="tns:IDatamanagement_deleteissflag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getspecificissflag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getspecificissflag" message="tns:IDatamanagement_getspecificissflag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getspecificissflagResponse" message="tns:IDatamanagement_getspecificissflag_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDatamanagement" type="tns:IDatamanagement">
@@ -1144,6 +1264,114 @@
     </wsdl:operation>
     <wsdl:operation name="getspecificuserinformation">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getspecificuserinformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getmeetinginfromations">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getmeetinginfromations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletemeeting">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletemeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertmeeting">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertmeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertmeetingmember">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertmeetingmember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatemetinglink">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updatemetinglink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatemeeting">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/updatemeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletemeetingmembers">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletemeetingmembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletespecificmember">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletespecificmember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertissflag">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertissflag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissueflags">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissueflags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissflag">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissflag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getspecificissflag">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getspecificissflag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

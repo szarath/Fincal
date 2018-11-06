@@ -140,32 +140,47 @@ namespace Fincal
         protected void btnDeleteproject_ServerClick(object sender, EventArgs e)
         {
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+
+            Chatmanagement.ChatClient chat = new Chatmanagement.ChatClient();
             UserData user = (UserData)Session["User"];
             findata.Open();
-
+            chat.Open();
             int result = findata.deleteprojissues(pid);
             if (result == 1)
             {
                 int team = findata.deleteprojteam(pid);
                 int delete = findata.deleteallprojnotificaion(pid);
+                int deleteprojchat = chat.deleteprojchat(pid);
+
+                object[]
+
+                int deletemeeting = findata.deletemeeting(pid)
+
+                    int deletemeetingmembers = findata.deletemeetingmembers
                 object[][] getprojiss = findata.getprojissues(pid);
+
                 if (getprojiss != null) { 
                 for(int i = 0; i < getprojiss.Length;i++)
                 {
 
                     findata.deleteissue((string)getprojiss[i][0]);
-
+                        chat.deleteissuechat((string)getprojiss[i][0]);
 
                 }
                 }
 
-                if (team == 1  && delete == 1)
+                if (team == 1 && delete == 1)
                 {
                     int proj = findata.deleteproject(pid);
                     if (proj == 1)
                     {
                         changePagedelete();
                     }
+                }
+                else {
+
+
+
                 }
 
             }
@@ -174,7 +189,7 @@ namespace Fincal
 
                 changePageerror();
             }
-
+            chat.Close();
             findata.Close();
         }
 

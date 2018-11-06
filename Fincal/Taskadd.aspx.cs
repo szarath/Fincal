@@ -127,7 +127,7 @@ namespace Fincal
 
             taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
             taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
-
+            taskDiv.InnerHtml += "<a href=\"Taskadd.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";

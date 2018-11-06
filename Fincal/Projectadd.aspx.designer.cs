@@ -58,6 +58,33 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlSelect UserChoose;
         
         /// <summary>
+        /// txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txt;
+        
+        /// <summary>
+        /// txtdom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdom;
+        
+        /// <summary>
+        /// txttime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txttime;
+        
+        /// <summary>
         /// btnprojadd control.
         /// </summary>
         /// <remarks>

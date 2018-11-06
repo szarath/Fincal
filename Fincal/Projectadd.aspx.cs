@@ -55,7 +55,7 @@ namespace Fincal
             Object[][] members = findata.getuserinformation();
 
 
-            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals(""))
+            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") )
             {
                 Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
 
@@ -63,7 +63,9 @@ namespace Fincal
             else {
 
                 int result = findata.createproject(txtprojt.Value, txtprojd.Value, user.getID());
-                if (result != 0)
+            //    int meeting = findata.insertmeeting("Project:" + txtprojt.Value, txtprojd.Value );
+
+                if (result != 0 )
                 {
                     foreach (ListItem item in UserChoose.Items)
                     {
@@ -71,7 +73,7 @@ namespace Fincal
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
                             findata.insertprojectnotifications(result.ToString(), id.ToString());
-
+                           
                         }
 
                     }

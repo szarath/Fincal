@@ -52,9 +52,7 @@ namespace Fincal
 
 
                 }
-                else {
-                    changePagenomem();
-                }
+              
                 
 
 
@@ -114,13 +112,13 @@ namespace Fincal
 
             projectdiv.InnerHtml += "<div class=\"card white\">";
             projectdiv.InnerHtml += "<div class=\"card-content Black-text\">";
-            projectdiv.InnerHtml += "<span class=\"card-title bold\">Issue Added Successful</span>";
-            projectdiv.InnerHtml += "<p>You have successfully added a Issue</p>";
+            projectdiv.InnerHtml += "<span class=\"card-title bold\">Issue added successful</span>";
+            projectdiv.InnerHtml += "<p>You have successfully added an issue</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
-            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\">Issues</a>";
-            projectdiv.InnerHtml += "<a href=\"Issueadd.aspx?id=" + pid +"\" runat=\"server\" class=\"btn waves-effect waves-light blue\">Add Another Issue</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material - icons\">notification_important</i>Issues</a>";
+            projectdiv.InnerHtml += "<a href=\"Issueadd.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material - icons\">add_alert</i>Add Another Issue</a>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
@@ -134,12 +132,12 @@ namespace Fincal
             projectdiv.InnerHtml += "<div class=\"card white\">";
             projectdiv.InnerHtml += "<div class=\"card-content Black-text\">";
             projectdiv.InnerHtml += "<span class=\"card-title bold\">No members</span>";
-            projectdiv.InnerHtml += "<p>Please add members to add issues</p>";
+            projectdiv.InnerHtml += "<p>Please add members to the project</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\">Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
 
-            projectdiv.InnerHtml += "<a href=\"Projectedit.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\">Project</a>";
+            projectdiv.InnerHtml += "<a href=\"Projectedit.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material - icons\">assignment</i>Project Edit</a>";
 
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";

@@ -37,15 +37,21 @@
    <div id="otherprojects" class="row" runat="server">
    
      </div>
- 
+
+        <div class =" row">
+      <h4 class="thin col m10 s12 " runat="server">Flagged Issues</h4> 
+            </div>
+ <div id="flagged" class="row" runat="server">
+   
+     </div>
         
   
     <div class="row">
-    <!-- <div id="floatingissuecreateButton" class="fixed-action-btn " style="bottom: 45px; right: 24px;" runat="server" visible="true">
-            <a class="btn-floating btn-large teal waves-effect waves-light moda" href="Issueadd.aspx">
+    <div id="floatingissuecreateButton" class="fixed-action-btn " style="bottom: 45px; right: 24px;" runat="server" visible="true">
+            <a class="btn-floating btn-large teal waves-effect waves-light moda" href="Issuereport.aspx">
               <i class="large material-icons">add</i>
             </a>
-        </div>-->
+        </div>
         </div>
     </div>
 </asp:Content>

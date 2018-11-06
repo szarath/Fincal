@@ -70,7 +70,7 @@
          <div class="modal" id="AcceptUpdate">
                             <div class="modal-content">
                               <h4>Confirm Accept</h4>
-                              <p>Are you sure you wish to be a part of this project?</p>
+                              <p>Are you sure you wish to be a part of this issue?</p>
                             </div>
                             <div class="modal-footer">
                               <a href="#" runat="server" OnServerClick="btnacceptproject_ServerClick" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Yes I'm Sure</a>
@@ -81,7 +81,7 @@
      <div class="modal" id="AcceptDelete">
                             <div class="modal-content">
                               <h4>Confirm cancellation</h4>
-                              <p>Are you sure you wish to not be a part of this project?</p>
+                              <p>Are you sure you wish to not be a part of this issue?</p>
                             </div>
                             <div class="modal-footer">
                               <a href="#" runat="server" OnServerClick="btncancelprojnotification_Click" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>

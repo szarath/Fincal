@@ -422,6 +422,84 @@ namespace Fincal.Dataservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse")]
         System.Threading.Tasks.Task<object[]> getspecificuserinformationAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getmeetinginfromations", ReplyAction="http://tempuri.org/IDatamanagement/getmeetinginfromationsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getmeetinginfromations(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getmeetinginfromations", ReplyAction="http://tempuri.org/IDatamanagement/getmeetinginfromationsResponse")]
+        System.Threading.Tasks.Task<object[][]> getmeetinginfromationsAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletemeeting", ReplyAction="http://tempuri.org/IDatamanagement/deletemeetingResponse")]
+        int deletemeeting(string meetid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletemeeting", ReplyAction="http://tempuri.org/IDatamanagement/deletemeetingResponse")]
+        System.Threading.Tasks.Task<int> deletemeetingAsync(string meetid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertmeeting", ReplyAction="http://tempuri.org/IDatamanagement/insertmeetingResponse")]
+        int insertmeeting(string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertmeeting", ReplyAction="http://tempuri.org/IDatamanagement/insertmeetingResponse")]
+        System.Threading.Tasks.Task<int> insertmeetingAsync(string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertmeetingmember", ReplyAction="http://tempuri.org/IDatamanagement/insertmeetingmemberResponse")]
+        int insertmeetingmember(string meetid, string uid, string mlaccept);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertmeetingmember", ReplyAction="http://tempuri.org/IDatamanagement/insertmeetingmemberResponse")]
+        System.Threading.Tasks.Task<int> insertmeetingmemberAsync(string meetid, string uid, string mlaccept);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatemetinglink", ReplyAction="http://tempuri.org/IDatamanagement/updatemetinglinkResponse")]
+        int updatemetinglink(string meetID, string uID, string mlaccept);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatemetinglink", ReplyAction="http://tempuri.org/IDatamanagement/updatemetinglinkResponse")]
+        System.Threading.Tasks.Task<int> updatemetinglinkAsync(string meetID, string uID, string mlaccept);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatemeeting", ReplyAction="http://tempuri.org/IDatamanagement/updatemeetingResponse")]
+        int updatemeeting(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updatemeeting", ReplyAction="http://tempuri.org/IDatamanagement/updatemeetingResponse")]
+        System.Threading.Tasks.Task<int> updatemeetingAsync(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletemeetingmembers", ReplyAction="http://tempuri.org/IDatamanagement/deletemeetingmembersResponse")]
+        int deletemeetingmembers(string meetid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletemeetingmembers", ReplyAction="http://tempuri.org/IDatamanagement/deletemeetingmembersResponse")]
+        System.Threading.Tasks.Task<int> deletemeetingmembersAsync(string meetid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletespecificmember", ReplyAction="http://tempuri.org/IDatamanagement/deletespecificmemberResponse")]
+        int deletespecificmember(string meetid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletespecificmember", ReplyAction="http://tempuri.org/IDatamanagement/deletespecificmemberResponse")]
+        System.Threading.Tasks.Task<int> deletespecificmemberAsync(string meetid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissflag", ReplyAction="http://tempuri.org/IDatamanagement/insertissflagResponse")]
+        int insertissflag(string isstitle, string issdesc, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissflag", ReplyAction="http://tempuri.org/IDatamanagement/insertissflagResponse")]
+        System.Threading.Tasks.Task<int> insertissflagAsync(string isstitle, string issdesc, string projid, string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissueflags", ReplyAction="http://tempuri.org/IDatamanagement/getissueflagsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getissueflags(string projID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissueflags", ReplyAction="http://tempuri.org/IDatamanagement/getissueflagsResponse")]
+        System.Threading.Tasks.Task<object[][]> getissueflagsAsync(string projID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissflag", ReplyAction="http://tempuri.org/IDatamanagement/deleteissflagResponse")]
+        int deleteissflag(string isfid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissflag", ReplyAction="http://tempuri.org/IDatamanagement/deleteissflagResponse")]
+        System.Threading.Tasks.Task<int> deleteissflagAsync(string isfid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificissflag", ReplyAction="http://tempuri.org/IDatamanagement/getspecificissflagResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getspecificissflag(string isfid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificissflag", ReplyAction="http://tempuri.org/IDatamanagement/getspecificissflagResponse")]
+        System.Threading.Tasks.Task<object[]> getspecificissflagAsync(string isfid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -929,6 +1007,102 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<object[]> getspecificuserinformationAsync(string uid) {
             return base.Channel.getspecificuserinformationAsync(uid);
+        }
+        
+        public object[][] getmeetinginfromations(string uid) {
+            return base.Channel.getmeetinginfromations(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getmeetinginfromationsAsync(string uid) {
+            return base.Channel.getmeetinginfromationsAsync(uid);
+        }
+        
+        public int deletemeeting(string meetid) {
+            return base.Channel.deletemeeting(meetid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deletemeetingAsync(string meetid) {
+            return base.Channel.deletemeetingAsync(meetid);
+        }
+        
+        public int insertmeeting(string meettitle, string meetdesc, string meetdatetime, string projid, string uid) {
+            return base.Channel.insertmeeting(meettitle, meetdesc, meetdatetime, projid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertmeetingAsync(string meettitle, string meetdesc, string meetdatetime, string projid, string uid) {
+            return base.Channel.insertmeetingAsync(meettitle, meetdesc, meetdatetime, projid, uid);
+        }
+        
+        public int insertmeetingmember(string meetid, string uid, string mlaccept) {
+            return base.Channel.insertmeetingmember(meetid, uid, mlaccept);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertmeetingmemberAsync(string meetid, string uid, string mlaccept) {
+            return base.Channel.insertmeetingmemberAsync(meetid, uid, mlaccept);
+        }
+        
+        public int updatemetinglink(string meetID, string uID, string mlaccept) {
+            return base.Channel.updatemetinglink(meetID, uID, mlaccept);
+        }
+        
+        public System.Threading.Tasks.Task<int> updatemetinglinkAsync(string meetID, string uID, string mlaccept) {
+            return base.Channel.updatemetinglinkAsync(meetID, uID, mlaccept);
+        }
+        
+        public int updatemeeting(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid) {
+            return base.Channel.updatemeeting(meetingid, meettitle, meetdesc, meetdatetime, projid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> updatemeetingAsync(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid) {
+            return base.Channel.updatemeetingAsync(meetingid, meettitle, meetdesc, meetdatetime, projid, uid);
+        }
+        
+        public int deletemeetingmembers(string meetid) {
+            return base.Channel.deletemeetingmembers(meetid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deletemeetingmembersAsync(string meetid) {
+            return base.Channel.deletemeetingmembersAsync(meetid);
+        }
+        
+        public int deletespecificmember(string meetid, string uid) {
+            return base.Channel.deletespecificmember(meetid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deletespecificmemberAsync(string meetid, string uid) {
+            return base.Channel.deletespecificmemberAsync(meetid, uid);
+        }
+        
+        public int insertissflag(string isstitle, string issdesc, string projid, string uid) {
+            return base.Channel.insertissflag(isstitle, issdesc, projid, uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertissflagAsync(string isstitle, string issdesc, string projid, string uid) {
+            return base.Channel.insertissflagAsync(isstitle, issdesc, projid, uid);
+        }
+        
+        public object[][] getissueflags(string projID) {
+            return base.Channel.getissueflags(projID);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getissueflagsAsync(string projID) {
+            return base.Channel.getissueflagsAsync(projID);
+        }
+        
+        public int deleteissflag(string isfid) {
+            return base.Channel.deleteissflag(isfid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteissflagAsync(string isfid) {
+            return base.Channel.deleteissflagAsync(isfid);
+        }
+        
+        public object[] getspecificissflag(string isfid) {
+            return base.Channel.getspecificissflag(isfid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getspecificissflagAsync(string isfid) {
+            return base.Channel.getspecificissflagAsync(isfid);
         }
     }
 }

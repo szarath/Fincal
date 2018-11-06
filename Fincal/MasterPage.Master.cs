@@ -28,7 +28,7 @@ namespace Fincal
                 signOutSideNav.Visible = true;
                 //  searchSmallTopNav.Visible = true;
                 presistenicon.Visible = true;
-
+                chatsidenav.Visible = true;
 
 
 
@@ -50,7 +50,7 @@ namespace Fincal
                 myProfileSideNav.Visible = false;
                 signOutSideNav.Visible = false;
                 presistenicon.Visible = false;
-
+                chatsidenav.Visible = false;
                 //  searchSmallTopNav.Visible = false;
             }
         }

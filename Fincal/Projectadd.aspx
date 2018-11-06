@@ -38,6 +38,7 @@
                     </div>
                 </div>
 
+
                  <div class="row">
                     <div class="input-field col  s12 m12 l12">
                           <i class="material-icons prefix">people</i>
@@ -51,9 +52,31 @@
                    
                      </div>
           
-             
+                 <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">description</i>
+                        <textarea  id="txt" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtprojd">Description</label>
+                    </div>
+                </div>
         
                     
+                <div class="row">
+                     
+                                    <div class="input-field col s12 m6 l6">
+                                       <i class="material-icons prefix">today</i>
+                                        <input  id="txtdom" runat="server" class="datepicker black-text"/>
+                                        <label for="txtdom">Date of first meeting</label>
+                                    </div>
+
+                                     <div class="input-field col s12 m6 l6">
+                                       <i class="material-icons prefix">access_time</i>
+                                        <input  id="txttime" runat="server" class="timepicker black-text"/>
+                                        <label for="txttime">Time of first meeting  </label>
+                                    </div>
+
+
+                            </div>
                 
                  
             </div>

@@ -10,10 +10,10 @@
         
             </div>
 
-     <div runat="server" id="projectnotificaitonmain" visible="false">
+     <div runat="server" id="projectnotificaitonmain" class="section" visible="false">
          <div class="row">
-          <div class="col s12 m10 l8 ">
-            <h4 id="H4" class="bold" runat="server">Projects</h4>
+          <div class="col s12 m10 11 ">
+            <h5 id="H4" class="bold" runat="server">Projects</h5>
         </div>  
     </div>
 
@@ -24,10 +24,10 @@
         </div>
 
     
-     <div runat="server" id="issuenotificaitonmain" visible="false">
+     <div runat="server" id="issuenotificaitonmain" class="section" visible="false">
          <div class="row">
-          <div class="col s12 m10 l8 ">
-            <h4 id="H5" class="bold" runat="server">Issues</h4>
+          <div class="col s12 m10 11 ">
+            <h5 id="H5" class="bold" runat="server">Issues</h5>
         </div>  
     </div>
 
@@ -37,10 +37,10 @@
     </div>
         </div>
 
-    <div runat="server" id="eventmain" visible="false">
+    <div runat="server" id="eventmain" class="section" visible="false">
          <div class="row">
-          <div class="col s12 m10 l8 ">
-            <h4 id="H1" class="bold" runat="server">Events</h4>
+          <div class="col s12 m10 11 ">
+            <h5 id="H1" class="bold" runat="server">Events</h5>
         </div>  
      
    
@@ -52,10 +52,10 @@
     </div>
         </div>
 
-    <div id="taskmain" class="container" runat="server" visible="false">
+    <div id="taskmain" class="container section" runat="server" visible="false">
                 <div class="row">
-          <div class="col s12 m10 l8 ">
-            <h4 id="H2" class="bold" runat="server">Tasks</h4>
+          <div class="col s12 m10 11 ">
+            <h5 id="H2" class="bold" runat="server">Tasks</h5>
         </div>
         
     </div>
@@ -66,7 +66,7 @@
 
          
          
-         <h4 id="H6" class="thin col m10 s12  " runat="server">Inprogress</h4> 
+         <h6 id="H6" class="thin col m10 s12 10" runat="server">Inprogress</h6> 
 
           </div>
 
@@ -81,7 +81,7 @@
    
 
         <div class =" row">
-      <h4 class="thin col m10 s12 " runat="server">Completed</h4> 
+      <h6 class="thin col m10 s12 10" runat="server">Completed</h6> 
             </div>
 
 
@@ -95,11 +95,11 @@
     </div>
 
 
-    <div id="picturemain" class="container" runat="server" visible="false">
+    <div id="picturemain" class="container section" runat="server" visible="false">
 
           <div class="row">
-          <div  class="col s12 m10 l8">
-            <h4 id="H3" class="bold"  runat="server">Pictures</h4>
+          <div  class="col s12 m10 11">
+            <h5 id="H3" class="bold"  runat="server">Pictures</h5>
          </div>  
          </div>
  
@@ -118,7 +118,7 @@
     </div>
 
 
-    <div id="collabrationmain" class="container" runat="server" visible="false">
+    <div id="collabrationmain" class="container section" runat="server" visible="false">
 
 
 

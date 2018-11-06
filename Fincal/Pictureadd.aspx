@@ -47,13 +47,13 @@
                 </div>
 
                   
-                <div class="row">
-                      <div class="input-field col  s12"> 
-                        <input id="txtpicdesc" type="text" class="validate autocomplete-content" runat="server"/>
+               
+                   <div class="row">
+                      <div class="input-field  col  s12"> 
+                     <textarea  type="text"  id="txtpicdesc" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtpicdesc">Picture Description</label>
                     </div>
                 </div>
-
 
                  <script>
                   function handleFileSelect(evt) {

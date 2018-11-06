@@ -59,6 +59,7 @@
 
                    
                      </div>
+
           <div class="row">
                     <div class="input-field col  s12 m12 l12">
                           <i class="material-icons prefix">people</i>
@@ -67,7 +68,7 @@
                            
                         </select> 
                         <label for="Othermembers">Other Members</label>
-                             <blockquote>Add members to the project.</blockquote>
+                             <blockquote>Add members to the issue.</blockquote>
                     </div>
 
                    

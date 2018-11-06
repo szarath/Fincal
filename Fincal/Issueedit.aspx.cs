@@ -164,6 +164,8 @@ namespace Fincal
         protected void btnissdelete_ServerClick(object sender, EventArgs e)
         {
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            Chatmanagement.ChatClient chat = new Chatmanagement.ChatClient();
+            chat.Open();
             UserData user = (UserData)Session["User"];
             findata.Open();
 
@@ -172,19 +174,11 @@ namespace Fincal
             {
                 int team = findata.deleteprojteam(pid);
                 int delete = findata.deleteallprojnotificaion(pid);
-                object[][] getprojiss = findata.getprojissues(pid);
-                if (getprojiss != null)
-                {
-                    for (int i = 0; i < getprojiss.Length; i++)
-                    {
+               int deleteiss = findata.deleteissue(pid);
+                int delelteisschat = chat.deleteissuechat(pid);
 
-                        findata.deleteissue((string)getprojiss[i][0]);
-
-
-                    }
-                }
-
-                if (team == 1 && delete == 1)
+                 
+                if(team == 1 && delete == 1 && deleteiss == 1 && delelteisschat == 1)
                 {
                     int proj = findata.deleteproject(pid);
                     if (proj == 1)
@@ -202,7 +196,7 @@ namespace Fincal
             }
 
             findata.Close();
-
+            chat.Close();
 
         }
 

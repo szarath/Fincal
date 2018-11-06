@@ -58,7 +58,7 @@ namespace Fincal
             request.TimeMin = DateTime.Now;
             request.ShowDeleted = false;
             request.SingleEvents = true;
-            request.MaxResults = 100;
+            request.MaxResults = 1000;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
             string picturedef = " ";
@@ -74,9 +74,11 @@ namespace Fincal
 
             if (events.Items != null && events.Items.Count > 0)
             {
+                
+
                 foreach (var eventItem in events.Items)
                 {
-
+                       
                     string when = eventItem.Start.DateTime.ToString();
                     if (String.IsNullOrEmpty(when))
                     {
@@ -163,9 +165,9 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                             "<p class=\" bold\">" + eventItem.Summary + "</p>";
+                             "<p class=\"bold trunctext\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
-                        htmldata += "<p class=\"bold\">Date/Time: " + when + "</p>";
+                        htmldata += "<p class=\"bold \">Date/Time: " + when + "</p>";
         
                         htmldata += "</span>";
                         htmldata += "<p class=\"bold\">Location: " + eventItem.Location + "</p>";
@@ -197,12 +199,12 @@ namespace Fincal
                         htmldata += "<div class=\"card-stacked\">";
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\">" +
-                            "<p class=\" bold\">" + eventItem.Summary + "</p>";
+                            "<p class=\" bold trunctext\">" + eventItem.Summary + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"bold\">Date/Time: " + when + "</p>";
     
                         htmldata += "</span>";
-                        htmldata += "<p class=\"bold\">Location: " + eventItem.Location + "</p>";
+                        htmldata += "<p class=\"bold trunctext\">Location: " + eventItem.Location + "</p>";
 
 
 

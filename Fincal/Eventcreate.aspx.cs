@@ -232,7 +232,7 @@ namespace Fincal
                 End = new EventDateTime()
                 {
                     DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
-                    //   DateTime = DateTime.Parse(datetimepicker1.Value),
+                  
                     TimeZone ="Europe/Paris",
                 },
 

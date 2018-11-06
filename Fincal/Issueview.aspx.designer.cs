@@ -31,30 +31,39 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl invalidRegister;
         
         /// <summary>
-        /// txtprojt control.
+        /// txtprojname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojt;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojname;
         
         /// <summary>
-        /// txtprojd control.
+        /// txtisstitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtisstitle;
         
         /// <summary>
-        /// txtptojectmember control.
+        /// txtissdesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtptojectmember;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtissdesc;
+        
+        /// <summary>
+        /// txtprojleader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojleader;
     }
 }

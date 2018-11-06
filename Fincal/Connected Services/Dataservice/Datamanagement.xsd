@@ -894,4 +894,189 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getmeetinginfromations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetinginfromationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetinginfromationsResult" nillable="true" type="q25:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletemeeting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletemeetingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deletemeetingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertmeeting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meettitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="meetdesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="meetdatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="projid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertmeetingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertmeetingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertmeetingmember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mlaccept" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertmeetingmemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertmeetingmemberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatemetinglink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mlaccept" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatemetinglinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatemetinglinkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatemeeting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetingid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="meettitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="meetdesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="meetdatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="projid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatemeetingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatemeetingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletemeetingmembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletemeetingmembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deletemeetingmembersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletespecificmember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletespecificmemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deletespecificmemberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertissflag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isstitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="issdesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="projid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertissflagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertissflagResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getissueflags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getissueflagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissueflagsResult" nillable="true" type="q26:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteissflag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isfid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteissflagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteissflagResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getspecificissflag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isfid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getspecificissflagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getspecificissflagResult" nillable="true" type="q27:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

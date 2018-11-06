@@ -38,7 +38,7 @@
                  <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
-                        <textarea id="txtprojd" class="materialize-textarea" runat="server"></textarea>
+                        <textarea id="txtprojd" class="materialize-textarea" rows="4" runat="server"></textarea>
                         <label for="txtprojd">Issue Description</label>
                     </div>
                 </div>

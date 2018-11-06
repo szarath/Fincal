@@ -73,9 +73,13 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Octokit, Version=0.32.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.32.0\lib\net45\Octokit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -138,6 +142,8 @@
     <Content Include="Issueaccept.aspx" />
     <Content Include="Issueadd.aspx" />
     <Content Include="Issueedit.aspx" />
+    <Content Include="Issueflagviewer.aspx" />
+    <Content Include="Issuereport.aspx" />
     <Content Include="Issues.aspx" />
     <Content Include="Issueview.aspx" />
     <Content Include="MasterPage.Master" />
@@ -183,6 +189,7 @@
     <Content Include="Myprofile.aspx" />
     <Content Include="Pictureadd.aspx" />
     <Content Include="Pictureedit.aspx" />
+    <Content Include="Profileviewer.aspx" />
     <Content Include="Projectaccept.aspx" />
     <Content Include="Projectadd.aspx" />
     <Content Include="Projectedit.aspx" />
@@ -192,6 +199,8 @@
     <Content Include="Task.aspx" />
     <Content Include="Taskadd.aspx" />
     <Content Include="Taskedit.aspx" />
+    <Content Include="Updateemail.aspx" />
+    <Content Include="Updatepassword.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +297,20 @@
     <Compile Include="Issueedit.aspx.designer.cs">
       <DependentUpon>Issueedit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Issueflagviewer.aspx.cs">
+      <DependentUpon>Issueflagviewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issueflagviewer.aspx.designer.cs">
+      <DependentUpon>Issueflagviewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Issuereport.aspx.cs">
+      <DependentUpon>Issuereport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issuereport.aspx.designer.cs">
+      <DependentUpon>Issuereport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Issues.aspx.cs">
       <DependentUpon>Issues.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -336,6 +359,13 @@
     </Compile>
     <Compile Include="Pictureedit.aspx.designer.cs">
       <DependentUpon>Pictureedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profileviewer.aspx.cs">
+      <DependentUpon>Profileviewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profileviewer.aspx.designer.cs">
+      <DependentUpon>Profileviewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Projectaccept.aspx.cs">
       <DependentUpon>Projectaccept.aspx</DependentUpon>
@@ -401,6 +431,20 @@
     </Compile>
     <Compile Include="Taskedit.aspx.designer.cs">
       <DependentUpon>Taskedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Updateemail.aspx.cs">
+      <DependentUpon>Updateemail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Updateemail.aspx.designer.cs">
+      <DependentUpon>Updateemail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Updatepassword.aspx.cs">
+      <DependentUpon>Updatepassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Updatepassword.aspx.designer.cs">
+      <DependentUpon>Updatepassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserData.cs" />
   </ItemGroup>

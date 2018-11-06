@@ -235,5 +235,47 @@ namespace Wcffincal
         object[] getspecificuserinformation(string uid);
 
 
+        //meeting 
+        [OperationContract]
+        object[][] getmeetinginfromations(string uid);
+
+        [OperationContract]
+        int deletemeeting(string meetid);
+
+        [OperationContract]
+        int insertmeeting(string meettitle,string meetdesc,string meetdatetime,string projid,string uid);
+
+        [OperationContract]
+        int insertmeetingmember(string meetid,string uid,string mlaccept);
+
+        [OperationContract]
+        int updatemetinglink(string meetID, string uID,string mlaccept);
+
+        [OperationContract]
+        int updatemeeting(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
+
+        [OperationContract]
+        int deletemeetingmembers(string meetid);
+
+        [OperationContract]
+        int deletespecificmember(string meetid, string uid);
+
+        [OperationContract]
+        object[] getprojmeetings(string projid);
+
+        //flagging 
+        [OperationContract]
+        int insertissflag(string isstitle, string issdesc, string projid, string uid);
+
+        [OperationContract]
+        Object[][] getissueflags(string projID);
+
+        [OperationContract]
+        int deleteissflag(string isfid);
+
+
+        [OperationContract]
+        object[] getspecificissflag(string isfid);
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Octokit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace Fincal
     {
         string htmldata1;
         string htmldata2;
+        string htmldata3;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -87,7 +89,7 @@ namespace Fincal
                       
                         object[] assigiss = findata.getissuedetails((string)assignedissueids[0]);
                         Object[] projectdetails = findata.getprojectdetails((string)assigiss[3]);
-                        htmldata2 += "<a href=\"Issueedit.aspx?id=" + assigiss[0].ToString() + "\">";
+                        htmldata2 += "<a href=\"Issueview.aspx?id=" + assigiss[0].ToString() + "\">";
                         htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
@@ -128,13 +130,97 @@ namespace Fincal
                     htmldata2 += "";
                 }
 
+
+                Object[][] userproj = findata.getprojects(user.getID());
+
+                if (userproj != null)
+                {
+                    for (int i = 0; i < userproj.Length; i++)
+                    {
+                        object[][] issuedetails = findata.getissueflags((string)userproj[i][0]);
+
+                        if (issuedetails != null)
+                        {
+                            object[] projdetails = findata.getprojectdetails((string)userproj[i][0]);
+
+
+                            for (int j = 0; j < issuedetails.Length; j++)
+                            {
+
+                                htmldata3 += "<a href=\"Issueflagviewer.aspx?id=" + (string)issuedetails[j][0] + "\">";
+                                htmldata3 += "<div class=\"col s12 m3 l0\">";
+
+
+                                htmldata3 += "<div class=\"card horizontal hoverable\">";
+                                /* htmldata += "<div class=\"card-image\">";
+
+                                 htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
+
+
+                                 htmldata += "</div>";*/
+                                htmldata3 += "<div class=\"card-stacked\">";
+                                htmldata3 += "<div class=\"card-content black-text\">";
+                                htmldata3 += "<span class=\"card-title\">" +
+                                "<p class=\" bold\">" + (string)issuedetails[j][3] + "</p>";
+                                htmldata3 += "</span>";
+                                htmldata3 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+
+
+
+                                htmldata3 += "</div>";
+                                htmldata3 += "</div>";
+                                htmldata3 += "</div>";
+                                htmldata3 += "</div>";
+                                htmldata3 += "</a>";
+
+
+                            }
+
+
+                          
+
+
+
+                        }
+                        else
+                        {
+
+
+                        }
+
+                    }
+
+
+
+                }
+
+                object[] userassignproj = findata.getassignedprojects(user.getID());
+
+                if (userassignproj != null)
+                {
+                    for (int i = 0; i < userproj.Length; i++)
+                    {
+
+
+                    }
+
+                }
+
+                
+
+
+
+
                 yourprojects.InnerHtml = htmldata1;
                 otherprojects.InnerHtml = htmldata2;
-
+                flagged.InnerHtml = htmldata3;
                 findata.Close();
+
+         
             }
         }
-
+            
+      
 
     }
 }

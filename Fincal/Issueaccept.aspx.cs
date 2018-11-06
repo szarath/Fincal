@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Tasks.v1;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -74,8 +77,63 @@ namespace Fincal
                 }
             }
             findata.Close();
-        }
 
+
+
+
+
+
+
+
+        }
+   /*     private async void inserttask()
+        {
+            UserCredential credential;
+
+            /*using (var stream =
+                new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = Server.MapPath("/token.json");
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true)).Result;
+                Console.WriteLine("Credential file saved to: " + credPath);
+            }
+
+            using (var stream =
+              new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = System.Environment.GetFolderPath(
+                    System.Environment.SpecialFolder.Personal); ;
+                credPath = Path.Combine(credPath, ".credentials/tasksadd-dotnet-quickstart.json");
+
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
+                // Console.WriteLine("Credential file saved to: " + credPath);
+
+
+
+
+
+            }
+
+            // Create Google Tasks API service.
+            var service = new TasksService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
+
+            newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
+
+
+
+        }*/
 
         protected void btncancelprojnotification_Click(object sender, EventArgs e)
         {

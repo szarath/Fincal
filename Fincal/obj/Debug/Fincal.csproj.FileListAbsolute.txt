@@ -55,3 +55,5 @@ C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\ob
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\obj\Debug\Fincal.csproj.CopyComplete
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\obj\Debug\Fincal.dll
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\obj\Debug\Fincal.pdb
+D:\Fincal\Fincal\bin\Octokit.dll
+D:\Fincal\Fincal\bin\Octokit.xml
