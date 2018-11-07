@@ -69,9 +69,8 @@
                    
                      </div>-->
 
-
-                 <div class="row">
-                    <div class="input-field col  s12 m12 l12">
+    <div class="row">
+                    <div class="input-field col  ss12 m6 l6 ">
                           <i class="material-icons prefix">people</i>
                         <select id="UserChoose" runat="server" multiple>
                          
@@ -80,7 +79,14 @@
                         <label for="UserChoose">Members</label>
                     </div>
 
-                   
+                      <div class="input-field col s12 m6 l6">
+                              <i class="material-icons prefix">category</i>
+                        <select id="LevelDrop" runat="server">
+                              <option value="" disabled selected>Choose Level</option>
+                           
+                        </select> 
+                        <label for="LevelDrop">Level</label>
+                    </div>
                      </div>
           
              
@@ -91,7 +97,7 @@
             </div>
 
            <div class="card-action">
-              <button id="btnissadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnissueadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <button id="btnissadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnissueadd_ServerClick"><i class="material-icons left">save</i>Accept</button>
               <button id="btnissreject" class="btn waves-effect waves-light red" runat="server" onserverclick="btnissreject_ServerClick"><i class="material-icons left">not_interested</i>Reject</button>
               <a href="Issue.aspx" class="waves-effect waves-light btn blue"><i class="material-icons left">notification_important</i>Issue</a>
               <a href="Default.aspx" class="waves-effect waves-light btn "><i class="material-icons left">home</i>Home</a>

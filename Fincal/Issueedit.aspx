@@ -82,7 +82,7 @@
             <div class="card-action">
                   <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Accept</a>
                    <a href="#AcceptDelete" class="btn waves-effect waves-light modal-trigger red"><i class="material-icons left">delete_forever</i>Delete</a>
-              <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
+              <a href="Issues.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@ namespace Fincal
 
                         projectmemdetails = findata.getspecificuserinformation((string)projectmembers[i]);
 
-                        htmldata += "<li class = \"collection - item\"><span style=\"font - weight:bold\">Username: " + (string)projectmemdetails[0]+"   Email: "+ (string)projectmemdetails[1]+"   Skill: "+ (string)projectmemdetails[2]  + "</span></li>";
+                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Username: " + (string)projectmemdetails[0]+"   Email: "+ (string)projectmemdetails[1]+"   Skill: "+ (string)projectmemdetails[2]  + "</span></li>";
 
 
                     }

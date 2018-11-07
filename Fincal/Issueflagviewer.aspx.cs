@@ -10,6 +10,7 @@ namespace Fincal
     public partial class Issueflagviewer : System.Web.UI.Page
     {
         private string id;
+        private string projid;
         private object[] projdetails;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +19,7 @@ namespace Fincal
 
                 if (!IsPostBack)
                 {
-                     id = Request.QueryString.Get("id");
+                    id = Request.QueryString.Get("id");
                     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                     findata.Open();
 
@@ -26,19 +27,23 @@ namespace Fincal
 
                     if (issdetails != null)
                     {
-                      projdetails = findata.getprojectdetails((string)issdetails[5]);
+                        projdetails = findata.getprojectdetails((string)issdetails[5]);
+                        projid = (string)issdetails[5];
                         txtprojname.Value = (string)projdetails[1];
                         txtruser.Value = (string)issdetails[1];
                         txtisstitle.Value = (string)issdetails[3];
                         txtissdesc.Value = (string)issdetails[4];
-
-
                     }
 
 
 
 
                     findata.Close();
+                }
+                else
+                {
+                    Response.Redirect("Issues.aspx");
+
                 }
             }
             else
@@ -55,18 +60,18 @@ namespace Fincal
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             UserData user = (UserData)Session["User"];
-            Object[][] members = findata.getuserinformation();
+ 
 
 
-            if (txtisstitle.Value.Equals("") || txtissdesc.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals(""))
+            if (txtisstitle.Value.Equals("") || txtissdesc.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
-                Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
+                Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>"; 
 
             }
             else
             {
 
-                int result = findata.createissue(txtisstitle.Value, txtissdesc.Value, id, user.getID());
+                int result = findata.createissue(txtisstitle.Value, txtissdesc.Value, projid.ToString(), LevelDrop.Items[LevelDrop.SelectedIndex].Text.ToString() ,user.getID(),DateTime.Now);
                 if (result != 0)
                 {
                     foreach (ListItem item in UserChoose.Items)
@@ -79,8 +84,6 @@ namespace Fincal
                         }
 
                     }
-
-
 
                 }
 

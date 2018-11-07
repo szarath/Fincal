@@ -17,8 +17,8 @@ namespace Fincal
        
         private DateTime DoB;
         private string skill;
-
-        public UserData(string ID, string username, string firstname, string Surname, DateTime DoB,string skill)
+        private string gitlink;
+        public UserData(string ID, string username, string firstname, string Surname, DateTime DoB,string skill,string gitlink)
         {
             this.ID = ID;
             this.username = username;
@@ -26,6 +26,7 @@ namespace Fincal
             this.surname = Surname;
             this.DoB = DoB;
             this.skill = skill;
+            this.gitlink = gitlink;
         }
 
 
@@ -35,8 +36,8 @@ namespace Fincal
         public string getSurname() { return this.surname; }
         public string getSkill() { return this.skill; }
         public DateTime getDoB() { return this.DoB; }
+        public string getGitlink() { return this.gitlink; }
 
-        
-  
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Issueaccept.aspx.cs" Inherits="Fincal.Issueaccept" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" Async="true" CodeBehind="Issueaccept.aspx.cs" Inherits="Fincal.Issueaccept" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
@@ -16,41 +16,45 @@
                     <div    class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">label_important</i>
                         <textarea readonly id="txtprojectname" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtprojt">Project</label>
+                        <label for="txtprojectname">Project</label>
                     </div>
                 </div>
                         
                           <div class="row">
                     <div    class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
-                        <textarea readonly id="txtprojt" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtprojt">Issue Title</label>
+                        <textarea readonly id="txtisst" class="materialize-textarea bold" runat="server"></textarea>
+                        <label for="txtisst">Issue title</label>
                     </div>
                 </div>
 
                  <div class="row">
                     <div   class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
-                        <textarea readonly id="txtprojd" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtprojd">Issue Description</label>
+                        <textarea readonly id="txtissd" class="materialize-textarea bold" rows="4" runat="server"></textarea>
+                        <label for="txtissd">Issue description</label>
                     </div>
                 </div>
-
-                <div class="row">
-
-                    <div  class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix">label_important</i>
-                        <textarea readonly id="txtptojectleaderuname" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderuname">Project Leader Username</label>
+                   <div class="row">
+                    <div   class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">category</i>
+                        <textarea readonly id="txtisspriority" class="materialize-textarea bold" rows="4" runat="server"></textarea>
+                        <label for="txtisspriority">Issue priority</label>
                     </div>
-
-                      <div  class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix">email</i>
-                        <textarea readonly id="txtptojectleaderemail" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderemail">Project Leader Email</label>
-                     </div>
-
                 </div>
+             
+
+                    <div class="row">
+                               
+
+                  
+                                    
+                              <ul id="membersonissue" class="collection with-header col s12 m12 l12" runat="server">
+                           <li class="collection-header"><h2><i class="material-icons prefix">people</i>Issue members</h2></li>
+                          </ul>
+                    
+                          </div>
+
                           
 
                         </div>
@@ -59,7 +63,7 @@
 
   
                   <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Accept</a>
-                            <a href="#AcceptDelete" class="btn orange waves-effect waves-light modal-trigger"><i class="material-icons left">cancel</i>Cancel</a>
+                            <a href="#AcceptDelete" class="btn orange waves-effect waves-light modal-trigger"><i class="material-icons left">not_interested</i>Reject</a>
               </div>
 
           </div>

@@ -40,39 +40,39 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojectname;
         
         /// <summary>
-        /// txtprojt control.
+        /// txtisst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojt;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtisst;
         
         /// <summary>
-        /// txtprojd control.
+        /// txtissd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtissd;
         
         /// <summary>
-        /// txtptojectleaderuname control.
+        /// txtisspriority control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtptojectleaderuname;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtisspriority;
         
         /// <summary>
-        /// txtptojectleaderemail control.
+        /// membersonissue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtptojectleaderemail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl membersonissue;
     }
 }

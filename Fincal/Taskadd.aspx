@@ -23,10 +23,12 @@
 
                 <div class="row">
                     <div class="input-field col s6 m8 l9"> 
+                        <i class="material-icons prefix">notification_important</i>
                         <input id="txttaskanme" type="text" class="validate autocomplete-content" runat="server"/>
                         <label for="txttaskname">Task Name</label>
                     </div>
                     <div class="input-field col s6 m4 l3">
+                                   <i class="material-icons prefix">category</i>
                         <select id="PlatformDrop" runat="server">
                               <option value="" disabled selected>Choose Level</option>
                            

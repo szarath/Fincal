@@ -43,6 +43,11 @@ namespace Fincal
 
 
                 }
+                else
+                {
+
+                    Response.Redirect("Projects.aspx");
+                }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Apis.Tasks.v1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,9 @@ namespace Fincal
     public partial class Issueadd : System.Web.UI.Page
     {
         private string pid;
+        static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
+        static string ApplicationName = "Google Tasks API .NET Quickstart";
+        private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
         {
             pid = Request.QueryString.Get("id");
@@ -21,39 +25,47 @@ namespace Fincal
             }
             else
             {
-                UserData user = (UserData)Session["User"];
+                if (!IsPostBack) {
+                    LevelDrop.Items.Add(new ListItem("1", "1"));
+                    LevelDrop.Items.Add(new ListItem("2", "2"));
+                    LevelDrop.Items.Add(new ListItem("3", "3"));
+                    UserData user = (UserData)Session["User"];
                 UserChoose.Multiple = true;
 
                 object[] projdetails = findata.getprojectdetails(pid);
                 txtprojname.Value = (string)projdetails[1];
-            
-                            object[] projmembers = findata.getprojectmembers(pid);
-                if (projmembers != null)
-                {
 
-                    for (int i = 0; i < projmembers.Length; i++)
+                object[] projmembers = findata.getprojectmembers(pid);
+                    if (projmembers != null)
                     {
-                        object[] getmemberdetails = findata.getspecificuserinformation((string)projmembers[i]);
 
-
-                        if ((string)getmemberdetails[0] == user.getID())
+                        for (int i = 0; i < projmembers.Length; i++)
                         {
+                            object[] getmemberdetails = findata.getspecificuserinformation((string)projmembers[i]);
+
+
+                            if ((string)getmemberdetails[0] == user.getID())
+                            {
+
+                            }
+                            else
+                            {
+
+                                UserChoose.Items.Add(new ListItem(" " + (string)getmemberdetails[1] + " " + (string)getmemberdetails[2] + " ", (string)projmembers[i].ToString()));
+
+                            }
 
                         }
-                        else
-                        {
 
-                            UserChoose.Items.Add(new ListItem(" " + (string)getmemberdetails[1] + " " + (string)getmemberdetails[2] + " ", (string)projmembers[i].ToString()));
 
-                        }
 
                     }
+                    else
+                    {
+                        Response.Redirect("Projectedit.aspx?id=" + pid);
+                    }
 
-
-
-                }
-              
-                
+            }
 
 
             }
@@ -65,10 +77,9 @@ namespace Fincal
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             UserData user = (UserData)Session["User"];
-            Object[][] members = findata.getuserinformation();
+          
 
-
-            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals(""))
+            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
                 Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
 
@@ -76,7 +87,7 @@ namespace Fincal
             else
             {
                 
-                        int result = findata.createissue(txtprojt.Value, txtprojd.Value, pid, user.getID());
+                      int result = findata.createissue(txtprojt.Value, txtprojd.Value, pid, LevelDrop.Items[LevelDrop.SelectedIndex].Value.ToString() ,user.getID(),DateTime.Now);
                       if (result != 0)
                          {
                          foreach (ListItem item in UserChoose.Items)
@@ -85,11 +96,10 @@ namespace Fincal
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
                             findata.insertissuenotifications(result.ToString(), id.ToString());
-
                         }
 
                     }
-
+                        
 
 
                 }

@@ -1,9 +1,12 @@
 ﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
 using Google.Apis.Tasks.v1;
+using Google.Apis.Util.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +18,14 @@ namespace Fincal
         string pid;
         object[] issdetails;
         object[] pldetails;
+        object[] projdetails;
+        static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
+        static string ApplicationName = "Google Tasks API .NET Quickstart";
+        private Google.Apis.Tasks.v1.Data.Task newtask;
+        Dataservice.DatamanagementClient findata;
+        string projname;
+        string htmldata;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -24,32 +35,56 @@ namespace Fincal
             else
             {
                 UserData user = (UserData)Session["User"];
-                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-                findata.Open();
+                 findata = new Dataservice.DatamanagementClient();
+               
                 pid = Request.QueryString.Get("id");
 
                 if (!IsPostBack)
                 {
+
+                    String[] test;
+
+                    findata.Open();
                     issdetails = findata.getissuedetails(pid);
 
                     if (issdetails != null)
                     {
-                        object[] projdetails = findata.getprojectdetails((string)issdetails[3]);
-                        txtprojectname.Value = (string)issdetails[1];
-                        txtprojt.Value = (string)issdetails[1];
-                    txtprojd.Value = (string)issdetails[2];
-                       
-                    pldetails = findata.getprojectleaderinformaion((string)issdetails[5]);
+                        projdetails = findata.getprojectdetails((string)issdetails[3]);
+                        txtprojectname.Value = (string)projdetails[1];
+                        txtisst.Value = (string)issdetails[1];
+                        txtissd.Value = (string)issdetails[2];
+                        txtisspriority.Value = (string)issdetails[4];
+                        pldetails = findata.getprojectleaderinformaion((string)issdetails[5]);
 
-                    txtptojectleaderuname.Value = (string)pldetails[0];
-
-                    txtptojectleaderemail.Value = (string)pldetails[1];
+                  
 
                     }
 
+                    object[][] issmembers = findata.issueteam(pid);
+
+                    if (issmembers != null)
+                    {
+                        for (int i = 0; i < issmembers.Length; i++)
+                        {
+
+                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">\"Schedule\"+ +Username: " + (string)issmembers[i][1] + "   Email: " + (string)issmembers[i][2] +  "</span></li>";
+
+                        }
+                    }
+
+                    else {
+
+                    }
+
+                    findata.Close();
 
                 }
-                findata.Close();
+                else
+                {
+                    Response.Redirect("Issues.aspx");
+
+                }
+               
             }
         
         }
@@ -79,18 +114,18 @@ namespace Fincal
             findata.Close();
 
 
-
+            inserttask();
 
 
 
 
 
         }
-   /*     private async void inserttask()
+       private async void inserttask()
         {
             UserCredential credential;
-
-            /*using (var stream =
+            UserData user = (UserData)Session["User"];
+            using (var stream =
                 new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
             {
                 string credPath = Server.MapPath("/token.json");
@@ -127,13 +162,18 @@ namespace Fincal
                 ApplicationName = ApplicationName,
             });
 
-            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
+            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title ="Project:"+ (string)projdetails[1] + "Issue:" +  (string)issdetails[1] };
 
             newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
+            if(newtask != null)
+            {
+                findata.inserttask(newtask.Title, "0", issdetails[4].ToString(), newtask.Id.ToString(), user.getID());
+            }
+         
+      
 
 
-
-        }*/
+        }
 
         protected void btncancelprojnotification_Click(object sender, EventArgs e)
         {
@@ -146,6 +186,7 @@ namespace Fincal
             if (result == 1)
             {
                 changecancelPage();
+
             }
             else
             {

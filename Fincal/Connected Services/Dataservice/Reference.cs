@@ -109,6 +109,14 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/geteventids", ReplyAction="http://tempuri.org/IDatamanagement/geteventidsResponse")]
         System.Threading.Tasks.Task<object[]> geteventidsAsync(string uid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getalluserevents", ReplyAction="http://tempuri.org/IDatamanagement/getallusereventsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getalluserevents(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getalluserevents", ReplyAction="http://tempuri.org/IDatamanagement/getallusereventsResponse")]
+        System.Threading.Tasks.Task<object[][]> getallusereventsAsync(string uid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/inserteventpic", ReplyAction="http://tempuri.org/IDatamanagement/inserteventpicResponse")]
         int inserteventpic(string eid, string pic, string egoogleid, string uid);
         
@@ -228,10 +236,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<object[][]> getprojectsAsync(string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createproject", ReplyAction="http://tempuri.org/IDatamanagement/createprojectResponse")]
-        int createproject(string title, string description, string uid);
+        int createproject(string title, string description, string uid, System.DateTime pcredate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createproject", ReplyAction="http://tempuri.org/IDatamanagement/createprojectResponse")]
-        System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid);
+        System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid, System.DateTime pcredate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateproject", ReplyAction="http://tempuri.org/IDatamanagement/updateprojectResponse")]
         int updateproject(string title, string description, string projID);
@@ -278,10 +286,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<object[]> getissuedetailsAsync(string issueid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createissue", ReplyAction="http://tempuri.org/IDatamanagement/createissueResponse")]
-        int createissue(string title, string description, string projid, string uid);
+        int createissue(string title, string description, string projid, string category, string uid, System.DateTime iscredate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/createissue", ReplyAction="http://tempuri.org/IDatamanagement/createissueResponse")]
-        System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string uid);
+        System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string category, string uid, System.DateTime iscredate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/updateissue", ReplyAction="http://tempuri.org/IDatamanagement/updateissueResponse")]
         int updateissue(string isid, string status, string assid);
@@ -300,6 +308,14 @@ namespace Fincal.Dataservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteprojissues", ReplyAction="http://tempuri.org/IDatamanagement/deleteprojissuesResponse")]
         System.Threading.Tasks.Task<int> deleteprojissuesAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/issueteam", ReplyAction="http://tempuri.org/IDatamanagement/issueteamResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] issueteam(string isID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/issueteam", ReplyAction="http://tempuri.org/IDatamanagement/issueteamResponse")]
+        System.Threading.Tasks.Task<object[][]> issueteamAsync(string isID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/addprojteam", ReplyAction="http://tempuri.org/IDatamanagement/addprojteamResponse")]
         int addprojteam(string uid, string projid);
@@ -473,6 +489,14 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletespecificmember", ReplyAction="http://tempuri.org/IDatamanagement/deletespecificmemberResponse")]
         System.Threading.Tasks.Task<int> deletespecificmemberAsync(string meetid, string uid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojmeetings", ReplyAction="http://tempuri.org/IDatamanagement/getprojmeetingsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojmeetings(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojmeetings", ReplyAction="http://tempuri.org/IDatamanagement/getprojmeetingsResponse")]
+        System.Threading.Tasks.Task<object[]> getprojmeetingsAsync(string projid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissflag", ReplyAction="http://tempuri.org/IDatamanagement/insertissflagResponse")]
         int insertissflag(string isstitle, string issdesc, string projid, string uid);
         
@@ -641,6 +665,14 @@ namespace Fincal.Dataservice {
             return base.Channel.geteventidsAsync(uid);
         }
         
+        public object[][] getalluserevents(string uid) {
+            return base.Channel.getalluserevents(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getallusereventsAsync(string uid) {
+            return base.Channel.getallusereventsAsync(uid);
+        }
+        
         public int inserteventpic(string eid, string pic, string egoogleid, string uid) {
             return base.Channel.inserteventpic(eid, pic, egoogleid, uid);
         }
@@ -777,12 +809,12 @@ namespace Fincal.Dataservice {
             return base.Channel.getprojectsAsync(uid);
         }
         
-        public int createproject(string title, string description, string uid) {
-            return base.Channel.createproject(title, description, uid);
+        public int createproject(string title, string description, string uid, System.DateTime pcredate) {
+            return base.Channel.createproject(title, description, uid, pcredate);
         }
         
-        public System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid) {
-            return base.Channel.createprojectAsync(title, description, uid);
+        public System.Threading.Tasks.Task<int> createprojectAsync(string title, string description, string uid, System.DateTime pcredate) {
+            return base.Channel.createprojectAsync(title, description, uid, pcredate);
         }
         
         public int updateproject(string title, string description, string projID) {
@@ -833,12 +865,12 @@ namespace Fincal.Dataservice {
             return base.Channel.getissuedetailsAsync(issueid);
         }
         
-        public int createissue(string title, string description, string projid, string uid) {
-            return base.Channel.createissue(title, description, projid, uid);
+        public int createissue(string title, string description, string projid, string category, string uid, System.DateTime iscredate) {
+            return base.Channel.createissue(title, description, projid, category, uid, iscredate);
         }
         
-        public System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string uid) {
-            return base.Channel.createissueAsync(title, description, projid, uid);
+        public System.Threading.Tasks.Task<int> createissueAsync(string title, string description, string projid, string category, string uid, System.DateTime iscredate) {
+            return base.Channel.createissueAsync(title, description, projid, category, uid, iscredate);
         }
         
         public int updateissue(string isid, string status, string assid) {
@@ -863,6 +895,14 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<int> deleteprojissuesAsync(string projid) {
             return base.Channel.deleteprojissuesAsync(projid);
+        }
+        
+        public object[][] issueteam(string isID) {
+            return base.Channel.issueteam(isID);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> issueteamAsync(string isID) {
+            return base.Channel.issueteamAsync(isID);
         }
         
         public int addprojteam(string uid, string projid) {
@@ -1071,6 +1111,14 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<int> deletespecificmemberAsync(string meetid, string uid) {
             return base.Channel.deletespecificmemberAsync(meetid, uid);
+        }
+        
+        public object[] getprojmeetings(string projid) {
+            return base.Channel.getprojmeetings(projid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojmeetingsAsync(string projid) {
+            return base.Channel.getprojmeetingsAsync(projid);
         }
         
         public int insertissflag(string isstitle, string issdesc, string projid, string uid) {

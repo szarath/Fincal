@@ -91,6 +91,12 @@
   <wsdl:message name="IDatamanagement_geteventids_OutputMessage">
     <wsdl:part name="parameters" element="tns:geteventidsResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getalluserevents_InputMessage">
+    <wsdl:part name="parameters" element="tns:getalluserevents" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getalluserevents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getallusereventsResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_inserteventpic_InputMessage">
     <wsdl:part name="parameters" element="tns:inserteventpic" />
   </wsdl:message>
@@ -259,6 +265,12 @@
   <wsdl:message name="IDatamanagement_deleteprojissues_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteprojissuesResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_issueteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:issueteam" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_issueteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:issueteamResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_addprojteam_InputMessage">
     <wsdl:part name="parameters" element="tns:addprojteam" />
   </wsdl:message>
@@ -415,6 +427,12 @@
   <wsdl:message name="IDatamanagement_deletespecificmember_OutputMessage">
     <wsdl:part name="parameters" element="tns:deletespecificmemberResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojmeetings_InputMessage">
+    <wsdl:part name="parameters" element="tns:getprojmeetings" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getprojmeetings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getprojmeetingsResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_insertissflag_InputMessage">
     <wsdl:part name="parameters" element="tns:insertissflag" />
   </wsdl:message>
@@ -495,6 +513,10 @@
     <wsdl:operation name="geteventids">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/geteventids" message="tns:IDatamanagement_geteventids_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/geteventidsResponse" message="tns:IDatamanagement_geteventids_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getalluserevents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getalluserevents" message="tns:IDatamanagement_getalluserevents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getallusereventsResponse" message="tns:IDatamanagement_getalluserevents_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="inserteventpic">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserteventpic" message="tns:IDatamanagement_inserteventpic_InputMessage" />
@@ -608,6 +630,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojissues" message="tns:IDatamanagement_deleteprojissues_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteprojissuesResponse" message="tns:IDatamanagement_deleteprojissues_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="issueteam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/issueteam" message="tns:IDatamanagement_issueteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/issueteamResponse" message="tns:IDatamanagement_issueteam_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="addprojteam">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addprojteam" message="tns:IDatamanagement_addprojteam_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/addprojteamResponse" message="tns:IDatamanagement_addprojteam_OutputMessage" />
@@ -711,6 +737,10 @@
     <wsdl:operation name="deletespecificmember">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletespecificmember" message="tns:IDatamanagement_deletespecificmember_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deletespecificmemberResponse" message="tns:IDatamanagement_deletespecificmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getprojmeetings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojmeetings" message="tns:IDatamanagement_getprojmeetings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojmeetingsResponse" message="tns:IDatamanagement_getprojmeetings_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="insertissflag">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertissflag" message="tns:IDatamanagement_insertissflag_InputMessage" />
@@ -850,6 +880,15 @@
     </wsdl:operation>
     <wsdl:operation name="geteventids">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/geteventids" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getalluserevents">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getalluserevents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1109,6 +1148,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="issueteam">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/issueteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addprojteam">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/addprojteam" style="document" />
       <wsdl:input>
@@ -1336,6 +1384,15 @@
     </wsdl:operation>
     <wsdl:operation name="deletespecificmember">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletespecificmember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getprojmeetings">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojmeetings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

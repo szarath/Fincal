@@ -58,6 +58,8 @@ namespace Wcffincal
         [OperationContract]
         object[] geteventids(string uid);
 
+        [OperationContract]
+        Object[][] getalluserevents(string uid);
 
         //event pictures operations
         [OperationContract]
@@ -130,7 +132,7 @@ namespace Wcffincal
         object[][] getprojects(string uid);
 
         [OperationContract]
-        int createproject(string title, string description, string uid);
+        int createproject(string title, string description, string uid, DateTime pcredate);
 
         [OperationContract]
         int updateproject(string title, string description, string projID);
@@ -157,7 +159,7 @@ namespace Wcffincal
 
 
         [OperationContract]
-        int createissue(string title, string description, string projid,  string uid);
+        int createissue(string title, string description,  string projid, string category, string uid, DateTime iscredate);
 
         [OperationContract]
         int updateissue(string isid, string status, string assid);
@@ -168,6 +170,8 @@ namespace Wcffincal
         [OperationContract]
         int deleteprojissues(string projid);
 
+        [OperationContract]
+        Object[][] issueteam(string isID);
 
         // project teams operaiotns 
         [OperationContract]
@@ -263,6 +267,8 @@ namespace Wcffincal
         [OperationContract]
         object[] getprojmeetings(string projid);
 
+
+
         //flagging 
         [OperationContract]
         int insertissflag(string isstitle, string issdesc, string projid, string uid);
@@ -272,7 +278,6 @@ namespace Wcffincal
 
         [OperationContract]
         int deleteissflag(string isfid);
-
 
         [OperationContract]
         object[] getspecificissflag(string isfid);

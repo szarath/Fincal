@@ -22,9 +22,9 @@
                 </div>
                  <div class="row">
                     <div class="input-field col s12 m12 l12">
-                         <i class="material-icons prefix">title</i>
+                         <i class="material-icons prefix">assignment</i>
                         <textarea readonly id="txtprojname" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojt">Project Title</label>
+                        <label for="txtprojname">Project Title</label>
                     </div>
                 </div>
                   <div class="row">
@@ -58,7 +58,7 @@
 
 
                  <div class="row">
-                    <div class="input-field col  s12 m12 l12">
+                    <div class="input-field col  s6 m6 l3 ">
                           <i class="material-icons prefix">people</i>
                         <select id="UserChoose" runat="server" multiple>
                          
@@ -67,7 +67,14 @@
                         <label for="UserChoose">Members</label>
                     </div>
 
-                   
+                      <div class="input-field col s6 m6 l3">
+                              <i class="material-icons prefix">category</i>
+                        <select id="LevelDrop" runat="server">
+                              <option value="" disabled selected>Choose Level</option>
+                           
+                        </select> 
+                        <label for="LevelDrop">Level</label>
+                    </div>
                      </div>
           
              
@@ -78,7 +85,7 @@
             </div>
            <div class="card-action">
               <button id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick"><i class="material-icons left">save</i>Add</button>
-              <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
+              <a href="Issues.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>
         </div>

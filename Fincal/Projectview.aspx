@@ -48,10 +48,9 @@
                           <div class="row">
                                
 
-                    <i class="material-icons prefix">people</i>
-                                      <label for="membersonproject">Project Members</label>
-                              <ul id="membersonproject" class="collection col s12 m12 l12" runat="server">
-     
+                              <ul id="membersonproject" class="collection with-header col s12 m12 l12" runat="server">
+                                <li class="collection-header"><h2><i class="material-icons prefix">people</i>Project members</h2></li>
+
                           </ul>
                     
                           </div>

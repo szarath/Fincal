@@ -739,18 +739,18 @@ namespace Wcffincal
             return create2DAdsArray(ds);
 
         }
-        int IDatamanagement.createproject(string title, string description, string uid)
+        int IDatamanagement.createproject(string title, string description, string uid , DateTime pcredate)
         {
 
 
-            string sqlStatement = "INSERT INTO tblProject (projTitle, projDescription, uID) VALUES (@0,@1,@2);  SELECT SCOPE_IDENTITY();";
+            string sqlStatement = "INSERT INTO tblProject (projTitle, projDescription, uID, pcredate) VALUES (@0,@1,@2,@3);  SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", title);
             command.Parameters.AddWithValue("@1", description);
             command.Parameters.AddWithValue("@2", uid);
-      
+            command.Parameters.AddWithValue("@3", pcredate);
 
 
 
@@ -824,16 +824,18 @@ namespace Wcffincal
 
         }
 
-        int IDatamanagement.createissue(string title, string description, string projid, string uid)
+        int IDatamanagement.createissue(string title, string description, string projid, string category, string uid, DateTime iscredate)
         {
 
-            string sqlStatement = "INSERT INTO tblIssues (isnTitle, isnDesc , projID, uID) VALUES (@0,@1,@2,@3);  SELECT SCOPE_IDENTITY();";
+            string sqlStatement = "INSERT INTO tblIssues (isnTitle, isnDesc , projID, isnCat, uID, iscredate) VALUES (@0,@1,@2,@3,@4,@5);  SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", title);
             command.Parameters.AddWithValue("@1", description);
             command.Parameters.AddWithValue("@2", projid);
-            command.Parameters.AddWithValue("@3", uid);
+            command.Parameters.AddWithValue("@3", category);
+            command.Parameters.AddWithValue("@4", uid);
+            command.Parameters.AddWithValue("@5", iscredate);
             return clsSQL.ExecuteScalar(command);
            
         }
@@ -1319,9 +1321,9 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        object[] getprojmeetings(string projid)
-        {
 
+        object[] IDatamanagement.getprojmeetings(string projid)
+        {
             string sqlStatement = "SELECT meetID FROM tblmeeting WHERE projID = @0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
@@ -1346,10 +1348,10 @@ namespace Wcffincal
 
             return temp;
 
-
-
-
         }
+
+
+       
 
         int IDatamanagement.deletespecificmember(string meetid, string uid)
         {
@@ -1450,6 +1452,32 @@ namespace Wcffincal
             return temp;
         }
 
+        object[][] IDatamanagement.issueteam(string isID)
+        {
+            string sqlStatement = "SELECT tblIssuesteam.uID, tblUser.uUsername, tblUser.uEmail FROM tblIssuesteam INNER JOIN tblUser ON tblIssuesteam.uID = tblUser.uID WHERE tblIssuesteam.isID = @0;";
 
+            SqlCommand command = new SqlCommand(sqlStatement);
+            command.Parameters.AddWithValue("@0", isID);
+
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+        }
+
+        object[][] IDatamanagement.getalluserevents(string uid)
+        {
+
+
+            string sqlStatement = "SELECT * FROM tblEvent WHERE uID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+            command.Parameters.AddWithValue("@0", uid);
+
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+        }
     }
 }

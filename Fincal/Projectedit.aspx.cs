@@ -152,11 +152,27 @@ namespace Fincal
                 int delete = findata.deleteallprojnotificaion(pid);
                 int deleteprojchat = chat.deleteprojchat(pid);
 
-                object[]
+                object[] getmeetingid = findata.getprojmeetings(pid);
 
-                int deletemeeting = findata.deletemeeting(pid)
+                if(getmeetingid != null)
+                {
+                    
+                    for (int i = 0; i < getmeetingid.Length; i++)
+                    {
+                     int meetmemdel =    findata.deletemeetingmembers((string)getmeetingid[i]);
 
-                    int deletemeetingmembers = findata.deletemeetingmembers
+                        if (meetmemdel == 1)
+                        {
+                            findata.deletemeeting((string)getmeetingid[i]);
+
+                        }
+
+
+                    }
+                }
+
+
+             
                 object[][] getprojiss = findata.getprojissues(pid);
 
                 if (getprojiss != null) { 

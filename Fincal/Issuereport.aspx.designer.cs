@@ -31,31 +31,22 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Invlaidproject;
         
         /// <summary>
-        /// txtprojname control.
+        /// txtisst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojname;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtisst;
         
         /// <summary>
-        /// txtprojt control.
+        /// txtissd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojt;
-        
-        /// <summary>
-        /// txtprojd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtissd;
         
         /// <summary>
         /// Projectchoose control.
@@ -67,12 +58,12 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlSelect Projectchoose;
         
         /// <summary>
-        /// btnprojadd control.
+        /// btnissflagadd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnprojadd;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnissflagadd;
     }
 }

@@ -21,25 +21,69 @@ namespace Fincal
             else { 
             UserData user = (UserData)Session["User"];
             UserChoose.Multiple = true;
-            if (!IsPostBack)
-            {
-                
+                if (!IsPostBack)
+                {
+                  
             Object[][] members = findata.getuserinformation();
            
 
             for (int i = 0; i < members.Length; i++)
             {
+                    
+
                 if ((string)members[i][0] == user.getID())
                 {
 
                 }
                 else {
 
-                    UserChoose.Items.Add(new ListItem(" " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                            Object[][] userevents = findata.getalluserevents((string)members[i][0]);
+                            int eventcount = 0;
+                            if (userevents != null)
+                            {
+                               
+                               
+                                for (int j = 0; j < userevents.Length; j++)
+                                {
+                                    DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                                    DateTime exweek = credate.AddDays(14);
+
+
+                                    int result = DateTime.Compare(exweek, DateTime.Now);
+
+                                    if (result < 0)
+                                    {
+
+                                    }
+                                    else
+                                    {
+
+                                        eventcount += 1;
+
+
+                                    }
+
+
+                                }
+
+
+                            }
+
+
+
+
+                            UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() +" " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+
+                         
 
                 }
 
+
             }
+
+
+
+
 
             }
             
@@ -62,7 +106,7 @@ namespace Fincal
             }
             else {
 
-                int result = findata.createproject(txtprojt.Value, txtprojd.Value, user.getID());
+                int result = findata.createproject(txtprojt.Value, txtprojd.Value, user.getID(),DateTime.Now);
             //    int meeting = findata.insertmeeting("Project:" + txtprojt.Value, txtprojd.Value );
 
                 if (result != 0 )
@@ -82,8 +126,8 @@ namespace Fincal
 
                 }
             }
-          
-            
+
+           
            
 
             findata.Close();
@@ -107,6 +151,29 @@ namespace Fincal
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
+        }
+
+   
+
+        private  string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return("Free");
+            }
+            else if (num <= 30)
+            {
+
+                return("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+           
+
         }
     }
 }

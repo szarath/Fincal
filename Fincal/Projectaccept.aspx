@@ -52,7 +52,7 @@
 
   
                   <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Accept</a>
-                            <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger"><i class="material-icons left">cancel</i>Cancel</a>
+                            <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger"><i class="material-icons left">not_interested</i>Reject</a>
               </div>
 
           </div>

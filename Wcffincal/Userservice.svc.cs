@@ -36,7 +36,7 @@ namespace Wcffincal
 
         object[] IUserservice.Authenticate(string UserEmailOrUsername, string Password)
         {
-            string sqlStatement = "SELECT uID, uFirstName, uSurname, uDoB, sID FROM tblUser WHERE (UPPER(uUsername)=@0 OR UPPER(uEmail)=@0) AND uPass=@1;";
+            string sqlStatement = "SELECT uID, uFirstName, uSurname, uDoB, sID, uGitrepo FROM tblUser WHERE (UPPER(uUsername)=@0 OR UPPER(uEmail)=@0) AND uPass=@1;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -67,9 +67,9 @@ namespace Wcffincal
             return temp;
         }
 
-        int IUserservice.insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB,string skill)
+        int IUserservice.insertUser(string Username, string Password, string firstName, string surname, string Email, DateTime DoB,string skill, string gitrepo)
         {
-            string sqlStatement = "INSERT INTO tblUser (uUsername, uPass, uFirstName, uSurname, uEmail, uDoB, sID) VALUES(@0,@1,@2,@3,@4,@5,@6);";
+            string sqlStatement = "INSERT INTO tblUser (uUsername, uPass, uFirstName, uSurname, uEmail, uDoB, sID, uGitrepo) VALUES(@0,@1,@2,@3,@4,@5,@6,@7);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -80,7 +80,7 @@ namespace Wcffincal
             command.Parameters.AddWithValue("@4", Email);
             command.Parameters.AddWithValue("@5", DoB);
             command.Parameters.AddWithValue("@6", skill);
-
+            command.Parameters.AddWithValue("@7", gitrepo);
             return clsSQL.ExecuteNonQuery(command);
         }
 
@@ -125,7 +125,7 @@ namespace Wcffincal
 
         int IUserservice.deleteUser(string ID)
         {
-            string sqlStatement = "DELETE FROM tblUser WHERE uID=@0; DELETE FROM tblUser WHERE uID=@0;DELETE FROM tblEventpic WHERE uID=@0;";
+            string sqlStatement = "DELETE FROM tblEventpic WHERE uID=@0;DELETE FROM tblUser WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -134,9 +134,9 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IUserservice.updateUserInfo(string ID, string firstName, string surname, DateTime DoB, string skill)
+        int IUserservice.updateUserInfo(string ID, string firstName, string surname, DateTime DoB, string skill, string gitrepo)
         {
-            string sqlStatement = "UPDATE tblUser SET uFirstName=@0, uSurname=@1, uDoB=@2, sID=@3 WHERE uID=@4;";
+            string sqlStatement = "UPDATE tblUser SET uFirstName=@0, uSurname=@1, uDoB=@2, sID=@3, uGitrepo=@5 WHERE uID=@4;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -145,7 +145,7 @@ namespace Wcffincal
             command.Parameters.AddWithValue("@2", DoB);
             command.Parameters.AddWithValue("@3", skill);
             command.Parameters.AddWithValue("@4", ID);
-
+            command.Parameters.AddWithValue("@5", gitrepo);
             return clsSQL.ExecuteNonQuery(command);
         }
 
