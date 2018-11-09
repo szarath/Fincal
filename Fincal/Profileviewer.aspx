@@ -16,7 +16,7 @@
                 <div id="Invlaidproject" runat="server" class="row red-text text-lighten-2">
 
                 </div>
-
+               
                   <div class="row">
                     <div class="input-field col s12 m6 ">
                          <i class="material-icons prefix">account_circle</i>
@@ -42,20 +42,15 @@
                         <label for="txtiss">Issues Working on</label>
                     </div>
                 </div>
-
-              
-             <div class="row">
-             <asp:Chart ID="Chart1" runat="server">
-       <Series>
-          <asp:Series Name="Series1"></asp:Series>
-       </Series>
-      <ChartAreas>
-          <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-      </ChartAreas>
-             </asp:Chart>
-             </div>
         
-                    
+                    <div class="row">
+                         <div class="input-field col s12 m6 ">
+                               <i class="material-icons prefix">notification_important</i>
+                          <textarea readonly id="txtschedule" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtschedule">Issues Working on</label>
+
+                         </div>
+                    </div>
                 
                  
             </div>

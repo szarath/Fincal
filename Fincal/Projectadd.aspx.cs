@@ -1,7 +1,14 @@
-﻿using System;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,6 +18,8 @@ namespace Fincal
 {
     public partial class Projectadd : System.Web.UI.Page
     {
+        static string[] Scopes = { CalendarService.Scope.Calendar, CalendarService.Scope.CalendarEvents, CalendarService.Scope.CalendarEventsReadonly, CalendarService.Scope.CalendarReadonly };
+        static string ApplicationName = "Google Calendar API .NET Quickstart";
         protected void Page_Load(object sender, EventArgs e)
         {
             int numusers = 0; 
@@ -104,25 +113,30 @@ namespace Fincal
             Object[][] members = findata.getuserinformation();
 
 
-            if(txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || txtdom.Value.Equals("") || txttime.Value.Equals(""))
+            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals(""))
             {
                 Invlaidproject.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
                 return;
             }
+            else if (txtdom.Value.Equals("") || txttime.Value.Equals(""))
+            {
+                Invlaidproject.InnerHtml = "*Please add a date and time for first meeting<br/>";
+                return;
+            }
             else {
 
-                int result = findata.createproject(txtprojt.Value, txtprojd.Value, user.getID(),DateTime.Now);
-            //    int meeting = findata.insertmeeting("Project:" + txtprojt.Value, txtprojd.Value );
+                int result = findata.createproject(txtprojt.Value, txtprojd.Value, user.getID(), DateTime.Now);
+                //    int meeting = findata.insertmeeting("Project:" + txtprojt.Value, txtprojd.Value );
 
-                if (result != 0 )
+                if (result != 0)
                 {
                     foreach (ListItem item in UserChoose.Items)
                     {
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-                            findata.insertprojectnotifications(result.ToString(), id.ToString(),DateTime.Now);
-                           
+                            findata.insertprojectnotifications(result.ToString(), id.ToString(), DateTime.Now);
+
                         }
 
                     }
@@ -132,11 +146,15 @@ namespace Fincal
 
 
 
-                   DateTime dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
+                    DateTime dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
                     DateTime getdate = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc));
 
 
-                    int createmeeting = findata.insertmeeting("Project:" + txtprojt.Value.ToString(), "First meeting for project", getdate.ToString(), result.ToString(), user.getID());
+                    int createmeeting = findata.insertmeeting("Project:     " + txtprojt.Value.ToString(), "First meeting", getdate.ToString(), result.ToString(), user.getID());
+                    if (createmeeting == 1)
+                    {
+                        insertevent();
+                    }
 
 
                 }
@@ -150,6 +168,84 @@ namespace Fincal
         }
 
 
+        private async void insertevent()
+        {
+            UserData user = (UserData)Session["User"];
+
+
+
+
+
+
+            UserCredential credential;
+
+            using (var stream =
+                new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = System.Environment.GetFolderPath(
+                   System.Environment.SpecialFolder.Personal); ;
+                credPath = Path.Combine(credPath, ".credentials/calendarinsert-dotnet-quickstart.json");
+
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore(credPath, true)).Result;
+                Console.WriteLine("Credential file saved to: " + credPath);
+            }
+
+            // Create Google Calendar API service.
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            CalendarService cs = service;
+
+
+
+            DateTime d = Convert.ToDateTime(txtdom.Value);
+            DateTime t = Convert.ToDateTime(txttime.Value);
+
+
+
+
+          DateTime  dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
+
+
+
+
+
+
+            Event newEvent = new Event()
+            {
+                Summary = "Project:     " + txtprojt.Value.ToString(),
+                Location = "On Fincal",
+                Description = "First meeting",
+                Start = new EventDateTime()
+                {
+
+                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
+                    TimeZone = "Europe/Paris",
+                },
+                End = new EventDateTime()
+                {
+                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
+
+                    TimeZone = "Europe/Paris",
+                },
+
+
+
+            };
+
+
+
+            String calendarId = "primary";
+
+            EventsResource.InsertRequest request = service.Events.Insert(newEvent, calendarId);
+            Event newevent = await request.ExecuteAsync();
+
+
+        }
         protected void changePage()
         {
 
@@ -157,8 +253,8 @@ namespace Fincal
 
             projectdiv.InnerHtml += "<div class=\"card white\">";
             projectdiv.InnerHtml += "<div class=\"card-content Black-text\">";
-            projectdiv.InnerHtml += "<span class=\"card-title bold\">Project Added Successful</span>";
-            projectdiv.InnerHtml += "<p>You have successfully added a Project</p>";
+            projectdiv.InnerHtml += "<span class=\"card-title bold\">Project Added</span>";
+            projectdiv.InnerHtml += "<p>You have successfully added a Project and added the first meeting </p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
             projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";

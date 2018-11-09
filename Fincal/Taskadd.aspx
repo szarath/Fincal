@@ -22,18 +22,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s6 m8 l9"> 
+                    <div class="input-field col s12 m9 l6"> 
                         <i class="material-icons prefix">notification_important</i>
                         <input id="txttaskanme" type="text" class="validate autocomplete-content" runat="server"/>
-                        <label for="txttaskname">Task Name</label>
+                        <label for="txttaskname">Task name</label>
                     </div>
-                    <div class="input-field col s6 m4 l3">
+                    <div class="input-field col s12 m6 l6">
                                    <i class="material-icons prefix">category</i>
-                        <select id="PlatformDrop" runat="server">
+                        <select id="Leveldrop" runat="server">
                               <option value="" disabled selected>Choose Level</option>
                            
                         </select> 
-                        <label for="PlatformDrop">Level</label>
+                        <label for="Leveldrop">Level</label>
                     </div>
                 </div> 
 
@@ -47,8 +47,8 @@
                  
             </div>
             <div class="card-action">
-              <button id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskadd_ServerClick"><i class="material-icons left">save</i>Add</button>
-              <a href="Task.aspx" class="waves-effect waves-light btn red"><i class="material-icons left">Cancel</i>Cancel</a>
+              <a id="btntaskadd" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskadd_ServerClick"><i class="material-icons left">save</i>Add</a>
+              <a href="Task.aspx" class="waves-effect waves-light btn red"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>
         </div>

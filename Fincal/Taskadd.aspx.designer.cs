@@ -40,13 +40,13 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txttaskanme;
         
         /// <summary>
-        /// PlatformDrop control.
+        /// Leveldrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect PlatformDrop;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Leveldrop;
         
         /// <summary>
         /// btntaskadd control.
@@ -55,6 +55,6 @@ namespace Fincal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btntaskadd;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btntaskadd;
     }
 }

@@ -17,7 +17,7 @@ namespace Fincal
         private UserData user;
         static string[] Scopes = { CalendarService.Scope.Calendar, CalendarService.Scope.CalendarEvents, CalendarService.Scope.CalendarEventsReadonly,CalendarService.Scope.CalendarReadonly };
         static string ApplicationName = "Google Calendar API .NET Quickstart";
-      Dataservice.DatamanagementClient findata;
+       
         string eID;
         string googleid;
         int success = 1;

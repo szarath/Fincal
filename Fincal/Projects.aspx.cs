@@ -37,7 +37,7 @@ namespace Fincal
                         htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
-                        htmldata1 += "<div class=\"card horizontal hoverable\">";
+                        htmldata1 += "<div class=\"card horizontal hoverable green lighten-2\">";
                         /* htmldata += "<div class=\"card-image\">";
 
                          htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
@@ -48,7 +48,7 @@ namespace Fincal
                         htmldata1 += "<div class=\"card-content black-text\">";
                         htmldata1 += "<span class=\"card-title\">" +
                         "<p class=\"bold\">" + (string)projects[i][1] + "</p>";
-
+                        htmldata1 += "</span>";
 
 
 
@@ -86,7 +86,7 @@ namespace Fincal
                         htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
-                        htmldata2 += "<div class=\"card horizontal hoverable\">";
+                        htmldata2 += "<div class=\"card horizontal hoverable lime lighten-2\">";
                         /* htmldata += "<div class=\"card-image\">";
 
                          htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
@@ -97,7 +97,7 @@ namespace Fincal
                         htmldata2 += "<div class=\"card-content black-text\">";
                         htmldata2 += "<span class=\"card-title\">" +
                         "<p class=\" bold\">" + assigproj[1].ToString() + "</p>";
-
+                        htmldata2 += "</span>";
 
 
 

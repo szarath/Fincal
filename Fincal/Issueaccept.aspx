@@ -50,10 +50,10 @@
                   
                                     
                               <ul id="membersonissue" class="collection with-header col s12 m12 l12" runat="server">
-                           <li class="collection-header"><h2><i class="material-icons prefix">people</i>Issue members</h2></li>
-                          </ul>
+                             <li class="collection-header"><h5>Issue members</h5></li>
+                             </ul>
                     
-                          </div>
+                            </div>
 
                                <div class="row">
 

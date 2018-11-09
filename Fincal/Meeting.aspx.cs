@@ -20,8 +20,7 @@ namespace Fincal
            
             if (Session["User"] != null)
             {
-                if (!IsPostBack)
-                {
+              
                     UserData user = (UserData)Session["User"];
                     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
 
@@ -48,7 +47,7 @@ namespace Fincal
                                 htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
-                                htmldata1 += "<div class=\"card horizontal hoverable\">";
+                                htmldata1 += "<div class=\"card horizontal hoverable grey lighten-1\">";
 
                                 htmldata1 += "<div class=\"card-stacked\">";
                                 htmldata1 += "<div class=\"card-content black-text\">";
@@ -88,30 +87,57 @@ namespace Fincal
                             }
                             else
                             {
-                                if ((string)userothermeetings[i][3] == "0")
-                                {
-                                    htmldata2 += "<a href=\"Meetingaccept.aspx?id=" + (string)userothermeetings[i][0] +"&ml="+ (string)userothermeetings[i][6] + "\">";
-                                    htmldata2 += "<div class=\"col s12 m3 l0\">";
+                            if (Boolean.Parse((string)userothermeetings[i][7]) == true)
+                            {
+                                htmldata2 += "<a href=\"Meetingaccept.aspx?id=" + (string)userothermeetings[i][0] + "&ml=" + (string)userothermeetings[i][6] + "\">";
+                                htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
-                                    htmldata2 += "<div class=\"card horizontal hoverable\">";
+                                htmldata2 += "<div class=\"card horizontal hoverable light-blue lighten-3\">";
 
-                                    htmldata2 += "<div class=\"card-stacked\">";
-                                    htmldata2 += "<div class=\"card-content black-text\">";
-                                    htmldata2 += "<span class=\"card-title\">" +
-                                    "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
-                                    htmldata2 += "</span>";
-                                    htmldata2 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                                htmldata2 += "<div class=\"card-stacked\">";
+                                htmldata2 += "<div class=\"card-content black-text\">";
+                                htmldata2 += "<span class=\"card-title\">" +
+                                "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
+                                htmldata2 += "</span>";
+                                htmldata2 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
 
 
 
-                                    htmldata2 += "</div>";
-                                    htmldata2 += "</div>";
-                                    htmldata2 += "</div>";
-                                    htmldata2 += "</div>";
-                                    htmldata2 += "</a>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</a>";
 
-                                }
+                            }
+                            else
+                            {
+                                htmldata2 += "<a href=\"Meetingaccept.aspx?id=" + (string)userothermeetings[i][0] + "&ml=" + (string)userothermeetings[i][6] + "\">";
+                                htmldata2 += "<div class=\"col s12 m3 l0\">";
+
+
+                                htmldata2 += "<div class=\"card horizontal hoverable lime lighten-3\">";
+
+                                htmldata2 += "<div class=\"card-stacked\">";
+                                htmldata2 += "<div class=\"card-content black-text\">";
+                                htmldata2 += "<span class=\"card-title\">" +
+                                "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
+                                htmldata2 += "</span>";
+                                htmldata2 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+
+
+
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</div>";
+                                htmldata2 += "</a>";
+
+
+
+                            }
+
                                
 
                             }
@@ -125,11 +151,7 @@ namespace Fincal
 
 
                     findata.Close();
-                }
-                else
-                {
-                    Response.Redirect("Default.aspx");
-                }
+                
                 yourmeet.InnerHtml = htmldata1;
                 othermeet.InnerHtml = htmldata2;
             }

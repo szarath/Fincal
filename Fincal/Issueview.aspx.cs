@@ -8,10 +8,10 @@ using System.Web.UI.WebControls;
 namespace Fincal
 {
     public partial class Issueview : System.Web.UI.Page
-    {
+    {  string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string htmldata = "";
+          
 
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
@@ -69,19 +69,19 @@ namespace Fincal
 
                             }
 
-                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">\"Schedule: " + priority(eventcount).ToString() + "       Username: " + (string)issmembers[i][1] + "      Email: " + (string)issmembers[i][2] + "</span></li>";
+                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Schedule: " + priority(eventcount).ToString() + "&nbsp&nbsp&nbsp       Username: " + (string)issmembers[i][1] + "&nbsp&nbsp&nbsp      Email: " + (string)issmembers[i][2] + "</span></li>";
 
                         }
-                        membersonissue.InnerHtml += membersonissue;
+                        
                     }
 
                     else
                     {
-
+                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">No memebrs yet</span></li>";
                     }
 
                 }
-
+                membersonissue.InnerHtml += htmldata;
 
 
 
@@ -109,6 +109,30 @@ namespace Fincal
             }
 
 
+        }
+        protected void btnDeletefromteam_ServerClick(object sender, EventArgs e)
+        {
+            string id = Request.QueryString.Get("id");
+            UserData user = (UserData)Session["User"];
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            Chatmanagement.ChatClient chat = new Chatmanagement.ChatClient();
+            findata.Open();
+            chat.Open();
+
+            chat.deleteisschatuser(user.getID());
+           int result= findata.deleteassiguserformissue(user.getID(), id);
+
+
+            findata.Close();
+            chat.Close();
+
+            if(result == 1)
+            {
+
+                Response.Redirect("Issues.aspx");
+
+
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Fincal
     {
         static string[] Scopes = { CalendarService.Scope.Calendar, CalendarService.Scope.CalendarEvents, CalendarService.Scope.CalendarEventsReadonly, CalendarService.Scope.CalendarReadonly };
         static string ApplicationName = "Google Calendar API .NET Quickstart";
-        Dataservice.DatamanagementClient findata;
+
         string eID;
         string googleid;
         int success;
@@ -36,7 +36,7 @@ namespace Fincal
 
 
             eID = Request.QueryString.Get("eid");
-            findata = new Dataservice.DatamanagementClient();
+             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
 
 
             findata.Open();
@@ -104,9 +104,9 @@ namespace Fincal
         
 
 
-            if (txtdoe.Value.Equals("") || txttime.Value.Equals("") || txtedesc.Value.Equals("") || txtesummary.Value.Equals("") || txteLocation.Value.Equals(""))
+            if (txtdoe.Value.Equals("") || txttime.Value.Equals("") || txtesummary.Value.Equals("") )
             {
-                InvlaideventAd.InnerHtml = "<p>Please fill in all the fields</p>";
+                InvlaideventAd.InnerHtml = "*Please fill in all the fields</br>";
                 
                 return;
             }
@@ -123,7 +123,16 @@ namespace Fincal
 
             else
             {
+                string desc = "";
+                string location = "";
 
+                if (!txtedesc.Value.Equals(""))
+                {
+                    desc = txtedesc.Value.ToString();
+
+                }
+
+                if(!txteLocation.Value.Equals(""))
                 /*
 
 
@@ -251,7 +260,7 @@ namespace Fincal
           
             changePagedelete();
             UserData user = (UserData)(Session["User"]);
-            findata = new Dataservice.DatamanagementClient();
+           Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             findata.deleteevent(eID, user.getID());
             findata.Close();
@@ -259,7 +268,6 @@ namespace Fincal
 
         private async void updateevent()
         {
-            UserData user = (UserData)Session["User"];
 
 
 
@@ -332,7 +340,15 @@ namespace Fincal
           
             EventsResource.UpdateRequest request = service.Events.Update(newEvent, calendarId, eID);
             Event newevent = await request.ExecuteAsync();
+            UserData user = (UserData)Session["User"];
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+            eID = Request.QueryString.Get("eid");
+            object[] eventdetails = findata.getevent(eID, user.getID());
 
+            int getnum = findata.updateevent(dt, txtesummary.Value, txteLocation.Value, txtedesc.Value,newevent.Id.ToString(),(string)eventdetails[0]);
+
+            findata.Close();
         }
 
         protected void changePage()

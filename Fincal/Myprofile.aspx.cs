@@ -82,7 +82,7 @@ namespace Fincal
                 {
 
                     invalidprof.InnerHtml = "*You can add a repo link later in your profile.<br/>";
-                    link = null;
+                    link = "";
                 }
                 else if (!txtgithublink.Value.Contains("https://github.com/"))
                 {

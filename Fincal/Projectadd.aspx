@@ -47,6 +47,7 @@
                            
                         </select> 
                         <label for="UserChoose">Members to invite</label>
+                             <blockquote>Choose members to invite from the list or invite members later</blockquote>
                     </div>
 
                    

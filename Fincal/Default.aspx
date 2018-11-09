@@ -3,10 +3,25 @@
 </asp:Content>
 <asp:Content ID="Content2"  ContentPlaceHolderID="pagecontent" runat="server">
     <div class="container">
-        <div class="row">
-          <div class="col container s12 m10 l8 ">
-            <h3 id="indexTitle" class="bold" runat="server">Welcome, Please Register/Login</h3>
-        </div>
+        <div id="indexTitle" runat="server" class="row">
+          
+        
+                 <div class="col  s12 m6 l4 push-l4 push-m3">
+
+       <div class="card white">
+            <div class="card-content Black-text">
+          <span class="card-title bold">Welcome, Please Register/Login</span>
+    
+          </div>
+          <div class="card-action">
+
+         <a href="Login.aspx" runat="server" class="btn waves-effect waves-light"><i class="material-icons left">https</i>Login</a>
+           <a href="Register.aspx" runat="server" class="btn orange waves-effect waves-light"><i class="material-icons left">mode_edit</i>Register</a>
+
+         </div>
+            </div>
+         </div>
+
         
             </div>
 

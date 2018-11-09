@@ -42,7 +42,7 @@
                     <div class="input-field col  s12 m12 l12">
                           <i class="material-icons prefix">people</i>
                         <select id="Currentmembers" runat="server" multiple>
-                         
+                          
                            
                         </select> 
                         <label for="Currentmembers">Current Members</label>

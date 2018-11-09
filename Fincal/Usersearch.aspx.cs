@@ -9,10 +9,11 @@ namespace Fincal
 {
     public partial class Usersearch : System.Web.UI.Page
     {
+        string htmldata = "";
         protected void Page_Load(object sender, EventArgs e)
         {
         upev.InnerHtml = "";
-            string  htmldata= "";    
+           
             if (Session["User"] != null)
             {
                
@@ -73,16 +74,10 @@ namespace Fincal
                     }
                     else
                     {
-                     
-
-                    htmldata += "<div class=\"container\">";
-
-
-                    htmldata += "<h4>No user by that identification</h4>";
+                    changePage();
 
 
 
-                    htmldata += "</div>";
 
                     }
 
@@ -102,6 +97,20 @@ namespace Fincal
             {
                 Response.Redirect("Login.aspx");
             }
+        }
+        protected void changePage()
+        {
+
+            htmldata+=  "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+
+            htmldata += "<div class=\"card white\">";
+            htmldata += "<div class=\"card-content Black-text\">";
+            htmldata += "<span class=\"card-title bold\">No users exsist for identification</span>";
+           
+            htmldata += "</div>";
+
+            htmldata += "</div>";
+            htmldata += "</div>";
         }
     }
 }

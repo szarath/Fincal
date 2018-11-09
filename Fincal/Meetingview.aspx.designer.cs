@@ -40,31 +40,40 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojname;
         
         /// <summary>
-        /// txtprojt control.
+        /// txtmeett control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojt;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtmeett;
         
         /// <summary>
-        /// txtprojd control.
+        /// txtmeetd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtmeetd;
         
         /// <summary>
-        /// Textarea1 control.
+        /// txtmeetdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtmeetdate;
+        
+        /// <summary>
+        /// membersattending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl membersattending;
         
         /// <summary>
         /// btnmeetdelete control.

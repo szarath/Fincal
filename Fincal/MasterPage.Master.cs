@@ -29,14 +29,13 @@ namespace Fincal
                 //  searchSmallTopNav.Visible = true;
                 presistenicon.Visible = true;
                 chatsidenav.Visible = true;
-
+                meetingsidenav.Visible = true;
 
 
 
             }
             else
             {
-
                 logInSideNav.Visible = true;
                 registerSideNav.Visible = true;
 
@@ -51,6 +50,8 @@ namespace Fincal
                 signOutSideNav.Visible = false;
                 presistenicon.Visible = false;
                 chatsidenav.Visible = false;
+                meetingsidenav.Visible = false;
+
                 //  searchSmallTopNav.Visible = false;
             }
         }
@@ -60,11 +61,12 @@ namespace Fincal
         protected void dropDownMenuSignOut_ServerClick(object sender, EventArgs e)
         {
             Session.Remove("User");
-
             Session.RemoveAll();
             Session.Abandon();
             Session.Clear();
-            Response.Redirect("Default.aspx");
+            
+            Response.Redirect("Login.aspx");
+            return;
         }
 
         protected void btnsubmitsearch(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace Fincal
             {
 
                 Response.Redirect("Usersearch.aspx?term=" + searchusers.Value.ToString());
-
+                return;
             }
          
         }

@@ -21,7 +21,7 @@
                          <i class="material-icons prefix">chat</i>
 
 
-                        <textarea  row="10"  readonly id="txtmsg" class="materialize-textarea" runat="server"></textarea>
+                        <textarea  style="height: 6rem; " readonly id="txtmsg" class="materialize-textarea" runat="server"></textarea>
 
 
                         <label id="lblidname" for="txtmsg" runat="server"></label>
@@ -36,9 +36,9 @@
             <div class="card-action">
                  <div class="row">
                     <div class="input-field col s12 m12 l12">
-                         <i class="material-icons prefix">message</i>
-                        <textarea row="4" id="txtsend" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtsend">Message</label>
+                         <i class="material-icons prefix">send</i>
+                        <textarea  id="txtsend" class="materialize-textarea" runat="server"></textarea>
+                    
                     </div>
                 </div>
               <button id="btnsendchat" class="btn waves-effect waves-light" runat="server" onserverclick="btnsendchat_ServerClick"><i class="material-icons left">send</i>Add</button>

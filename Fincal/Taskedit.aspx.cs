@@ -31,12 +31,17 @@ namespace Fincal
         {
             taskid = Request.QueryString.Get("id");
             UserData user = (UserData)Session["User"];
-            if (!IsPostBack && user != null) { 
-            PlatformDrop.Items.Add(new ListItem("1", "1"));
-            PlatformDrop.Items.Add(new ListItem("2", "2"));
-            PlatformDrop.Items.Add(new ListItem("3", "3"));
 
-            
+            if (user != null)
+            {
+
+                if (!IsPostBack)
+                {
+                    Leveldrop.Items.Add(new ListItem("1", "1"));
+                    Leveldrop.Items.Add(new ListItem("2", "2"));
+                    Leveldrop.Items.Add(new ListItem("3", "3"));
+             
+
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                 findata.Open();
                 storetask = findata.gettask(taskid, user.getID());
@@ -44,7 +49,7 @@ namespace Fincal
 
                 txttaskanme.Value = (string)storetask[1];
 
-                PlatformDrop.Items.FindByText((string)storetask[4]).Selected = true;
+                Leveldrop.Items.FindByText((string)storetask[4]).Selected = true;
 
                 if (Convert.ToBoolean(storetask[2]))
                 {
@@ -60,6 +65,12 @@ namespace Fincal
                     Completedcheck.Checked = false;
 
                 }
+
+                    findata.Close();
+                }
+            }
+            else {
+                Response.Redirect("Login.aspx");
             }
 
             
@@ -67,9 +78,9 @@ namespace Fincal
 
         }
 
-        protected void btntaskupdateServerClick(object sender, EventArgs e)
+        protected  void btntaskupdateServerClick(object sender, EventArgs e)
         {
-            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Choose Level"))
+            if (txttaskanme.Value == "" || Leveldrop.Items[Leveldrop.SelectedIndex].Text.Equals("Choose Level"))
             {
 
                 Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
@@ -77,7 +88,7 @@ namespace Fincal
             }
             else
             {
-                taskedit();
+               taskedit();
                 changePage();
             }
                 
@@ -119,19 +130,14 @@ namespace Fincal
 
         private async void taskedit()
         {
-            UserData currentUser = (UserData)(Session["User"]);
+           
 
-            if (txttaskanme.Value == "" || PlatformDrop.Value == "Choose Level")
-            {
-                Invlaidtask.InnerHtml = "<p>Please fill in all the feilds</p>";
-
-            }
-
+           
+              
             using (var stream =
            new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
             {
-                string credPath = System.Environment.GetFolderPath(
-                    System.Environment.SpecialFolder.Personal); ;
+                string credPath = System.Environment.GetFolderPath(  System.Environment.SpecialFolder.Personal); ;
                 credPath = Path.Combine(credPath, ".credentials/tasksupdate-dotnet-quickstart.json");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
@@ -174,15 +180,16 @@ namespace Fincal
             }
             task.Title = txttaskanme.Value;
             Google.Apis.Tasks.v1.Data.Task result = await service.Tasks.Update(task, "@default", taskid).ExecuteAsync();
-
+            UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
 
-            UserData user = (UserData)Session["User"];
-            findata.updatetask(txttaskanme.Value, completed.ToString(), user.getID(), PlatformDrop.Items[PlatformDrop.SelectedIndex].Text, taskid);
+            object[] taskdetails = findata.gettask(taskid, user.getID());
+           
+            int getnum = findata.updatetask(txttaskanme.Value.ToString(), completed.ToString(), user.getID(), Leveldrop.Items[Leveldrop.SelectedIndex].Text.ToString(), result.Id.ToString(),(string)taskdetails[0]);
 
             findata.Close();
-
+ 
         }
 
         protected void changePage()

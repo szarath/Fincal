@@ -180,14 +180,14 @@ namespace Fincal
                         }
                         else
                         {
-                            findata.updateevent(DateTime.Parse(when), eventItem.Summary, eventItem.Location, eventItem.Description, (string)storedevent[0]);
+                            findata.updateevent(DateTime.Parse(when), eventItem.Summary, eventItem.Location, eventItem.Description,(string)storedevent[4], (string)storedevent[0]);
 
 
                         }
 
                         htmldata += "<a href=\"EventEdit.aspx?eid=" + eventItem.Id + "\">";
                         htmldata += "<div class=\"col s12 m4 l0\">";
-                        htmldata += "<div class=\"card horizontal hoverable\">";
+                        htmldata += "<div class=\"card horizontal hoverable deep-purple lighten-3\">";
 
                       /*  htmldata += "<div class=\"card-image\">";
 
@@ -231,7 +231,7 @@ namespace Fincal
                         htmldata += "<div class=\"col s12 m4 l0\">";
 
 
-                        htmldata += "<div class=\"card horizontal hoverable\">";
+                        htmldata += "<div class=\"card horizontal hoverable deep-purple lighten-3\">";
                        /* htmldata += "<div class=\"card-image\">";
 
                         htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";

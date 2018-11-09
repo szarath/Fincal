@@ -55,6 +55,18 @@
   <wsdl:message name="IChat_deletespecificissuemessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:deletespecificissuemessageResponse" />
   </wsdl:message>
+  <wsdl:message name="IChat_deleteprojchatuser_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojchatuser" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteprojchatuser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteprojchatuserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteisschatuser_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteisschatuser" />
+  </wsdl:message>
+  <wsdl:message name="IChat_deleteisschatuser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteisschatuserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IChat">
     <wsdl:operation name="getprojchat">
       <wsdl:input wsaw:Action="http://tempuri.org/IChat/getprojchat" message="tns:IChat_getprojchat_InputMessage" />
@@ -87,6 +99,14 @@
     <wsdl:operation name="deletespecificissuemessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IChat/deletespecificissuemessage" message="tns:IChat_deletespecificissuemessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChat/deletespecificissuemessageResponse" message="tns:IChat_deletespecificissuemessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojchatuser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deleteprojchatuser" message="tns:IChat_deleteprojchatuser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deleteprojchatuserResponse" message="tns:IChat_deleteprojchatuser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteisschatuser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/deleteisschatuser" message="tns:IChat_deleteisschatuser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/deleteisschatuserResponse" message="tns:IChat_deleteisschatuser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IChat" type="tns:IChat">
@@ -156,6 +176,24 @@
     </wsdl:operation>
     <wsdl:operation name="deletespecificissuemessage">
       <soap:operation soapAction="http://tempuri.org/IChat/deletespecificissuemessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteprojchatuser">
+      <soap:operation soapAction="http://tempuri.org/IChat/deleteprojchatuser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteisschatuser">
+      <soap:operation soapAction="http://tempuri.org/IChat/deleteisschatuser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

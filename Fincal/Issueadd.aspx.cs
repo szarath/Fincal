@@ -25,10 +25,16 @@ namespace Fincal
             }
             else
             {
-                if (!IsPostBack) {
+                if (!IsPostBack)
+                {
                     LevelDrop.Items.Add(new ListItem("1", "1"));
                     LevelDrop.Items.Add(new ListItem("2", "2"));
                     LevelDrop.Items.Add(new ListItem("3", "3"));
+
+                }
+               
+                if (!IsCallback) {
+                
                     UserData user = (UserData)Session["User"];
                 UserChoose.Multiple = true;
 
@@ -123,10 +129,16 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
           
 
-            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
+            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
                 Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
                 return;
+            }
+            else if (UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("Choose Member"))
+            {
+
+                Invlaidproject.InnerHtml = "*You have to at least invite one member to issue<br/>";
+
             }
             else
             {
@@ -170,9 +182,9 @@ namespace Fincal
             projectdiv.InnerHtml += "<p>You have successfully added an issue</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
-            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material - icons\">notification_important</i>Issues</a>";
-            projectdiv.InnerHtml += "<a href=\"Issueadd.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material - icons\">add_alert</i>Add Another Issue</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons\">notification_important</i>Issues</a>";
+            projectdiv.InnerHtml += "<a href=\"Issueadd.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material-icons\">add_alert</i>Add Another Issue</a>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
@@ -189,9 +201,9 @@ namespace Fincal
             projectdiv.InnerHtml += "<p>Please add members to the project</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons\">home</i>Home</a>";
 
-            projectdiv.InnerHtml += "<a href=\"Projectedit.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material - icons\">assignment</i>Project Edit</a>";
+            projectdiv.InnerHtml += "<a href=\"Projectedit.aspx?id=" + pid + "\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material-icons\">assignment</i>Project Edit</a>";
 
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";

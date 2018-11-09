@@ -60,31 +60,29 @@ namespace Fincal
                         else
                         {
                             Boolean userisamember = false;
-                            if (projectmembers != null)
+                            if (issuemembers != null)
                             {
-                                for (int j = 0; j < projectmembers.Length; j++)
+                                for (int j = 0; j < issuemembers.Length; j++)
                                 {
-                                    if (issuemembers != null)
+
+
+                                    if ((string)projectmembers[i] == (string)issuemembers[j])
                                     {
-
-                                        if ((string)projectmembers[i] == (string)issuemembers[j])
-                                        {
-                                            userisamember = true;
-
-                                        }
-
-                                        userdetails = findata.getspecificuserinformation((string)projectmembers[j]);
+                                        userisamember = true;
 
                                     }
                                     else
                                     {
-                                        userdetails = findata.getspecificuserinformation((string)projectmembers[j]);
                                         userisamember = false;
-
                                     }
+                                    
+
+                                 
+                                   
                                 }
                             }
-
+                           
+                            userdetails = findata.getspecificuserinformation((string)projectmembers[i]);
                             Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
                             int eventcount = 0;
                             if (userevents != null)
@@ -157,6 +155,8 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
 
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            Chatmanagement.ChatClient chat = new Chatmanagement.ChatClient();
+            chat.Open();
             findata.Open();
             if (txtprojd.Value.Equals("") || txtprojt.Value.Equals(""))
             {
@@ -177,7 +177,7 @@ namespace Fincal
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-
+                            chat.deleteisschatuser(id.ToString());
                             findata.deleteassiguserformissue(id.ToString(), pid);
                         }
 
@@ -200,7 +200,8 @@ namespace Fincal
             }
 
             findata.Close();
-            Response.Redirect("Projects.aspx");
+            chat.Close();
+            changePage();
         }
 
 
@@ -212,31 +213,20 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
             findata.Open();
 
-            int result = findata.deleteprojissues(pid);
-            if (result == 1)
+            int deletechat = chat.deleteissuechat(pid);
+            int deleteissnoti = findata.deleteissnoticeiss(pid);
+            int deleteissteam = findata.deleteissteam(pid);
+            int iss = findata.deleteissue(pid);
+            if (iss == 1)
             {
-                int team = findata.deleteprojteam(pid);
-                int delete = findata.deleteallprojnotificaion(pid);
-               int deleteiss = findata.deleteissue(pid);
-                int delelteisschat = chat.deleteissuechat(pid);
-
-                 
-                if(team == 1 && delete == 1 && deleteiss == 1 && delelteisschat == 1)
+                changePagedelete();
+            }
+                 else
                 {
-                    int proj = findata.deleteproject(pid);
-                    if (proj == 1)
-                    {
-                        changePagedelete();
-                    }
-                }
-
-            }
-            else
-            {
 
 
-                changePageerror();
-            }
+                   changePageerror();
+                  }
 
             findata.Close();
             chat.Close();

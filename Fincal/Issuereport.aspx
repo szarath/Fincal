@@ -45,6 +45,7 @@
                            
                         </select> 
                         <label for="Projectchoose">Projects</label>
+                          <blockquote>Choose the project the issue is reported on.</blockquote>
                     </div>
 
                    

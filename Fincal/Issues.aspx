@@ -15,7 +15,7 @@
 
          
          
-         <h4 id="H6" class="thin col m10 s12 " runat="server">Your Project Issues</h4> 
+         <h5 id="H6" class="thin col m10 s12 " runat="server">Your Project Issues</h5> 
 
           </div>
 
@@ -30,7 +30,7 @@
    
 
         <div class =" row">
-      <h4 class="thin col m10 s12 " runat="server">Other Project Issues</h4> 
+      <h5 class="thin col m10 s12 " runat="server">Other Project Issues</h5> 
             </div>
 
 
@@ -39,7 +39,7 @@
      </div>
 
         <div class =" row">
-      <h4 class="thin col m10 s12 " runat="server">Flagged Issues</h4> 
+      <h5 class="thin col m10 s12 " runat="server">Flagged Issues</h5> 
             </div>
  <div id="flagged" class="row" runat="server">
    

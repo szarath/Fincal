@@ -36,11 +36,23 @@ namespace Wcffincal
             return result;
         }
 
+        int IChat.deleteisschatuser(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblprojchat WHERE uID=@0;";
 
-        
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
         int IChat.deleteissuechat(string issueid)
         {
-            string sqlStatement = "DELETE FROM tblIssues WHERE isID=@0;";
+            string sqlStatement = "DELETE FROM tblisschat WHERE isID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -60,6 +72,20 @@ namespace Wcffincal
 
 
             command.Parameters.AddWithValue("@0", projid);
+
+
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IChat.deleteprojchatuser(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblisschat WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
 
 
 
@@ -143,5 +169,8 @@ namespace Wcffincal
 
             return clsSQL.ExecuteNonQuery(command);
         }
+
+
+
     }
 }

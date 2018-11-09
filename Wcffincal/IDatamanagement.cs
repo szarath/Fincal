@@ -26,7 +26,7 @@ namespace Wcffincal
         object[] gettask(string GoogleID , string uid);
 
         [OperationContract]
-        int updatetask(string name, string complete, string uid, string tcid, string googleid);
+        int updatetask(string name, string complete, string uid, string tcid, string googleid,string taskid);
 
         [OperationContract]
         string checktasks(string ID,string uid);
@@ -41,7 +41,7 @@ namespace Wcffincal
         int insertevent(DateTime edate, string summary, string location, string googleid, string uid, string desc);
 
         [OperationContract]
-        int updateevent(DateTime edate, string summary, string location, string desc, string eid);
+        int updateevent(DateTime edate, string summary, string location, string desc,string googleid, string eid);
 
         [OperationContract]
         string checkevents(string ID, string uid);
@@ -140,7 +140,8 @@ namespace Wcffincal
         [OperationContract]
         int deleteproject(string projid);
 
-
+        [OperationContract]
+        Object[][] getassignedprojdetials(string uid);
 
 
         //issues operations
@@ -172,6 +173,11 @@ namespace Wcffincal
 
         [OperationContract]
         Object[][] issueteam(string isID);
+
+
+        [OperationContract]
+        Object[][] getassignedissdetials(string uid);
+
 
         // project teams operaiotns 
         [OperationContract]
@@ -222,6 +228,9 @@ namespace Wcffincal
         [OperationContract]
         object[] getprojnoticedetails(string projnoticeid);
 
+      
+
+       
         //notificaiotns issue operations
 
         [OperationContract]
@@ -234,7 +243,13 @@ namespace Wcffincal
         int insertissuenotifications(string issueid, string uid, DateTime credate);
 
         [OperationContract]
+        int deleteissnoticeiss(string issid);
+
+        [OperationContract]
         Object[][] getuserinformation();
+
+        [OperationContract]
+        object[] getissnoticeiss(string isid);
 
         [OperationContract]
         object[] getprojectleaderinformaion(string uid);
@@ -263,7 +278,7 @@ namespace Wcffincal
         int insertmeetingmember(string meetid,string uid,string mlaccept);
 
         [OperationContract]
-        int updatemetinglink(string meetID, string uID,string mlaccept);
+        int updatemeetinglink(string mlID, string mlaccept);
 
         [OperationContract]
         int updatemeeting(string meetingid, string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
@@ -278,8 +293,16 @@ namespace Wcffincal
         object[] getprojmeetings(string projid);
 
         [OperationContract]
-        object[] getmeetingmembers(string projID);
+        Object[][] getmeetingmembers(string projID);
 
+        [OperationContract]
+        object[] getmeetinginformation(string meetid);
+
+        [OperationContract]
+        Object[][] getmeetingattendance(string meetID);
+
+        [OperationContract]
+        object[] getmeetinglink(string mlid);
 
         //flagging 
         [OperationContract]
@@ -293,6 +316,8 @@ namespace Wcffincal
 
         [OperationContract]
         object[] getspecificissflag(string isfid);
-        
+
+        [OperationContract]
+        int deleteissflagproj(string projid);
     }
 }

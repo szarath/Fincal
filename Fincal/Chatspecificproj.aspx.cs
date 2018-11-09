@@ -59,16 +59,16 @@ namespace Fincal
                         {
                            
                             messageformat += (string)chatdata[i][2];
-                            messageformat += "----------------------------------------------------------------------------------";
+                            messageformat += "<br/>";
 
 
                         }
                         else {
 
-                            messageformat += "                                                          "+(string)chatdata[i][1];
-                            messageformat += "                                                                                  ";
+                            messageformat += "&nbsp&nbsp&nbsp&nbsp&nbsp" + (string)chatdata[i][1];
+                            messageformat += " <br/>";
                            messageformat += (string)chatdata[i][2];
-                            messageformat += "----------------------------------------------------------------------------------";
+                            messageformat += " <br/>";
 
                         }
 
@@ -83,7 +83,7 @@ namespace Fincal
 
 
 
-                txtmsg.Value = messageformat;
+                txtmsg.InnerHtml += messageformat;
 
 
 

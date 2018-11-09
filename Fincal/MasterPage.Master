@@ -35,16 +35,16 @@
     <ul id="presistenicon" runat="server" class="right">
         <li>
           <div class="input-field">
-          <input  id="searchusers" placeholder="Search users"  runat="server" >
+          <input  id="searchusers" placeholder="Search users" type="search" runat="server" >
           <label class="label-icon" for="searchusers" ><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
             </li>
         <li>
-         <a id="searchclick" runat="server" class="waves-effect"  onserverclick="btnsubmitsearch">Search</a>
+         <a id="searchclick" runat="server" class="waves-effect" onclientclick="return false;"  onserverclick="btnsubmitsearch">Search</a>
             </li>
       <li><a class="waves-effect" href="Myprofile.aspx">My Profile</a></li>
-      <li><a class="waves-effect" runat="server" onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
+      <li><a class="waves-effect" runat="server"  onclientclick="return false;"   onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
     
     <!--  <li><a class="dropdown-trigger" runat="server" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
     </ul>

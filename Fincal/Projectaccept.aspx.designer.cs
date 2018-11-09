@@ -49,6 +49,15 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
         
         /// <summary>
+        /// txtcredate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtcredate;
+        
+        /// <summary>
         /// txtexp control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace Fincal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtptojectleaderemail;
+        
+        /// <summary>
+        /// membersonproject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl membersonproject;
     }
 }

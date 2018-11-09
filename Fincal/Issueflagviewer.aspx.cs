@@ -16,9 +16,16 @@ namespace Fincal
         {
             if (Session["user"] != null)
             {
-                UserData user = (UserData)Session["User"];
+
                 if (!IsPostBack)
                 {
+                    LevelDrop.Items.Add(new ListItem("1", "1"));
+                    LevelDrop.Items.Add(new ListItem("2", "2"));
+                    LevelDrop.Items.Add(new ListItem("3", "3"));
+
+                }
+                UserData user = (UserData)Session["User"];
+              
                     id = Request.QueryString.Get("id");
                     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                     findata.Open();
@@ -88,12 +95,7 @@ namespace Fincal
 
 
                     findata.Close();
-                }
-                else
-                {
-                    Response.Redirect("Issues.aspx");
-
-                }
+              
             }
             else
             {
@@ -129,18 +131,24 @@ namespace Fincal
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             UserData user = (UserData)Session["User"];
- 
 
 
-            if (txtisstitle.Value.Equals("") || txtissdesc.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
+
+            if (txtisstitle.Value.Equals("") || txtissdesc.Value.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
                 Invlaidproject.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
                 return;
             }
+            else if (UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("Choose Member"))
+            {
+
+                Invlaidproject.InnerHtml = "*You have at least invite one member to issue<br/>";
+
+            }
             else
             {
 
-                int result = findata.createissue(txtisstitle.Value, txtissdesc.Value, projid.ToString(), LevelDrop.Items[LevelDrop.SelectedIndex].Text.ToString() ,user.getID(),DateTime.Now);
+                int result = findata.createissue(txtisstitle.Value, txtissdesc.Value, projid.ToString(), LevelDrop.Items[LevelDrop.SelectedIndex].Text, user.getID(), DateTime.Now);
                 if (result != 0)
                 {
                     foreach (ListItem item in UserChoose.Items)
@@ -195,8 +203,8 @@ namespace Fincal
             projectdiv.InnerHtml += "<p>You have successfully added an issue</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
-            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material - icons\">notification_important</i>Issues</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons\">notification_important</i>Issues</a>";
          
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
@@ -214,9 +222,9 @@ namespace Fincal
             projectdiv.InnerHtml += "<p>Please add members to add issues</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
-            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material - icons\">home</i>Home</a>";
+            projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons\">home</i>Home</a>";
 
-            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material - icons\">notification_important</i>Issues</a>";
+            projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons\">notification_important</i>Issues</a>";
 
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";

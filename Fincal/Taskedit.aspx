@@ -21,23 +21,24 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s6 m8 l9"> 
+                    <div class="input-field col s12 m6 l6"> 
+                           <i class="material-icons prefix">notification_important</i>
                         <input id="txttaskanme" type="text" class="validate autocomplete-content" runat="server"/>
-                        <label for="txttaskname">Task Name</label>
+                        <label for="txttaskname">Task name</label>
                     </div>
-                     <div class="input-field col s6 m4 l3">
-                        <select id="PlatformDrop" runat="server">
+                     <div class="input-field col s12 m6 l6">
+                        <select id="Leveldrop" runat="server">
                             <option value="" disabled>Choose Level</option>
                            
                         </select> 
-                        <label for="PlatformDrop">Level</label>
+                        <label for="Leveldrop">Level</label>
                     </div>
                 </div> 
 
                 <div class="row">
                       <div class="input-field col s6 m3 l3">
            <label>              
-                        <input type="checkbox" id="Completedcheck"  runat="server"/>
+              <input type="checkbox" id="Completedcheck"  runat="server"/>
               <span> Completed</span></label>
                     </div>
 
@@ -51,10 +52,10 @@
                  
             </div>
             <div class="card-action">
-              <button id="btntaskupdate" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btntaskupdateServerClick">Update</button>
+              <a id="btntaskupdate"  class="btn waves-effect waves-light" runat="server" onserverclick="btntaskupdateServerClick"><i class="material-icons prefix">save</i> Update</a>
                <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons left">delete_forever</i> Delete</a> 
                
-              <a href="Task.aspx" class="waves-effect waves-light btn orange">Cancel</a>
+              <a href="Task.aspx" class="waves-effect waves-light btn orange">  <i class="material-icons prefix">cancel</i> Cancel</a>
             </div>
           </div>
 

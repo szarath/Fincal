@@ -58,16 +58,17 @@
 
 
                  <div class="row">
-                    <div class="input-field col  s6 m6 l3 ">
+                    <div class="input-field col  s12 m6 l6 ">
                           <i class="material-icons prefix">people</i>
                         <select id="UserChoose" runat="server" multiple>
-                         
+                         <option value="" disabled selected>Choose Member</option>
                            
                         </select> 
                         <label for="UserChoose">Members</label>
+                            <blockquote>Must choose at least a member to invite</blockquote>
                     </div>
 
-                      <div class="input-field col s6 m6 l3">
+                      <div class="input-field col s12 m6 l6">
                               <i class="material-icons prefix">category</i>
                         <select id="LevelDrop" runat="server">
                               <option value="" disabled selected>Choose Level</option>
@@ -84,7 +85,7 @@
                  
             </div>
            <div class="card-action">
-              <button id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <a id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick"><i class="material-icons left">save</i>Add</a>
               <a href="Issues.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>

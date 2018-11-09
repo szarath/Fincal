@@ -18,31 +18,41 @@
                         <label for="txtprojname">Project</label>
                     </div>
                       </div>
-                  <div class="row">
+                <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
-                        <textarea readonly id="txtprojt" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojt">Meeting title</label>
+                        <textarea readonly id="txtmeett" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtmeett">Meeting title</label>
                     </div>
                 </div>
 
                  <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
-                        <textarea readonly id="txtprojd" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojd">Meeting description</label>
+                        <textarea readonly id="txtmeetd" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtmeetd">Meeting description</label>
                     </div>
                 </div>
 
                 <div class="row">
                      <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">date_range</i>
-                        <textarea readonly id="Textarea1" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojd">Meeting date</label>
+                        <textarea readonly id="txtmeetdate" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtmeetdate">Meeting date</label>
                     </div>
 
                 </div>
 
+                <div class="row">
+                               
+
+                  
+                                    
+                              <ul id="membersattending" class="collection with-header col s12 m12 l12" runat="server">
+                           <li class="collection-header"><h5>Attending members</h5></li>
+                          </ul>
+                    
+                          </div>  
 
                           </div>   
             <div class="card-action">

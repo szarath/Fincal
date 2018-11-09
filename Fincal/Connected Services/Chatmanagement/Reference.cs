@@ -66,6 +66,18 @@ namespace Fincal.Chatmanagement {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/deletespecificissuemessage", ReplyAction="http://tempuri.org/IChat/deletespecificissuemessageResponse")]
         System.Threading.Tasks.Task<int> deletespecificissuemessageAsync(string icID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/deleteprojchatuser", ReplyAction="http://tempuri.org/IChat/deleteprojchatuserResponse")]
+        int deleteprojchatuser(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/deleteprojchatuser", ReplyAction="http://tempuri.org/IChat/deleteprojchatuserResponse")]
+        System.Threading.Tasks.Task<int> deleteprojchatuserAsync(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/deleteisschatuser", ReplyAction="http://tempuri.org/IChat/deleteisschatuserResponse")]
+        int deleteisschatuser(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/deleteisschatuser", ReplyAction="http://tempuri.org/IChat/deleteisschatuserResponse")]
+        System.Threading.Tasks.Task<int> deleteisschatuserAsync(string uid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -157,6 +169,22 @@ namespace Fincal.Chatmanagement {
         
         public System.Threading.Tasks.Task<int> deletespecificissuemessageAsync(string icID) {
             return base.Channel.deletespecificissuemessageAsync(icID);
+        }
+        
+        public int deleteprojchatuser(string uid) {
+            return base.Channel.deleteprojchatuser(uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteprojchatuserAsync(string uid) {
+            return base.Channel.deleteprojchatuserAsync(uid);
+        }
+        
+        public int deleteisschatuser(string uid) {
+            return base.Channel.deleteisschatuser(uid);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteisschatuserAsync(string uid) {
+            return base.Channel.deleteisschatuserAsync(uid);
         }
     }
 }

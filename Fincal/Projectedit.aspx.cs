@@ -90,7 +90,7 @@ namespace Fincal
 
 
                                 }
-                                Currentmembers.Items.Add(new ListItem(" " + (string)members[i][1] + "   " + (string)members[i][2] + "   ", members[i][0].ToString()));
+                                Currentmembers.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)members[i][1] + "   " + (string)members[i][2] + "   ", members[i][0].ToString()));
                             }
                             else
                             {
@@ -229,7 +229,7 @@ namespace Fincal
                 int team = findata.deleteprojteam(pid);
                 int delete = findata.deleteallprojnotificaion(pid);
                 int deleteprojchat = chat.deleteprojchat(pid);
-
+                int deltepissflags = findata.deleteissflagproj(pid);
                 object[] getmeetingid = findata.getprojmeetings(pid);
 
                 if(getmeetingid != null)
@@ -256,9 +256,17 @@ namespace Fincal
                 if (getprojiss != null) { 
                 for(int i = 0; i < getprojiss.Length;i++)
                 {
-
-                    findata.deleteissue((string)getprojiss[i][0]);
+                        object[] issnotice = findata.getissnoticeiss((string)getprojiss[i][0]);
+                        if(issnotice != null)
+                        {
+                            findata.deleteissnoticeiss((string)getprojiss[i][0]);
+                        }
                         chat.deleteissuechat((string)getprojiss[i][0]);
+
+                        findata.deleteissue((string)getprojiss[i][0]);
+
+
+                     
 
                 }
                 }
@@ -290,7 +298,7 @@ namespace Fincal
         protected void btnissueadd_ServerClick(object sender, EventArgs e)
         {
 
-            if (members ==null)
+            if (Currentmembers.Items.Count == 0)
             {
                 Invlaidproject.InnerHtml += "*Please add members to add issues</br>";
 

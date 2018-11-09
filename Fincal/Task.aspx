@@ -16,7 +16,7 @@
 
          
          
-         <h4 id="H6" class="thin col m10 s12 " runat="server">Inprogress</h4> 
+         <h5 id="H6" class="thin col m10 s12 " runat="server">Inprogress</h5> 
 
           </div>
 
@@ -31,7 +31,7 @@
    
 
         <div class =" row">
-      <h4 class="thin col m10 s12 " runat="server">Completed</h4> 
+      <h5 class="thin col m10 s12 " runat="server">Completed</h5> 
             </div>
 
 

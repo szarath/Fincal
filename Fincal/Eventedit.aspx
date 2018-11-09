@@ -60,16 +60,7 @@
                     </div>
                 </div>
 
-                <div class="row">
-
-                    <div id="carouselimage" class="carousel">
-
-
-
-                    </div>
-
-
-                </div>
+            
                
 
 <!-- 
@@ -215,9 +206,9 @@
                  
            
        <div class="card-action">
-              <button id="btnupdateevent" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btnUpdateevent_ServerClick">Update</button> 
+              <a id="btnupdateevent" class="btn waves-effect waves-light" runat="server" onserverclick="btnUpdateevent_ServerClick"><i class="material-icons left">save</i> Update</a> 
                     <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons left">delete_forever</i> Delete</a> 
-              <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2">Cancel</a>
+              <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2"><i class="material-icons left">cancel</i> Cancel</a>
             </div>
      
          </div>

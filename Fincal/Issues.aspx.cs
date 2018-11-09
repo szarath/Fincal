@@ -41,7 +41,7 @@ namespace Fincal
                         htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
-                        htmldata1 += "<div class=\"card horizontal hoverable\">";
+                        htmldata1 += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)issue[i][4])) +"\">";
                         /* htmldata += "<div class=\"card-image\">";
 
                          htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
@@ -93,7 +93,7 @@ namespace Fincal
                         htmldata2 += "<div class=\"col s12 m3 l0\">";
 
 
-                        htmldata2 += "<div class=\"card horizontal hoverable\">";
+                        htmldata2 += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32( (string)assigiss[4])) + "\">";
                         /* htmldata += "<div class=\"card-image\">";
 
                          htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
@@ -194,33 +194,41 @@ namespace Fincal
 
                 }
 
-                object[] userassignproj = findata.getassignedprojects(user.getID());
-
-                if (userassignproj != null)
-                {
-                    for (int i = 0; i < userproj.Length; i++)
-                    {
-
-
-                    }
-
-                }
+               
 
                 
 
-
+                findata.Close();
 
 
                 yourprojects.InnerHtml = htmldata1;
                 otherprojects.InnerHtml = htmldata2;
                 flagged.InnerHtml = htmldata3;
-                findata.Close();
+               
 
          
             }
         }
-            
-      
+
+        private string colorchoice(int choice)
+        {
+            if (choice == 1)
+            {
+                return "green";
+            }
+            else if (choice == 2)
+            {
+                return "blue";
+            }
+            else if (choice == 3)
+            {
+                return "red";
+            }
+
+
+            return "Nochoice";
+
+        }
 
     }
 }

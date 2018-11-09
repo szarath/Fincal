@@ -14,6 +14,9 @@ namespace Fincal
         object[] projdetails;
         object[] pldetails;
         object[] pndetails;
+        object[] projectmembers;
+        object[] projectmemdetails;
+        string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -22,16 +25,17 @@ namespace Fincal
             }
             else
             {
+
+              
                 UserData user = (UserData)Session["User"];
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                 pid = Request.QueryString.Get("id");
                 pn = Request.QueryString.Get("pn");
-                if (!IsCallback)
-                {
-                    findata.Open();
+                findata.Open();
+               
                     projdetails = findata.getprojectdetails(pid);
                     pndetails = findata.getprojnoticedetails(pn);
-
+                    projectmembers = findata.getprojectmembers(pid);
 
                     txtprojt.Value = (string)projdetails[1];
                     txtprojd.Value = (string)projdetails[2];
@@ -43,16 +47,58 @@ namespace Fincal
 
                     txtptojectleaderemail.Value = (string)pldetails[1];
 
+                    txtcredate.Value = (string)projdetails[4];
+
+                 
+                    if (projectmembers != null)
+                    {
+                        for (int i = 0; i < projectmembers.Length; i++)
+                        {
+
+                            projectmemdetails = findata.getspecificuserinformation((string)projectmembers[i]);
+                            Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
+                            int eventcount = 0;
+                            if (userevents != null)
+                            {
+
+
+                                for (int j = 0; j < userevents.Length; j++)
+                                {
+                                    DateTime credate = DateTime.Parse((string)userevents[j][1]);
+
+
+
+                                    int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                    if (result < 0)
+                                    {
+                                        eventcount += 1;
+                                    }
+
+
+                                }
+
+
+                            }
+                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Username:    " + (string)projectmemdetails[0] + "&nbsp&nbsp&nbsp              Email:     " + (string)projectmemdetails[1] + "&nbsp&nbsp&nbsp              Skill:      " + (string)projectmemdetails[2] + "</span></li>";
+
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">No memebrs yet</span></li>";
+
+                    }
+
 
                     findata.Close();
-
-                }
-                else
-                {
-
-                    Response.Redirect("Projects.aspx");
-                }
+              
             }
+
+            membersonproject.InnerHtml += htmldata;
         }
 
         protected void btnacceptproject_ServerClick(object sender, EventArgs e)

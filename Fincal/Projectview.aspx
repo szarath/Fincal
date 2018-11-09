@@ -29,6 +29,17 @@
                         <label for="txtprojd">Description</label>
                     </div>
                 </div>
+                 <div class="row">
+
+                
+
+                      <div  class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">email</i>
+                        <textarea readonly id="txtcredate" class="materialize-textarea bold" runat="server"></textarea>
+                        <label for="txtcredate">Project Creation Date</label>
+                     </div>
+
+                </div>
 
                 <div class="row">
 
@@ -49,7 +60,7 @@
                                
 
                               <ul id="membersonproject" class="collection with-header col s12 m12 l12" runat="server">
-                                <li class="collection-header"><h5><i class="material-icons prefix">people</i>Project members</h5></li>
+                                <li class="collection-header"><h5>Project members</h5></li>
 
                           </ul>
                     

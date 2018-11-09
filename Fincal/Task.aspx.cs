@@ -98,7 +98,7 @@ namespace Fincal
                             }
                             else
                             {
-                                findata.updatetask(task.Title, "1", user.getID().ToString(), (string)storedtask[4], task.Id);
+                                findata.updatetask(task.Title, "1", user.getID().ToString(), (string)storedtask[4], task.Id, (string)storedtask[0]);
 
 
                             }
@@ -154,7 +154,7 @@ namespace Fincal
                             }
                             else
                             {
-                                findata.updatetask(task.Title, " 0", user.getID().ToString(), (string)storedtask[4], task.Id);
+                                findata.updatetask(task.Title, " 0", user.getID().ToString(), (string)storedtask[4], task.Id, (string)storedtask[0]);
 
 
                             }
@@ -162,7 +162,7 @@ namespace Fincal
 
                             incomplete += "<a href=\"Taskedit.aspx?id=" + task.Id + "\">";
                             incomplete += "<div class=\"col s12 m3 10 \">";
-                            incomplete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
+                            incomplete += "<div class=\"card  hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + "\">";
                             //   htmldata += "<div class=\"card horizontal hoverable blue\">";
                             incomplete += "<div class=\"card-stacked\">";
                             incomplete += "<div class=\"card-content black-text\">";
@@ -240,6 +240,8 @@ namespace Fincal
             findata.Close();
 
         }
+
+
         }
 
 

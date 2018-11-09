@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:19036/Datamanagement.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="getspecificissflag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isfid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getspecificissflagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getspecificissflagResult" nillable="true" type="q1:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteissflagproj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteissflagprojResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteissflagprojResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="inserttask">
     <xs:complexType>
       <xs:sequence>
@@ -42,7 +70,7 @@
   <xs:element name="gettaskcatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskcatResult" nillable="true" type="q1:ArrayOfanyType" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskcatResult" nillable="true" type="q2:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,7 +85,7 @@
   <xs:element name="gettaskResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskResult" nillable="true" type="q2:ArrayOfanyType" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskResult" nillable="true" type="q3:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -69,6 +97,7 @@
         <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tcid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="googleid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskid" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -104,7 +133,7 @@
   <xs:element name="gettaskidsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskidsResult" nillable="true" type="q3:ArrayOfanyType" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gettaskidsResult" nillable="true" type="q4:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,6 +163,7 @@
         <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="googleid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="eid" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -186,7 +216,7 @@
   <xs:element name="geteventResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventResult" nillable="true" type="q4:ArrayOfanyType" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventResult" nillable="true" type="q5:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -215,7 +245,7 @@
   <xs:element name="geteventidsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventidsResult" nillable="true" type="q5:ArrayOfanyType" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventidsResult" nillable="true" type="q6:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -229,7 +259,7 @@
   <xs:element name="getallusereventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getallusereventsResult" nillable="true" type="q6:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getallusereventsResult" nillable="true" type="q7:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -261,7 +291,7 @@
   <xs:element name="geteventpicsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventpicsResult" nillable="true" type="q7:ArrayOfanyType" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geteventpicsResult" nillable="true" type="q8:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -336,7 +366,7 @@
   <xs:element name="getalluserpicturesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getalluserpicturesResult" nillable="true" type="q8:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getalluserpicturesResult" nillable="true" type="q9:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,7 +381,7 @@
   <xs:element name="getpicResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getpicResult" nillable="true" type="q9:ArrayOfanyType" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getpicResult" nillable="true" type="q10:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -382,7 +412,7 @@
   <xs:element name="getfewpicsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getfewpicsResult" nillable="true" type="q10:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getfewpicsResult" nillable="true" type="q11:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -441,7 +471,7 @@
   <xs:element name="getskillsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getskillsResult" nillable="true" type="q11:ArrayOfanyType" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getskillsResult" nillable="true" type="q12:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -455,7 +485,7 @@
   <xs:element name="getassignedprojectsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedprojectsResult" nillable="true" type="q12:ArrayOfanyType" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedprojectsResult" nillable="true" type="q13:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -469,7 +499,7 @@
   <xs:element name="getprojectdetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectdetailsResult" nillable="true" type="q13:ArrayOfanyType" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectdetailsResult" nillable="true" type="q14:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -483,7 +513,7 @@
   <xs:element name="getprojectsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectsResult" nillable="true" type="q14:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectsResult" nillable="true" type="q15:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -534,6 +564,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getassignedprojdetials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getassignedprojdetialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedprojdetialsResult" nillable="true" type="q16:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getassignedissues">
     <xs:complexType>
       <xs:sequence>
@@ -544,7 +588,7 @@
   <xs:element name="getassignedissuesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedissuesResult" nillable="true" type="q15:ArrayOfanyType" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedissuesResult" nillable="true" type="q17:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -558,7 +602,7 @@
   <xs:element name="getissuesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuesResult" nillable="true" type="q16:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuesResult" nillable="true" type="q18:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -572,7 +616,7 @@
   <xs:element name="getprojissuesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojissuesResult" nillable="true" type="q17:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojissuesResult" nillable="true" type="q19:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -586,7 +630,7 @@
   <xs:element name="getissuedetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuedetailsResult" nillable="true" type="q18:ArrayOfanyType" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuedetailsResult" nillable="true" type="q20:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -663,7 +707,21 @@
   <xs:element name="issueteamResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="issueteamResult" nillable="true" type="q19:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="issueteamResult" nillable="true" type="q21:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getassignedissdetials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getassignedissdetialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getassignedissdetialsResult" nillable="true" type="q22:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -721,7 +779,7 @@
   <xs:element name="getprojectmembersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectmembersResult" nillable="true" type="q20:ArrayOfanyType" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectmembersResult" nillable="true" type="q23:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -779,7 +837,7 @@
   <xs:element name="getissuemembersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuemembersResult" nillable="true" type="q21:ArrayOfanyType" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuemembersResult" nillable="true" type="q24:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -793,7 +851,7 @@
   <xs:element name="getprojnotificationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojnotificationResult" nillable="true" type="q22:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojnotificationResult" nillable="true" type="q25:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -852,7 +910,7 @@
   <xs:element name="getprojnoticedetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojnoticedetailsResult" nillable="true" type="q23:ArrayOfanyType" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojnoticedetailsResult" nillable="true" type="q26:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -866,7 +924,7 @@
   <xs:element name="getissuenotificationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuenotificationsResult" nillable="true" type="q24:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuenotificationsResult" nillable="true" type="q27:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -901,6 +959,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="deleteissnoticeiss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="issid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteissnoticeissResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteissnoticeissResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getuserinformation">
     <xs:complexType>
       <xs:sequence />
@@ -909,7 +981,21 @@
   <xs:element name="getuserinformationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getuserinformationResult" nillable="true" type="q25:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getuserinformationResult" nillable="true" type="q28:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getissnoticeiss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getissnoticeissResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissnoticeissResult" nillable="true" type="q29:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -923,7 +1009,7 @@
   <xs:element name="getprojectleaderinformaionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectleaderinformaionResult" nillable="true" type="q26:ArrayOfanyType" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojectleaderinformaionResult" nillable="true" type="q30:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -937,7 +1023,7 @@
   <xs:element name="getspecificuserinformationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getspecificuserinformationResult" nillable="true" type="q27:ArrayOfanyType" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getspecificuserinformationResult" nillable="true" type="q31:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -951,7 +1037,7 @@
   <xs:element name="getissuenoticedetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuenoticedetailsResult" nillable="true" type="q28:ArrayOfanyType" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissuenoticedetailsResult" nillable="true" type="q32:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -965,7 +1051,7 @@
   <xs:element name="getmeetinginfromationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetinginfromationsResult" nillable="true" type="q29:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetinginfromationsResult" nillable="true" type="q33:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -993,7 +1079,7 @@
   <xs:element name="getusermeetingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getusermeetingsResult" nillable="true" type="q30:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getusermeetingsResult" nillable="true" type="q34:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1031,19 +1117,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="updatemetinglink">
+  <xs:element name="updatemeetinglink">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="meetID" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="uID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mlID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mlaccept" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="updatemetinglinkResponse">
+  <xs:element name="updatemeetinglinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="updatemetinglinkResult" type="xs:int" />
+        <xs:element minOccurs="0" name="updatemeetinglinkResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1105,7 +1190,7 @@
   <xs:element name="getprojmeetingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojmeetingsResult" nillable="true" type="q31:ArrayOfanyType" />
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getprojmeetingsResult" nillable="true" type="q35:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1119,7 +1204,49 @@
   <xs:element name="getmeetingmembersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetingmembersResult" nillable="true" type="q32:ArrayOfanyType" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetingmembersResult" nillable="true" type="q36:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetinginformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetinginformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetinginformationResult" nillable="true" type="q37:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetingattendance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetingattendanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetingattendanceResult" nillable="true" type="q38:ArrayOfArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetinglink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mlid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmeetinglinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getmeetinglinkResult" nillable="true" type="q39:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1150,7 +1277,7 @@
   <xs:element name="getissueflagsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissueflagsResult" nillable="true" type="q33:ArrayOfArrayOfanyType" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getissueflagsResult" nillable="true" type="q40:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1165,20 +1292,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="deleteissflagResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getspecificissflag">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="isfid" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getspecificissflagResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getspecificissflagResult" nillable="true" type="q34:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

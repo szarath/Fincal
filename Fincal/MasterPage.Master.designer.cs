@@ -46,7 +46,7 @@ namespace Fincal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchusers;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl searchusers;
         
         /// <summary>
         /// searchclick control.

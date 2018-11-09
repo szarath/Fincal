@@ -22,10 +22,10 @@ namespace Fincal
         private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
-            PlatformDrop.Items.Add(new ListItem("1", "1"));
-            PlatformDrop.Items.Add(new ListItem("2", "2"));
-            PlatformDrop.Items.Add(new ListItem("3", "3"));
+            if (!IsPostBack) {
+                Leveldrop.Items.Add(new ListItem("1", "1"));
+                Leveldrop.Items.Add(new ListItem("2", "2"));
+                Leveldrop.Items.Add(new ListItem("3", "3"));
             }
         }
         protected void btntaskadd_ServerClick(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Fincal
             UserData currentUser = (UserData)(Session["User"]);
           
 
-            if (txttaskanme.Value == "" || PlatformDrop.Items[PlatformDrop.SelectedIndex].Text.Equals("Choose Level"))
+            if (txttaskanme.Value == "" || Leveldrop.Items[Leveldrop.SelectedIndex].Text.Equals("Choose Level"))
             {
 
                 Invlaidtask.InnerHtml += "<p>Please fill in all the feilds</p>";
@@ -108,7 +108,13 @@ namespace Fincal
             Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title = txttaskanme.Value };
 
             newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
-           
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+            UserData currentUser = (UserData)(Session["User"]);
+            findata.inserttask(txttaskanme.Value.ToString(), "0", Leveldrop.Items[Leveldrop.SelectedIndex].Value.ToString(), newtask.Id, currentUser.getID());
+
+            findata.Close();
+
 
 
         }
@@ -127,7 +133,7 @@ namespace Fincal
 
             taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
             taskDiv.InnerHtml += "<a href=\"Task.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
-            taskDiv.InnerHtml += "<a href=\"Taskadd.aspx\" runat=\"server\" class=\"btn orange waves-effect waves-light\"><i class=\"material-icons left\">mode_edit</i>Tasks</a>";
+            taskDiv.InnerHtml += "<a href=\"Taskadd.aspx\" runat=\"server\" class=\"btn blue waves-effect waves-light\"><i class=\"material-icons left\">add_circle</i>Add another task</a>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "</div>";

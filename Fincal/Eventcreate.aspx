@@ -15,11 +15,7 @@
 
                 </div>
 
-                    <div class="row">
-                    <div class="input-field col s12">
-                      
-                    </div>
-                </div>
+                  
 
 
 
@@ -216,9 +212,9 @@
             
           </div>
        <div class="card-action">
-              <button id="btncreateevent" type="submit" class="btn waves-effect waves-light" runat="server" onserverclick="btnCreateevent_ServerClick">Create</button> 
+              <a id="btncreateevent" class="btn waves-effect waves-light" runat="server" onserverclick="btnCreateevent_ServerClick"><i class="material-icons left">save</i>Create</a> 
      
-              <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2">Cancel</a>
+              <a href="Eventslist.aspx" class="waves-effect waves-light btn orange lighten-2"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
      
          </div>

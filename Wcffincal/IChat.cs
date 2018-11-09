@@ -37,8 +37,11 @@ namespace Wcffincal
         [OperationContract]
         int deletespecificissuemessage(string icID);
 
+        [OperationContract]
+        int deleteprojchatuser(string uid);
 
-
+        [OperationContract]
+        int deleteisschatuser(string uid);
 
 
     }

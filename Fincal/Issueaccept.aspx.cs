@@ -24,7 +24,7 @@ namespace Fincal
         static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
         static string ApplicationName = "Google Tasks API .NET Quickstart";
         private Google.Apis.Tasks.v1.Data.Task newtask;
-        Dataservice.DatamanagementClient findata;
+        
         string projname;
         string htmldata;
 
@@ -37,13 +37,11 @@ namespace Fincal
             else
             {
                 UserData user = (UserData)Session["User"];
-                 findata = new Dataservice.DatamanagementClient();
+                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                
                 pid = Request.QueryString.Get("id");
                 issnid = Request.QueryString.Get("in");
-                if (!IsPostBack)
-                {
-
+               
                     String[] test;
 
                     findata.Open();
@@ -96,21 +94,16 @@ namespace Fincal
                             htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">\"Schedule: " + priority(eventcount).ToString()    +"       Username: " + (string)issmembers[i][1] + "      Email: " + (string)issmembers[i][2] +  "</span></li>";
 
                         }
-                        membersonissue.InnerHtml += membersonissue;
+                       
                     }
 
                     else {
-
-                    }
-
+                    htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">No memebrs yet</span></li>";
+                }
+                membersonissue.InnerHtml += htmldata;
                     findata.Close();
 
-                }
-                else
-                {
-                    Response.Redirect("Issues.aspx");
-
-                }
+                
                
             }
         
@@ -151,6 +144,7 @@ namespace Fincal
                 if (delete == 1)
                 {
                     changeaccPage();
+                    inserttask();
                 }
                 else
                 {
@@ -160,7 +154,7 @@ namespace Fincal
             findata.Close();
 
 
-            inserttask();
+          
 
 
 
@@ -169,8 +163,11 @@ namespace Fincal
         }
        private async void inserttask()
         {
+         
+
             UserCredential credential;
-            UserData user = (UserData)Session["User"];
+
+         
             using (var stream =
                 new FileStream(Server.MapPath("client_secret.json"), FileMode.Open, FileAccess.Read))
             {
@@ -208,13 +205,17 @@ namespace Fincal
                 ApplicationName = ApplicationName,
             });
 
-            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title ="Project:"+ (string)projdetails[1] + "Issue:" +  (string)issdetails[1] };
+            Google.Apis.Tasks.v1.Data.Task task = new Google.Apis.Tasks.v1.Data.Task { Title ="Issue:   " +  (string)issdetails[1]+ "      Project:   " + (string)projdetails[1]  };
 
             newtask = await service.Tasks.Insert(task, "@default").ExecuteAsync();
-            if(newtask != null)
-            {
-                findata.inserttask(newtask.Title, "0", issdetails[4].ToString(), newtask.Id.ToString(), user.getID());
-            }
+          
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+                 UserData user = (UserData)Session["User"];
+            findata.Open();
+             
+                findata.inserttask(newtask.Title, "0",(string)issdetails[4].ToString(), newtask.Id, user.getID());
+                findata.Close();
+           
          
       
 

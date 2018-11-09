@@ -73,10 +73,11 @@
                     <div class="input-field col  ss12 m6 l6 ">
                           <i class="material-icons prefix">people</i>
                         <select id="UserChoose" runat="server" multiple>
-                         
+                          <option value="" disabled selected>Choose Member</option>
                            
                         </select> 
                         <label for="UserChoose">Members to invite</label>
+                         <blockquote>Must choose at least a member to invite</blockquote>
                     </div>
 
                       <div class="input-field col s12 m6 l6">

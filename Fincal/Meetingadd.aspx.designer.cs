@@ -31,22 +31,22 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Invlaidproject;
         
         /// <summary>
-        /// txtprojt control.
+        /// txtmeettitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojt;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtmeettitle;
         
         /// <summary>
-        /// txtprojd control.
+        /// txtmeetd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtmeetd;
         
         /// <summary>
         /// Projchoose control.
@@ -76,12 +76,21 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txttime;
         
         /// <summary>
-        /// btnmeetadd control.
+        /// membersattending control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnmeetadd;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl membersattending;
+        
+        /// <summary>
+        /// btnaccept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnaccept;
     }
 }

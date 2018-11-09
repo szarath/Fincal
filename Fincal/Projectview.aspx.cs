@@ -51,38 +51,50 @@ namespace Fincal
 
                     txtptojectleaderemail.Value = (string)pldetails[1];
 
-                    for (int i = 0; i < projectmembers.Length; i++)
+                    txtcredate.Value = (string)project[4];
+                    if (projectmembers != null)
                     {
-
-                        projectmemdetails = findata.getspecificuserinformation((string)projectmembers[i]);
-                        Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
-                        int eventcount = 0;
-                        if (userevents != null)
+                        for (int i = 0; i < projectmembers.Length; i++)
                         {
 
-
-                            for (int j = 0; j < userevents.Length; j++)
+                            projectmemdetails = findata.getspecificuserinformation((string)projectmembers[i]);
+                            Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
+                            int eventcount = 0;
+                            if (userevents != null)
                             {
-                                DateTime credate = DateTime.Parse((string)userevents[j][1]);
 
 
-
-                                int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
-
-                                if (result < 0)
+                                for (int j = 0; j < userevents.Length; j++)
                                 {
-                                    eventcount += 1;
+                                    DateTime credate = DateTime.Parse((string)userevents[j][1]);
+
+
+
+                                    int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                    if (result < 0)
+                                    {
+                                        eventcount += 1;
+                                    }
+
+
                                 }
 
 
                             }
+                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Schedule:    " + priority(eventcount) + "&nbsp&nbsp&nbsp              Username:    " + (string)projectmemdetails[0] + "&nbsp&nbsp&nbsp              Email:     " + (string)projectmemdetails[1] + "&nbsp&nbsp&nbsp              Skill:      " + (string)projectmemdetails[2] + "</span></li>";
 
 
                         }
-                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Schedule:   "+ priority(eventcount) + "Username:    " + (string)projectmemdetails[0]+"   Email:     "+ (string)projectmemdetails[1]+"   Skill:      "+ (string)projectmemdetails[2]  + "</span></li>";
-
 
                     }
+                    else
+                    {
+
+                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">No memebrs yet</span></li>";
+
+                    }
+
                     membersonproject.InnerHtml += htmldata;
 
               findata.Close();

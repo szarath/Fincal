@@ -12,7 +12,7 @@
 
          
          
-         <h2 id="H4" class="thin col m10 s12 " runat="server">Project chats</h2> 
+         <h5 id="H4" class="thin col m10 s12 " runat="server">Project chats</h5> 
 
           </div>
 
@@ -27,7 +27,7 @@
    
 
         <div class =" row">
-      <h2 class="thin col m10 s12 " runat="server">Issue chats</h2> 
+      <h5 class="thin col m10 s12 " runat="server">Issue chats</h5> 
             </div>
 
 
