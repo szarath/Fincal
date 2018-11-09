@@ -10,69 +10,51 @@
 namespace Fincal {
     
     
-    public partial class Issueview {
+    public partial class Meeting {
         
         /// <summary>
-        /// regCard control.
+        /// indexTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl regCard;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl indexTitle;
         
         /// <summary>
-        /// invalidRegister control.
+        /// H6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl invalidRegister;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H6;
         
         /// <summary>
-        /// txtprojname control.
+        /// yourmeet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojname;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl yourmeet;
         
         /// <summary>
-        /// txtisstitle control.
+        /// othermeet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtisstitle;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl othermeet;
         
         /// <summary>
-        /// txtissdesc control.
+        /// floatingeventcreateButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtissdesc;
-        
-        /// <summary>
-        /// txtprojleader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojleader;
-        
-        /// <summary>
-        /// membersonissue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl membersonissue;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl floatingeventcreateButton;
     }
 }

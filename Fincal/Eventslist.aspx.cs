@@ -21,9 +21,53 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
                if (Session["User"] != null) //Logged in
               {
-            UserData user = (UserData)Session["User"];
+
+                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+                findata.Open();
+                UserData user = (UserData)Session["User"];
+                Object[][] userevents = findata.getalluserevents(user.getID());
+
+              
+
+                    if (userevents != null)
+                    {
+
+
+                        for (int j = 0; j < userevents.Length; j++)
+                        {
+                            DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                         
+
+
+                            int result = DateTime.Compare(credate, DateTime.Now);
+
+                            if (result < 0)
+                            {
+                                findata.deleteevent((string)userevents[j][4], user.getID());
+                            }
+                            else
+                            {
+
+
+
+                            }
+
+
+                        }
+
+
+                    }
+
+
+
+
+
+                
+              
           
 
             string htmldata = "";
@@ -67,12 +111,8 @@ namespace Fincal
             // List events.
             Google.Apis.Calendar.v3.Data.Events events = request.Execute();
 
-            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
 
-
-
-            if (events.Items != null && events.Items.Count > 0)
+                if (events.Items != null && events.Items.Count > 0)
             {
                 
 
@@ -85,6 +125,8 @@ namespace Fincal
                         when = eventItem.Start.Date;
 
                     }
+
+
 
                     string desc = eventItem.Description;
                     string summary = eventItem.Summary;

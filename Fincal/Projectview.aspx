@@ -49,7 +49,7 @@
                                
 
                               <ul id="membersonproject" class="collection with-header col s12 m12 l12" runat="server">
-                                <li class="collection-header"><h2><i class="material-icons prefix">people</i>Project members</h2></li>
+                                <li class="collection-header"><h5><i class="material-icons prefix">people</i>Project members</h5></li>
 
                           </ul>
                     

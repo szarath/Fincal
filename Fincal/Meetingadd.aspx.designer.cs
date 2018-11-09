@@ -10,7 +10,7 @@
 namespace Fincal {
     
     
-    public partial class Projectadd {
+    public partial class Meetingadd {
         
         /// <summary>
         /// projectdiv control.
@@ -49,13 +49,13 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
         
         /// <summary>
-        /// UserChoose control.
+        /// Projchoose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect UserChoose;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Projchoose;
         
         /// <summary>
         /// txtdom control.
@@ -76,12 +76,12 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txttime;
         
         /// <summary>
-        /// btnprojadd control.
+        /// btnmeetadd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnprojadd;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnmeetadd;
     }
 }

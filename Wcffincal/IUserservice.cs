@@ -40,6 +40,9 @@ namespace Wcffincal
         //  [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "/deleteUser")]
         int deleteUser(string ID);
 
+        [OperationContract]
+        Object[][] searchusers(string term);
+
     }
 
 

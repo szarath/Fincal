@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace Fincal
 {
@@ -12,6 +13,7 @@ namespace Fincal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int numusers = 0; 
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             if (Session["User"] == null)
@@ -46,33 +48,36 @@ namespace Fincal
                                 for (int j = 0; j < userevents.Length; j++)
                                 {
                                     DateTime credate = DateTime.Parse((string)userevents[j][1]);
-                                    DateTime exweek = credate.AddDays(14);
+                                  
 
 
-                                    int result = DateTime.Compare(exweek, DateTime.Now);
+                                    int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
 
                                     if (result < 0)
                                     {
-
-                                    }
-                                    else
-                                    {
-
                                         eventcount += 1;
-
-
                                     }
+                                   
 
 
                                 }
 
 
                             }
+                            if (numusers <= 30)
+                            {
+                                if (priority(eventcount).ToString() == "Free" || priority(eventcount).ToString() == "Occupied")
+                                {
+                                    UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                                    numusers += 1;
+                                }
 
 
+                            }
+                           
+                         
 
-
-                            UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() +" " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                              
 
                          
 
@@ -99,10 +104,10 @@ namespace Fincal
             Object[][] members = findata.getuserinformation();
 
 
-            if (txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") )
+            if(txtprojd.Value.Equals("") || txtprojt.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || txtdom.Value.Equals("") || txttime.Value.Equals(""))
             {
-                Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
-
+                Invlaidproject.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
+                return;
             }
             else {
 
@@ -116,12 +121,22 @@ namespace Fincal
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-                            findata.insertprojectnotifications(result.ToString(), id.ToString());
+                            findata.insertprojectnotifications(result.ToString(), id.ToString(),DateTime.Now);
                            
                         }
 
                     }
+                    DateTime d = Convert.ToDateTime(txtdom.Value);
+                    DateTime t = Convert.ToDateTime(txttime.Value);
 
+
+
+
+                   DateTime dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
+                    DateTime getdate = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc));
+
+
+                    int createmeeting = findata.insertmeeting("Project:" + txtprojt.Value.ToString(), "First meeting for project", getdate.ToString(), result.ToString(), user.getID());
 
 
                 }

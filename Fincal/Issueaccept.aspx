@@ -55,7 +55,17 @@
                     
                           </div>
 
-                          
+                               <div class="row">
+
+                
+
+                      <div  class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">email</i>
+                        <textarea readonly id="txtexp" class="materialize-textarea bold" runat="server"></textarea>
+                        <label for="txtexp">Issue invite expiry date</label>
+                     </div>
+
+                </div>
 
                         </div>
               <div class="card-action">

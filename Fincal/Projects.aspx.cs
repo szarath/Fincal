@@ -127,17 +127,7 @@ namespace Fincal
 
 
 
-                if (System.DateTimeOffset.UtcNow.DateTime == DateTime.Parse("2018/30/10"))
-                {
-
-
-
-
-
-
-
-
-                }
+               
             }
         }
     }

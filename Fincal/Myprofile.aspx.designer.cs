@@ -31,6 +31,15 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl myProfileTitle;
         
         /// <summary>
+        /// invalidprof control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl invalidprof;
+        
+        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace Fincal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect skilldrop;
+        
+        /// <summary>
+        /// txtgithublink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtgithublink;
     }
 }

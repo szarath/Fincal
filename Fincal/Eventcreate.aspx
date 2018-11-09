@@ -69,13 +69,7 @@
                     </div>
                 </div>
 
-                 <div class="row">
-                    <div id="carouselimage" class="carousel">
-
-
-
-                    </div>
-                </div>
+                
 
 
     <!--          <div class="row">

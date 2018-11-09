@@ -28,7 +28,17 @@
                         <label for="txtprojd">Description</label>
                     </div>
                 </div>
+                  <div class="row">
 
+                
+
+                      <div  class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">email</i>
+                        <textarea readonly id="txtexp" class="materialize-textarea bold" runat="server"></textarea>
+                        <label for="txtexp">Project Invite Expiry Date</label>
+                     </div>
+
+                </div>
                 <div class="row">
 
                     <div  class="input-field col s12 m6 l6">
@@ -44,6 +54,8 @@
                      </div>
 
                 </div>
+
+               
                           
 
                         </div>
@@ -66,7 +78,7 @@
                               <p>Are you sure you wish to be a part of this project?</p>
                             </div>
                             <div class="modal-footer">
-                              <a href="#" runat="server" OnServerClick="btnacceptproject_ServerClick" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Yes I'm Sure</a>
+                              <a runat="server" OnServerClick="btnacceptproject_ServerClick" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Yes I'm Sure</a>
                               <a href="#" class="modal-action modal-close waves-effect waves-orange btn-flat orange-text lighten-2">Cancel</a>
                             </div>
                       </div>
@@ -77,7 +89,7 @@
                               <p>Are you sure you wish to not be a part of this project?</p>
                             </div>
                             <div class="modal-footer">
-                              <a href="#" runat="server" OnServerClick="btncancelprojnotification_Click" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
+                              <a  runat="server" OnServerClick="btncancelprojnotification_Click" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
                               <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
                             </div>
                       </div>

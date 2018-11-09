@@ -872,10 +872,10 @@ namespace Wcffincal
         }
 
 
-        object[] IDatamanagement.getprojnotification(string projectnotificationuserid)
+        object[][] IDatamanagement.getprojnotification(string projectnotificationuserid)
         {
 
-            string sqlStatement = "SELECT projID FROM tblProjnotice WHERE uID=@0;";
+            string sqlStatement = "SELECT * FROM tblProjnotice WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -883,21 +883,7 @@ namespace Wcffincal
 
             DataSet ds = clsSQL.ExecuteQuery(command);
 
-
-            string[] result = null;
-
-            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
-            {
-                string[] temp = new string[ds.Tables[0].Rows.Count];
-                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
-                {
-                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
-                }
-                result = temp;
-            }
-
-
-            return result;
+            return create2DAdsArray(ds);
 
         }
 
@@ -936,11 +922,11 @@ namespace Wcffincal
 
 
 
-        object[] IDatamanagement.getissuenotifications(string issuenotificationuserid)
+        object[][] IDatamanagement.getissuenotifications(string issuenotificationuserid)
         {
 
 
-            string sqlStatement = "SELECT isID FROM tblIssuenotice WHERE uID=@0;";
+            string sqlStatement = "SELECT * FROM tblIssuenotice WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -949,20 +935,7 @@ namespace Wcffincal
             DataSet ds = clsSQL.ExecuteQuery(command);
 
 
-            string[] result = null;
-
-            if (!(ds.Tables.Count == 0) && !(ds.Tables[0].Rows.Count == 0))
-            {
-                string[] temp = new string[ds.Tables[0].Rows.Count];
-                for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
-                {
-                    temp[k] = ds.Tables[0].Rows[k][0].ToString();
-                }
-                result = temp;
-            }
-
-
-            return result;
+            return create2DAdsArray(ds);
         }
 
 
@@ -1105,25 +1078,25 @@ namespace Wcffincal
 
         }
 
-        int IDatamanagement.insertprojectnotifications(string porjid, string uid)
+        int IDatamanagement.insertprojectnotifications(string porjid, string uid, DateTime credate)
         {
-            string sqlStatement = "INSERT INTO tblProjnotice (projID, uID) VALUES (@0,@1);";
+            string sqlStatement = "INSERT INTO tblProjnotice (projID, uID, pnCredate) VALUES (@0,@1,@2);";
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", porjid);
             command.Parameters.AddWithValue("@1", uid);
-
+            command.Parameters.AddWithValue("@2", credate);
             return clsSQL.ExecuteNonQuery(command);
         }
 
-        int IDatamanagement.insertissuenotifications(string issueid, string uid)
+        int IDatamanagement.insertissuenotifications(string issueid, string uid, DateTime credate)
         {
-            string sqlStatement = "INSERT INTO tblIssuenotice (isID, uID) VALUES (@0,@1);";
+            string sqlStatement = "INSERT INTO tblIssuenotice (isID, uID, isnCredate) VALUES (@0,@1,@2);";
             SqlCommand command = new SqlCommand(sqlStatement);
 
             command.Parameters.AddWithValue("@0", issueid);
             command.Parameters.AddWithValue("@1", uid);
-
+            command.Parameters.AddWithValue("@2", credate);
             return clsSQL.ExecuteNonQuery(command);
         }
 
@@ -1226,7 +1199,7 @@ namespace Wcffincal
         object[][] IDatamanagement.getmeetinginfromations(string uid)
         {
 
-            string sqlStatement = "SELECT tblmeeting.meetTitle, tblmeeting.meetDesc, tblmeeting.Datetime, tblmeeting.projID, tblmeeting.uID FROM tblmeeting INNER JOIN tblmeetinglink ON tblmeeting.meetID = tblmeetinglink.meetID WHERE tblmeetinglink.uID = @0;";
+            string sqlStatement = "SELECT tblmeeting.meetID, tblmeeting.meetTitle, tblmeeting.meetDesc, tblmeeting.Datetime, tblmeeting.projID, tblmeeting.uID, tblmeetinglink.mlID FROM tblmeetinglink INNER JOIN tblmeeting ON tblmeetinglink.meetID = tblmeeting.meetID  WHERE tblmeetinglink.uID = @0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
             command.Parameters.AddWithValue("@0", uid);
@@ -1473,6 +1446,86 @@ namespace Wcffincal
 
             SqlCommand command = new SqlCommand(sqlStatement);
             command.Parameters.AddWithValue("@0", uid);
+
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+        }
+
+        object[][] IDatamanagement.getusermeetings(string uid)
+        {
+            string sqlStatement = "SELECT * FROM tblmeeting WHERE uID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+            command.Parameters.AddWithValue("@0", uid);
+
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+            return create2DAdsArray(ds);
+        }
+
+        object[] IDatamanagement.getprojnoticedetails(string projnoticeid)
+        {
+            string sqlStatement = "SELECT * FROM tblProjnotice  WHERE pnID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", projnoticeid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        object[] IDatamanagement.getissuenoticedetails(string isnid)
+        {
+            string sqlStatement = "SELECT * FROM tblIssuenotice  WHERE isnID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", isnid);
+
+            DataSet sqlDataSet = clsSQL.ExecuteQuery(command);
+
+
+            string[] temp = null;
+            if (!(sqlDataSet.Tables.Count == 0))
+            {
+                if (!(sqlDataSet.Tables[0].Rows.Count == 0))
+                {
+                    temp = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int k = 0; k < sqlDataSet.Tables[0].Columns.Count; k++)
+                    {
+                        temp[k] = sqlDataSet.Tables[0].Rows[0][k].ToString();
+                    }
+                }
+            }
+
+            return temp;
+        }
+
+        object[] IDatamanagement.getmeetingmembers(string projID)
+        {
+            string sqlStatement = "SELECT tblmeetinglink.uID FROM tblmeetinglink INNER JOIN tblmeeting ON tblmeetinglink.meetID = tblmeeting.meetID WHERE tblmeeting.projID = @0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+            command.Parameters.AddWithValue("@0", projID);
 
 
             DataSet ds = clsSQL.ExecuteQuery(command);

@@ -7,7 +7,9 @@
               <div class="card white">
                 <div class="card-content black-text">
                   <span id="myProfileTitle" runat="server" class="card-title">My Profile</span>
-              
+              <div id="invalidprof" class="row red-text text-lighten-2" runat="server">
+
+                </div>
 
                           <div class="row">
                                     <div class="input-field col s12 m6 l6">
@@ -36,7 +38,16 @@
 
                             </div>
 
-                          
+                          <div class="row">
+                                       <div class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">link</i>
+                        <textarea id="txtgithublink" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtgithublink">GitHub link</label>
+                    </div>
+
+
+
+                          </div>
                        
 
                      </div>

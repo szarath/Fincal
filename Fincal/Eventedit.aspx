@@ -7,7 +7,7 @@
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title">Edit Ad</span>
+              <span class="card-title">Edit Event</span>
                 
                 <div id="InvlaideventAd" runat="server" class="row red-text text-lighten-2">
 

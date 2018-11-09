@@ -10,8 +10,10 @@ namespace Fincal
     public partial class Projectaccept : System.Web.UI.Page
     {
         string pid;
+        string pn;
         object[] projdetails;
         object[] pldetails;
+        object[] pndetails;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -23,16 +25,18 @@ namespace Fincal
                 UserData user = (UserData)Session["User"];
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                 pid = Request.QueryString.Get("id");
-
-                if (!IsPostBack)
+                pn = Request.QueryString.Get("pn");
+                if (!IsCallback)
                 {
+                    findata.Open();
                     projdetails = findata.getprojectdetails(pid);
-
+                    pndetails = findata.getprojnoticedetails(pn);
 
 
                     txtprojt.Value = (string)projdetails[1];
                     txtprojd.Value = (string)projdetails[2];
 
+                    txtexp.Value = DateTime.Parse((string)pndetails[3]).AddDays(14).ToString();
                     pldetails = findata.getprojectleaderinformaion((string)projdetails[3]);
 
                     txtptojectleaderuname.Value = (string)pldetails[0];
@@ -40,7 +44,7 @@ namespace Fincal
                     txtptojectleaderemail.Value = (string)pldetails[1];
 
 
-
+                    findata.Close();
 
                 }
                 else

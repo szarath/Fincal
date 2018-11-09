@@ -45,7 +45,7 @@ namespace Fincal
         {
             String innerHTML = "<p>";
 
-
+             string link = null;
 
             Boolean blnRegister = true;
 
@@ -56,8 +56,11 @@ namespace Fincal
 
                 innerHTML += "*Please make sure you have filled in all the fields<br/>";
             }
+           
             else
             {
+    
+
                 if (!(txtEmail.Value.Contains("@")))
                 {
                     blnRegister = false;
@@ -87,6 +90,29 @@ namespace Fincal
                     innerHTML += "*Your passwords do not match<br/>";
 
                 }
+                if (!((DateTime.Today.Year - Convert.ToDateTime(txtDoB.Value).Year) >= 18))
+                {
+                    blnRegister = false;
+                 
+                    innerHTML += "*You need to be at least 18 years old to use Fincal<br/>";
+                }
+                if (txtgithublink.Value.Equals(""))
+                {
+
+                    innerHTML += "*You can add a repo link later in your profile.<br/>";
+                    link = null;
+                }
+                else if (!txtgithublink.Value.Contains("https://github.com/"))
+                {
+                    blnRegister = false;
+                    innerHTML += "Your repo link is not a valid GitHub repo.<br/>";
+
+
+                }
+                else
+                {
+                    link = txtgithublink.Value.ToString();
+                }
 
             }
 
@@ -99,7 +125,7 @@ namespace Fincal
 
                 service.Open();
                 int index = skilldrop.SelectedIndex;
-                service.insertUser(txtUsername.Value, Security.HashPassword(txtPassword.Value), txtFirstName.Value, txtLastName.Value, txtEmail.Value, Convert.ToDateTime(txtDoB.Value), index.ToString());
+                service.insertUser(txtUsername.Value, Security.HashPassword(txtPassword.Value), txtFirstName.Value, txtLastName.Value, txtEmail.Value, Convert.ToDateTime(txtDoB.Value), index.ToString(),link);
 
                 service.Close();
 

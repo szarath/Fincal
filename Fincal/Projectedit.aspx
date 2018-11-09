@@ -59,7 +59,7 @@
                            
                         </select> 
                         <label for="Othermembers">Other Members</label>
-                             <blockquote>Add members to the project.</blockquote>
+                             <blockquote>Invite members to the project.</blockquote>
                     </div>
 
                    
@@ -75,6 +75,7 @@
                  <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger"><i class="material-icons left">delete</i>Delete</a>
              
                 <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
+
                  <a href="#AddIssue" class="btn blue waves-effect waves-light modal-trigger"><i class="material-icons left">notification_important</i>Add Issue</a>
             </div>
           </div>

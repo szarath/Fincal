@@ -40,6 +40,24 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl presistenicon;
         
         /// <summary>
+        /// searchusers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText searchusers;
+        
+        /// <summary>
+        /// searchclick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor searchclick;
+        
+        /// <summary>
         /// logInSideNav control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace Fincal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl issuessidenav;
+        
+        /// <summary>
+        /// meetingsidenav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingsidenav;
         
         /// <summary>
         /// chatsidenav control.

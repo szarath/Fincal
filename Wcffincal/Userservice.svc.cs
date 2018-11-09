@@ -149,5 +149,39 @@ namespace Wcffincal
             return clsSQL.ExecuteNonQuery(command);
         }
 
+        object[][] IUserservice.searchusers(string term)
+        {
+            string sqlStatement = "SELECT uID, uUsername, uEmail FROM tblUser WHERE (uUsername LIKE @0) OR (uEmail LIKE @0) OR (uFirstName LIKE @0) OR (uSurname LIKE @0);";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", "%" + term + "%");
+
+            DataSet ds = clsSQL.ExecuteQuery(command);
+            //DataSet ds = clsSQL.ExecuteQuery("SELECT aID, aPic1Path, aTitle, aPlatform, aLocation, aPrice, aPremiumAd FROM tblAd WHERE (aTitle LIKE '%" + searchTerm+ "%') AND (aFlagged=0) " + extraSQLParams+"ORDER BY aPremiumAd DESC, "+extraSQLOrderBys+"aCreateDate DESC"); 
+
+            return create2DArray(ds);
+        }
+
+        protected Object[][] create2DArray(DataSet sqlDataSet)
+        {
+            string[][] result = null;
+
+            if (!(sqlDataSet.Tables.Count == 0) && !(sqlDataSet.Tables[0].Rows.Count == 0))
+            {
+                string[][] temp = new string[sqlDataSet.Tables[0].Rows.Count][];
+                for (int k = 0; k < sqlDataSet.Tables[0].Rows.Count; k++)
+                {
+                    temp[k] = new string[sqlDataSet.Tables[0].Columns.Count];
+                    for (int j = 0; j < sqlDataSet.Tables[0].Columns.Count; j++)
+                    {
+                        temp[k][j] = sqlDataSet.Tables[0].Rows[k][j].ToString();
+                    }
+                    result = temp;
+                }
+            }
+
+            return result;
+        }
     }
 }

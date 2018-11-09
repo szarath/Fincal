@@ -16,9 +16,11 @@ namespace Fincal
     public partial class Issueaccept : System.Web.UI.Page
     {
         string pid;
+        string issnid;
         object[] issdetails;
         object[] pldetails;
         object[] projdetails;
+        object[] issndetails;
         static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
         static string ApplicationName = "Google Tasks API .NET Quickstart";
         private Google.Apis.Tasks.v1.Data.Task newtask;
@@ -38,7 +40,7 @@ namespace Fincal
                  findata = new Dataservice.DatamanagementClient();
                
                 pid = Request.QueryString.Get("id");
-
+                issnid = Request.QueryString.Get("in");
                 if (!IsPostBack)
                 {
 
@@ -46,7 +48,7 @@ namespace Fincal
 
                     findata.Open();
                     issdetails = findata.getissuedetails(pid);
-
+                    issndetails = findata.getissuenoticedetails(issnid);
                     if (issdetails != null)
                     {
                         projdetails = findata.getprojectdetails((string)issdetails[3]);
@@ -55,7 +57,7 @@ namespace Fincal
                         txtissd.Value = (string)issdetails[2];
                         txtisspriority.Value = (string)issdetails[4];
                         pldetails = findata.getprojectleaderinformaion((string)issdetails[5]);
-
+                        txtexp.Value = DateTime.Parse((string)issndetails[3]).AddDays(7).ToString();
                   
 
                     }
@@ -66,10 +68,35 @@ namespace Fincal
                     {
                         for (int i = 0; i < issmembers.Length; i++)
                         {
+                            Object[][] userevents = findata.getalluserevents((string)issmembers[i][0]);
+                            int eventcount = 0;
+                            if (userevents != null)
+                            {
 
-                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">\"Schedule\"+ +Username: " + (string)issmembers[i][1] + "   Email: " + (string)issmembers[i][2] +  "</span></li>";
+
+                                for (int j = 0; j < userevents.Length; j++)
+                                {
+                                    DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                                  
+
+
+                                    int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                    if (result < 0)
+                                    {
+                                        eventcount += 1;
+                                    }
+
+
+                                }
+
+
+                            }
+
+                            htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">\"Schedule: " + priority(eventcount).ToString()    +"       Username: " + (string)issmembers[i][1] + "      Email: " + (string)issmembers[i][2] +  "</span></li>";
 
                         }
+                        membersonissue.InnerHtml += membersonissue;
                     }
 
                     else {
@@ -88,7 +115,26 @@ namespace Fincal
             }
         
         }
+        private string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return ("Free");
+            }
+            else if (num <= 30)
+            {
 
+                return ("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+
+
+        }
         protected void btnacceptproject_ServerClick(object sender, EventArgs e)
         {
             UserData user = (UserData)Session["User"];

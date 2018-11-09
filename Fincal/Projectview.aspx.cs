@@ -55,8 +55,31 @@ namespace Fincal
                     {
 
                         projectmemdetails = findata.getspecificuserinformation((string)projectmembers[i]);
+                        Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
+                        int eventcount = 0;
+                        if (userevents != null)
+                        {
 
-                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Username: " + (string)projectmemdetails[0]+"   Email: "+ (string)projectmemdetails[1]+"   Skill: "+ (string)projectmemdetails[2]  + "</span></li>";
+
+                            for (int j = 0; j < userevents.Length; j++)
+                            {
+                                DateTime credate = DateTime.Parse((string)userevents[j][1]);
+
+
+
+                                int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                if (result < 0)
+                                {
+                                    eventcount += 1;
+                                }
+
+
+                            }
+
+
+                        }
+                        htmldata += "<li class=\"collection-item\"><span style=\"font-weight:bold\">Schedule:   "+ priority(eventcount) + "Username:    " + (string)projectmemdetails[0]+"   Email:     "+ (string)projectmemdetails[1]+"   Skill:      "+ (string)projectmemdetails[2]  + "</span></li>";
 
 
                     }
@@ -67,7 +90,26 @@ namespace Fincal
                 }
             }
         }
+        private string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return ("Free");
+            }
+            else if (num <= 30)
+            {
 
+                return ("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+
+
+        }
         protected void btnDeletefromteam_ServerClick(object sender, EventArgs e)
         {
 

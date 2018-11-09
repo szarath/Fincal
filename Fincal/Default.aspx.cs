@@ -43,7 +43,7 @@ namespace Fincal
                 issuenotificaitonmain.Visible = true;
                 getissuenotifitcaions();
                 getprojectnotificaitons();
-
+                meetings();
                 Eventsget();
                 Taskget();
                 Pictureget();
@@ -52,20 +52,7 @@ namespace Fincal
 
         }
 
-        private void meetingget()
-        {
-            object[][] meetingdata;
-            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
-            UserData user = (UserData)Session["User"];
-            meetingdata = findata.getmeetinginfromations(user.getID());
-
-
-            findata.Close();
-
-
-
-        }
+       
 
         private void Eventsget()
         {
@@ -74,7 +61,46 @@ namespace Fincal
             //     if (Session["User"] != null) //Logged in
             //   {
             UserData user = (UserData)Session["User"];
-         
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+            Object[][] userevents = findata.getalluserevents(user.getID());
+
+           
+
+                if (userevents != null)
+                {
+
+
+                    for (int j = 0; j < userevents.Length; j++)
+                    {
+                        DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                        DateTime exweek = credate.AddDays(14);
+
+
+                        int result = DateTime.Compare(exweek, DateTime.Now);
+
+                        if (result < 0)
+                        {
+                            findata.deleteevent((string)userevents[j][4], user.getID());
+                        }
+                        else
+                        {
+
+
+
+                        }
+
+
+                    }
+
+
+                }
+
+
+
+
+
+            
 
             string htmldata = "";
             string temp = "";
@@ -117,8 +143,7 @@ namespace Fincal
             // List events.
             Google.Apis.Calendar.v3.Data.Events events = request.Execute();
 
-            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-            findata.Open();
+           
 
 
 
@@ -337,6 +362,9 @@ namespace Fincal
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
             UserData user = (UserData)Session["User"];
+
+           
+
 
             TasksResource.ListRequest request = service.Tasks.List("@default");
             request.MaxResults = 20;
@@ -570,39 +598,54 @@ namespace Fincal
         {
              string htmldata =""; 
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-
+            findata.Open();
             UserData user = (UserData)Session["User"];
-            object[] projectnotificaiotns = findata.getprojnotification(user.getID());
+            object[][] projectnotificaiotns = findata.getprojnotification(user.getID());
 
             if (projectnotificaiotns != null)
             {
-                for (int i = 0; i < projectnotificaiotns.Length; i++)
+                for (int j = 0; j < projectnotificaiotns.Length; j++)
                 {
-                    object[] projdetails = findata.getprojectdetails((string)projectnotificaiotns[i]);
+                    object[] projdetails = findata.getprojectdetails((string)projectnotificaiotns[j][1]);
 
-                    htmldata += "<a href=\"Projectaccept.aspx?id=" + (string)projdetails[0] + "\">";
-                    htmldata += "<div class=\"col s12 m4 7\">";
-                    // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
-                    htmldata += "<div class=\"card  hoverable\">";
-                    htmldata += "<div class=\"card-stacked\">";
-                    htmldata += "<div class=\"card-content black-text\">";
-                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
-                    htmldata += "</span>";
-
-                    htmldata += "</div>";
-                    htmldata += "</div>";
-                    htmldata += "</div>";
-                    htmldata += "</div>";
-
-                    htmldata += "</a>";
+                    DateTime credate = DateTime.Parse((string)projectnotificaiotns[j][3]);
+                    DateTime exdate = credate.AddDays(14);
 
 
+                    int result = DateTime.Compare(exdate, DateTime.Now);
+
+                    if (result < 0)
+                    {
+                        findata.deleteporjnotificaiton((string)projectnotificaiotns[j][0], user.getID());
+                    }
+                    else
+                    {
+                       
+                        htmldata += "<a href=\"Projectaccept.aspx?id=" + (string)projdetails[0] +"&pn="+ (string)projectnotificaiotns[j][0] + "\">";
+                        htmldata += "<div class=\"col s12 m4 7\">";
+                        // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
+                        htmldata += "<div class=\"card  hoverable\">";
+                        htmldata += "<div class=\"card-stacked\">";
+                        htmldata += "<div class=\"card-content black-text\">";
+                        htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
+                        htmldata += "</span>";
+
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+
+                        htmldata += "</a>";
+
+
+                    }
 
 
                 }
-         
+
 
             }
+            findata.Close();
             newprojects.InnerHtml = htmldata;
 
          }
@@ -615,37 +658,137 @@ namespace Fincal
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
 
             UserData user = (UserData)Session["User"];
-
-            object[] issuenotifications = findata.getissuenotifications(user.getID());
+            findata.Open();
+            object[][] issuenotifications = findata.getissuenotifications(user.getID());
             if (issuenotifications != null)
             {
                 for (int i = 0; i < issuenotifications.Length; i++)
                 {
-                    object[] issuedetails = findata.getissuedetails((string)issuenotifications[i]);
-                    htmldata += "<a href=\"Issueaccept.aspx?id=" + (string)issuedetails[0] + "\">";
-                    htmldata += "<div class=\"col s12 m4 7\">";
-                    // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
-                    htmldata += "<div class=\"card  hoverable\">";
-                    htmldata += "<div class=\"card-stacked\">";
-                    htmldata += "<div class=\"card-content black-text\">";
-                    htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)issuedetails[1] + "</p>";
-                    htmldata += "</span>";
+                    DateTime credate = DateTime.Parse((string)issuenotifications[i][3]);
+                    DateTime exdate = credate.AddDays(14);
+                    object[] issuedetails = findata.getissuedetails((string)issuenotifications[i][1]);
+                    object[] projdetails = findata.getprojectdetails((string)issuedetails[3]); 
+                    int result = DateTime.Compare(exdate, DateTime.Now);
 
-                    htmldata += "</div>";
-                    htmldata += "</div>";
-                    htmldata += "</div>";
-                    htmldata += "</div>";
+                    if (result < 0)
+                    {
+                        findata.deleteporjnotificaiton((string)issuenotifications[i][0], user.getID());
+                    }
+                    else {
+                   
+                        htmldata += "<a href=\"Issueaccept.aspx?id=" + (string)issuedetails[0] +"&in="+ (string)issuenotifications[i][0] + "\">";
+                        htmldata += "<div class=\"col s12 m4 7\">";
+                        // incomplete += "<div class=\"card horizontal hoverable " + colorchoice(Convert.ToInt32((string)storedtask[4])) + " href=\"Taskedit" + "?id=" + task.Id + "\">";
+                        htmldata += "<div class=\"card  hoverable\">";
+                        htmldata += "<div class=\"card-stacked\">";
+                        htmldata += "<div class=\"card-content black-text\">";
+                        htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)issuedetails[1] + "</p>";
+                        htmldata += "</span>";
+                        htmldata += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</a>";
 
-                    htmldata += "</a>";
+                    }
+                   
 
                 }
             }
-
+            findata.Close();
 
             newissues.InnerHtml = htmldata;
 
         }
+        private void meetings()
+        {
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+            UserData user = (UserData)Session["User"];
+            Object[][] usermeetings = findata.getusermeetings(user.getID());
+
+            if (usermeetings != null)
+            {
+
+
+                for (int j = 0; j < usermeetings.Length; j++)
+                {
+                    DateTime credate = DateTime.Parse((string)usermeetings[j][3]);
+           
+                    
+
+                    int result = DateTime.Compare(credate, DateTime.Now);
+
+                    if (result < 0)
+                    {
+                        int deletemeetmembers = findata.deletemeetingmembers((string)usermeetings[j][0]);
+                        if (deletemeetmembers != 0)
+                        {
+
+                            findata.deletemeeting((string)usermeetings[j][0]);
+                        }
+
+                     
+                    }
+                    else
+                    {
+
+
+
+                    }
+
+                    Object[] projectmembers = findata.getprojectmembers((string)usermeetings[j][4]);
+                    object[] meetingmembers = findata.getmeetingmembers((string)usermeetings[j][4]);
+                  
+                    if (projectmembers != null)
+                    {
+                        for (int i = 0; i < projectmembers.Length; i++)
+                        {
+                             bool inmeeting = false;
+                            for (int a = 0; a < meetingmembers.Length; a++)
+                            {
+                                if (projectmembers[i] == meetingmembers[a])
+                                {
+                                    inmeeting = true;
+
+                                }
+                              
+
+                            }
+
+                            if (inmeeting == false)
+                            {
+
+                                findata.insertmeetingmember((string)usermeetings[j][0], (string)usermeetings[j][0],"0");
+
+                            }
+
+
+
+                        }
+
+
+                    }
+
+
+
+                }
+
+
+            }
+
+         
+
+
+            findata.Close();
+
+
+
 
         }
+    }
+
+   
 
     }

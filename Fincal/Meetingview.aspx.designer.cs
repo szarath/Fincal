@@ -10,7 +10,7 @@
 namespace Fincal {
     
     
-    public partial class Projectadd {
+    public partial class Meetingview {
         
         /// <summary>
         /// projectdiv control.
@@ -31,6 +31,15 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Invlaidproject;
         
         /// <summary>
+        /// txtprojname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojname;
+        
+        /// <summary>
         /// txtprojt control.
         /// </summary>
         /// <remarks>
@@ -49,39 +58,21 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtprojd;
         
         /// <summary>
-        /// UserChoose control.
+        /// Textarea1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect UserChoose;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea1;
         
         /// <summary>
-        /// txtdom control.
+        /// btnmeetdelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdom;
-        
-        /// <summary>
-        /// txttime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txttime;
-        
-        /// <summary>
-        /// btnprojadd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnprojadd;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnmeetdelete;
     }
 }

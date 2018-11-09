@@ -12,6 +12,7 @@ namespace Fincal
         private UserData user;
         private object[] skills;
         private string htmldata;
+        private string link= null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,7 +25,7 @@ namespace Fincal
                     txtLastName.Value = user.getSurname();
 
                     txtDoB.Value = user.getDoB().ToShortDateString();
-
+                    txtgithublink.Value = user.getGitlink();
 
                     Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                     findata.Open();
@@ -71,14 +72,37 @@ namespace Fincal
 
         protected void btnUpdateAccount_ServerClick(object sender, EventArgs e)
         {
-            user = (UserData)(Session["User"]);
+            if (txtFirstName.Value.Equals("") || txtLastName.Value.Equals("") || txtDoB.Value.Equals(""))
+            {
+                invalidprof.InnerHtml = "* Fill in all the fields</br>";
+             
+            }
+            else {
+                if (txtgithublink.Value.Equals(""))
+                {
+
+                    invalidprof.InnerHtml = "*You can add a repo link later in your profile.<br/>";
+                    link = null;
+                }
+                else if (!txtgithublink.Value.Contains("https://github.com/"))
+                {
+              
+                    invalidprof.InnerHtml = "Your repo link is not a valid GitHub repo.<br/>";
+
+
+                }
+                else
+                {
+                    link = txtgithublink.Value.ToString();
+                }
+                user = (UserData)(Session["User"]);
             Userservice.UserserviceClient service = new
              Userservice.UserserviceClient();
 
             int skill = skilldrop.SelectedIndex;
             service.Open();
 
-            int result = service.updateUserInfo(user.getID(), txtFirstName.Value, txtLastName.Value, Convert.ToDateTime(txtDoB.Value), skill.ToString());
+            int result = service.updateUserInfo(user.getID(), txtFirstName.Value, txtLastName.Value, Convert.ToDateTime(txtDoB.Value), skill.ToString(), link);
             service.Close();
             if (result == 1)//if the result is one then the user is deleted and redirected to the index page 
             {
@@ -98,7 +122,7 @@ namespace Fincal
                 htmldata += "</div>";
                 htmldata += "</div>";
 
-                
+
             }
             else
             {
@@ -118,11 +142,11 @@ namespace Fincal
                 htmldata += "</div>";
                 htmldata += "</div>";
 
-               
+
             }
 
             myProfileView.InnerHtml = htmldata;
-        
+        }
         }
     }
 }

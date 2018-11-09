@@ -186,6 +186,10 @@
     <Content Include="js\materialize.js" />
     <Content Include="js\materialize.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Meeting.aspx" />
+    <Content Include="Meetingaccept.aspx" />
+    <Content Include="Meetingadd.aspx" />
+    <Content Include="Meetingview.aspx" />
     <Content Include="Myprofile.aspx" />
     <Content Include="Pictureadd.aspx" />
     <Content Include="Pictureedit.aspx" />
@@ -201,6 +205,7 @@
     <Content Include="Taskedit.aspx" />
     <Content Include="Updateemail.aspx" />
     <Content Include="Updatepassword.aspx" />
+    <Content Include="Usersearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +344,34 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Meeting.aspx.cs">
+      <DependentUpon>Meeting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Meeting.aspx.designer.cs">
+      <DependentUpon>Meeting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Meetingaccept.aspx.cs">
+      <DependentUpon>Meetingaccept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Meetingaccept.aspx.designer.cs">
+      <DependentUpon>Meetingaccept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Meetingadd.aspx.cs">
+      <DependentUpon>Meetingadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Meetingadd.aspx.designer.cs">
+      <DependentUpon>Meetingadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Meetingview.aspx.cs">
+      <DependentUpon>Meetingview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Meetingview.aspx.designer.cs">
+      <DependentUpon>Meetingview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Myprofile.aspx.cs">
       <DependentUpon>Myprofile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -447,6 +480,13 @@
       <DependentUpon>Updatepassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserData.cs" />
+    <Compile Include="Usersearch.aspx.cs">
+      <DependentUpon>Usersearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usersearch.aspx.designer.cs">
+      <DependentUpon>Usersearch.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

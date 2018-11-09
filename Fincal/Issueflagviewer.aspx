@@ -76,7 +76,7 @@
                          
                            
                         </select> 
-                        <label for="UserChoose">Members</label>
+                        <label for="UserChoose">Members to invite</label>
                     </div>
 
                       <div class="input-field col s12 m6 l6">

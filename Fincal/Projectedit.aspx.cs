@@ -10,7 +10,7 @@ namespace Fincal
     public partial class Projectedit : System.Web.UI.Page
     {
         string pid;
-        Object[][] members;
+        Object[][] members =null;
         object[] project;
         object[] projectmembers;
 
@@ -24,6 +24,7 @@ namespace Fincal
             }
             else
             {
+                int numusers = 0;
                 Title = "Fincal: Edit Project ";
 
                 pid = Request.QueryString.Get("id");
@@ -65,11 +66,69 @@ namespace Fincal
 
                             if (userisamember == true)
                             {
-                                Currentmembers.Items.Add(new ListItem(" " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                                Object[][] userevents = findata.getalluserevents((string)members[i][0]);
+                                int eventcount = 0;
+                                if (userevents != null)
+                                {
+
+
+                                    for (int j = 0; j < userevents.Length; j++)
+                                    {
+                                        DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                                   
+
+
+                                        int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                        if (result < 0)
+                                        {
+                                            eventcount += 1;
+                                        }
+
+
+                                    }
+
+
+                                }
+                                Currentmembers.Items.Add(new ListItem(" " + (string)members[i][1] + "   " + (string)members[i][2] + "   ", members[i][0].ToString()));
                             }
                             else
                             {
-                                Othermembers.Items.Add(new ListItem(" " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                                Object[][] userevents = findata.getalluserevents((string)members[i][0]);
+                                int eventcount = 0;
+                                if (userevents != null)
+                                {
+
+
+                                    for (int j = 0; j < userevents.Length; j++)
+                                    {
+                                        DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                                        DateTime exweek = credate.AddDays(14);
+
+
+                                        int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                        if (result < 0)
+                                        {
+                                            eventcount += 1;
+                                        }
+
+
+                                    }
+
+
+                                }
+                                if (numusers <= 30)
+                                {
+                                    if (priority(eventcount).ToString() == "Free" || priority(eventcount).ToString() == "Occupied")
+                                    {
+                                        Othermembers.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)members[i][1] + " " + (string)members[i][2] + " ", members[i][0].ToString()));
+                                        numusers += 1;
+                                    }
+
+
+                                }
+                             
                             }
 
 
@@ -84,7 +143,26 @@ namespace Fincal
             }
         }
 
+        private string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return ("Free");
+            }
+            else if (num <= 30)
+            {
 
+                return ("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+
+
+        }
         protected void btnprojedit_ServerClick(object sender, EventArgs e)
         {
             pid = Request.QueryString.Get("id");
@@ -95,8 +173,8 @@ namespace Fincal
             if (txtprojd.Value.Equals("") || txtprojt.Value.Equals(""))
             {
 
-                projecteditdiv.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
-
+                projecteditdiv.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
+                return;
             }
             else
             {
@@ -121,7 +199,7 @@ namespace Fincal
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-                            findata.insertprojectnotifications(pid, id.ToString());
+                            findata.insertprojectnotifications(pid, id.ToString(), DateTime.Now);
 
                         }
 
@@ -212,8 +290,15 @@ namespace Fincal
         protected void btnissueadd_ServerClick(object sender, EventArgs e)
         {
 
-            Response.Redirect("Issueadd.aspx?id="+ pid);
+            if (members ==null)
+            {
+                Invlaidproject.InnerHtml += "*Please add members to add issues</br>";
 
+            }
+            else
+            {
+                Response.Redirect("Issueadd.aspx?id=" + pid);
+            }
 
 
 

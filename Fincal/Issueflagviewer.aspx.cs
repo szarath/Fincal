@@ -16,7 +16,7 @@ namespace Fincal
         {
             if (Session["user"] != null)
             {
-
+                UserData user = (UserData)Session["User"];
                 if (!IsPostBack)
                 {
                     id = Request.QueryString.Get("id");
@@ -35,7 +35,56 @@ namespace Fincal
                         txtissdesc.Value = (string)issdetails[4];
                     }
 
+                    object[] projmembers = findata.getprojectmembers(projid);
+                    if (projmembers != null)
+                    {
 
+                        for (int i = 0; i < projmembers.Length; i++)
+                        {
+                            object[] getmemberdetails = findata.getspecificuserinformation((string)projmembers[i]);
+
+
+                            if ((string)getmemberdetails[0] == user.getID())
+                            {
+
+                            }
+                            else
+                            {
+
+                                Object[][] userevents = findata.getalluserevents((string)projmembers[i]);
+                                int eventcount = 0;
+                                if (userevents != null)
+                                {
+
+
+                                    for (int j = 0; j < userevents.Length; j++)
+                                    {
+                                        DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                                        
+
+
+
+                                        int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                        if (result < 0)
+                                        {
+                                            eventcount += 1;
+                                        }
+
+
+                                    }
+
+
+                                }
+                                UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() + "     " + (string)getmemberdetails[1] + "     " + (string)getmemberdetails[2] + " ", (string)projmembers[i].ToString()));
+
+                            }
+
+                        }
+
+
+
+                    }
 
 
                     findata.Close();
@@ -55,6 +104,26 @@ namespace Fincal
 
            
         }
+        private string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return ("Free");
+            }
+            else if (num <= 30)
+            {
+
+                return ("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+
+
+        }
         protected void btnissueadd_ServerClick(object sender, EventArgs e)
         {
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
@@ -65,8 +134,8 @@ namespace Fincal
 
             if (txtisstitle.Value.Equals("") || txtissdesc.Value.Equals("") || UserChoose.Items[UserChoose.SelectedIndex].Text.Equals("") || LevelDrop.Items[LevelDrop.SelectedIndex].Text.Equals("Choose Level"))
             {
-                Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>"; 
-
+                Invlaidproject.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
+                return;
             }
             else
             {
@@ -79,12 +148,12 @@ namespace Fincal
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-                            findata.insertissuenotifications(result.ToString(), id.ToString());
+                            findata.insertissuenotifications(result.ToString(), id.ToString(), DateTime.Now);
 
                         }
 
                     }
-
+                    findata.deleteissflag(id);
                 }
 
 
@@ -153,5 +222,7 @@ namespace Fincal
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
         }
+
+
     }
 }

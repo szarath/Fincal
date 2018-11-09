@@ -68,7 +68,7 @@
                            
                         </select> 
                         <label for="Othermembers">Other Members</label>
-                             <blockquote>Add members to the issue.</blockquote>
+                             <blockquote>Invite members to the issue.</blockquote>
                     </div>
 
                    

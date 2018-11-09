@@ -60,8 +60,8 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
             if (txtisst.Value.Equals("") || txtissd.Value.Equals("") || Projectchoose.Items[Projectchoose.SelectedIndex].Text.Equals(""))
             {
-                Invlaidproject.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
-
+                Invlaidproject.InnerHtml = "*Please make sure you have filled in all the fields<br/>";
+                return;
             }
             else
             {

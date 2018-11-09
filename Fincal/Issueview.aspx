@@ -20,7 +20,7 @@
                     </div>
                 </div>
                           <div class="row">
-                    <div  disabled  class="input-field col s12 m12 l12">
+                    <div    class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea readonly id="txtisstitle" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtisstitle">Title</label>
@@ -28,7 +28,7 @@
                 </div>
 
                  <div class="row">
-                    <div disabled  class="input-field col s12 m12 l12">
+                    <div   class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea readonly id="txtissdesc" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtissdesc">Description</label>
@@ -36,13 +36,23 @@
                 </div>
 
                 <div class="row">
-                    <div disabled class="input-field col s12 m12 l12">
+                    <div  class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">account_circle</i>
                         <textarea readonly id="txtprojleader" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtprojleader">Project Leader</label>
                     </div>
                 </div>
-                          
+                        
+                    <div class="row">
+                               
+
+                  
+                                    
+                              <ul id="membersonissue" class="collection with-header col s12 m12 l12" runat="server">
+                           <li class="collection-header"><h2><i class="material-icons prefix">people</i>Issue members</h2></li>
+                          </ul>
+                    
+                          </div>  
 
                         </div>
               <div class="card-action">

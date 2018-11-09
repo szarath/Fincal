@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Projectadd.aspx.cs" Inherits="Fincal.Projectadd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Meetingadd.aspx.cs" Inherits="Fincal.Meetingadd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
 
-            <style>
+              <style>
         .thumb 
         {
             height: 75px;
@@ -41,12 +41,12 @@
 
                  <div class="row">
                     <div class="input-field col  s12 m12 l12">
-                          <i class="material-icons prefix">people</i>
-                        <select id="UserChoose" runat="server" multiple>
+                          <i class="material-icons prefix">assignment</i>
+                        <select id="Projchoose" runat="server" >
                          
                            
                         </select> 
-                        <label for="UserChoose">Members to invite</label>
+                        <label for="Projchoose">Choose project</label>
                     </div>
 
                    
@@ -60,13 +60,13 @@
                                     <div class="input-field col s12 m6 l6">
                                        <i class="material-icons prefix">today</i>
                                         <input  id="txtdom" runat="server" class="datepicker black-text"/>
-                                        <label for="txtdom">Date of first meeting</label>
+                                        <label for="txtdom">Date of meeting</label>
                                     </div>
 
                                      <div class="input-field col s12 m6 l6">
                                        <i class="material-icons prefix">access_time</i>
                                         <input  id="txttime" runat="server" class="timepicker black-text"/>
-                                        <label for="txttime">Time of first meeting  </label>
+                                        <label for="txttime">Time of meeting  </label>
                                     </div>
 
 
@@ -75,7 +75,7 @@
                  
             </div>
             <div class="card-action">
-              <button id="btnprojadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnprojadd_ServerClick"><i class="material-icons left">save</i>Add</button>
+              <button id="btnmeetadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnmeetadd_ServerClick"><i class="material-icons left">save</i>Add</button>
               <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
           </div>

@@ -33,8 +33,18 @@
     <a href="Default.aspx" class="brand-logo center flow-text">Fincal</a>
        
     <ul id="presistenicon" runat="server" class="right">
-      <li><a href="Myprofile.aspx">My Profile</a></li>
-      <li><a runat="server" onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
+        <li>
+          <div class="input-field">
+          <input  id="searchusers" placeholder="Search users"  runat="server" >
+          <label class="label-icon" for="searchusers" ><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+            </li>
+        <li>
+         <a id="searchclick" runat="server" class="waves-effect"  onserverclick="btnsubmitsearch">Search</a>
+            </li>
+      <li><a class="waves-effect" href="Myprofile.aspx">My Profile</a></li>
+      <li><a class="waves-effect" runat="server" onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
     
     <!--  <li><a class="dropdown-trigger" runat="server" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
     </ul>
@@ -49,12 +59,13 @@
                        <li id="calsidenav" class="bold" runat="server"><a href="Default.aspx" class="waves-effect waves-blue-grey"> <i class="material-icons prefix">home</i>Home</a></li> 
                      <li id="eventsidenav" class="bold" runat="server"><a href="Eventslist.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">event</i>Events</a></li> 
                  
-                        <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Task</a></li> 
+                        <li id="tasksidenav" class="bold" runat="server"><a href="Task.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">mode_edit</i>Tasks</a></li> 
                           <li id="projectsidenav" class="bold" runat="server"><a href="Projects.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">assignment</i>Projects</a></li>        
                       <li id="issuessidenav" class="bold" runat="server"><a href="Issues.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">notification_important</i>Issues</a></li> 
+                       <li id="meetingsidenav" class="bold" runat="server"><a href="Meeting.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">meeting_room</i>Meetings</a></li> 
                        <li id="chatsidenav" class="bold" runat="server"><a href="Chatall.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">chat</i>Chat</a></li> 
                           <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
-                       
+
                       <li class="divider"></li>
                         <li id="myProfileSideNav" class="bold" runat="server"><a href="Account.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">perm_identity</i>My Account</a></li>
 
@@ -96,9 +107,12 @@
 
     <script type="text/javascript">
 
+       
+
         $(document).ready(function () {
             $('.sidenav').sidenav();
 
+   
         
             $('.slider').slider({
                 height: 600

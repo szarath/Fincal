@@ -204,13 +204,14 @@ namespace Wcffincal
         [OperationContract]
         object[] getissuemembers(string issid);
 
+
         //notification project operations 
 
         [OperationContract]
-        object[] getprojnotification(string projectnotificationuserid);
+        object[][] getprojnotification(string projectnotificationuserid);
 
         [OperationContract]
-        int insertprojectnotifications(string porjid, string uid);
+        int insertprojectnotifications(string porjid, string uid,DateTime credate);
 
         [OperationContract]
         int deleteporjnotificaiton(string projid, string uid);
@@ -218,16 +219,19 @@ namespace Wcffincal
         [OperationContract]
         int deleteallprojnotificaion(string projid);
 
+        [OperationContract]
+        object[] getprojnoticedetails(string projnoticeid);
+
         //notificaiotns issue operations
 
         [OperationContract]
-        object[] getissuenotifications(string issuenotificationuserid); 
+        object[][] getissuenotifications(string issuenotificationuserid); 
 
         [OperationContract]
         int deleteissuenotification(string issid, string uid);
 
         [OperationContract]
-        int insertissuenotifications(string issueid, string uid);
+        int insertissuenotifications(string issueid, string uid, DateTime credate);
 
         [OperationContract]
         Object[][] getuserinformation();
@@ -238,6 +242,9 @@ namespace Wcffincal
         [OperationContract]
         object[] getspecificuserinformation(string uid);
 
+        [OperationContract]
+        object[] getissuenoticedetails(string isnid);
+
 
         //meeting 
         [OperationContract]
@@ -245,6 +252,9 @@ namespace Wcffincal
 
         [OperationContract]
         int deletemeeting(string meetid);
+
+        [OperationContract]
+        Object[][] getusermeetings(string uid);
 
         [OperationContract]
         int insertmeeting(string meettitle,string meetdesc,string meetdatetime,string projid,string uid);
@@ -267,6 +277,8 @@ namespace Wcffincal
         [OperationContract]
         object[] getprojmeetings(string projid);
 
+        [OperationContract]
+        object[] getmeetingmembers(string projID);
 
 
         //flagging 

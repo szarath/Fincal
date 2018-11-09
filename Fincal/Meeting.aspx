@@ -1,0 +1,51 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Meeting.aspx.cs" Inherits="Fincal.Meeting" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
+
+    <div class="container">
+     <div class="row">
+          <div class="col s12 m10 l8">
+            <h4 id="indexTitle" class="bold" runat="server">Meetings</h4>
+        </div>  
+     
+   
+    </div>
+
+       <div class =" row">
+
+         
+         
+         <h4 id="H6" class="thin col m10 s12 " runat="server">Your meetings</h4> 
+
+          </div>
+
+
+<div id="yourmeet" class="row" runat="server">
+  
+    </div>
+        
+ 
+   
+       
+   
+
+        <div class =" row">
+      <h4 class="thin col m10 s12 " runat="server">Other meetings</h4> 
+            </div>
+
+
+   <div id="othermeet" class="row" runat="server">
+   
+     </div>
+    <div class="row">
+     <div id="floatingeventcreateButton" class="fixed-action-btn " style="bottom: 45px; right: 24px;" runat="server" visible="true">
+            <a class="btn-floating btn-large teal waves-effect waves-light moda" href="Meetingadd.aspx">
+              <i class="large material-icons">add</i>
+            </a>
+        </div>
+        </div>
+   </div>
+
+
+</asp:Content>

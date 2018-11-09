@@ -85,14 +85,38 @@ namespace Fincal
                                 }
                             }
 
+                            Object[][] userevents = findata.getalluserevents((string)projectmembers[i]);
+                            int eventcount = 0;
+                            if (userevents != null)
+                            {
+
+
+                                for (int j = 0; j < userevents.Length; j++)
+                                {
+                                    DateTime credate = DateTime.Parse((string)userevents[j][1]);
+                           
+
+
+                                    int result = DateTime.Compare(credate, DateTime.Now.AddDays(14));
+
+                                    if (result < 0)
+                                    {
+                                        eventcount += 1;
+                                    }
+
+
+                                }
+
+
+                            }
                             if (userisamember == true)
                             {
                               
-                                Currentmembers.Items.Add(new ListItem(" " + (string)userdetails[0] + " " + (string)userdetails[2] + " ", (string)projectmembers[i].ToString()));
+                                Currentmembers.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)userdetails[0] + " " + (string)userdetails[2] + " ", (string)projectmembers[i].ToString()));
                             }
                             else
                             {
-                                Othermembers.Items.Add(new ListItem(" " + (string)userdetails[0] + " " + (string)userdetails[2] + " ", (string)projectmembers[i].ToString()));
+                                Othermembers.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)userdetails[0] + " " + (string)userdetails[2] + " ", (string)projectmembers[i].ToString()));
                             }
 
 
@@ -106,7 +130,26 @@ namespace Fincal
                 }
             }
         }
+        private string priority(int num)
+        {
+            if (num <= 15)
+            {
+                return ("Free");
+            }
+            else if (num <= 30)
+            {
 
+                return ("Occupied");
+
+            }
+            else
+            {
+                return ("Busy");
+
+            }
+
+
+        }
 
         protected void btnissedit_ServerClick(object sender, EventArgs e)
         {
@@ -119,7 +162,7 @@ namespace Fincal
             {
 
                 projecteditdiv.InnerHtml += "*Please make sure you have filled in all the fields<br/>";
-
+                return;
             }
             else
             {
@@ -144,7 +187,7 @@ namespace Fincal
                         if (item.Selected)
                         {
                             int id = Convert.ToInt32(item.Value.ToString());
-                            findata.insertissuenotifications(pid, id.ToString());
+                            findata.insertissuenotifications(pid, id.ToString(), DateTime.Now);
 
                         }
 

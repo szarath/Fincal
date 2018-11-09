@@ -91,14 +91,15 @@ namespace Fincal.Userservice {
         System.Threading.Tasks.Task<Fincal.Userservice.CompositeType> GetDataUsingDataContractAsync(Fincal.Userservice.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/insertUser", ReplyAction="http://tempuri.org/IUserservice/insertUserResponse")]
-        int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill);
+        int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill, string gitrepo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/insertUser", ReplyAction="http://tempuri.org/IUserservice/insertUserResponse")]
-        System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill);
+        System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill, string gitrepo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/Authenticate", ReplyAction="http://tempuri.org/IUserservice/AuthenticateResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fincal.Userservice.CompositeType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
         object[] Authenticate(string UserEmail, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/Authenticate", ReplyAction="http://tempuri.org/IUserservice/AuthenticateResponse")]
@@ -107,22 +108,32 @@ namespace Fincal.Userservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/getUserDetailsManagement", ReplyAction="http://tempuri.org/IUserservice/getUserDetailsManagementResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fincal.Userservice.CompositeType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
         object[] getUserDetailsManagement(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/getUserDetailsManagement", ReplyAction="http://tempuri.org/IUserservice/getUserDetailsManagementResponse")]
         System.Threading.Tasks.Task<object[]> getUserDetailsManagementAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill);
+        int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill, string gitrepo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateUserInfo", ReplyAction="http://tempuri.org/IUserservice/updateUserInfoResponse")]
-        System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill);
+        System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill, string gitrepo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/deleteUser", ReplyAction="http://tempuri.org/IUserservice/deleteUserResponse")]
         int deleteUser(string ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/deleteUser", ReplyAction="http://tempuri.org/IUserservice/deleteUserResponse")]
         System.Threading.Tasks.Task<int> deleteUserAsync(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/searchusers", ReplyAction="http://tempuri.org/IUserservice/searchusersResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fincal.Userservice.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] searchusers(string term);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/searchusers", ReplyAction="http://tempuri.org/IUserservice/searchusersResponse")]
+        System.Threading.Tasks.Task<object[][]> searchusersAsync(string term);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -168,12 +179,12 @@ namespace Fincal.Userservice {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill) {
-            return base.Channel.insertUser(Username, Password, firstName, surname, Email, DoB, skill);
+        public int insertUser(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill, string gitrepo) {
+            return base.Channel.insertUser(Username, Password, firstName, surname, Email, DoB, skill, gitrepo);
         }
         
-        public System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill) {
-            return base.Channel.insertUserAsync(Username, Password, firstName, surname, Email, DoB, skill);
+        public System.Threading.Tasks.Task<int> insertUserAsync(string Username, string Password, string firstName, string surname, string Email, System.DateTime DoB, string skill, string gitrepo) {
+            return base.Channel.insertUserAsync(Username, Password, firstName, surname, Email, DoB, skill, gitrepo);
         }
         
         public object[] Authenticate(string UserEmail, string Password) {
@@ -192,12 +203,12 @@ namespace Fincal.Userservice {
             return base.Channel.getUserDetailsManagementAsync(userID);
         }
         
-        public int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill) {
-            return base.Channel.updateUserInfo(ID, firstName, surname, DoB, skill);
+        public int updateUserInfo(string ID, string firstName, string surname, System.DateTime DoB, string skill, string gitrepo) {
+            return base.Channel.updateUserInfo(ID, firstName, surname, DoB, skill, gitrepo);
         }
         
-        public System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill) {
-            return base.Channel.updateUserInfoAsync(ID, firstName, surname, DoB, skill);
+        public System.Threading.Tasks.Task<int> updateUserInfoAsync(string ID, string firstName, string surname, System.DateTime DoB, string skill, string gitrepo) {
+            return base.Channel.updateUserInfoAsync(ID, firstName, surname, DoB, skill, gitrepo);
         }
         
         public int deleteUser(string ID) {
@@ -206,6 +217,14 @@ namespace Fincal.Userservice {
         
         public System.Threading.Tasks.Task<int> deleteUserAsync(string ID) {
             return base.Channel.deleteUserAsync(ID);
+        }
+        
+        public object[][] searchusers(string term) {
+            return base.Channel.searchusers(term);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> searchusersAsync(string term) {
+            return base.Channel.searchusersAsync(term);
         }
     }
 }

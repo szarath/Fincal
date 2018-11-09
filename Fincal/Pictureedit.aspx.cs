@@ -58,6 +58,7 @@ namespace Fincal
             {
                 Invlaidtask.InnerHtml = "<p>Please provide a description</p>";
                 postad = false;
+                return;
             }
 
             if (postad)

@@ -372,16 +372,16 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnotification", ReplyAction="http://tempuri.org/IDatamanagement/getprojnotificationResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] getprojnotification(string projectnotificationuserid);
+        object[][] getprojnotification(string projectnotificationuserid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnotification", ReplyAction="http://tempuri.org/IDatamanagement/getprojnotificationResponse")]
-        System.Threading.Tasks.Task<object[]> getprojnotificationAsync(string projectnotificationuserid);
+        System.Threading.Tasks.Task<object[][]> getprojnotificationAsync(string projectnotificationuserid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertprojectnotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertprojectnotificationsResponse")]
-        int insertprojectnotifications(string porjid, string uid);
+        int insertprojectnotifications(string porjid, string uid, System.DateTime credate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertprojectnotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertprojectnotificationsResponse")]
-        System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid);
+        System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid, System.DateTime credate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteporjnotificaiton", ReplyAction="http://tempuri.org/IDatamanagement/deleteporjnotificaitonResponse")]
         int deleteporjnotificaiton(string projid, string uid);
@@ -395,13 +395,21 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteallprojnotificaion", ReplyAction="http://tempuri.org/IDatamanagement/deleteallprojnotificaionResponse")]
         System.Threading.Tasks.Task<int> deleteallprojnotificaionAsync(string projid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnoticedetails", ReplyAction="http://tempuri.org/IDatamanagement/getprojnoticedetailsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getprojnoticedetails(string projnoticeid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojnoticedetails", ReplyAction="http://tempuri.org/IDatamanagement/getprojnoticedetailsResponse")]
+        System.Threading.Tasks.Task<object[]> getprojnoticedetailsAsync(string projnoticeid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/getissuenotificationsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
-        object[] getissuenotifications(string issuenotificationuserid);
+        object[][] getissuenotifications(string issuenotificationuserid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/getissuenotificationsResponse")]
-        System.Threading.Tasks.Task<object[]> getissuenotificationsAsync(string issuenotificationuserid);
+        System.Threading.Tasks.Task<object[][]> getissuenotificationsAsync(string issuenotificationuserid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deleteissuenotification", ReplyAction="http://tempuri.org/IDatamanagement/deleteissuenotificationResponse")]
         int deleteissuenotification(string issid, string uid);
@@ -410,10 +418,10 @@ namespace Fincal.Dataservice {
         System.Threading.Tasks.Task<int> deleteissuenotificationAsync(string issid, string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertissuenotificationsResponse")]
-        int insertissuenotifications(string issueid, string uid);
+        int insertissuenotifications(string issueid, string uid, System.DateTime credate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissuenotifications", ReplyAction="http://tempuri.org/IDatamanagement/insertissuenotificationsResponse")]
-        System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid);
+        System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid, System.DateTime credate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getuserinformationResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -439,6 +447,14 @@ namespace Fincal.Dataservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getspecificuserinformation", ReplyAction="http://tempuri.org/IDatamanagement/getspecificuserinformationResponse")]
         System.Threading.Tasks.Task<object[]> getspecificuserinformationAsync(string uid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenoticedetails", ReplyAction="http://tempuri.org/IDatamanagement/getissuenoticedetailsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getissuenoticedetails(string isnid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getissuenoticedetails", ReplyAction="http://tempuri.org/IDatamanagement/getissuenoticedetailsResponse")]
+        System.Threading.Tasks.Task<object[]> getissuenoticedetailsAsync(string isnid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getmeetinginfromations", ReplyAction="http://tempuri.org/IDatamanagement/getmeetinginfromationsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
@@ -452,6 +468,14 @@ namespace Fincal.Dataservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/deletemeeting", ReplyAction="http://tempuri.org/IDatamanagement/deletemeetingResponse")]
         System.Threading.Tasks.Task<int> deletemeetingAsync(string meetid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getusermeetings", ReplyAction="http://tempuri.org/IDatamanagement/getusermeetingsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[][] getusermeetings(string uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getusermeetings", ReplyAction="http://tempuri.org/IDatamanagement/getusermeetingsResponse")]
+        System.Threading.Tasks.Task<object[][]> getusermeetingsAsync(string uid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertmeeting", ReplyAction="http://tempuri.org/IDatamanagement/insertmeetingResponse")]
         int insertmeeting(string meettitle, string meetdesc, string meetdatetime, string projid, string uid);
@@ -496,6 +520,14 @@ namespace Fincal.Dataservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getprojmeetings", ReplyAction="http://tempuri.org/IDatamanagement/getprojmeetingsResponse")]
         System.Threading.Tasks.Task<object[]> getprojmeetingsAsync(string projid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getmeetingmembers", ReplyAction="http://tempuri.org/IDatamanagement/getmeetingmembersResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        object[] getmeetingmembers(string projID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/getmeetingmembers", ReplyAction="http://tempuri.org/IDatamanagement/getmeetingmembersResponse")]
+        System.Threading.Tasks.Task<object[]> getmeetingmembersAsync(string projID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatamanagement/insertissflag", ReplyAction="http://tempuri.org/IDatamanagement/insertissflagResponse")]
         int insertissflag(string isstitle, string issdesc, string projid, string uid);
@@ -969,20 +1001,20 @@ namespace Fincal.Dataservice {
             return base.Channel.getissuemembersAsync(issid);
         }
         
-        public object[] getprojnotification(string projectnotificationuserid) {
+        public object[][] getprojnotification(string projectnotificationuserid) {
             return base.Channel.getprojnotification(projectnotificationuserid);
         }
         
-        public System.Threading.Tasks.Task<object[]> getprojnotificationAsync(string projectnotificationuserid) {
+        public System.Threading.Tasks.Task<object[][]> getprojnotificationAsync(string projectnotificationuserid) {
             return base.Channel.getprojnotificationAsync(projectnotificationuserid);
         }
         
-        public int insertprojectnotifications(string porjid, string uid) {
-            return base.Channel.insertprojectnotifications(porjid, uid);
+        public int insertprojectnotifications(string porjid, string uid, System.DateTime credate) {
+            return base.Channel.insertprojectnotifications(porjid, uid, credate);
         }
         
-        public System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid) {
-            return base.Channel.insertprojectnotificationsAsync(porjid, uid);
+        public System.Threading.Tasks.Task<int> insertprojectnotificationsAsync(string porjid, string uid, System.DateTime credate) {
+            return base.Channel.insertprojectnotificationsAsync(porjid, uid, credate);
         }
         
         public int deleteporjnotificaiton(string projid, string uid) {
@@ -1001,11 +1033,19 @@ namespace Fincal.Dataservice {
             return base.Channel.deleteallprojnotificaionAsync(projid);
         }
         
-        public object[] getissuenotifications(string issuenotificationuserid) {
+        public object[] getprojnoticedetails(string projnoticeid) {
+            return base.Channel.getprojnoticedetails(projnoticeid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getprojnoticedetailsAsync(string projnoticeid) {
+            return base.Channel.getprojnoticedetailsAsync(projnoticeid);
+        }
+        
+        public object[][] getissuenotifications(string issuenotificationuserid) {
             return base.Channel.getissuenotifications(issuenotificationuserid);
         }
         
-        public System.Threading.Tasks.Task<object[]> getissuenotificationsAsync(string issuenotificationuserid) {
+        public System.Threading.Tasks.Task<object[][]> getissuenotificationsAsync(string issuenotificationuserid) {
             return base.Channel.getissuenotificationsAsync(issuenotificationuserid);
         }
         
@@ -1017,12 +1057,12 @@ namespace Fincal.Dataservice {
             return base.Channel.deleteissuenotificationAsync(issid, uid);
         }
         
-        public int insertissuenotifications(string issueid, string uid) {
-            return base.Channel.insertissuenotifications(issueid, uid);
+        public int insertissuenotifications(string issueid, string uid, System.DateTime credate) {
+            return base.Channel.insertissuenotifications(issueid, uid, credate);
         }
         
-        public System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid) {
-            return base.Channel.insertissuenotificationsAsync(issueid, uid);
+        public System.Threading.Tasks.Task<int> insertissuenotificationsAsync(string issueid, string uid, System.DateTime credate) {
+            return base.Channel.insertissuenotificationsAsync(issueid, uid, credate);
         }
         
         public object[][] getuserinformation() {
@@ -1049,6 +1089,14 @@ namespace Fincal.Dataservice {
             return base.Channel.getspecificuserinformationAsync(uid);
         }
         
+        public object[] getissuenoticedetails(string isnid) {
+            return base.Channel.getissuenoticedetails(isnid);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getissuenoticedetailsAsync(string isnid) {
+            return base.Channel.getissuenoticedetailsAsync(isnid);
+        }
+        
         public object[][] getmeetinginfromations(string uid) {
             return base.Channel.getmeetinginfromations(uid);
         }
@@ -1063,6 +1111,14 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<int> deletemeetingAsync(string meetid) {
             return base.Channel.deletemeetingAsync(meetid);
+        }
+        
+        public object[][] getusermeetings(string uid) {
+            return base.Channel.getusermeetings(uid);
+        }
+        
+        public System.Threading.Tasks.Task<object[][]> getusermeetingsAsync(string uid) {
+            return base.Channel.getusermeetingsAsync(uid);
         }
         
         public int insertmeeting(string meettitle, string meetdesc, string meetdatetime, string projid, string uid) {
@@ -1119,6 +1175,14 @@ namespace Fincal.Dataservice {
         
         public System.Threading.Tasks.Task<object[]> getprojmeetingsAsync(string projid) {
             return base.Channel.getprojmeetingsAsync(projid);
+        }
+        
+        public object[] getmeetingmembers(string projID) {
+            return base.Channel.getmeetingmembers(projID);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> getmeetingmembersAsync(string projID) {
+            return base.Channel.getmeetingmembersAsync(projID);
         }
         
         public int insertissflag(string isstitle, string issdesc, string projid, string uid) {

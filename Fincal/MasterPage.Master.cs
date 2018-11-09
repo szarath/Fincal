@@ -66,5 +66,16 @@ namespace Fincal
             Session.Clear();
             Response.Redirect("Default.aspx");
         }
+
+        protected void btnsubmitsearch(object sender, EventArgs e)
+        {
+            if (!searchusers.Value.Equals(""))
+            {
+
+                Response.Redirect("Usersearch.aspx?term=" + searchusers.Value.ToString());
+
+            }
+         
+        }
     }
 }
