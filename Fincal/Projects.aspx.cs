@@ -33,6 +33,23 @@ namespace Fincal
                 {
                     for (int i = 0; i < projects.Length; i++)
                     {
+                        object[] projteam = findata.getprojectmembers((string)projects[i][0]);
+                        object[] projissues = findata.getprojissues((string)projects[i][0]);
+
+                        int projmem = 0;
+                        if (projteam != null)
+                        {
+                            projmem = projteam.Length;
+                        }
+
+                        int projis = 0;
+                        if (projissues != null)
+                        {
+                            projis = projissues.Length;
+
+
+                        }
+
                         htmldata1 += "<a href=\"Projectedit.aspx?id=" + (string)projects[i][0] + "\">";
                         htmldata1 += "<div class=\"col s12 m3 l0\">";
 
@@ -49,8 +66,8 @@ namespace Fincal
                         htmldata1 += "<span class=\"card-title\">" +
                         "<p class=\"bold\">" + (string)projects[i][1] + "</p>";
                         htmldata1 += "</span>";
-
-
+                        htmldata1 += "<p class=\"trunctext\">Project members: " + projmem + "</p>";
+                        htmldata1 += "<p class=\"trunctext\">Project issues: " + projis + "</p>";
 
                         htmldata1 += "</div>";
                         htmldata1 += "</div>";
@@ -82,6 +99,12 @@ namespace Fincal
                     for (int i = 0; i < assignedprojectsids.Length; i++)
                     {
                         object[] assigproj = findata.getprojectdetails((string)assignedprojectsids[i]);
+                        object[] projteam = findata.getprojectmembers((string)assignedprojectsids[i]);
+                        int projmem = 0;
+                        if (projteam != null)
+                        {
+                            projmem = projteam.Length;
+                        }
                         htmldata2 += "<a href=\"Projectview.aspx?id=" + assigproj[0].ToString() + "\">";
                         htmldata2 += "<div class=\"col s12 m3 l0\">";
 
@@ -98,7 +121,7 @@ namespace Fincal
                         htmldata2 += "<span class=\"card-title\">" +
                         "<p class=\" bold\">" + assigproj[1].ToString() + "</p>";
                         htmldata2 += "</span>";
-
+                        htmldata2 += "<p class=\"trunctext\">Project members: " + projmem + "</p>";
 
 
                         htmldata2 += "</div>";

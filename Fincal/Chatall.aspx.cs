@@ -28,9 +28,9 @@ namespace Fincal
                 findata.Open();
                
                 Object[][] projects = findata.getprojects(user.getID());
-                Object[][] otherprojects = findata.getassignedissdetials(user.getID());
+                Object[][] otherprojects = findata.getassignedprojdetials(user.getID());
                 Object[][] issue = findata.getissues(user.getID());
-                Object[][] otherissues = findata.getassignedprojdetials(user.getID());
+                Object[][] otherissues = findata.getassignedissdetials(user.getID());
                 if (projects != null)
                 {
                     for (int i = 0; i < projects.Length; i++)
@@ -57,11 +57,11 @@ namespace Fincal
 
                          htmldata += "</div>";*/
                         htmldata1 += "<div class=\"card-stacked\">";
-                        htmldata1 += "<div class=\"card-content white-text\">";
+                        htmldata1 += "<div class=\"card-content black-text\">";
                         htmldata1 += "<span class=\"card-title\">" +
                         "<p class=\"bold\">" + (string)projects[i][1] + "</p>";
                         htmldata1 += "</span>";
-                        htmldata1 += "<p class=\"bold\">Members " + nummem + "</p>";
+                        htmldata1 += "<p class=\"bold\">Members: " + nummem + "</p>";
 
                         htmldata1 += "</span>";
 
@@ -104,11 +104,11 @@ namespace Fincal
                         htmldata1 += "<div class=\"card horizontal hoverable blue-grey lighten-5\">";
                       
                         htmldata1 += "<div class=\"card-stacked\">";
-                        htmldata1 += "<div class=\"card-content white-text\">";
+                        htmldata1 += "<div class=\"card-content black-text\">";
                         htmldata1 += "<span class=\"card-title\">" +
                         "<p class=\"bold\">" + (string)otherprojects[i][1] + "</p>";
                         htmldata1 += "</span>";
-                        htmldata1 += "<p class=\"bold\">Members " + nummem + "</p>";
+                        htmldata1 += "<p class=\"bold\">Members: " + nummem + "</p>";
 
                         htmldata1 += "</span>";
 
@@ -154,7 +154,7 @@ namespace Fincal
 
                          htmldata += "</div>";*/
                         htmldata2 += "<div class=\"card-stacked\">";
-                        htmldata2 += "<div class=\"card-content white-text\">";
+                        htmldata2 += "<div class=\"card-content black-text\">";
                         htmldata2 += "<span class=\"card-title\">" +
                         "<p class=\" bold\">" + (string)issue[i][1] + "</p>";
                         htmldata2 += "</span>";
@@ -181,8 +181,8 @@ namespace Fincal
                     for (int i = 0; i < otherissues.Length; i++)
                     {
 
-                        Object[] projectdetails = findata.getprojectdetails((string)otherissues[i][2]);
-                        object[] issmembers = findata.getissuemembers((string)issue[i][0]);
+                        Object[] projectdetails = findata.getprojectdetails((string)otherissues[i][0]);
+                        object[] issmembers = findata.getissuemembers((string)otherissues[i][0]);
                         int nummem = 0;
                         if (issmembers != null)
                         {
@@ -203,7 +203,7 @@ namespace Fincal
 
                          htmldata += "</div>";*/
                         htmldata2 += "<div class=\"card-stacked\">";
-                        htmldata2 += "<div class=\"card-content white-text\">";
+                        htmldata2 += "<div class=\"card-content black-text\">";
                         htmldata2 += "<span class=\"card-title\">" +
                         "<p class=\" bold\">" + (string)otherissues[i][1] + "</p>";
                         htmldata2 += "</span>";

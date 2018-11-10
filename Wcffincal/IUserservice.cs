@@ -41,6 +41,12 @@ namespace Wcffincal
         int deleteUser(string ID);
 
         [OperationContract]
+        int updateemail(string uid, string pass, string olde, string newe);
+
+        [OperationContract]
+        int updatepass(string uid, string oldpass, string newpass, string email);
+
+        [OperationContract]
         Object[][] searchusers(string term);
 
     }

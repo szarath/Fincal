@@ -51,19 +51,40 @@ namespace Fincal
                         else
                         {
                             Boolean userisamember = false;
+                            Boolean notice = false;
                             if(projectmembers != null)
                             { 
-                            for (int j = 0; j < projectmembers.Length; j++)
-                            {
-                                if ((string)members[i][0] == (string)projectmembers[j])
+                                for (int j = 0; j < projectmembers.Length; j++)
                                 {
-                                    userisamember = true;
+                                    if ((string)members[i][0] == (string)projectmembers[j])
+                                    {
+                                        userisamember = true;
+                                    }
+
+
+                                }
+                            }
+                            object[][] projnotice = findata.getprojnotification((string)members[i][0]);
+
+                            if (projnotice != null)
+                            {
+                                for (int a = 0; a < projnotice.Length; a++)
+                                {
+                                    if (Convert.ToInt32( pid) == Convert.ToInt32((string)projnotice[a][1]))
+                                    {
+                                        notice = true;
+
+                                    }
+
+
                                 }
 
 
                             }
-                            }
 
+
+                            if (notice == false)
+                            {
                             if (userisamember == true)
                             {
                                 Object[][] userevents = findata.getalluserevents((string)members[i][0]);
@@ -130,6 +151,8 @@ namespace Fincal
                                 }
                              
                             }
+                            }
+                           
 
 
 
@@ -223,9 +246,7 @@ namespace Fincal
             UserData user = (UserData)Session["User"];
             findata.Open();
             chat.Open();
-            int result = findata.deleteprojissues(pid);
-            if (result == 1)
-            {
+           
                 int team = findata.deleteprojteam(pid);
                 int delete = findata.deleteallprojnotificaion(pid);
                 int deleteprojchat = chat.deleteprojchat(pid);
@@ -271,26 +292,20 @@ namespace Fincal
                 }
                 }
 
-                if (team == 1 && delete == 1)
-                {
+                
                     int proj = findata.deleteproject(pid);
                     if (proj == 1)
                     {
                         changePagedelete();
                     }
-                }
-                else {
+                     else {
 
+                    changePageerror();
 
+                        }
 
-                }
-
-            }
-            else {
-
-
-                changePageerror();
-            }
+      
+         
             chat.Close();
             findata.Close();
         }

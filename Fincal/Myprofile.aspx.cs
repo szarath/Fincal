@@ -57,17 +57,102 @@ namespace Fincal
         protected void btnDeleteAcc_Click(object sender, EventArgs e)
         {
             user = (UserData)(Session["User"]);
-            Userservice.UserserviceClient service = new
-            Userservice.UserserviceClient();
+            Userservice.UserserviceClient service = new  Userservice.UserserviceClient();
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            Chatmanagement.ChatClient chat = new Chatmanagement.ChatClient();
             service.Open();
+            findata.Open();
+            chat.Open();
+
+            Object[][] getuserprojects = findata.getprojects(user.getID());
+                if(getuserprojects != null)
+                     {
+                for (int j = 0; j < getuserprojects.Length; j++)
+                {
+                    string pid = (string)getuserprojects[j][0];
+                    int team = findata.deleteprojteam(pid);
+                    int delete = findata.deleteallprojnotificaion(pid);
+                    int deleteprojchat = chat.deleteprojchat(pid);
+                    int deltepissflags = findata.deleteissflagproj(pid);
+                    object[] getmeetingid = findata.getprojmeetings(pid);
+
+                    if (getmeetingid != null)
+                    {
+
+                        for (int i = 0; i < getmeetingid.Length; i++)
+                        {
+                            int meetmemdel = findata.deletemeetingmembers((string)getmeetingid[i]);
+
+                            if (meetmemdel == 1)
+                            {
+                                findata.deletemeeting((string)getmeetingid[i]);
+
+                            }
+
+
+                        }
+                    }
+
+
+
+                    object[][] getprojiss = findata.getprojissues(pid);
+
+                    if (getprojiss != null)
+                    {
+                        for (int i = 0; i < getprojiss.Length; i++)
+                        {
+                            object[] issnotice = findata.getissnoticeiss((string)getprojiss[i][0]);
+                            if (issnotice != null)
+                            {
+                                findata.deleteissnoticeiss((string)getprojiss[i][0]);
+                            }
+                            chat.deleteissuechat((string)getprojiss[i][0]);
+
+                            findata.deleteissue((string)getprojiss[i][0]);
+
+
+
+
+                        }
+                    }
+
+
+                    int proj = findata.deleteproject(pid);
+                  
+
+
+                }
+
+               
+
+
+               
+            }
+            int projchat = chat.deleteprojchatuser(user.getID());
+            int isschat = chat.deleteisschatuser(user.getID());
+            int meetinglinks = findata.deleteuserfrommeetinglink(user.getID());
+            int projteams = findata.deleteuserfromprojteams(user.getID());
+            int issteams = findata.deleteuserfromissteams(user.getID());
+            int issflag = findata.deleteuserfromisflags(user.getID());
+                int deletedvents = findata.deletealluserevents(user.getID());
+
+                int deletetasks = findata.deleteallusertasks(user.getID());
+            int deletepic = findata.deleteallpictures(user.getID());
+
+
             int result = service.deleteUser(user.getID());
-            service.Close();
+           
             if (result == 1)//if the result is one then the user is deleted and redirected to the index page 
             {
                 Session["User"] = null;
                 //Response.Write("<script>alert('User Account Deleted!');</script>");
                 Response.Redirect("Default.aspx");
             }
+
+            service.Close();
+            findata.Close();
+            chat.Close();
+
         }
 
         protected void btnUpdateAccount_ServerClick(object sender, EventArgs e)

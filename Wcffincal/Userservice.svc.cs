@@ -183,5 +183,33 @@ namespace Wcffincal
 
             return result;
         }
+
+        int IUserservice.updateemail(string uid, string pass, string olde, string newe)
+        {
+            string sqlStatement = "UPDATE tblUser SET uEmail=@3 WHERE uID=@0 AND UPPER(uEmail)=@1 AND uPass=@2";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+            command.Parameters.AddWithValue("@1", olde.ToUpper());
+            command.Parameters.AddWithValue("@2", pass);
+            command.Parameters.AddWithValue("@3", newe);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IUserservice.updatepass(string uid, string oldpass, string newpass, string email)
+        {
+            string sqlStatement = "UPDATE tblUser SET uPass=@3 WHERE uID=@0 AND UPPER(uEmail)=@1 AND uPass=@2";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", uid);
+            command.Parameters.AddWithValue("@1", email.ToUpper());
+            command.Parameters.AddWithValue("@2", oldpass);
+            command.Parameters.AddWithValue("@3", newpass);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
     }
 }

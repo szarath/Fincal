@@ -43,8 +43,8 @@
         <li>
          <a id="searchclick" runat="server" class="waves-effect" onclientclick="return false;"  onserverclick="btnsubmitsearch">Search</a>
             </li>
-      <li><a class="waves-effect" href="Myprofile.aspx">My Profile</a></li>
-      <li><a class="waves-effect" runat="server"  onclientclick="return false;"   onserverclick="dropDownMenuSignOut_ServerClick">Sign Out</a></li>
+      <li><a class="waves-effect" href="Myprofile.aspx"> <i class="material-icons prefix">perm_identity</i></a></li>
+      <li><a class="waves-effect" runat="server"  onclientclick="return false;"   onserverclick="dropDownMenuSignOut_ServerClick"><i class="material-icons prefix">lock_op</i></a></li>
     
     <!--  <li><a class="dropdown-trigger" runat="server" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
     </ul>
@@ -67,7 +67,7 @@
                           <li id="Allpicturesnav" class="bold" runat="server"><a href="Allpictures.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">photo_library</i>Pictures</a></li> 
 
                       <li class="divider"></li>
-                        <li id="myProfileSideNav" class="bold" runat="server"><a href="Account.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">perm_identity</i>My Account</a></li>
+                        <li id="myProfileSideNav" class="bold" runat="server"><a href="Myprofile.aspx" class="waves-effect waves-blue-grey"><i class="material-icons">perm_identity</i>My Profile</a></li>
 
                         <li id="signOutSideNav" class="bold" visible="false" runat="server"><a  runat="server" onserverclick="dropDownMenuSignOut_ServerClick"><i class="material-icons">lock_op</i>Sign Out</a></li>                 
                     

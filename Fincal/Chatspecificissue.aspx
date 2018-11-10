@@ -19,7 +19,7 @@
                          <i class="material-icons prefix">chat</i>
 
 
-                        <textarea  row="10"  readonly id="txtmsg" class="materialize-textarea scrollspy" runat="server"></textarea>
+                        <textarea  readonly id="txtmsg" class="materialize-textarea scrollspy" runat="server"></textarea>
 
 
                         <label id="lblidname" for="txtmsg" runat="server"></label>
@@ -35,7 +35,7 @@
                  <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">send</i>
-                        <textarea rows="4" id="txtsend" class="materialize-textarea" runat="server"></textarea>
+                        <textarea  id="txtsend" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtsend">Message</label>
                     </div>
                 </div>

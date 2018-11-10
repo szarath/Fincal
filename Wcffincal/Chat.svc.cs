@@ -38,7 +38,7 @@ namespace Wcffincal
 
         int IChat.deleteisschatuser(string uid)
         {
-            string sqlStatement = "DELETE FROM tblprojchat WHERE uID=@0;";
+            string sqlStatement = "DELETE FROM tblisschat WHERE uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -80,8 +80,8 @@ namespace Wcffincal
 
         int IChat.deleteprojchatuser(string uid)
         {
-            string sqlStatement = "DELETE FROM tblisschat WHERE uID=@0;";
-
+           
+            string sqlStatement = "DELETE FROM tblprojchat WHERE uID=@0;";
             SqlCommand command = new SqlCommand(sqlStatement);
 
 

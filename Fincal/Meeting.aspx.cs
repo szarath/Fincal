@@ -44,14 +44,24 @@ namespace Fincal
                             }
                             else
                             {
-                            object[][] getattenginguser = findata.getmeetingattendance((string)usermeetings[i][0]);
+                         
+                            object[][] getattenginguser = findata.getallattendingmeeting((string)usermeetings[i][0]);
                             int mematt = 0;
                             if (getattenginguser != null)
                             {
 
                                 mematt = getattenginguser.Length;
                             }
-                                htmldata1 += "<a href=\"Meetingview.aspx?id=" + (string)usermeetings[i][0] + "\">";
+
+                            object[] getprojmembers = findata.getprojectmembers((string)usermeetings[i][4]);
+
+                            int projmem = 0;
+                            if (getprojmembers != null)
+                            {
+                                projmem = getprojmembers.Length;
+                            }
+
+                            htmldata1 += "<a href=\"Meetingview.aspx?id=" + (string)usermeetings[i][0] + "\">";
                                 htmldata1 += "<div class=\"col s12 m3 l0\">";
 
 
@@ -63,6 +73,7 @@ namespace Fincal
                                 "<p class=\" bold\">" + (string)usermeetings[i][2] + "</p>";
                                 htmldata1 += "</span>";
                                 htmldata1 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                                 htmldata1 += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
                                  htmldata1 += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
                                  htmldata1 += "</div>";
                                 htmldata1 += "</div>";
@@ -96,12 +107,19 @@ namespace Fincal
                             }
                             else
                             {
-                            object[][] getattenginguser = findata.getmeetingattendance((string)usermeetings[i][0]);
+                            object[][] getattenginguser = findata.getallattendingmeeting((string)userothermeetings[i][0]);
                             int mematt = 0;
                             if (getattenginguser != null)
                             {
 
                                 mematt = getattenginguser.Length;
+                            }
+                            object[] getprojmembers = findata.getprojectmembers((string)usermeetings[i][4]);
+
+                            int projmem = 0;
+                            if (getprojmembers != null)
+                            {
+                                projmem = getprojmembers.Length;
                             }
                             if (Boolean.Parse((string)userothermeetings[i][7]) == true)
                             {
@@ -117,6 +135,7 @@ namespace Fincal
                                 "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
                                 htmldata2 += "</span>";
                                 htmldata2 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                                htmldata2 += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
                                 htmldata2 += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
 
 
@@ -141,6 +160,7 @@ namespace Fincal
                                 "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
                                 htmldata2 += "</span>";
                                 htmldata2 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                                htmldata2 += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
                                 htmldata2 += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
 
 

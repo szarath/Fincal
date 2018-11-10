@@ -57,18 +57,19 @@ namespace Fincal
 
                         if ((string)chatdata[i][0] == user.getID())
                         {
-                           
-                            messageformat += (string)chatdata[i][2];
-                            messageformat += "<br/>";
+                            txtmsg.InnerText += Environment.NewLine;
+
+                            txtmsg.InnerText += (string)chatdata[i][2];
+                            txtmsg.InnerText += Environment.NewLine;
 
 
                         }
                         else {
-
-                            messageformat += "&nbsp&nbsp&nbsp&nbsp&nbsp" + (string)chatdata[i][1];
-                            messageformat += " <br/>";
-                           messageformat += (string)chatdata[i][2];
-                            messageformat += " <br/>";
+                            txtmsg.InnerText += Environment.NewLine;
+                            txtmsg.InnerText += "                                " + (string)chatdata[i][1].ToString().ToUpper();
+                            txtmsg.InnerText += Environment.NewLine;
+                            txtmsg.InnerText += "                                " + (string)chatdata[i][2];
+                            txtmsg.InnerText += Environment.NewLine;
 
                         }
 

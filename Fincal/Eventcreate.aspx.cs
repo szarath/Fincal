@@ -253,7 +253,7 @@ namespace Fincal
         protected void changePage()
         {
 
-            editAdDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+            editAdDiv.InnerHtml = "<div class=\"col s12 m6 push-m3\">";
 
             editAdDiv.InnerHtml += "<div class=\"card white\">";
             editAdDiv.InnerHtml += "<div class=\"card-content Black-text\">";

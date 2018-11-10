@@ -195,7 +195,7 @@ namespace Fincal
         protected void changePage()
         {
 
-            taskDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3\">";
+            taskDiv.InnerHtml = "<div class=\"col s12 m6 l4 push-l4 push-m3 \">";
 
             taskDiv.InnerHtml += "<div class=\"card white\">";
             taskDiv.InnerHtml += "<div class=\"card-content Black-text\">";

@@ -1174,7 +1174,7 @@ namespace Wcffincal
 
         object[] IDatamanagement.getspecificuserinformation(string uid)
         {
-            string sqlStatement = "SELECT tblUser.uUsername, tblUser.uEmail, tblSkills.sName FROM tblUser INNER JOIN tblSkills ON tblUser.sID = tblSkills.sID WHERE tblUser.uID=@0;";
+            string sqlStatement = "SELECT tblUser.uUsername, tblUser.uEmail, tblSkills.sName, tblUser.uGitrepo FROM tblUser INNER JOIN tblSkills ON tblUser.sID = tblSkills.sID WHERE tblUser.uID=@0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -1649,7 +1649,7 @@ namespace Wcffincal
 
         object[][] IDatamanagement.getmeetingattendance(string meetID)
         {
-            string sqlStatement = "SELECT tblUser.uUsername, tblmeetinglink.mlaccept FROM tblmeetinglink INNER JOIN tblUser ON tblmeetinglink.uID = tblUser.uID WHERE tblmeetinglink.mmetID = @0;";
+            string sqlStatement = "SELECT tblUser.uUsername, tblmeetinglink.mlaccept FROM tblmeetinglink INNER JOIN tblUser ON tblmeetinglink.uID = tblUser.uID WHERE tblmeetinglink.meetID = @0;";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 
@@ -1686,6 +1686,92 @@ namespace Wcffincal
             }
 
             return temp;
+        }
+
+        int IDatamanagement.deleteallusertasks(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblEvent WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+          
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deletealluserevents(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblTask WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteuserfromprojteams(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblTeams WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteuserfromissteams(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblIssuesteam WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteuserfrommeetinglink(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblmeetinglink WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        int IDatamanagement.deleteuserfromisflags(string uid)
+        {
+            string sqlStatement = "DELETE FROM tblissueflag WHERE uID=@0;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+
+            command.Parameters.AddWithValue("@0", uid);
+
+            return clsSQL.ExecuteNonQuery(command);
+        }
+
+        object[][] IDatamanagement.getallattendingmeeting(string meetid)
+        {
+            string sqlStatement = "SELECT * FROM tblmeetinglink WHERE meetID = @0 AND mlaccept= @1;";
+
+            SqlCommand command = new SqlCommand(sqlStatement);
+
+            command.Parameters.AddWithValue("@0", meetid);
+            command.Parameters.AddWithValue("@1", 1);
+            DataSet ds = clsSQL.ExecuteQuery(command);
+
+
+            return create2DAdsArray(ds);
         }
     }
 }

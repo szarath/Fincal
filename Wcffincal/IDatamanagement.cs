@@ -34,6 +34,8 @@ namespace Wcffincal
         [OperationContract]
         object[] gettaskids(string uid);
 
+        [OperationContract]
+        int deleteallusertasks(string uid);
 
 
         //event operations 
@@ -60,6 +62,9 @@ namespace Wcffincal
 
         [OperationContract]
         Object[][] getalluserevents(string uid);
+
+        [OperationContract]
+        int deletealluserevents(string uid);
 
         //event pictures operations
         [OperationContract]
@@ -179,6 +184,9 @@ namespace Wcffincal
         Object[][] getassignedissdetials(string uid);
 
 
+        [OperationContract]
+        int deleteuserfromprojteams(string uid);
+
         // project teams operaiotns 
         [OperationContract]
         int addprojteam(string uid, string projid);
@@ -193,7 +201,8 @@ namespace Wcffincal
         [OperationContract]
         object[] getprojectmembers(string projid);
 
-
+        [OperationContract]
+        int deleteuserfromissteams(string uid);
 
 
         //issue teams operations 
@@ -304,6 +313,12 @@ namespace Wcffincal
         [OperationContract]
         object[] getmeetinglink(string mlid);
 
+        [OperationContract]
+        int deleteuserfrommeetinglink(string uid);
+
+        [OperationContract]
+        Object[][] getallattendingmeeting(string meetid);
+
         //flagging 
         [OperationContract]
         int insertissflag(string isstitle, string issdesc, string projid, string uid);
@@ -319,5 +334,8 @@ namespace Wcffincal
 
         [OperationContract]
         int deleteissflagproj(string projid);
+
+        [OperationContract]
+        int deleteuserfromisflags(string uid);
     }
 }

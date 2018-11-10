@@ -35,7 +35,12 @@ namespace Fincal
                     for (int i = 0; i < issue.Length; i++)
                     {
                         Object[] projectdetails = findata.getprojectdetails((string)issue[i][3]);
-
+                        object[] issteam = findata.getissuemembers((string)issue[i][0]);
+                        int issmem = 0;
+                        if (issteam != null)
+                        {
+                            issmem = issteam.Length;
+                        }
 
                         htmldata1 += "<a href=\"Issueedit.aspx?id=" + (string)issue[i][0] + "\">";
                         htmldata1 += "<div class=\"col s12 m3 l0\">";
@@ -54,7 +59,7 @@ namespace Fincal
                         "<p class=\" bold\">" + (string)issue[i][1] + "</p>";
                         htmldata1 += "</span>";
                         htmldata1 += "<p class=\"trunctext\">Project: " + (string)projectdetails[1] + "</p>";
-
+                        htmldata1 += "<p class=\"trunctext\">Issue members: " + issmem + "</p>";
 
 
                         htmldata1 += "</div>";
@@ -89,6 +94,13 @@ namespace Fincal
                       
                         object[] assigiss = findata.getissuedetails((string)assignedissueids[0]);
                         Object[] projectdetails = findata.getprojectdetails((string)assigiss[3]);
+                        object[] issteam = findata.getissuemembers((string)assignedissueids[0]);
+                        int issmem = 0;
+                        if (issteam != null)
+                        {
+                            issmem = issteam.Length;
+                        }
+                        
                         htmldata2 += "<a href=\"Issueview.aspx?id=" + assigiss[0].ToString() + "\">";
                         htmldata2 += "<div class=\"col s12 m3 l0\">";
 
@@ -106,7 +118,7 @@ namespace Fincal
                         "<p class=\" bold\">" + assigiss[1].ToString() + "</p>";
                         htmldata2 += "</span>";
                         htmldata2 += "<p class=\"trunctext\">Project: " + (string)projectdetails[1] + "</p>";
-
+                        htmldata2 += "<p class=\"trunctext\">Issue members: " + issmem + "</p>";
 
 
 
@@ -198,13 +210,13 @@ namespace Fincal
 
                 
 
-                findata.Close();
+              
 
 
                 yourprojects.InnerHtml = htmldata1;
                 otherprojects.InnerHtml = htmldata2;
                 flagged.InnerHtml = htmldata3;
-               
+                 findata.Close();
 
          
             }

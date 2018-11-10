@@ -85,6 +85,15 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtskill;
         
         /// <summary>
+        /// txtgit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtgit;
+        
+        /// <summary>
         /// Projectchoose control.
         /// </summary>
         /// <remarks>

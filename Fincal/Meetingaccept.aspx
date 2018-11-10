@@ -71,7 +71,7 @@
                   
                                     
                               <ul id="membersattending" class="collection with-header col s12 m12 l12" runat="server">
-                           <li class="collection-header"><h5>Attending members</h5></li>
+                           <li class="collection-header"><h5>Members</h5></li>
                           </ul>
                     
                           </div>  

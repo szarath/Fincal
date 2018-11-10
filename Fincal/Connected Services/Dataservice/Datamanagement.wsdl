@@ -7,6 +7,42 @@
       <xsd:import schemaLocation="http://localhost:19036/Datamanagement.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IDatamanagement_getmeetinglink_InputMessage">
+    <wsdl:part name="parameters" element="tns:getmeetinglink" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getmeetinglink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getmeetinglinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfrommeetinglink_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfrommeetinglink" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfrommeetinglink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfrommeetinglinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getallattendingmeeting_InputMessage">
+    <wsdl:part name="parameters" element="tns:getallattendingmeeting" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getallattendingmeeting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getallattendingmeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissflag_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertissflag" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_insertissflag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertissflagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissueflags_InputMessage">
+    <wsdl:part name="parameters" element="tns:getissueflags" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_getissueflags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getissueflagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissflag_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissflag" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteissflag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteissflagResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_getspecificissflag_InputMessage">
     <wsdl:part name="parameters" element="tns:getspecificissflag" />
   </wsdl:message>
@@ -18,6 +54,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_deleteissflagproj_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteissflagprojResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromisflags_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromisflags" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromisflags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromisflagsResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_inserttask_InputMessage">
     <wsdl:part name="parameters" element="tns:inserttask" />
@@ -60,6 +102,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_gettaskids_OutputMessage">
     <wsdl:part name="parameters" element="tns:gettaskidsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallusertasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallusertasks" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteallusertasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallusertasksResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_insertevent_InputMessage">
     <wsdl:part name="parameters" element="tns:insertevent" />
@@ -108,6 +156,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_getalluserevents_OutputMessage">
     <wsdl:part name="parameters" element="tns:getallusereventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletealluserevents_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletealluserevents" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deletealluserevents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteallusereventsResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_inserteventpic_InputMessage">
     <wsdl:part name="parameters" element="tns:inserteventpic" />
@@ -295,6 +349,12 @@
   <wsdl:message name="IDatamanagement_getassignedissdetials_OutputMessage">
     <wsdl:part name="parameters" element="tns:getassignedissdetialsResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromprojteams_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromprojteams" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromprojteams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromprojteamsResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatamanagement_addprojteam_InputMessage">
     <wsdl:part name="parameters" element="tns:addprojteam" />
   </wsdl:message>
@@ -318,6 +378,12 @@
   </wsdl:message>
   <wsdl:message name="IDatamanagement_getprojectmembers_OutputMessage">
     <wsdl:part name="parameters" element="tns:getprojectmembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromissteams_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromissteams" />
+  </wsdl:message>
+  <wsdl:message name="IDatamanagement_deleteuserfromissteams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteuserfromissteamsResponse" />
   </wsdl:message>
   <wsdl:message name="IDatamanagement_addissteam_InputMessage">
     <wsdl:part name="parameters" element="tns:addissteam" />
@@ -505,31 +571,31 @@
   <wsdl:message name="IDatamanagement_getmeetingattendance_OutputMessage">
     <wsdl:part name="parameters" element="tns:getmeetingattendanceResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatamanagement_getmeetinglink_InputMessage">
-    <wsdl:part name="parameters" element="tns:getmeetinglink" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_getmeetinglink_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getmeetinglinkResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_insertissflag_InputMessage">
-    <wsdl:part name="parameters" element="tns:insertissflag" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_insertissflag_OutputMessage">
-    <wsdl:part name="parameters" element="tns:insertissflagResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_getissueflags_InputMessage">
-    <wsdl:part name="parameters" element="tns:getissueflags" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_getissueflags_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getissueflagsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_deleteissflag_InputMessage">
-    <wsdl:part name="parameters" element="tns:deleteissflag" />
-  </wsdl:message>
-  <wsdl:message name="IDatamanagement_deleteissflag_OutputMessage">
-    <wsdl:part name="parameters" element="tns:deleteissflagResponse" />
-  </wsdl:message>
   <wsdl:portType name="IDatamanagement">
+    <wsdl:operation name="getmeetinglink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinglink" message="tns:IDatamanagement_getmeetinglink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinglinkResponse" message="tns:IDatamanagement_getmeetinglink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfrommeetinglink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfrommeetinglink" message="tns:IDatamanagement_deleteuserfrommeetinglink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfrommeetinglinkResponse" message="tns:IDatamanagement_deleteuserfrommeetinglink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getallattendingmeeting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getallattendingmeeting" message="tns:IDatamanagement_getallattendingmeeting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getallattendingmeetingResponse" message="tns:IDatamanagement_getallattendingmeeting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertissflag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertissflag" message="tns:IDatamanagement_insertissflag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertissflagResponse" message="tns:IDatamanagement_insertissflag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getissueflags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissueflags" message="tns:IDatamanagement_getissueflags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissueflagsResponse" message="tns:IDatamanagement_getissueflags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteissflag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflag" message="tns:IDatamanagement_deleteissflag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflagResponse" message="tns:IDatamanagement_deleteissflag_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getspecificissflag">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getspecificissflag" message="tns:IDatamanagement_getspecificissflag_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getspecificissflagResponse" message="tns:IDatamanagement_getspecificissflag_OutputMessage" />
@@ -537,6 +603,10 @@
     <wsdl:operation name="deleteissflagproj">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflagproj" message="tns:IDatamanagement_deleteissflagproj_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflagprojResponse" message="tns:IDatamanagement_deleteissflagproj_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfromisflags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromisflags" message="tns:IDatamanagement_deleteuserfromisflags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromisflagsResponse" message="tns:IDatamanagement_deleteuserfromisflags_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="inserttask">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserttask" message="tns:IDatamanagement_inserttask_InputMessage" />
@@ -565,6 +635,10 @@
     <wsdl:operation name="gettaskids">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/gettaskids" message="tns:IDatamanagement_gettaskids_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/gettaskidsResponse" message="tns:IDatamanagement_gettaskids_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteallusertasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteallusertasks" message="tns:IDatamanagement_deleteallusertasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteallusertasksResponse" message="tns:IDatamanagement_deleteallusertasks_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="insertevent">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertevent" message="tns:IDatamanagement_insertevent_InputMessage" />
@@ -597,6 +671,10 @@
     <wsdl:operation name="getalluserevents">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getalluserevents" message="tns:IDatamanagement_getalluserevents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getallusereventsResponse" message="tns:IDatamanagement_getalluserevents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletealluserevents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deletealluserevents" message="tns:IDatamanagement_deletealluserevents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteallusereventsResponse" message="tns:IDatamanagement_deletealluserevents_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="inserteventpic">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/inserteventpic" message="tns:IDatamanagement_inserteventpic_InputMessage" />
@@ -722,6 +800,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getassignedissdetials" message="tns:IDatamanagement_getassignedissdetials_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getassignedissdetialsResponse" message="tns:IDatamanagement_getassignedissdetials_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="deleteuserfromprojteams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromprojteams" message="tns:IDatamanagement_deleteuserfromprojteams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromprojteamsResponse" message="tns:IDatamanagement_deleteuserfromprojteams_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="addprojteam">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addprojteam" message="tns:IDatamanagement_addprojteam_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/addprojteamResponse" message="tns:IDatamanagement_addprojteam_OutputMessage" />
@@ -737,6 +819,10 @@
     <wsdl:operation name="getprojectmembers">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getprojectmembers" message="tns:IDatamanagement_getprojectmembers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getprojectmembersResponse" message="tns:IDatamanagement_getprojectmembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfromissteams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromissteams" message="tns:IDatamanagement_deleteuserfromissteams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteuserfromissteamsResponse" message="tns:IDatamanagement_deleteuserfromissteams_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="addissteam">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/addissteam" message="tns:IDatamanagement_addissteam_InputMessage" />
@@ -862,25 +948,63 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getmeetingattendance" message="tns:IDatamanagement_getmeetingattendance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getmeetingattendanceResponse" message="tns:IDatamanagement_getmeetingattendance_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getmeetinglink">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinglink" message="tns:IDatamanagement_getmeetinglink_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getmeetinglinkResponse" message="tns:IDatamanagement_getmeetinglink_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="insertissflag">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/insertissflag" message="tns:IDatamanagement_insertissflag_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/insertissflagResponse" message="tns:IDatamanagement_insertissflag_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getissueflags">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/getissueflags" message="tns:IDatamanagement_getissueflags_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/getissueflagsResponse" message="tns:IDatamanagement_getissueflags_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="deleteissflag">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflag" message="tns:IDatamanagement_deleteissflag_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatamanagement/deleteissflagResponse" message="tns:IDatamanagement_deleteissflag_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDatamanagement" type="tns:IDatamanagement">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getmeetinglink">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getmeetinglink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfrommeetinglink">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteuserfrommeetinglink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getallattendingmeeting">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getallattendingmeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertissflag">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertissflag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getissueflags">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissueflags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteissflag">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissflag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getspecificissflag">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getspecificissflag" style="document" />
       <wsdl:input>
@@ -892,6 +1016,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteissflagproj">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissflagproj" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfromisflags">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteuserfromisflags" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -955,6 +1088,15 @@
     </wsdl:operation>
     <wsdl:operation name="gettaskids">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/gettaskids" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteallusertasks">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteallusertasks" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1027,6 +1169,15 @@
     </wsdl:operation>
     <wsdl:operation name="getalluserevents">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getalluserevents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletealluserevents">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deletealluserevents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1313,6 +1464,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="deleteuserfromprojteams">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteuserfromprojteams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addprojteam">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/addprojteam" style="document" />
       <wsdl:input>
@@ -1342,6 +1502,15 @@
     </wsdl:operation>
     <wsdl:operation name="getprojectmembers">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getprojectmembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteuserfromissteams">
+      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteuserfromissteams" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1621,42 +1790,6 @@
     </wsdl:operation>
     <wsdl:operation name="getmeetingattendance">
       <soap:operation soapAction="http://tempuri.org/IDatamanagement/getmeetingattendance" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getmeetinglink">
-      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getmeetinglink" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="insertissflag">
-      <soap:operation soapAction="http://tempuri.org/IDatamanagement/insertissflag" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getissueflags">
-      <soap:operation soapAction="http://tempuri.org/IDatamanagement/getissueflags" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="deleteissflag">
-      <soap:operation soapAction="http://tempuri.org/IDatamanagement/deleteissflag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

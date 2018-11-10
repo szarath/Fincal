@@ -19,7 +19,7 @@
                                       <input id="txtFirstName" type="text" runat="server" class="black-text"/>
                                       <label for="txtFirstName">First Name</label>
                                     </div>
-                                    <div class="input-field col s6">
+                                    <div class="input-field col s12 m6 l6">
                                             <i class="material-icons prefix">account_circle</i>
                                       <input id="txtLastName" type="text" runat="server" class="black-text"/>
                                       <label for="txtLastName">Last Name</label>
@@ -62,11 +62,11 @@
                                     
                         <div class="row">
 
-                                   <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Update Account</a>
+                            <a href="#AcceptUpdate" class="btn waves-effect waves-light modal-trigger"><i class="material-icons left">save</i>Update Account</a>
                             <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger"><i class="material-icons left">delete</i>Delete Account</a>
-
+                            <a href="#Account" class=" btn orange waves-effect waves-light2 modal-trigger"><i class="material-icons left">account_box</i>Change Account Details</a>
                         </div>
-                 
+               
                 </div>
               </div>
             </div>
@@ -93,4 +93,20 @@
                               <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
                             </div>
                       </div>
+
+         <div class="modal" id="Account">
+                        <div class="modal-content">
+                            <h4>Account changes</h4>
+                            <br />   
+                            <p><a href="Updateemail.aspx" class="waves-effect teal-text">Update Email</a></p>
+                            <p><a href="Updatepassword.aspx" class="waves-effect teal-text">Update Password</a></p>
+                       
+                            <br />
+                            <div class="divider"></div>
+                            <p id="accountType" runat="server" class="grey-text"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
 </asp:Content>

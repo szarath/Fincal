@@ -50,6 +50,18 @@
   <wsdl:message name="IUserservice_deleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserservice_updateemail_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateemail" />
+  </wsdl:message>
+  <wsdl:message name="IUserservice_updateemail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateemailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserservice_updatepass_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatepass" />
+  </wsdl:message>
+  <wsdl:message name="IUserservice_updatepass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatepassResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserservice_searchusers_InputMessage">
     <wsdl:part name="parameters" element="tns:searchusers" />
   </wsdl:message>
@@ -84,6 +96,14 @@
     <wsdl:operation name="deleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserservice/deleteUser" message="tns:IUserservice_deleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserservice/deleteUserResponse" message="tns:IUserservice_deleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateemail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserservice/updateemail" message="tns:IUserservice_updateemail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserservice/updateemailResponse" message="tns:IUserservice_updateemail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatepass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserservice/updatepass" message="tns:IUserservice_updatepass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserservice/updatepassResponse" message="tns:IUserservice_updatepass_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="searchusers">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserservice/searchusers" message="tns:IUserservice_searchusers_InputMessage" />
@@ -148,6 +168,24 @@
     </wsdl:operation>
     <wsdl:operation name="deleteUser">
       <soap:operation soapAction="http://tempuri.org/IUserservice/deleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateemail">
+      <soap:operation soapAction="http://tempuri.org/IUserservice/updateemail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatepass">
+      <soap:operation soapAction="http://tempuri.org/IUserservice/updatepass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -98,8 +98,10 @@ namespace Fincal
 
                     }
                     txtusername.Value = (string)userdata[0];
+                   
                     txtemail.Value = (string)userdata[1];
                     txtskill.Value = (string)userdata[2];
+                    txtgit.Value = (string)userdata[3];
                     txtproj.Value = projnum.ToString();
                     txtiss.Value = isnum.ToString();
                     txtschedule.Value = priority(eventcount).ToString();
@@ -218,12 +220,12 @@ namespace Fincal
         protected void changePage()
         {
 
-            projectdiv.InnerHtml = "<div class=\"col s12 m10 l4 push-l4 push-m3\">";
+            projectdiv.InnerHtml = "<div class=\"col s12  m6 l6   push-l4 push-m3\">";
 
             projectdiv.InnerHtml += "<div class=\"card white\">";
             projectdiv.InnerHtml += "<div class=\"card-content Black-text\">";
             projectdiv.InnerHtml += "<span class=\"card-title bold\">Invite Sent</span>";
-            projectdiv.InnerHtml += "<p>Ypu have successfully invited the user to the project</p>";
+            projectdiv.InnerHtml += "<p>You have successfully invited the user to the project</p>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "<div class=\"card-action\">";
             projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons\">home</i>Home</a>";

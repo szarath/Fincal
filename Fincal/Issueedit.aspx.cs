@@ -60,6 +60,7 @@ namespace Fincal
                         else
                         {
                             Boolean userisamember = false;
+                            bool issnotice = false;
                             if (issuemembers != null)
                             {
                                 for (int j = 0; j < issuemembers.Length; j++)
@@ -107,6 +108,30 @@ namespace Fincal
 
 
                             }
+                            object[][] userissnotice = findata.getissuenotifications((string)projectmembers[i]);
+
+                            if (userissnotice != null)
+                            {
+                                for (int a = 0; a < userissnotice.Length; a++)
+                                {
+
+                                    if (Convert.ToInt32(pid) == Convert.ToInt32((string)userissnotice[a][1]))
+                                    {
+
+                                        issnotice = true;
+                                    }
+
+
+
+                                }
+
+
+
+                            }
+
+
+                            if (issnotice == false)
+                            {
                             if (userisamember == true)
                             {
                               
@@ -116,6 +141,10 @@ namespace Fincal
                             {
                                 Othermembers.Items.Add(new ListItem(" " + priority(eventcount).ToString() + " " + (string)userdetails[0] + " " + (string)userdetails[2] + " ", (string)projectmembers[i].ToString()));
                             }
+
+                            }
+                            
+                          
 
 
 

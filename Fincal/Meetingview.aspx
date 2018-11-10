@@ -49,7 +49,7 @@
                   
                                     
                               <ul id="membersattending" class="collection with-header col s12 m12 l12" runat="server">
-                           <li class="collection-header"><h5>Attending members</h5></li>
+                           <li class="collection-header"><h5>Members</h5></li>
                           </ul>
                     
                           </div>  
@@ -67,8 +67,8 @@
     
     <div class="modal" id="AcceptDelete">
     <div class="modal-content">
-        <h4>Confirm Meeting Invite</h4>
-        <p>Are you sure you want to set up this meeting!<p>
+        <h4>Confirm Meeting Delete</h4>
+        <p>Are you sure you want to remove this meeting!<p>
     </div>
         <div class="modal-footer">
             <a href="#" runat="server" OnServerClick="btnmeetdel_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>

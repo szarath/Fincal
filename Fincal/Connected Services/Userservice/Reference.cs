@@ -126,6 +126,18 @@ namespace Fincal.Userservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/deleteUser", ReplyAction="http://tempuri.org/IUserservice/deleteUserResponse")]
         System.Threading.Tasks.Task<int> deleteUserAsync(string ID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateemail", ReplyAction="http://tempuri.org/IUserservice/updateemailResponse")]
+        int updateemail(string uid, string pass, string olde, string newe);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updateemail", ReplyAction="http://tempuri.org/IUserservice/updateemailResponse")]
+        System.Threading.Tasks.Task<int> updateemailAsync(string uid, string pass, string olde, string newe);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updatepass", ReplyAction="http://tempuri.org/IUserservice/updatepassResponse")]
+        int updatepass(string uid, string oldpass, string newpass, string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/updatepass", ReplyAction="http://tempuri.org/IUserservice/updatepassResponse")]
+        System.Threading.Tasks.Task<int> updatepassAsync(string uid, string oldpass, string newpass, string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserservice/searchusers", ReplyAction="http://tempuri.org/IUserservice/searchusersResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fincal.Userservice.CompositeType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -217,6 +229,22 @@ namespace Fincal.Userservice {
         
         public System.Threading.Tasks.Task<int> deleteUserAsync(string ID) {
             return base.Channel.deleteUserAsync(ID);
+        }
+        
+        public int updateemail(string uid, string pass, string olde, string newe) {
+            return base.Channel.updateemail(uid, pass, olde, newe);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateemailAsync(string uid, string pass, string olde, string newe) {
+            return base.Channel.updateemailAsync(uid, pass, olde, newe);
+        }
+        
+        public int updatepass(string uid, string oldpass, string newpass, string email) {
+            return base.Channel.updatepass(uid, oldpass, newpass, email);
+        }
+        
+        public System.Threading.Tasks.Task<int> updatepassAsync(string uid, string oldpass, string newpass, string email) {
+            return base.Channel.updatepassAsync(uid, oldpass, newpass, email);
         }
         
         public object[][] searchusers(string term) {

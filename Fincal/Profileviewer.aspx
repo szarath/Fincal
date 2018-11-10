@@ -39,7 +39,7 @@
                       <div class="input-field col s12 m6 ">
                          <i class="material-icons prefix">notification_important</i>
                         <textarea readonly id="txtiss" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtiss">Issues Working on</label>
+                        <label for="txtiss">Issues working on</label>
                     </div>
                 </div>
         
@@ -58,6 +58,14 @@
                          </div>
                     </div>
                 
+                   <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                         <i class="material-icons prefix">link</i>
+                        <textarea readonly id="txtgit" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtgit">GitHub link</label>
+                    </div>
+                  </div>
+
                 <div class="row">
                     <div class="input-field col  s12 m12 l12">
                           <i class="material-icons prefix">assignment</i>
