@@ -15,10 +15,12 @@
 
                           <div class="row">
                                     <div class="input-field col s12 m6 l6">
+                                          <i class="material-icons prefix">account_circle</i>
                                       <input id="txtFirstName" type="text" runat="server" class="black-text"/>
                                       <label for="txtFirstName">First Name</label>
                                     </div>
                                     <div class="input-field col s6">
+                                            <i class="material-icons prefix">account_circle</i>
                                       <input id="txtLastName" type="text" runat="server" class="black-text"/>
                                       <label for="txtLastName">Last Name</label>
                                     </div>
@@ -26,10 +28,12 @@
 
                           <div class="row">
                                     <div class="input-field col s12 m6 l6">
+                                           <i class="material-icons prefix">today</i>
                                         <input  id="txtDoB"  runat="server" class="datepicker black-text"/>
                                         <label for="txtDoB">Date Of Birth</label>
                                     </div>
                                        <div class="input-field col s12 m6 l6">
+                                              <i class="material-icons prefix">code</i>
                                        <select id="skilldrop" runat="server">
                                       <option value="" disabled selected>Choose your option</option>
     

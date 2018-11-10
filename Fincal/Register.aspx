@@ -61,8 +61,9 @@
                                         </div>
 
                                   <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">code</i>
                             <select id="skilldrop" runat="server">
-                        <option value="" disabled selected>Choose your option</option>
+                             <option value="" disabled selected>Choose your option</option>
 
                           </select>
                            <label>Skill</label>

@@ -45,23 +45,55 @@
         
                     <div class="row">
                          <div class="input-field col s12 m6 ">
-                               <i class="material-icons prefix">notification_important</i>
+                               <i class="material-icons prefix">schedule</i>
                           <textarea readonly id="txtschedule" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtschedule">Issues Working on</label>
+                        <label for="txtschedule">Schedule</label>
+
+                         </div>
+                          <div class="input-field col s12 m6 ">
+                               <i class="material-icons prefix">code</i>
+                          <textarea readonly id="txtskill" class="materialize-textarea" runat="server"></textarea>
+                        <label for="txtskill">Skill</label>
 
                          </div>
                     </div>
                 
-                 
+                <div class="row">
+                    <div class="input-field col  s12 m12 l12">
+                          <i class="material-icons prefix">assignment</i>
+                        <select id="Projectchoose" runat="server" >
+                            <option value="" disabled selected>Choose Project</option>
+                           
+                        </select> 
+                        <label for="Projectchoose">Projects</label>
+                          <blockquote>Choose the project to invite the user on.</blockquote>
+                    </div>
+
+                   
+                     </div> 
+
+
+
             </div>
             <div class="card-action">
-             <a href="Default.aspx" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a>
-              <a href="Projects.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">assignment</i>Projects</a>
+                  <a runat="server" id="btnaccept" href="#AcceptAdd" class="btn  waves-effect waves-light modal-trigger "><i class="material-icons left">save</i>Invite</a>
+             <a href="Default.aspx" class="waves-effect waves-light red btn"><i class="material-icons left">cancel</i>Cancel</a>
+          
             </div>
           </div>
         </div>
       </div>
-
+    
+    <div class="modal" id="AcceptAdd">
+    <div class="modal-content">
+        <h4>Confirm Project Invite</h4>
+        <p>Are you sure you want to invite user to project<p>
+    </div>
+        <div class="modal-footer">
+            <a href="#" runat="server" OnServerClick="btninviteadd_ServerClick" class="modal-action modal-close waves-effect waves-red btn-flat red-text">Yes I'm Sure</a>
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Cancel</a>
+        </div>
+    </div>
 
   
 

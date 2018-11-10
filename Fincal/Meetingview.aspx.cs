@@ -24,8 +24,9 @@ namespace Fincal
                 object[] getmeetinginfo = findata.getmeetinginformation(meetid);
                 object[] getmlinfo = findata.getmeetinglink(mlid);
                 Object[][] getmeetingattendance = findata.getmeetingattendance(meetid);
-             
 
+                if (!IsPostBack)
+                { 
                 if (getmeetinginfo != null)
                 {
                     object[] gerporjectdetails = findata.getprojectdetails((string)getmeetinginfo[4]);
@@ -59,7 +60,7 @@ namespace Fincal
 
                 }
 
-
+                }
 
 
 
@@ -77,8 +78,13 @@ namespace Fincal
         protected void btnmeetdel_ServerClick(object sender, EventArgs e)
         {
 
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+            findata.Open();
+            meetid = Request.QueryString.Get("id");
+            int deleteml = findata.deletemeetingmembers(meetid);
 
 
+            findata.Close();
         }
     }
 }

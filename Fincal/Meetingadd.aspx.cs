@@ -103,7 +103,10 @@ namespace Fincal
                 findata.Open();
                 UserData user = (UserData)Session["User"];
                 int result = findata.insertmeeting(txtmeettitle.Value.ToString(), txtmeetd.Value.ToString(),dt.ToString(), Projchoose.Items[Projchoose.SelectedIndex].Value.ToString(), user.getID());
-
+                if (result == 1)
+                {
+                    insertevent();
+                }
 
 
                 findata.Close();
@@ -168,6 +171,13 @@ namespace Fincal
 
 
 
+            DateTime d = Convert.ToDateTime(txtdom.Value);
+            DateTime t = Convert.ToDateTime(txttime.Value);
+
+
+
+
+           DateTime dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
 
 
 
@@ -182,12 +192,12 @@ namespace Fincal
                 Start = new EventDateTime()
                 {
 
-                    DateTime = DateTime.Parse(XmlConvert.ToString(DateTime.Parse(txtmeetdate.Value.ToString()), XmlDateTimeSerializationMode.Utc)),//DateTime.pr dt.ToUniversalTime().ToString("YYYY-MM-DD'T'HH:mm:ssZ"),
+                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),//DateTime.pr dt.ToUniversalTime().ToString("YYYY-MM-DD'T'HH:mm:ssZ"),
                     TimeZone = "Europe/Paris",
                 },
                 End = new EventDateTime()
                 {
-                    DateTime = DateTime.Parse(XmlConvert.ToString(DateTime.Parse(txtmeetdate.Value.ToString()), XmlDateTimeSerializationMode.Utc)),
+                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
 
                     TimeZone = "Europe/Paris",
                 },
