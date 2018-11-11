@@ -16,7 +16,7 @@
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title">Add Project</span>
+              <span class="card-title">Add Meeting</span>
               
                 <div id="Invlaidproject" runat="server" class="row red-text text-lighten-2">
 
