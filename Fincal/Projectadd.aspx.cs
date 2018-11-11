@@ -22,6 +22,7 @@ namespace Fincal
         static string ApplicationName = "Google Calendar API .NET Quickstart";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Project Add";
             int numusers = 0; 
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
