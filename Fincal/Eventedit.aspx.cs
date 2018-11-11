@@ -36,17 +36,19 @@ namespace Fincal
 
 
             eID = Request.QueryString.Get("eid");
+
+            if (!IsPostBack) { 
              Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
 
 
-            findata.Open();
+           findata.Open();
 
             object[] einfo = findata.getevent(eID,user.getID());
 
             //DateTime da = DateTime.ParseExact( , "YYYY/MM/DD HH:MM:SS", CultureInfo.InvariantCulture);
             //string info = (string)einfo[1];
-           
-
+           if(einfo != null) { 
+          
             DateTime currentdatetime = DateTime.Parse((string)einfo[1]);
 
             txtdoe.Value = currentdatetime.ToString("yyyy/MM/dd");
@@ -55,47 +57,51 @@ namespace Fincal
             txtesummary.Value = (string)einfo[2];
             txtedesc.Value = (string)einfo[6];
             googleid = (string)einfo[4];
-
-          /*  Object[] finds = findata.geteventpics(eID,user.getID());
-
-            if (!(finds == null))
-            {
-                if (!((string)finds[0]).Equals(null))
-                {
-                    pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[0] + "'/>";
-                }
-                else
-                {
-                    pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-                }
-                if (!((string)finds[1]).Equals(null))
-                {
-                    pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[1] + "'/>";
-                }
-                else
-                {
-                    pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-                }
-                if (!((string)finds[2]).Equals(null))
-                {
-                    pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[2] + "'/>";
-                }
-                else
-                {
-                    pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-                }
-
+           
             }
-            else
-            {
-                pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-                pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-                pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
-
-            }
-            */
 
             findata.Close();
+            }
+            /*  Object[] finds = findata.geteventpics(eID,user.getID());
+
+              if (!(finds == null))
+              {
+                  if (!((string)finds[0]).Equals(null))
+                  {
+                      pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[0] + "'/>";
+                  }
+                  else
+                  {
+                      pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+                  }
+                  if (!((string)finds[1]).Equals(null))
+                  {
+                      pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[1] + "'/>";
+                  }
+                  else
+                  {
+                      pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+                  }
+                  if (!((string)finds[2]).Equals(null))
+                  {
+                      pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + (string)finds[2] + "'/>";
+                  }
+                  else
+                  {
+                      pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+                  }
+
+              }
+              else
+              {
+                  pic1Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+                  pic2Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+                  pic3Thumb.InnerHtml = "<img class='thumb' src='data:image/jpeg;base64," + UserData.Nopic + "'/>";
+
+              }
+              */
+
+
         }
 
         protected void btnUpdateevent_ServerClick(object sender, EventArgs e)
@@ -297,12 +303,12 @@ namespace Fincal
             CalendarService cs = service;
 
             DateTime d = Convert.ToDateTime(txtdoe.Value);
-            DateTime t = Convert.ToDateTime(txttime.Value);
+            DateTimeOffset t = DateTimeOffset.Parse(txttime.Value);
 
 
 
 
-            dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute, t.Second);
+            dt = new DateTime(d.Year, d.Month, d.Day, t.Hour, t.Minute,t.Second);
             Event old = service.Events.Get("primary", eID).Execute();
 
            
@@ -310,9 +316,9 @@ namespace Fincal
             old.Location = txteLocation.Value;
             old.Description = txtedesc.Value;
             old.Start.DateTime =  DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc));
-            old.Start.TimeZone = "Europe/Paris";
+            old.Start.TimeZone = TimeZone.CurrentTimeZone.ToString();
             old.End.DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc));
-            old.End.TimeZone = "Europe/Paris";
+            old.End.TimeZone = TimeZone.CurrentTimeZone.ToString();
             
             Event newEvent = new Event()
             {
@@ -322,12 +328,12 @@ namespace Fincal
                 Start = new EventDateTime()
                 {
 
-                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),//DateTime.pr dt.ToUniversalTime().ToString("YYYY-MM-DD'T'HH:mm:ssZ"),
+                    DateTime = DateTime.Parse(dt.ToString()),//DateTime.pr dt.ToUniversalTime().ToString("YYYY-MM-DD'T'HH:mm:ssZ"),
                     TimeZone = "Europe/Paris",
                 },
                 End = new EventDateTime()
                 {
-                    DateTime = DateTime.Parse(XmlConvert.ToString(dt, XmlDateTimeSerializationMode.Utc)),
+                    DateTime = DateTime.Parse(dt.ToString()),
                     //   DateTime = DateTime.Parse(datetimepicker1.Value),
                     TimeZone = "Europe/Paris",
                 },

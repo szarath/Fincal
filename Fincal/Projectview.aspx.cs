@@ -29,7 +29,7 @@ namespace Fincal
             }
             else
             {
-                Title = "View Project";
+                Title = "Project View";
 
                 id = Request.QueryString.Get("id");
                 UserData user = (UserData)Session["User"];

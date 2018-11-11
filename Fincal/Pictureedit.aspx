@@ -43,9 +43,9 @@
 
                 </div>
                 <div class="card-action">
-                <button id="btnUpdatepic" type="submit" class="btn waves-effect waves-light" runat="server"  onserverclick="btnUpdatepic_ServerClick"><i class="material - icons">save</i>Update</button> 
-            <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material - icons">delete</i>Delete</a> 
-              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange"><i class="material - icons">cancel</i>Cancel</a>
+                <button id="btnUpdatepic" type="submit" class="btn waves-effect waves-light" runat="server"  onserverclick="btnUpdatepic_ServerClick"><i class="material-icons">save</i>Update</button> 
+            <a href="#AcceptDelete" class="btn waves-effect waves-light red modal-trigger"><i class="material-icons">delete</i>Delete</a> 
+              <a href="Allpictures.aspx" class="waves-effect waves-light btn orange"><i class="material-icons">cancel</i>Cancel</a>
             </div>
 
                  

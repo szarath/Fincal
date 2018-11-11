@@ -41,11 +41,13 @@ namespace Fincal
                     Leveldrop.Items.Add(new ListItem("1", "1"));
                     Leveldrop.Items.Add(new ListItem("2", "2"));
                     Leveldrop.Items.Add(new ListItem("3", "3"));
-             
-
-                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+               Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
                 findata.Open();
-                storetask = findata.gettask(taskid, user.getID());
+      storetask = findata.gettask(taskid, user.getID());
+
+                    if(storetask != null) { 
+              
+          
 
 
                 txttaskanme.Value = (string)storetask[1];
@@ -67,7 +69,9 @@ namespace Fincal
 
                 }
 
-                    findata.Close();
+                    
+                    }
+findata.Close();
                 }
             }
             else {
@@ -201,7 +205,7 @@ namespace Fincal
             taskDiv.InnerHtml += "<div class=\"card white\">";
             taskDiv.InnerHtml += "<div class=\"card-content Black-text\">";
             taskDiv.InnerHtml += "<span class=\"card-title bold\">Task Edited Successful</span>";
-            taskDiv.InnerHtml += "<p>You have successfully added a Task</p>";
+            taskDiv.InnerHtml += "<p>You have successfully added a task</p>";
             taskDiv.InnerHtml += "</div>";
             taskDiv.InnerHtml += "<div class=\"card-action\">";
             taskDiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
