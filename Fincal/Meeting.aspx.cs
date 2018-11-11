@@ -16,8 +16,8 @@ namespace Fincal
         private string htmldata2;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-           
+            Title = "Meetings";
+
             if (Session["User"] != null)
             {
               
@@ -114,7 +114,8 @@ namespace Fincal
 
                                 mematt = getattenginguser.Length;
                             }
-                            object[] getprojmembers = findata.getprojectmembers((string)usermeetings[i][4]);
+
+                            object[] getprojmembers = findata.getprojectmembers((string)userothermeetings[i][4]);
 
                             int projmem = 0;
                             if (getprojmembers != null)

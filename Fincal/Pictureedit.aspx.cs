@@ -12,34 +12,45 @@ namespace Fincal
         private UserData user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Title = "Picture Edit";
+            if (Session["User"] != null)
             {
-                string id = Request.QueryString.Get("id");
-                string htmldata = "";
-                Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
-                 user = (UserData)(Session["User"]);
-                findata.Open();
+                if (!IsPostBack)
+                {
+                    string id = Request.QueryString.Get("id");
+                    string htmldata = "";
+                    Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+                    user = (UserData)(Session["User"]);
+                    findata.Open();
 
-                object[] picture = findata.getpic(id,user.getID());
+                    object[] picture = findata.getpic(id, user.getID());
 
-                findata.Close();
-
-
-
-                htmldata += "<div class=\"card-image\">";
-
-                htmldata += "<img  class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)picture[1] + "'/>";
-
-
-                htmldata += "</div>";
-                txtpictitle.Value = (string)picture[2];
-                txtpicdescription.Value = (string)picture[3];
+                    findata.Close();
 
 
 
+                    htmldata += "<div class=\"card-image\">";
 
-                pictureholder.InnerHtml = htmldata;
+                    htmldata += "<img  class= \"responsive-img\" src = 'data:image/jpeg;base64," + (string)picture[1] + "'/>";
+
+
+                    htmldata += "</div>";
+                    txtpictitle.Value = (string)picture[2];
+                    txtpicdescription.Value = (string)picture[3];
+
+
+
+
+                    pictureholder.InnerHtml = htmldata;
+                }
+
+
             }
+            else {
+
+                Response.Redirect("Login.aspx");
+            }
+            
 
 
         }

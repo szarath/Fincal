@@ -19,6 +19,7 @@ namespace Fincal
         string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Project Invite";
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");

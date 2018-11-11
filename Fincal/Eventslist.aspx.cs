@@ -21,9 +21,9 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Events";
 
-
-               if (Session["User"] != null) //Logged in
+            if (Session["User"] != null) //Logged in
               {
 
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();

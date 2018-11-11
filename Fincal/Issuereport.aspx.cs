@@ -12,6 +12,7 @@ namespace Fincal
         Dataservice.DatamanagementClient findata;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Issue Report";
             if (Session["User"] != null)
             {
                 if (!IsPostBack)

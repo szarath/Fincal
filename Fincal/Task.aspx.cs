@@ -33,7 +33,7 @@ namespace Fincal
                 Response.Redirect("Login.aspx");
             }
             else { 
-            Title = "Fincal: Tasks";
+            Title = "Tasks";
             UserCredential credential;
 
 

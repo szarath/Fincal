@@ -11,7 +11,7 @@ namespace Fincal
     {  string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            Title = "Issue Details";
 
             UserData user = (UserData)Session["User"];
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();

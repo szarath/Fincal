@@ -23,6 +23,7 @@ namespace Fincal
         static string ApplicationName = "Google Calendar API .NET Quickstart";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Meeting Add";
             if (Session["User"] != null)
             {
                 

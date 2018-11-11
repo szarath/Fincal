@@ -3,7 +3,6 @@ D:\Fincal\Fincal\bin\Fincal.dll
 D:\Fincal\Fincal\bin\Fincal.pdb
 D:\Fincal\Fincal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Fincal\Fincal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Fincal\Fincal\obj\Debug\Fincal.csprojResolveAssemblyReference.cache
 D:\Fincal\Fincal\obj\Debug\Fincal.csproj.CoreCompileInputs.cache
 D:\Fincal\Fincal\obj\Debug\Fincal.dll
 D:\Fincal\Fincal\obj\Debug\Fincal.pdb
@@ -57,3 +56,7 @@ C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\ob
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Fincal\obj\Debug\Fincal.pdb
 D:\Fincal\Fincal\bin\Octokit.dll
 D:\Fincal\Fincal\bin\Octokit.xml
+D:\Fincal\Fincal\obj\Debug\Fincal.csprojAssemblyReference.cache
+D:\Fincal\Fincal\obj\Debug\Fincal.csproj.CopyComplete
+D:\Fincal\Fincal\bin\System.Xml.XmlDocument.dll
+D:\Fincal\Fincal\bin\X.Web.Sitemap.dll

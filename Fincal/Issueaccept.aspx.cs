@@ -30,6 +30,7 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Issue Invite";
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");

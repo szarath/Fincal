@@ -16,6 +16,7 @@ namespace Fincal
         private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Issue Add";
             pid = Request.QueryString.Get("id");
             Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
             findata.Open();
@@ -82,7 +83,7 @@ namespace Fincal
 
 
                                 }
-                                UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() + "     " + (string)getmemberdetails[1] + "     " + (string)getmemberdetails[2] + " ", (string)projmembers[i].ToString()));
+                                UserChoose.Items.Add(new ListItem(" " + priority(eventcount).ToString() + "     " + (string)getmemberdetails[0] + "     " + (string)getmemberdetails[2] + " ", (string)projmembers[i].ToString()));
 
                             }
 

@@ -2,7 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
-
+           <style>
+        .thumb 
+        {
+            height: 75px;
+            margin: 10px 5px 0 0;
+        }
+    </style>
     
 
     <div class="row" id="editAdDiv" runat="server">

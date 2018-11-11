@@ -14,7 +14,7 @@ namespace Fincal
 
             if (Session["User"] != null)
             {
-                Title = "Fincal : Email Change";
+                Title = "Email Update";
                 lblupdateemail.InnerHtml = ((UserData)Session["User"]).getFirstName() + "     Change your email";
 
             }

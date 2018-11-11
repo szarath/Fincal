@@ -13,6 +13,7 @@ namespace Fincal
         //  private string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Pictures";
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");

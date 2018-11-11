@@ -14,6 +14,7 @@ namespace Fincal
         private object[] projdetails;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Issue Report Details";
             if (Session["user"] != null)
             {
 

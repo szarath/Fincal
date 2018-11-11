@@ -24,7 +24,7 @@ namespace Fincal
         DateTime dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Title = "Event Edit";
             UserData user = (UserData)(Session["User"]);
 
          

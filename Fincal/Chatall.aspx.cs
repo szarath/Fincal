@@ -9,18 +9,18 @@ namespace Fincal
 {
     public partial class Chatall : System.Web.UI.Page
     {
-
         string htmldata1;
         string htmldata2;
         protected void Page_Load(object sender, EventArgs e)
         {
+        Title = "Chats";
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
             else
             {
-                Title = "Fincal: All Chats";
+              
 
                 UserData user = (UserData)Session["User"];
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();

@@ -25,7 +25,7 @@ namespace Fincal
             else
             {
                 int numusers = 0;
-                Title = "Fincal: Edit Project ";
+                Title = "Edit Project ";
 
                 pid = Request.QueryString.Get("id");
                 UserData user = (UserData)Session["User"];

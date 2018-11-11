@@ -15,6 +15,7 @@ namespace Fincal
         string messageformat;
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -27,15 +28,15 @@ namespace Fincal
                 UserData user = (UserData)Session["User"];
                 if (!IsPostBack)
                 {
-                    Title = "Fincal: Project Chat";
                     
-                    findata.Open();
-                    chat.Open();
+                     Title = "Project Chat";
+              
                    
                 }
                
             
-           
+                 findata.Open();
+                    chat.Open();
               
 
                 
@@ -86,7 +87,8 @@ namespace Fincal
 
                 txtmsg.InnerHtml += messageformat;
 
-
+                findata.Close();
+                chat.Close();
 
 
 

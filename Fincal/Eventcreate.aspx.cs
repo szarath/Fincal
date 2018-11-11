@@ -28,7 +28,7 @@ namespace Fincal
         TimeSpan ts;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            Title = "Event Add";
 
         }
 

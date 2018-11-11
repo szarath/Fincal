@@ -25,7 +25,7 @@ namespace Fincal
             }
             else
             {
-                Title = "Fincal: Edit Issue ";
+                Title = "Issue Edit";
 
                 pid = Request.QueryString.Get("id");
                 UserData user = (UserData)Session["User"];

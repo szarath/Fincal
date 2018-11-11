@@ -21,7 +21,7 @@ namespace Fincal
             }
             else
             {
-                Title = "Fincal: Issues";
+                Title = "Issues";
 
                 UserData user = (UserData)Session["User"];
                 Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();

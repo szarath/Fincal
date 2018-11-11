@@ -28,8 +28,8 @@ namespace Fincal
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if(Session["User"] != null) {
+            Title = "Home";
+            if (Session["User"] != null) {
                
                 indexTitle.InnerHtml = "<div class=\"col s12 m10 l8 \"><h5>Welcome " + ((UserData)Session["User"]).getFirstName() + "!  Here is what you missed</h5></div>";
                 eventmain.Visible = true;
@@ -604,7 +604,7 @@ namespace Fincal
                 for (int j = 0; j < projectnotificaiotns.Length; j++)
                 {
                     object[] projdetails = findata.getprojectdetails((string)projectnotificaiotns[j][1]);
-
+                    object[] getprojleader = findata.getprojectleaderinformaion((string)projdetails[3]);
                     DateTime credate = DateTime.Parse((string)projectnotificaiotns[j][3]);
                     DateTime exdate = credate.AddDays(14);
 
@@ -626,7 +626,7 @@ namespace Fincal
                         htmldata += "<div class=\"card-content black-text\">";
                         htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
                         htmldata += "</span>";
-
+                        htmldata += "<p class=\"trunctext\">Project owner: " + (string)getprojleader[0] + "</p>";
                         htmldata += "</div>";
                         htmldata += "</div>";
                         htmldata += "</div>";

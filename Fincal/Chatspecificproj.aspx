@@ -3,7 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagecontent" runat="server">
 
-    
+           <style>
+        .thumb 
+        {
+            height: 75px;
+            margin: 10px 5px 0 0;
+        }
+    </style>
     <div class="row" id="chatdiv" runat="server">
         <div class="col s12 m10 l8 push-m1 push-l2">
           <div class="card white">

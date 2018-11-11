@@ -16,7 +16,7 @@ namespace Fincal
            
             if (Session["User"] != null)
             {
-               
+                Title = "Search";
                 string searchterm = Request.QueryString.Get("term");
                 indexTitle.InnerText = "Searching user: "+ searchterm;
                 Userservice.UserserviceClient userdata = new Userservice.UserserviceClient();

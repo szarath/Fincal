@@ -19,7 +19,7 @@ namespace Fincal
             {
                 if (Session["User"] != null) //Logged in
                 {
-                    Title = "Fincal: Account";
+                    Title = "My Profile";
                      user = (UserData)(Session["User"]);
                     txtFirstName.Value = user.getFirstName();
                     txtLastName.Value = user.getSurname();

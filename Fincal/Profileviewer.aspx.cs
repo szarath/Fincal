@@ -17,7 +17,8 @@ namespace Fincal
         int isnum;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            Title = "Member Profile";
+
             if (Session["User"] == null)
             {
                 Response.Redirect("Login.aspx");

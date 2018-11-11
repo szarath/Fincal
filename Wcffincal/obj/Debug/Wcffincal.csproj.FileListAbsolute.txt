@@ -1,7 +1,6 @@
 D:\Fincal\Wcffincal\bin\Wcffincal.dll.config
 D:\Fincal\Wcffincal\bin\Wcffincal.dll
 D:\Fincal\Wcffincal\bin\Wcffincal.pdb
-D:\Fincal\Wcffincal\obj\Debug\Wcffincal.csprojResolveAssemblyReference.cache
 D:\Fincal\Wcffincal\obj\Debug\Wcffincal.csproj.CoreCompileInputs.cache
 D:\Fincal\Wcffincal\obj\Debug\Wcffincal.dll
 D:\Fincal\Wcffincal\obj\Debug\Wcffincal.pdb
@@ -12,3 +11,4 @@ C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Wcffincal
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Wcffincal\obj\Debug\Wcffincal.csproj.CoreCompileInputs.cache
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Wcffincal\obj\Debug\Wcffincal.dll
 C:\Users\szara\Documents\new-Fincal-test-master\new-Fincal-test-master\Wcffincal\obj\Debug\Wcffincal.pdb
+D:\Fincal\Wcffincal\obj\Debug\Wcffincal.csprojAssemblyReference.cache

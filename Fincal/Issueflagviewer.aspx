@@ -100,7 +100,7 @@
            <div class="card-action">
               <button id="btnissadd" class="btn waves-effect waves-light" runat="server" onserverclick="btnissueadd_ServerClick"><i class="material-icons left">save</i>Accept</button>
               <button id="btnissreject" class="btn waves-effect waves-light red" runat="server" onserverclick="btnissreject_ServerClick"><i class="material-icons left">not_interested</i>Reject</button>
-              <a href="Issue.aspx" class="waves-effect waves-light btn blue"><i class="material-icons left">notification_important</i>Issue</a>
+              <a href="Issues.aspx" class="waves-effect waves-light btn blue"><i class="material-icons left">notification_important</i>Issue</a>
               <a href="Default.aspx" class="waves-effect waves-light btn "><i class="material-icons left">home</i>Home</a>
             </div>
           </div>

@@ -15,7 +15,7 @@ namespace Fincal
             if (Session["User"] != null)
                 Response.Redirect("Default.aspx");
 
-            Title = "Fincal: Login";
+            Title = "Login";
 
 
 

@@ -29,6 +29,7 @@ namespace Fincal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Task Edit";
             taskid = Request.QueryString.Get("id");
             UserData user = (UserData)Session["User"];
 

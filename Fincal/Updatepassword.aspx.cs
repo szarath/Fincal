@@ -13,7 +13,7 @@ namespace Fincal
         {
             if (Session["User"] != null) //Logged in
             {
-                Title = "Fincal: Password Update ";
+                Title = "Password Update ";
                 lblup.InnerHtml =((UserData)Session["User"]).getFirstName() + "     Change your password";
             }
             else

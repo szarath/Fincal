@@ -24,6 +24,7 @@ namespace Fincal
         string htmldata;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Meeting Invite";
             if (Session["User"] != null)
             {
 

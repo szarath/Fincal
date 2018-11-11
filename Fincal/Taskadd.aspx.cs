@@ -17,11 +17,12 @@ namespace Fincal
 {
     public partial class Taskadd : System.Web.UI.Page
     {
+       
         static string[] Scopes = { TasksService.Scope.Tasks, TasksService.Scope.TasksReadonly };
         static string ApplicationName = "Google Tasks API .NET Quickstart";
         private Google.Apis.Tasks.v1.Data.Task newtask;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { Title = "Task Add";
             if (!IsPostBack) {
                 Leveldrop.Items.Add(new ListItem("1", "1"));
                 Leveldrop.Items.Add(new ListItem("2", "2"));

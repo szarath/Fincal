@@ -12,6 +12,7 @@ namespace Fincal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "Picture Add";
             if (!IsPostBack)
             {
 
