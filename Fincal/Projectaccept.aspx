@@ -42,7 +42,7 @@
                       <div  class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">email</i>
                         <textarea readonly id="txtcredate" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtcredate">Project Creation Date</label>
+                        <label for="txtcredate">Creation date</label>
                      </div>
 
                 </div>
@@ -54,7 +54,7 @@
                       <div  class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">email</i>
                         <textarea readonly id="txtexp" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtexp">Project Invite Expiry Date</label>
+                        <label for="txtexp">Expiry date</label>
                      </div>
 
                 </div>
@@ -63,13 +63,13 @@
                     <div  class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">supervisor_account</i>
                         <textarea readonly id="txtptojectleaderuname" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderuname">Project Leader Username</label>
+                        <label for="txtptojectleaderuname">Project leader</label>
                     </div>
 
                       <div  class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">email</i>
                         <textarea readonly id="txtptojectleaderemail" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderemail">Project Leader Email</label>
+                        <label for="txtptojectleaderemail">Project leader email</label>
                      </div>
 
                 </div>

@@ -76,6 +76,33 @@ namespace Fincal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl newissues;
         
         /// <summary>
+        /// meetingnotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingnotification;
+        
+        /// <summary>
+        /// H7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H7;
+        
+        /// <summary>
+        /// newmeetings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newmeetings;
+        
+        /// <summary>
         /// eventmain control.
         /// </summary>
         /// <remarks>

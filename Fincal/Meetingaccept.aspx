@@ -30,13 +30,13 @@
                     <div  class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">supervisor_account</i>
                         <textarea readonly id="txtptojectleaderuname" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderuname">Project Leader Username</label>
+                        <label for="txtptojectleaderuname">Project leader</label>
                     </div>
 
                       <div  class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">email</i>
                         <textarea readonly id="txtptojectleaderemail" class="materialize-textarea bold" runat="server"></textarea>
-                        <label for="txtptojectleaderemail">Project Leader Email</label>
+                        <label for="txtptojectleaderemail">Project leader email</label>
                      </div>
 
                 </div>
@@ -44,7 +44,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea readonly id="txtmeett" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtmeett">Meeting title</label>
+                        <label for="txtmeett">Title</label>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea readonly id="txtmeetd" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtmeetd">Meeting description</label>
+                        <label for="txtmeetd">Description</label>
                     </div>
                 </div>
 

@@ -41,8 +41,9 @@
 
                  <div class="row">
                       <div class="input-field col s12"> 
+                            <i class="material-icons prefix">title</i>
                         <input id="txtpictitle" type="text" class="validate autocomplete-content" runat="server"/>
-                        <label for="txtpictitle">Picture title</label>
+                        <label for="txtpictitle">Title</label>
                     </div>
                 </div>
 
@@ -50,8 +51,9 @@
                
                    <div class="row">
                       <div class="input-field  col  s12"> 
+                           <i class="material-icons prefix">description</i>
                      <textarea  type="text"  id="txtpicdesc" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtpicdesc">Picture Description</label>
+                        <label for="txtpicdesc">Description</label>
                     </div>
                 </div>
 

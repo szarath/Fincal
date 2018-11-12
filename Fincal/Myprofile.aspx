@@ -56,9 +56,8 @@
                          <i class="material-icons prefix">link</i>
                         <textarea id="txtgithublink" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtgithublink">GitHub link</label>
+                      <blockquote>By including a GitHub link you are more likely to be trusted trusted</blockquote>
                     </div>
-
-
 
                           </div>
                        

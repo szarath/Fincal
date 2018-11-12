@@ -28,21 +28,21 @@
      <div runat="server" id="projectnotificaitonmain" class="section" visible="false">
          <div class="row">
           <div class="col s12 m10 11 ">
-            <h5 id="H4" class="bold" runat="server">Projects</h5>
+            <h5 id="H4" class="bold" runat="server">Project Invite</h5>
         </div>  
-    </div>
+             </div>
 
       <div class="row"  id="newprojects" runat="server">
 
   
     </div>
-        </div>
-
+   
+     </div>
     
      <div runat="server" id="issuenotificaitonmain" class="section" visible="false">
          <div class="row">
           <div class="col s12 m10 11 ">
-            <h5 id="H5" class="bold" runat="server">Issues</h5>
+            <h5 id="H5" class="bold" runat="server">Issue Invite</h5>
         </div>  
     </div>
 
@@ -51,6 +51,21 @@
   
     </div>
         </div>
+
+             <div runat="server" id="meetingnotification" class="section" visible="false">
+         <div class="row">
+          <div class="col s12 m10 11 ">
+            <h5 id="H7" class="bold" runat="server">Meetings</h5>
+        </div>  
+    </div>
+
+      <div class="row"  id="newmeetings" runat="server">
+
+  
+    </div>
+        </div>
+
+
 
     <div runat="server" id="eventmain" class="section" visible="false">
          <div class="row">

@@ -29,22 +29,28 @@ namespace Fincal
         protected void Page_Load(object sender, EventArgs e)
         {
             Title = "Home";
-            if (Session["User"] != null) {
-               
+            if (Session["User"] != null)
+            {
+
                 indexTitle.InnerHtml = "<div class=\"col s12 m10 l8 \"><h5>Welcome " + ((UserData)Session["User"]).getFirstName() + "!  Here is what you missed</h5></div>";
                 eventmain.Visible = true;
                 taskmain.Visible = true;
                 picturemain.Visible = true;
                 projectnotificaitonmain.Visible = true;
                 issuenotificaitonmain.Visible = true;
+                meetingnotification.Visible = true;
                 getissuenotifitcaions();
                 getprojectnotificaitons();
                 meetings();
                 Eventsget();
                 Taskget();
                 Pictureget();
+                meetingget();
+            }
+            else {
 
-                }
+                Response.Redirect("Login.aspx");
+            }
 
         }
 
@@ -310,6 +316,194 @@ namespace Fincal
              }*/
 
         }
+
+        private void meetingget()
+        {
+            Object[][] usermeetings;
+          Object[][] userothermeetings;
+            object[] projdetails;
+         string htmldata = "";
+ 
+
+        UserData user = (UserData)Session["User"];
+            Dataservice.DatamanagementClient findata = new Dataservice.DatamanagementClient();
+
+            findata.Open();
+            usermeetings = findata.getusermeetings(user.getID());
+
+
+            if (usermeetings != null)
+            {
+                for (int i = 0; i < usermeetings.Length; i++)
+                {
+
+                    DateTime meetdate = DateTime.Parse((string)usermeetings[i][3]);
+                    int result = DateTime.Compare(meetdate, DateTime.Now);
+                    projdetails = findata.getprojectdetails((string)usermeetings[i][4]);
+                    if (result < 0)
+                    {
+
+
+
+                    }
+                    else
+                    {
+
+                        object[][] getattenginguser = findata.getallattendingmeeting((string)usermeetings[i][0]);
+                        int mematt = 0;
+                        if (getattenginguser != null)
+                        {
+
+                            mematt = getattenginguser.Length;
+                        }
+
+                        object[] getprojmembers = findata.getprojectmembers((string)usermeetings[i][4]);
+
+                        int projmem = 0;
+                        if (getprojmembers != null)
+                        {
+                            projmem = getprojmembers.Length;
+                        }
+
+                        htmldata += "<a href=\"Meetingview.aspx?id=" + (string)usermeetings[i][0] + "\">";
+                        htmldata += "<div class=\"col s12 m3 l0\">";
+
+
+                        htmldata += "<div class=\"card horizontal hoverable grey lighten-1\">";
+
+                        htmldata += "<div class=\"card-stacked\">";
+                        htmldata += "<div class=\"card-content black-text\">";
+                        htmldata += "<span class=\"card-title\">" +
+                        "<p class=\" bold\">" + (string)usermeetings[i][2] + "</p>";
+                        htmldata += "</span>";
+                        htmldata += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                        htmldata += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
+                        htmldata += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</div>";
+                        htmldata += "</a>";
+
+                    }
+
+
+                }
+
+
+
+            }
+
+
+
+            userothermeetings = findata.getmeetinginfromations(user.getID());
+            if (userothermeetings != null)
+            {
+
+                for (int i = 0; i < userothermeetings.Length; i++)
+                {
+                    DateTime meetdate = DateTime.Parse((string)userothermeetings[i][3]);
+                    int result = DateTime.Compare(meetdate, DateTime.Now);
+                    projdetails = findata.getprojectdetails((string)userothermeetings[i][4]);
+                    if (result < 0)
+                    {
+
+                    }
+                    else
+                    {
+                        object[][] getattenginguser = findata.getallattendingmeeting((string)userothermeetings[i][0]);
+                        int mematt = 0;
+                        if (getattenginguser != null)
+                        {
+
+                            mematt = getattenginguser.Length;
+                        }
+
+                        object[] getprojmembers = findata.getprojectmembers((string)userothermeetings[i][4]);
+
+                        int projmem = 0;
+                        if (getprojmembers != null)
+                        {
+                            projmem = getprojmembers.Length;
+                        }
+                        if (Boolean.Parse((string)userothermeetings[i][7]) == true)
+                        {
+                            htmldata += "<a href=\"Meetingaccept.aspx?id=" + (string)userothermeetings[i][0] + "&ml=" + (string)userothermeetings[i][6] + "\">";
+                            htmldata += "<div class=\"col s12 m3 l0\">";
+
+
+                            htmldata += "<div class=\"card horizontal hoverable light-blue lighten-3\">";
+
+                            htmldata += "<div class=\"card-stacked\">";
+                            htmldata += "<div class=\"card-content black-text\">";
+                            htmldata += "<span class=\"card-title\">" +
+                            "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
+                            htmldata += "</span>";
+                            htmldata += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                            htmldata += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
+                            htmldata += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
+
+
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</a>";
+
+                        }
+                        else
+                        {
+                            htmldata += "<a href=\"Meetingaccept.aspx?id=" + (string)userothermeetings[i][0] + "&ml=" + (string)userothermeetings[i][6] + "\">";
+                            htmldata += "<div class=\"col s12 m3 l0\">";
+
+
+                            htmldata += "<div class=\"card horizontal hoverable lime lighten-3\">";
+
+                            htmldata += "<div class=\"card-stacked\">";
+                            htmldata += "<div class=\"card-content black-text\">";
+                            htmldata += "<span class=\"card-title\">" +
+                            "<p class=\" bold\">" + (string)userothermeetings[i][2] + "</p>";
+                            htmldata += "</span>";
+                            htmldata += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                            htmldata += "<p class=\"trunctext\">Project Members: " + projmem + "</p>";
+                            htmldata += "<p class=\"trunctext\">Members Attending: " + mematt + "</p>";
+
+
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</div>";
+                            htmldata += "</a>";
+
+
+
+                        }
+
+
+
+                    }
+
+                }
+
+
+            }
+
+
+
+
+            findata.Close();
+
+            newmeetings.InnerHtml = htmldata;
+           
+
+
+
+
+
+
+
+        }
+
 
         private void Taskget()
         {
@@ -627,6 +821,7 @@ namespace Fincal
                         htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)projdetails[1] + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Project owner: " + (string)getprojleader[0] + "</p>";
+                        htmldata += "<p class=\"trunctext\">Expires in: " + (exdate - DateTime.Now).Days + " Days</p>";
                         htmldata += "</div>";
                         htmldata += "</div>";
                         htmldata += "</div>";
@@ -682,6 +877,7 @@ namespace Fincal
                         htmldata += "<span class=\"card-title\"><p class=\"bold\">" + (string)issuedetails[1] + "</p>";
                         htmldata += "</span>";
                         htmldata += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                        htmldata += "<p class=\"trunctext\">Expires in: " + (exdate -DateTime.Now).Days + " Days</p>";
                         htmldata += "</div>";
                         htmldata += "</div>";
                         htmldata += "</div>";

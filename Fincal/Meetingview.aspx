@@ -29,7 +29,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea readonly id="txtmeett" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtmeett">Meeting title</label>
+                        <label for="txtmeett">Title</label>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea readonly id="txtmeetd" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtmeetd">Meeting description</label>
+                        <label for="txtmeetd">Description</label>
                     </div>
                 </div>
 

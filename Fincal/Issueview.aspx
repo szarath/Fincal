@@ -22,7 +22,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">label_important</i>
                         <textarea readonly id="txtprojname" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojname">Title</label>
+                        <label for="txtprojname">Project</label>
                     </div>
                 </div>
                           <div class="row">
@@ -45,7 +45,7 @@
                     <div  class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">account_circle</i>
                         <textarea readonly id="txtprojleader" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojleader">Project Leader</label>
+                        <label for="txtprojleader">Project leader</label>
                     </div>
                 </div>
                         

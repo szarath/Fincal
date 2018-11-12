@@ -100,6 +100,7 @@ namespace Fincal
                     {
                         object[] assigproj = findata.getprojectdetails((string)assignedprojectsids[i]);
                         object[] projteam = findata.getprojectmembers((string)assignedprojectsids[i]);
+                        object[] projleader = findata.getspecificuserinformation((string)assigproj[3]);
                         int projmem = 0;
                         if (projteam != null)
                         {
@@ -121,6 +122,7 @@ namespace Fincal
                         htmldata2 += "<span class=\"card-title\">" +
                         "<p class=\" bold\">" + assigproj[1].ToString() + "</p>";
                         htmldata2 += "</span>";
+                        htmldata2 += "<p class=\"trunctext\">Project owner: " + (string)projleader[0] + "</p>";
                         htmldata2 += "<p class=\"trunctext\">Project members: " + projmem + "</p>";
 
 

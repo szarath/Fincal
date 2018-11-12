@@ -37,14 +37,14 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea readonly id="txtprojname" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojname">Project Title</label>
+                        <label for="txtprojname">Project</label>
                     </div>
                 </div>
                   <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea id="txtisstitle" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtisstitle">Issue Title</label>
+                        <label for="txtisstitle">Title</label>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea id="txtissdesc" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtissdesc">Issue Description</label>
+                        <label for="txtissdesc">Description</label>
                     </div>
                 </div>
 

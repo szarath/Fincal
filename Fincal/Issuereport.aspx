@@ -25,7 +25,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea id="txtisst" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtisst">Issue Title</label>
+                        <label for="txtisst">Title</label>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea id="txtissd" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtissd">Issue Description</label>
+                        <label for="txtissd">Description</label>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                            
                         </select> 
                         <label for="Projectchoose">Projects</label>
-                          <blockquote>Choose the project the issue is reported on.</blockquote>
+                          <blockquote>Which project is the issue reported.</blockquote>
                     </div>
 
                    

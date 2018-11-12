@@ -23,28 +23,28 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="txte" type="email" class="validate black-text" runat="server" autofocus/> 
-                            <label for="txte">Email Address</label>
+                            <label for="txte">Email address</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="txtop" type="password" class="validate black-text" runat="server"/> 
-                            <label for="txtop">Current Password</label>
+                            <label for="txtop">Current password</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="txtnp" type="password" class="validate black-text" runat="server"/> 
-                            <label for="txtnp">New Password</label>
+                            <label for="txtnp">New password</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="txtnpc" type="password" class="validate black-text" runat="server"/> 
-                            <label for="txtnpc">Confirm New Password</label>
+                            <label for="txtnpc">Confirm new password</label>
                         </div>
                     </div>
 

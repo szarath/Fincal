@@ -18,11 +18,11 @@
                                     <div class="input-field col s12 m6 l6">
                                         <i class="material-icons prefix">account_circle</i>
                                       <input id="txtFirstName" runat="server" type="text" class="validate black-text"/>
-                                      <label for="txtFirstName">First Name</label>
+                                      <label for="txtFirstName">First name</label>
                                     </div>
                                     <div class="input-field col s12 m6 l6">
                                         <input id="txtLastName" runat="server" type="text" class="validate black-text"/>
-                                      <label for="txtLastName">Last Name</label>
+                                      <label for="txtLastName">Last name</label>
                                     </div>
                           </div>
 
@@ -36,7 +36,7 @@
                                     </div>
                                       <div class="input-field col s12 m6 l6">
                                       <input id="txtConfirmEmail" runat="server" type="email" class="validate black-text"/>
-                                      <label for="txtConfirmEmail">Confirm Email</label>
+                                      <label for="txtConfirmEmail">Confirm email</label>
                                     </div>
                           </div>
 
@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="input-field col s12 m6 l6">
                                           <input id="txtConfirmPassword" runat="server" type="password" class="validate black-text"/>
-                                          <label for="txtConfirmPassword">Confirm Password</label>
+                                          <label for="txtConfirmPassword">Confirm password</label>
                                         </div>
                             </div>
                  <div class="row">
@@ -89,6 +89,7 @@
                                         <i class="material-icons prefix">link</i>
                                       <input id="txtgithublink" runat="server" type="text" class="black-text"/>
                                       <label for="txtgithublink">GitHub Link</label>
+                               <blockquote>By including a GitHub link you are more likely to be trusted trusted</blockquote>
                                     </div>
 
                             </div>

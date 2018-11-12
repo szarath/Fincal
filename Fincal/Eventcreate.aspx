@@ -31,13 +31,13 @@
                                     <div class="input-field col s12 m6 l6">
                                        <i class="material-icons prefix">today</i>
                                         <input readonly id="txtdoe" runat="server" class="datepicker black-text"/>
-                                        <label for="txtdoe">Date of Event</label>
+                                        <label for="txtdoe">Date of event</label>
                                     </div>
 
                                      <div class="input-field col s12 m6 l6">
                                        <i class="material-icons prefix">access_time</i>
                                         <input readonly  id="txttime" runat="server" class="timepicker black-text"/>
-                                        <label for="txttime">Time of Event</label>
+                                        <label for="txttime">Time of event</label>
                                     </div>
 
 

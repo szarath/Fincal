@@ -154,7 +154,7 @@ namespace Fincal
                         if (issuedetails != null)
                         {
                             object[] projdetails = findata.getprojectdetails((string)userproj[i][0]);
-
+                         
 
                             for (int j = 0; j < issuedetails.Length; j++)
                             {
@@ -176,9 +176,9 @@ namespace Fincal
                                 "<p class=\" bold\">" + (string)issuedetails[j][3] + "</p>";
                                 htmldata3 += "</span>";
                                 htmldata3 += "<p class=\"trunctext\">Project: " + (string)projdetails[1] + "</p>";
+                                htmldata3 += "<p class=\"trunctext\">Reporting member: " +   (string)issuedetails[j][1] + "</p>";
 
-
-
+      
                                 htmldata3 += "</div>";
                                 htmldata3 += "</div>";
                                 htmldata3 += "</div>";

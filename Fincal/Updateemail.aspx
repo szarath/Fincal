@@ -24,7 +24,7 @@
                         <div class="input-field col s12">
                             <input id="txtoe" type="email" class="validate black-text" runat="server" autofocus/> 
                             <i class="material-icons prefix">email</i>
-                            <label for="txtoe">Current Email</label>
+                            <label for="txtoe">Current email</label>
                                    <blockquote>Type in your current email</blockquote>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="input-field col s12">
                               <i class="material-icons prefix">email</i>
                             <input id="txtne" type="email" class="validate black-text" runat="server"/> 
-                            <label for="txtne">New Email</label>
+                            <label for="txtne">New email</label>
                                    <blockquote>Type in your new email</blockquote>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="input-field col s12">
                               <i class="material-icons prefix">email</i>
                             <input id="txtnec" type="email" class="validate black-text" runat="server"/> 
-                            <label for="txtnec">Confirm New Email</label>
+                            <label for="txtnec">Confirm new email</label>
                                    <blockquote>Retype email to confirm</blockquote>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="input-field col s12">
                                 <i class="material-icons prefix">vpn_key</i>
                             <input id="txtpass" type="password" class="validate black-text" runat="server"/> 
-                            <label for="txtpass">Your Password</label>
+                            <label for="txtpass">Your password</label>
                             <blockquote>Type in your current password</blockquote>
                         </div>
                     </div>

@@ -28,6 +28,7 @@
                 <div class="row">
 
                      <div class="input-field col s12 m12 12">
+                          <i class="material-icons prefix">title</i>
                         <textarea id="txtpictitle" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtpictitle">Title</label>
                     </div>
@@ -36,6 +37,7 @@
              
                <div class="row">
                     <div class="input-field col s12 m12 12">
+                         <i class="material-icons prefix">description</i>
                         <textarea id="txtpicdescription" class="materialize-textarea" runat="server"></textarea>
                         <label for="txtpicdescription">Description</label>
                     </div>

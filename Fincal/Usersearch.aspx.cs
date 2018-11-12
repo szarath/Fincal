@@ -30,6 +30,10 @@ namespace Fincal
                     {
                         for (int i = 0; i < searchdetails.Length; i++)
                         {
+                        
+
+
+
                         if ((string)searchdetails[i][0] == user.getID())
                         {
 
@@ -39,8 +43,16 @@ namespace Fincal
                             htmldata += "<a href=\"Profileviewer.aspx?uid=" + (string)searchdetails[i][0] + "\">";
                             htmldata += "<div class=\"col s12 m4 l0\">";
 
+                            if ((string)searchdetails[i][4] == "")
+                            {
+                                htmldata += "<div class=\"card horizontal hoverable grey lighten-1\">";
+                            }
+                            else
+                            {
+        htmldata += "<div class=\"card horizontal hoverable green lighten-1\">";
 
-                            htmldata += "<div class=\"card horizontal hoverable\">";
+                            }
+                    
                             /* htmldata += "<div class=\"card-image\">";
 
                              htmldata += "<img style='width:200px;height:200px' class= \"responsive-img\" src = 'data:image/jpeg;base64," + UserData.Nopic + "'/>";
@@ -53,7 +65,7 @@ namespace Fincal
                                 "<p class=\" bold trunctext\">" + (string)searchdetails[i][1] + "</p>";
                             htmldata += "</span>";
                             htmldata += "<p class=\"bold\">Email: " + (string)searchdetails[i][2] + "</p>";
-
+                            htmldata += "<p class=\"bold\">Skill: " + (string)searchdetails[i][3] + "</p>";
 
                             htmldata += "</div>";
                             htmldata += "</div>";
@@ -98,6 +110,9 @@ namespace Fincal
                 Response.Redirect("Login.aspx");
             }
         }
+
+       
+
         protected void changePage()
         {
 

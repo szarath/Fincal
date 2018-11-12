@@ -151,7 +151,7 @@ namespace Wcffincal
 
         object[][] IUserservice.searchusers(string term)
         {
-            string sqlStatement = "SELECT uID, uUsername, uEmail FROM tblUser WHERE (uUsername LIKE @0) OR (uEmail LIKE @0) OR (uFirstName LIKE @0) OR (uSurname LIKE @0);";
+            string sqlStatement = "SELECT tblUser.uID, tblUser.uUsername, tblUser.uEmail, tblSkills.sName, tblUser.uGitrepo FROM tblUser INNER JOIN tblSkills ON tblUser.sID = tblSkills.sID WHERE (tblUser.uUsername LIKE @0) OR (tblUser.uEmail LIKE @0) OR (tblUser.uFirstName LIKE @0) OR (tblUser.uSurname LIKE @0) OR (tblSkills.sName LIKE @0);";
 
             SqlCommand command = new SqlCommand(sqlStatement);
 

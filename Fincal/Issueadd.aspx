@@ -24,14 +24,14 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">assignment</i>
                         <textarea readonly id="txtprojname" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojname">Project Title</label>
+                        <label for="txtprojname">Project</label>
                     </div>
                 </div>
                   <div class="row">
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">title</i>
                         <textarea id="txtprojt" class="materialize-textarea" runat="server"></textarea>
-                        <label for="txtprojt">Issue Title</label>
+                        <label for="txtprojt">Title</label>
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@
                     <div class="input-field col s12 m12 l12">
                          <i class="material-icons prefix">description</i>
                         <textarea id="txtprojd" class="materialize-textarea" rows="4" runat="server"></textarea>
-                        <label for="txtprojd">Issue Description</label>
+                        <label for="txtprojd">Description</label>
                     </div>
                 </div>
 

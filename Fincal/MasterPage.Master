@@ -35,7 +35,7 @@
     <ul id="presistenicon" runat="server" class="right">
         <li>
           <div class="input-field">
-          <input  id="searchusers" placeholder="Search users" type="search" runat="server" >
+          <input  id="searchusers" placeholder="Search user or skill" type="search" runat="server" >
           <label class="label-icon" for="searchusers" ><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
