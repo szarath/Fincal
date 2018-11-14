@@ -9,7 +9,7 @@
     <link href="css/materialize.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title runat="server">Fincal</title>
+    <title runat="server">Softcol</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
       
     
@@ -30,7 +30,7 @@
      <a href="#" data-target="slide-out" class="sidenav-trigger  show-on-large" ><i class="material-icons">menu</i></a>
   <div class="nav-wrapper teal lighten-1">
       
-    <a href="Default.aspx" class="brand-logo center flow-text">Fincal</a>
+    <a href="Default.aspx" class="brand-logo center flow-text">Softcol</a>
        
     <ul id="presistenicon" runat="server" class="right">
         <li>

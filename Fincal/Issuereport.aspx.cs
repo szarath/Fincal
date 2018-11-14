@@ -97,7 +97,7 @@ namespace Fincal
             projectdiv.InnerHtml += "<div class=\"card-action\">";
             projectdiv.InnerHtml += "<a href=\"Default.aspx\" runat=\"server\" class=\"btn waves-effect waves-light\"><i class=\"material-icons left\">home</i>Home</a>";
             projectdiv.InnerHtml += "<a href=\"Issues.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons left\">assignment</i>Issues</a>";
-            projectdiv.InnerHtml += "<a href=\"Issuereport.aspx\" runat=\"server\" class=\"btn waves-effect waves-light orange\"><i class=\"material-icons left\">add_circle</i>Report another issue</a>";
+            projectdiv.InnerHtml += "<a href=\"Issuereport.aspx\" runat=\"server\" class=\"btn waves-effect waves-light blue\"><i class=\"material-icons left\">add_circle</i>Report another issue</a>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";
             projectdiv.InnerHtml += "</div>";

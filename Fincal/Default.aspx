@@ -25,13 +25,13 @@
         
             </div>
 
-     <div runat="server" id="projectnotificaitonmain" class="section" visible="false">
+     <div runat="server" id="projectnotificaitonmain"  visible="false">
          <div class="row">
           <div class="col s12 m10 11 ">
             <h5 id="H4" class="bold" runat="server">Project Invite</h5>
         </div>  
              </div>
-
+         
       <div class="row"  id="newprojects" runat="server">
 
   

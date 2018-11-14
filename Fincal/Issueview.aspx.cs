@@ -119,9 +119,9 @@ namespace Fincal
             findata.Open();
             chat.Open();
 
-            chat.deleteisschatuser(user.getID());
+           //chat.deleteisschatuser(user.getID());
            int result= findata.deleteassiguserformissue(user.getID(), id);
-
+           
 
             findata.Close();
             chat.Close();

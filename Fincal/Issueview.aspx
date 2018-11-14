@@ -66,7 +66,7 @@
                   
         <a href="#AcceptDelete" class="btn red waves-effect waves-light modal-trigger red"><i class="material-icons left">delete</i>Delete</a>
                <a href="Issues.aspx" runat="server"  class="waves-effect waves-light btn orange"><i class="material-icons left">notification_important</i>Issues</a>
-
+                   <a href="Issuereport.aspx" class="btn blue waves-effect waves-light modal-trigger"><i class="material-icons left">add_circle</i>Report issue</a>
               </div>
 
           </div>

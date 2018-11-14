@@ -131,7 +131,7 @@ namespace Fincal
             findata.Open();
 
             int result = findata.deleteassiguserfromteam(user.getID(),id);
-
+            int deletemeeting = findata.deleteuserfrommeetinglink(user.getID());
             if (result == 1)
             {
                 changePage();

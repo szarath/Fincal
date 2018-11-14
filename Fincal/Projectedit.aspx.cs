@@ -260,11 +260,10 @@ namespace Fincal
                     {
                      int meetmemdel =    findata.deletemeetingmembers((string)getmeetingid[i]);
 
-                        if (meetmemdel == 1)
-                        {
-                            findata.deletemeeting((string)getmeetingid[i]);
+                        
+                     findata.deletemeeting((string)getmeetingid[i]);
 
-                        }
+                        
 
 
                     }
