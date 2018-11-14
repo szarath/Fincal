@@ -50,7 +50,7 @@ namespace Fincal
             Boolean blnRegister = true;
 
 
-            if ((txtFirstName.Value.Equals("")) || (txtLastName.Value.Equals("")) || (txtEmail.Value.Equals("")) || (txtConfirmEmail.Value.Equals("")) || (txtDoB.Value.Equals("")) || (txtUsername.Value.Equals("")) || (txtPassword.Value.Equals("")) || (txtConfirmPassword.Value.Equals("")) || skilldrop.Items[skilldrop.SelectedIndex].Text.Equals("Choose yout option"))
+            if ((txtFirstName.Value.Equals("")) || (txtLastName.Value.Equals("")) || (txtEmail.Value.Equals("")) || (txtConfirmEmail.Value.Equals("")) || (txtDoB.Value.Equals("")) || (txtUsername.Value.Equals("")) || (txtPassword.Value.Equals("")) || (txtConfirmPassword.Value.Equals("")) || skilldrop.Items[skilldrop.SelectedIndex].Text.Equals("Choose your option"))
             {
                 blnRegister = false;
 

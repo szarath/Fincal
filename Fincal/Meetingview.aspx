@@ -66,7 +66,7 @@
           
                    <a runat="server" id="btnaccept" href="#AcceptDelete" class="btn red  waves-effect waves-light modal-trigger "><i class="material-icons left">delete</i>Delete</a>
               <a href="Meeting.aspx" class="waves-effect waves-light btn orange"><i class="material-icons left">cancel</i>Cancel</a>
-                          <a id="btnprojedit"  class="btn waves-effect waves-light" runat="server" onserverclick="btnprojedit_serverclick"><i class="material-icons prefix">assignment</i>Edit project</a>
+                     
             </div>
          
         </div>
