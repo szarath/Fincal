@@ -916,11 +916,10 @@ namespace Fincal
                     if (result < 0)
                     {
                         int deletemeetmembers = findata.deletemeetingmembers((string)usermeetings[j][0]);
-                        if (deletemeetmembers != 0)
-                        {
+                       
 
                             findata.deletemeeting((string)usermeetings[j][0]);
-                        }
+                      
 
                      
                     }
